@@ -49,7 +49,6 @@ const Footer = () => {
         </Box>
       </Box>
       <Box
-        data-aos='fade-up'
         sx={{
           display: 'flex',
           justifyContent: 'space-between',

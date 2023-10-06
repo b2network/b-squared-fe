@@ -1,9 +1,10 @@
 import {
   Box,
   Typography,
-  styled
+  styled,
+  useMediaQuery
 } from '@mui/material';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useMemo } from 'react';
 import useIsMobile from 'utils/hooks/useIsMobile';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -12,6 +13,15 @@ import "swiper/css";
 
 const Partner = () => {
   const isMobile = useIsMobile();
+  const min1500 = useMediaQuery('(min-width:1500px)');
+  const min1300 = useMediaQuery('(min-width:1300px)');
+  const min900 = useMediaQuery('(min-width:900px)');
+  const count = useMemo(() => {
+    if (min1500) return 5;
+    if (min1300) return 4;
+    if (min900) return 3;
+    return 2
+  }, [min1300,min900,min1500])
   const CardBox = styled(Box)(({ }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -28,9 +38,7 @@ const Partner = () => {
       transition: 'all 500ms linear'
     }
   }));
-  // <img src="/assets/icon_okx" alt="partner" key='okx' />,
-  // <img src="/assets/icon_metamask" alt="partner" key='metamask' />,
-  // <img src="/assets/icon_turbos" alt="partner" key='turbos' />,
+
   const partnerIcons: { name: string, node: ReactNode }[] = [
     {
       name: 'partner1',
@@ -77,7 +85,7 @@ const Partner = () => {
           }}
           speed={10000} // 是速度
           loop={true} // 无限循环
-          slidesPerView={isMobile ? 2 : 5}
+          slidesPerView={count}
           navigation={false}
           modules={[Autoplay]}
           className="mySwiper"

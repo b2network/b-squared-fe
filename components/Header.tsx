@@ -39,7 +39,7 @@ const Header = () => {
           boxShadow:
             '0px 2px 4px -1px rgb(0 0 0 / 4%), 0px 4px 5px 0px rgb(0 0 0 / 4%), 0px 1px 10px 0px rgb(0 0 0 / 4%)',
         }}>
-        <Toolbar sx={{ display: 'flex', px: { xs: '16px', sm: '100px' }, alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex', px: { xs: '20px', md: '100px' }, alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
             sx={{ cursor: 'pointer', ml: 0 }}
             display='inline-flex'
@@ -63,6 +63,8 @@ const Header = () => {
                 border: '1px solid #000',
                 color: 'black',
                 fontSize: '20px',
+                wordSpacing: '-5px',
+                letterSpacing:'-2px',
                 textTransform: 'capitalize',
                 '&:hover': {
                   borderRadius: '22px',
@@ -71,7 +73,7 @@ const Header = () => {
           </Box>
           <IconButton
             sx={{ display: { sm: 'none' } }}
-            onClick={() => { console.log('show menu'); setMenuOpen(true) }}>
+            onClick={() => {setMenuOpen(true) }}>
             <MenuIcon sx={{ color: 'white', fontSize: '24px' }} />
           </IconButton>
         </Toolbar>

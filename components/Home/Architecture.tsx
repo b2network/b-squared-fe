@@ -16,8 +16,8 @@ const  Architecture= () => {
       p:isMobile?'20px':'80px 100px',
       background:'#f8f8f8'
     }}>
-      <Typography  data-aos='fade-down' textAlign={'center'} mb={'21px'} color={'black'} fontSize={isMobile?'25px':'40px'} fontWeight={600}>Architecture of b²</Typography>
-      <img  data-aos='fade-up' src="/assets/architecture.png" style={{width:'100%'}} alt="architeture" />
+      <Typography  data-aos='fade-down' textAlign={'center'} mb={'21px'} color={'black'} fontSize={isMobile?'25px':'40px'} fontWeight={600}>Architecture of B²</Typography>
+      <img className='hvr-grow'  data-aos='fade-up' src="/assets/architecture.png" style={{width:'100%'}} alt="architeture" />
     </Box>
   )
 }

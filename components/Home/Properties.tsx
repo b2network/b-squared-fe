@@ -78,7 +78,7 @@ const Properties = () => {
   return (
     <Box sx={{
       p: isMobile ? '20px' : '100px',
-      background: 'linear-gradient(to right, #fdf9f5, white)',
+      background: 'linear-gradient(to left bottom, #fdf9f5, white)',
       color: 'black'
     }}>
       <Typography data-aos='fade-down' sx={{
@@ -93,7 +93,7 @@ const Properties = () => {
       </Typography>
       <Grid container spacing={4}>
         {
-          PropertyArr.map(item => <Grid data-aos='fade-up' item sm={3} xs={12} key={item.title}>
+          PropertyArr.map(item => <Grid data-aos='fade-up' item sm={6} lg={3} xs={12} key={item.title}>
             <PropertieItem {...item}></PropertieItem>
           </Grid>)
         }

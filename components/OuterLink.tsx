@@ -4,18 +4,18 @@ import useIsMobile from 'utils/hooks/useIsMobile';
 const LINKS = [
   {
     path: '/assets/icon_twitter.svg',
-    href: ''
+    href: '#'
   },
   {
     path: '/assets/icon_tg.svg',
-    href: ''
+    href: '#'
   }, {
     path: '/assets/icon_discord.svg',
-    href: ''
+    href: '#'
   },
   {
     path: '/assets/icon_github.svg',
-    href: ''
+    href: '#'
   }
 ]
 
@@ -32,9 +32,10 @@ const OuterLink = () => {
           <Link href={item.href} key={item.path} sx={{
             opacity: 0.6,
             '&:hover': {
-              opacity: 1
+              opacity: 1,
+              cursor:'not-allowed'
             }
-          }} target='__blank'>
+          }}>
             <img src={item.path} style={{ width: isMobile ? '20px' : '40px', height: isMobile ? '20px' : '40px' }} alt="href" />
           </Link>
         ))

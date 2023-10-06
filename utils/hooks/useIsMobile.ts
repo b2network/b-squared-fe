@@ -1,6 +1,6 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
 const useIsMobile = () => {
-  const matches = useMediaQuery('(max-width:600px)');
+  const matches = useMediaQuery('(max-width:750px)');
   return matches
 }
 

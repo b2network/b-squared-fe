@@ -3,15 +3,17 @@ import { LinearProgress, Snackbar, Alert, Box } from '@mui/material';
 
 import Header from './Header';
 import Footer from './Footer';
+import useIsMobile from 'utils/hooks/useIsMobile';
 
 type IProps = { showHeader?: boolean };
 
 const Layout: NextPage<IProps> = ({ showHeader = true, children }) => {
+  const isMobile = useIsMobile();
 
   return (
     <Box display={'flex'} flexDirection='column'>
       {showHeader && <Header />}
-      <main style={{marginTop:'70px'}}>{children}</main>
+      <main style={{marginTop:isMobile?'74px':'108px'}}>{children}</main>
       <Footer />
     </Box>
   );
