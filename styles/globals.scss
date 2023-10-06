@@ -8,6 +8,8 @@ body {
   font-size: 16px;
   line-height: 1.1;
   font-family: "Titillium Web";
+  letter-spacing: -1px;
+  word-spacing: -2px;
 }
 p {
   margin: 0;
@@ -26,7 +28,7 @@ a {
   padding: 20px 0;
   margin: 0 15px;
   color: #000;
-  font-family: 'Titillium Web';
+  font-family: "Titillium Web";
   text-transform: capitalize;
   cursor: pointer;
   &.active-menu {
@@ -43,7 +45,7 @@ a {
   text-align: center;
   font-size: 18px;
   background: transparent;
-  padding:10px 0;
+  padding: 10px 0;
   /* Center slide text vertically */
   display: flex;
   justify-content: center;

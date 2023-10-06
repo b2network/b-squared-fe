@@ -10,10 +10,6 @@ import {
   ListItemButton,
   Drawer,
   Button,
-  MenuItem,
-  Menu,
-  styled,
-  Typography
 } from '@mui/material';
 import { Search, Menu as MenuIcon, Close } from '@mui/icons-material';
 import useIsMobile from 'utils/hooks/useIsMobile';
@@ -43,7 +39,7 @@ const Header = () => {
           boxShadow:
             '0px 2px 4px -1px rgb(0 0 0 / 4%), 0px 4px 5px 0px rgb(0 0 0 / 4%), 0px 1px 10px 0px rgb(0 0 0 / 4%)',
         }}>
-        <Toolbar sx={{ display: 'flex', px: { xs: '16px', sm: '100px' }, alignItems: 'center', height: { xs: '44px', sm: '74px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex', px: { xs: '16px', sm: '100px' }, alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
             sx={{ cursor: 'pointer', ml: 0 }}
             display='inline-flex'

@@ -12,7 +12,6 @@ const ValueMission = () => {
   const MissionBox = styled(Box)(({ }) => ({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
     padding:isMobile?'10px':'54px 80px',
     background: "#2A2A2A",
   }));
@@ -32,14 +31,14 @@ const ValueMission = () => {
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: isMobile ? 'column' : 'row' }}>
         <Typography fontSize={isMobile?25:50} fontWeight={600} mb={isMobile?'20px':0} mr={isMobile?0:'100px'} data-aos='fade-right'>Mission</Typography>
-        <Box>
+        <Box flex={1}>
           <MissionBox sx={{ mb: '20px' }} data-aos='fade-left'>
             <CheckCircleOutlineIcon sx={{ fontSize:isMobile?'20px':'48px', color: 'rgba(255, 184, 82, 1)' }} />
-            <Typography ml={isMobile?'10px':'20px'} fontSize={isMobile?'18px':48}>Build the most practical Bitcoin layer-2 network</Typography>
+            <Typography ml={isMobile?'10px':'20px'} fontSize={isMobile?'18px':'28px'}>Build the most practical Bitcoin layer-2 network</Typography>
           </MissionBox>
           <MissionBox data-aos='fade-left'>
             <CheckCircleOutlineIcon sx={{ fontSize:isMobile?'20px':'48px', color: 'rgba(255, 184, 82, 1)' }} />
-            <Typography ml={isMobile?'10px':'20px'} fontSize={isMobile?'18px':48}>Bring builder culture back to the Bitcoin ecosystem</Typography>
+            <Typography ml={isMobile?'10px':'20px'} fontSize={isMobile?'18px':'28px'}>Bring builder culture back to the Bitcoin ecosystem</Typography>
           </MissionBox>
         </Box>
       </Box>

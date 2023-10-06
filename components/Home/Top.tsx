@@ -23,41 +23,45 @@ const Top = () => {
         width: isMobile ? '100%' : '500px',
         color: '#000',
       }}>
-        <Box data-aos="fade-left"  >
-          <Typography component={'span'} sx={{
+        <Box
+          data-aos="fade-left"
+        >
+          <Typography lineHeight={'90px'} component={'span'} sx={{
             color: '#FFB852',
             fontSize: isMobile ? '40px' : '80px',
             fontWeight: 600,
           }}>E</Typography>
-          <Typography component={'span'} sx={{
+          <Typography lineHeight={'90px'} component={'span'} sx={{
             fontSize: isMobile ? '40px' : '80px',
             fontWeight: 600,
           }}>xponentially</Typography>
         </Box>
-        <Box data-aos="fade-left" sx={{ color: 'black' }}>
-          <Typography component={'span'} sx={{
+        <Box data-aos="fade-left">
+          <Typography lineHeight={'90px'} component={'span'} sx={{
             color: '#FFB852',
             fontSize: isMobile ? '40px' : '80px',
             fontWeight: 600,
           }}>E</Typography>
-          <Typography component={'span'} sx={{
+          <Typography lineHeight={'90px'} component={'span'} sx={{
             fontSize: isMobile ? '40px' : '80px',
             fontWeight: 600,
           }}>xpanding</Typography>
         </Box>
-        <Typography data-aos="fade-left" sx={{ fontSize: isMobile ? '25px' : '40px', whiteSpace: 'nowrap' }}>The Bitcoin Ecosystem</Typography>
+        <Typography data-aos="fade-left" sx={{ fontSize: isMobile ? '25px' : '40px', whiteSpace: 'nowrap', mt: '20px' }}>The Bitcoin Ecosystem</Typography>
         <Box
           className='hvr-bounce-to-right'
           data-aos="fade-up"
           sx={{
             mt: '40px',
             color: '#000',
-            p: '15px 30px',
+            p: '15px 20px',
             fontSize: '24px',
             fontWeight: '600',
             background: '#FFB852',
             borderRadius: '4px',
             textAlign: 'center',
+            whiteSpace: 'nowrap',
+            width: '222px',
             '.arrow': {
               color: 'black',
               ml: '15px'
