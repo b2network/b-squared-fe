@@ -45,14 +45,14 @@ const PropertyArr: ItemProps[] = [
     content: [
       '· Over 50X cheaper and 300X faster than the Bitcoin network'
     ],
-    icon: "/assets/icon_property1"
+    icon: "/assets/icon_property4"
   }, {
     title: 'Asset Security',
     content: [
       '·  Carry the security level of Bitcoin network',
       '·  Ensure the safety of your assets with Bitcoin POW (L1) and Zero-Knowledge Proof (L2)'
     ],
-    icon: "/assets/icon_property2"
+    icon: "/assets/icon_property3"
 
   }, {
     title: 'Seamless Access',
@@ -60,7 +60,7 @@ const PropertyArr: ItemProps[] = [
       '·  Use Metamask, Unisat, OKX wallet to interact with , just like you normally would',
       '·  Access using your original BTC (bc1p…) or ETH (0x…) addresses with the help of account abstraction'
     ],
-    icon: "/assets/icon_property3"
+    icon: "/assets/icon_property2"
 
   }, {
     title: 'Easy to Construct and Migrate Dapps',
@@ -68,7 +68,7 @@ const PropertyArr: ItemProps[] = [
       '·  Revitalize over $526 billion Bitcoin assets, responding to the demands of Bitcoin users and miners.',
       '·  Operate various assets on the Bitcoin chain (BTC, BRC20, ordinals…), you name it.'
     ],
-    icon: "/assets/icon_property4"
+    icon: "/assets/icon_property1"
 
   },
 ]
