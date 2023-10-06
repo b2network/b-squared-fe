@@ -7,19 +7,21 @@ import SubscribeDialog from "components/Modals/Subscribe";
 
 const EmailSender = () => {
   const isMobile = useIsMobile()
-  return <Box sx={{
-    display: 'flex',
-    alignItems: 'center',
-    background: "white",
-    color: 'black',
-    height: isMobile ? '40px' : '67px',
-    width: isMobile ? '100%' : '465px',
-    borderRadius: '5px',
-    pl: isMobile ? '10px' : '32px',
-    overflow: 'hidden',
-    mt: isMobile ? '10px' : '30px',
-    mb: isMobile ? '10px' : '20px'
-  }}>
+  return <Box
+    id='contact'
+    sx={{
+      display: 'flex',
+      alignItems: 'center',
+      background: "white",
+      color: 'black',
+      height: isMobile ? '40px' : '67px',
+      width: isMobile ? '100%' : '465px',
+      borderRadius: '5px',
+      pl: isMobile ? '10px' : '32px',
+      overflow: 'hidden',
+      mt: isMobile ? '10px' : '30px',
+      mb: isMobile ? '10px' : '20px'
+    }}>
     <InputBase
       placeholder="Enter your E-mail"
       sx={{ color: 'black', flex: '1' }}
@@ -30,7 +32,7 @@ const EmailSender = () => {
       }
     />
     <Divider sx={{ height: '100%' }} orientation="vertical" />
-    <IconButton onClick={()=> NiceModal.show(SubscribeDialog)} className='hvr-bounce-to-right' sx={{
+    <IconButton onClick={() => NiceModal.show(SubscribeDialog)} className='hvr-bounce-to-right' sx={{
       background: '#FFB852',
       width: '67px',
       height: '67px',

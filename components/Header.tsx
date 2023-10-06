@@ -38,6 +38,11 @@ const Header = () => {
   const showComingDialog = () => {
     NiceModal.show(ComingDialog)
   }
+  const goFooter = () => {
+    let anchorElement = document.getElementById('contact');
+    // 如果对应id的锚点存在，就跳转到锚点
+    if(anchorElement) { anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'}); }
+  }
   return (
     <>
       <AppBar
@@ -66,6 +71,7 @@ const Header = () => {
             <Button
               variant='outlined'
               className='contact'
+              onClick={goFooter}
               sx={{
                 borderRadius: '22px',
                 height: '44px',
