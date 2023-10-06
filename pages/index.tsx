@@ -10,7 +10,6 @@ import ValueMission from 'components/Home/ValueMission';
 import Properties from 'components/Home/Properties';
 import Architecture from 'components/Home/Architecture';
 import Partner from 'components/Home/Partner';
-import Footer from 'components/Footer';
 
 const Home = () => {
   const isMobile = useIsMobile();

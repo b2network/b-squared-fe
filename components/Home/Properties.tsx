@@ -15,7 +15,6 @@ type ItemProps = {
 const PropertieItem: React.FC<ItemProps> = ({ title, content, icon }) => {
   const isMobile = useIsMobile();
   return <Box className='hvr-shutter-in-vertical hvr-grow-shadow' sx={{
-    background: 'white',
     p:isMobile?'15px':'30px',
     height: '376px',
     '.icon': {
