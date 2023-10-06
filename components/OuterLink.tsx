@@ -25,7 +25,7 @@ const OuterLink = () => {
     <Box sx={{
       display: 'flex',
       alignItems: 'center',
-      gap:isMobile?'10px':'20px',
+      gap: { xs: '10px', md: '20px' }
     }}>
       {
         LINKS.map(item => (
@@ -33,7 +33,7 @@ const OuterLink = () => {
             opacity: 0.6,
             '&:hover': {
               opacity: 1,
-              cursor:'not-allowed'
+              cursor: 'not-allowed'
             }
           }}>
             <img src={item.path} style={{ width: isMobile ? '20px' : '40px', height: isMobile ? '20px' : '40px' }} alt="href" />

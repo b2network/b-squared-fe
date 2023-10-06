@@ -30,17 +30,17 @@ const Footer = () => {
   const isMobile = useIsMobile();
   return (
     <Box sx={{
-      p: isMobile ? '20px' : '103px 80px',
+      p: { xs: '20px 20px 0 20px', md: '103px 80px 0 80px' },
       background: 'url("/assets/footer_bg.svg") no-repeat center center',
       backgroundSize: 'cover',
       color: 'white',
       pb: '0'
     }}>
-      <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', alignItems:isMobile?'center':'flex-end', mb: '16px' }}>
+      <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', alignItems: isMobile ? 'center' : 'flex-end', mb: '16px' }}>
         <Box>
-          <Typography  sx={{ fontSize:isMobile?'20px': '40px', fontWeight: 600 }}>Subscribe to Our Newsletter</Typography>
+          <Typography sx={{ fontSize: isMobile ? '20px' : '40px', fontWeight: 600 }}>Subscribe to Our Newsletter</Typography>
           <EmailSender />
-          <Typography sx={{ fontSize:isMobile? '16px':'24px', fontWeight: 600,wordSpacing:'-3px' }}>By subscribing, you accepted our Policy</Typography>
+          <Typography sx={{ fontSize: isMobile ? '16px' : '24px', fontWeight: 600, wordSpacing: '-3px' }}>By subscribing, you accepted our Policy</Typography>
         </Box>
         <Box>
           {
@@ -53,11 +53,11 @@ const Footer = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          flexDirection: isMobile?'column-reverse':'row',
-          fontSize:isMobile?'12px':'24px',
+          flexDirection: isMobile ? 'column-reverse' : 'row',
+          fontSize: isMobile ? '12px' : '24px',
           color: 'rgba(255,255,255,0.6)',
-          fontWeight:isMobile?400:600,
-          py:isMobile?'10px':'50px'
+          fontWeight: isMobile ? 400 : 600,
+          py: isMobile ? '10px' : '50px'
         }}>
         <Box>© 2023 B² Network - All rights reserved</Box>
         <Box sx={{
