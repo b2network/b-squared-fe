@@ -24,6 +24,7 @@ const EmailSender = () => {
     }}>
     <InputBase
       placeholder="Enter your E-mail"
+      error
       sx={{ color: 'black', flex: '1' }}
       startAdornment={
         <InputAdornment position="start">

@@ -20,18 +20,7 @@ import useIsMobile from 'utils/hooks/useIsMobile';
 import Logo from './Logo';
 import NiceModal from '@ebay/nice-modal-react';
 import ComingDialog from './Modals/ComingSoon';
-const DappButton = styled(Button)(() => ({
-  fontSize: '16px',
-  height: '36px',
-  width: '90px',
-  background: 'black',
-  color: '#FEFC00',
-  borderRadius: '54px',
-  marginLeft: '34px',
-  '&:hover': {
-    background: '#666'
-  }
-}));
+
 const Header = () => {
   const isMobile = useIsMobile()
   const [menuOpen, setMenuOpen] = useState(false);
