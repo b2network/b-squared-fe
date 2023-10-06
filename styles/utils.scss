@@ -1,0 +1,26 @@
+$vm_base: 375;
+$browser-default-font-size: 100px !default;
+// for mobile
+@function vw($px) {
+  @return ($px / $vm_base) * 100vw;
+}
+// for pc
+@function rem($px) {
+  @return $px/$browser-default-font-size * 1rem;
+}
+
+$text: rgba(255, 255, 255, 1);
+$text95: rgba(255, 255, 255, 0.95);
+$text70: rgba(255, 255, 255, 0.7);
+$text65: rgba(255, 255, 255, 0.65);
+$text45: rgba(255, 255, 255, 0.45);
+$textBlack: rgba(0, 0, 0, 1);
+$textBlack95: rgba(0, 0, 0, 0.95);
+$textBlack70: rgba(0, 0, 0, 0.7);
+$textBlack65: rgba(0, 0, 0, 0.65);
+$textBlack45: rgba(0, 0, 0, 0.45);
+$primary: #52f7c7;
+
+.green {
+  color: $primary;
+}

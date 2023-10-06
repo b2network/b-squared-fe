@@ -1,0 +1,50 @@
+@import "../styles/utils.scss";
+
+@media screen and (max-width: 600px) {
+  .logo {
+    width: vw(75);
+  }
+  .arrow {
+    font-size: 20px;
+  }
+  .dappBtn {
+    width: 100%;
+    background: $primary;
+    color: #121212;
+    font-weight: 500;
+    font-size: vw(18);
+    text-transform: none;
+    &:hover {
+      background: $primary;
+      color: #121212;
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  .logo {
+    width: 48px;
+  }
+  .btnNetwork {
+    font-size: 16px;
+    color: #393e41 !important;
+    text-transform: none;
+  }
+  .menuItem {
+    font-weight: 500;
+    font-size: rem(16px);
+    color: rgba(255, 255, 255, 0.95);
+    .icon {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.45);
+      margin-left: rem(12px);
+    }
+  }
+  .btn {
+    font-weight: 700;
+    margin-left: 20px;
+    text-transform: none;
+  }
+  .btn:hover {
+    cursor: pointer;
+  }
+}
