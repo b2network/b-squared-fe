@@ -1,0 +1,46 @@
+name: Prod build && upload to Tencent Cos 
+
+on:
+  push:
+    tags: 
+     - v*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn
+      - run: yarn build
+
+      - name: install Tencent commad
+        run: |
+           sudo pip install coscmd
+           sudo pip  install tccli
+      - name: confgiure env
+        env:
+          SECRET_ID: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
+          SECRET_KEY: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
+          BUCKET: ${{ secrets.COS_BUCKET_PROD }}
+          REGION: ${{ secrets.COS_REGION_PROD }}
+        run: |
+           coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+           tccli configure set secretId $SECRET_ID
+           tccli configure set secretKey $SECRET_KEY
+           tccli configure set region $REGION
+      - name: upload file and invalidate teo
+        run: |
+            coscmd upload -r ./out/ /
+            tccli teo CreatePurgeTask --cli-unfold-argument  --cli-unfold-argument --Targets http://www.bsquared.network/  --Type purge_url --ZoneId zone-2of2oczegyu8
