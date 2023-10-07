@@ -79,7 +79,7 @@ const Top = () => {
               }
             }
           }}>
-          <Box display={'flex'} alignItems='center'> White Paper  <EastOutlinedIcon className='arrow' /></Box>
+          <Box display={'flex'} alignItems='center'> Lite Paper <EastOutlinedIcon className='arrow' /></Box>
         </Box>
       </Box>
       <Box ml={isMobile ? '0' : '35px'} mt={isMobile ? '40px' : '0'}>

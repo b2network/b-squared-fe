@@ -10,6 +10,7 @@ import {
   ListItemButton,
   Drawer,
   Button,
+  Typography,
 } from '@mui/material';
 import { Search, Menu as MenuIcon, Close } from '@mui/icons-material';
 import useIsMobile from 'utils/hooks/useIsMobile';
@@ -26,7 +27,7 @@ const Header = () => {
   const goFooter = () => {
     let anchorElement = document.getElementById('contact');
     // 如果对应id的锚点存在，就跳转到锚点
-    if(anchorElement) { anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'}); }
+    if (anchorElement) { anchorElement.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
   }
   return (
     <>
@@ -50,9 +51,15 @@ const Header = () => {
             px='8px'
             display={{ xs: 'none', sm: 'inline-flex' }}
             alignItems='center'>
-            <a onClick={showComingDialog} className='default-menu hvr-grow'>Build</a>
-            <a onClick={showComingDialog} className='default-menu hvr-grow'>Ecosystem</a>
-            <a onClick={showComingDialog} className='default-menu hvr-grow'>Bridge</a>
+            <a onClick={showComingDialog} className='hvr-grow'>
+              <Typography component={'span'} className='default-menu ' >Build</Typography>
+            </a>
+            <a onClick={showComingDialog} className='hvr-grow'>
+              <Typography component={'span'} className='default-menu ' >Ecosystem</Typography>
+            </a>
+            <a onClick={showComingDialog} className='hvr-grow'>
+              <Typography className='default-menu ' component={'span'}>Bridge</Typography>
+            </a>
             <Button
               variant='outlined'
               className='contact'
@@ -64,9 +71,9 @@ const Header = () => {
                 color: 'black',
                 fontSize: '20px',
                 wordSpacing: '-5px',
-                letterSpacing:'-2px',
+                letterSpacing: '-2px',
                 textTransform: 'capitalize',
-                ml:'15px',
+                ml: '15px',
                 '&:hover': {
                   borderRadius: '22px',
                 }
@@ -74,7 +81,7 @@ const Header = () => {
           </Box>
           <IconButton
             sx={{ display: { sm: 'none' } }}
-            onClick={() => {setMenuOpen(true) }}>
+            onClick={() => { setMenuOpen(true) }}>
             <MenuIcon sx={{ color: 'white', fontSize: '24px' }} />
           </IconButton>
         </Toolbar>

@@ -21,7 +21,7 @@ const Partner = () => {
     if (min1300) return 4;
     if (min900) return 3;
     return 2
-  }, [min1300,min900,min1500])
+  }, [min1300, min900, min1500])
   const CardBox = styled(Box)(({ }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -52,9 +52,6 @@ const Partner = () => {
     }, {
       name: 'partner4',
       node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_4.png" alt="partner" />
-    }, {
-      name: 'partner5',
-      node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_5.png" alt="partner" />
     }, {
       name: 'okx',
       node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_okx.png" alt="partner" />
