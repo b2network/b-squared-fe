@@ -19,14 +19,14 @@ const Top = () => {
         background: 'white',
         display: 'flex',
         flexDirection: isMobile ? 'column-reverse' : 'row',
-        justifyContent:isMobile?'center': 'space-between',
+        justifyContent: isMobile ? 'center' : 'space-between',
         alignItems: 'center',
       }}
     >
       <Box sx={{
         width: isMobile ? '100%' : '500px',
         color: '#000',
-        textAlign: isMobile?'center':'left'
+        textAlign: isMobile ? 'center' : 'left'
       }}>
         <Box
           data-aos="fade-left"
@@ -67,6 +67,7 @@ const Top = () => {
             textAlign: 'center',
             whiteSpace: 'nowrap',
             width: '222px',
+            cursor: 'pointer',
             '.arrow': {
               color: 'black',
               ml: '15px'
