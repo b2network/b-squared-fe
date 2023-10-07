@@ -57,8 +57,8 @@ const PropertyArr: ItemProps[] = [
   }, {
     title: 'Seamless Access',
     content: [
-      '·  Use Metamask, Unisat, OKX wallet to interact with , just like you normally would',
-      '·  Access using your original BTC (bc1p…) or ETH (0x…) addresses with the help of account abstraction'
+      '·  Use Metamask, Unisat, OKX wallet to interact with B², just like you normally would',
+      '·  Access B² using your original BTC (bc1p…) or ETH (0x…) addresses with the help of account abstraction'
     ],
     icon: "/assets/icon_property2"
 
