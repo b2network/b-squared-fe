@@ -12,8 +12,8 @@ const ValueMission = () => {
   const MissionBox = styled(Box)(({ }) => ({
     display: 'flex',
     alignItems: 'center',
-
     background: "#2A2A2A",
+    borderRadius:'10px'
   }));
   return (
     <Box sx={{
