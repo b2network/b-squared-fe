@@ -31,11 +31,11 @@ const PropertieItem: React.FC<ItemProps> = ({ title, content, icon }) => {
   }}>
     <Box className='icon'></Box>
     <Typography fontSize={'20px'} fontWeight={700} my={'15px'}>{title}</Typography>
-    <Typography>
+    <Box>
       {
         content.map(item => <Typography key={item}>{item}</Typography>)
       }
-    </Typography>
+    </Box>
   </Box>
 }
 
