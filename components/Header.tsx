@@ -51,15 +51,9 @@ const Header = () => {
             px='8px'
             display={{ xs: 'none', sm: 'inline-flex' }}
             alignItems='center'>
-            <Box sx={{ mx: '15px' }} onClick={showComingDialog} className='hvr-grow'>
-              <Typography component={'span'} className='default-menu' >Build</Typography>
-            </Box>
-            <Box sx={{ mx: '15px' }} onClick={showComingDialog} className='hvr-grow'>
-              <Typography component={'span'} className='default-menu' >Ecosystem</Typography>
-            </Box>
-            <Box sx={{ mx: '15px' }} onClick={showComingDialog} className='hvr-grow'>
-              <Typography className='default-menu ' component={'span'}>Bridge</Typography>
-            </Box>
+            <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
+            <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Ecosystem</Typography>
+            <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Bridge</Typography>
             <Button
               variant='outlined'
               className='contact'
