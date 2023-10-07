@@ -21,6 +21,7 @@ const Top = () => {
         flexDirection: isMobile ? 'column-reverse' : 'row',
         justifyContent: isMobile ? 'center' : 'space-between',
         alignItems: 'center',
+        overflow:'hidden'
       }}
     >
       <Box sx={{

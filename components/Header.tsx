@@ -66,6 +66,7 @@ const Header = () => {
                 wordSpacing: '-5px',
                 letterSpacing:'-2px',
                 textTransform: 'capitalize',
+                ml:'15px',
                 '&:hover': {
                   borderRadius: '22px',
                 }

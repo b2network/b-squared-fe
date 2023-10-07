@@ -23,7 +23,7 @@ const ValueMission = () => {
       backgroundSize: 'cover'
     }}>
       <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'flex-start', mb: '60px' }}>
-        <Typography fontSize={isMobile ? 25 : 50} fontWeight={600} mb={isMobile ? '20px' : 0} mr={{ xs: 0, sm: '55px', md: '125px' }}  data-aos='fade-right'>Values</Typography>
+        <Typography fontSize={isMobile ? 25 : 50} fontWeight={600} mb={isMobile ? '20px' : 0} mr={{ xs: 0, sm: '55px', md: '125px' }}  data-aos='fade-right'>Value</Typography>
         <Typography fontSize={isMobile ? 18 : 28} data-aos='fade-left'>
           Bitcoin, as the primary crypto asset, can evolve beyond a payment network.
           BTC-related assets require an ecosystem where DeFi, NFT, SocialFi, and other applications can thrive and flourish.
