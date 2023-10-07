@@ -4,9 +4,20 @@ import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import useIsMobile from "utils/hooks/useIsMobile";
 import NiceModal from "@ebay/nice-modal-react";
 import SubscribeDialog from "components/Modals/Subscribe";
+import { useRef } from "react";
 
 const EmailSender = () => {
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
+  const inputRef = useRef<HTMLInputElement>();
+  const sendEmail = () => {
+    var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+    const _value = inputRef.current?.value.trim() || '';
+    if (reg.test(_value)) {
+      NiceModal.show(SubscribeDialog)
+    } else {
+      alert('The email field must be a valid email address.')
+    }
+  }
   return <Box
     id='contact'
     sx={{
@@ -24,7 +35,7 @@ const EmailSender = () => {
     }}>
     <InputBase
       placeholder="Enter your E-mail"
-      error
+      inputRef={inputRef}
       sx={{ color: 'black', flex: '1' }}
       startAdornment={
         <InputAdornment position="start">
@@ -33,7 +44,7 @@ const EmailSender = () => {
       }
     />
     <Divider sx={{ height: '100%' }} orientation="vertical" />
-    <IconButton onClick={() => NiceModal.show(SubscribeDialog)} className='hvr-bounce-to-right' sx={{
+    <IconButton onClick={sendEmail} className='hvr-bounce-to-right' sx={{
       background: '#FFB852',
       width: '67px',
       height: '67px',
