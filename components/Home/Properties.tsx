@@ -15,7 +15,7 @@ type ItemProps = {
 const PropertieItem: React.FC<ItemProps> = ({ title, content, icon }) => {
   const isMobile = useIsMobile();
   return <Box className='hvr-shutter-in-vertical hvr-grow-shadow' sx={{
-    p:isMobile?'15px':'30px',
+    p: isMobile ? '15px' : '30px',
     height: '376px',
     '.icon': {
       width: '64px',
@@ -33,7 +33,7 @@ const PropertieItem: React.FC<ItemProps> = ({ title, content, icon }) => {
     <Typography fontSize={'20px'} fontWeight={700} my={'15px'}>{title}</Typography>
     <Typography>
       {
-        content
+        content.map(item => <Typography key={item}>{item}</Typography>)
       }
     </Typography>
   </Box>
