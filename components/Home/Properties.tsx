@@ -77,28 +77,35 @@ const Properties = () => {
   const isMobile = useIsMobile();
   return (
     <Box sx={{
-      p: isMobile ? '20px' : '100px',
       background: 'linear-gradient(to left bottom, #fdf9f5, white)',
+      px: '20px',
+      py:isMobile?'20px':'100px',
       color: 'black'
     }}>
-      <Typography data-aos='fade-down' sx={{
-        textAlign: 'center',
-        fontSize: isMobile ? '25px' : '44px',
-        fontWeight: 600,
-        mb: isMobile ? '20px' : '77px',
-        wordSpacing: '-3px',
-        letterSpacing: '-1.5px'
+      <Box sx={{
+        maxWidth: '1240px',
+        margin: 'auto'
       }}>
-        Build the Most Practical Bitcoin Layer-2 Network
-      </Typography>
-      <Grid container spacing={4}>
-        {
-          PropertyArr.map(item => <Grid data-aos='fade-up' item sm={6} lg={3} xs={12} key={item.title}>
-            <PropertieItem {...item}></PropertieItem>
-          </Grid>)
-        }
-      </Grid>
+        <Typography data-aos='fade-down' sx={{
+          textAlign: 'center',
+          fontSize: isMobile ? '25px' : '44px',
+          fontWeight: 600,
+          mb: isMobile ? '20px' : '77px',
+          wordSpacing: '-3px',
+          letterSpacing: '-1.5px'
+        }}>
+          Build the Most Practical Bitcoin Layer-2 Network
+        </Typography>
+        <Grid container spacing={4}>
+          {
+            PropertyArr.map(item => <Grid data-aos='fade-up' item sm={6} lg={3} xs={12} key={item.title}>
+              <PropertieItem {...item}></PropertieItem>
+            </Grid>)
+          }
+        </Grid>
+      </Box>
     </Box>
+
   )
 }
 

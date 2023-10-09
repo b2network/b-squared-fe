@@ -36,11 +36,13 @@ const Header = () => {
           bgcolor: { xs: '#000', sm: '#fff' },
           borderBottom: '#f4f4f4',
           backgroundImage: "none",
-          px: 0,
+          justifyContent: 'center',
+          alignItems:'center',
+          px: '16px',
           boxShadow:
             '0px 2px 4px -1px rgb(0 0 0 / 4%), 0px 4px 5px 0px rgb(0 0 0 / 4%), 0px 1px 10px 0px rgb(0 0 0 / 4%)',
         }}>
-        <Toolbar sx={{ display: 'flex', px: { xs: '20px', md: '100px' }, alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex',width:'100%', px: { xs: '0'}, maxWidth: '1240px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
             sx={{ cursor: 'pointer', ml: 0 }}
             display='inline-flex'
@@ -48,7 +50,6 @@ const Header = () => {
             <Logo color='#000' />
           </Box>
           <Box
-            px='8px'
             display={{ xs: 'none', sm: 'inline-flex' }}
             alignItems='center'>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
