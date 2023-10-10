@@ -25,7 +25,7 @@ const Top = () => {
           alignItems: 'center',
           gap: '35px',
           overflow: 'hidden',
-          maxWidth: '1240px',
+          maxWidth: '1290px',
           margin: 'auto'
         }}
       >

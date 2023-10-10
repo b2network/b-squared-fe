@@ -83,7 +83,7 @@ const Properties = () => {
       color: 'black'
     }}>
       <Box sx={{
-        maxWidth: '1240px',
+        maxWidth: '1290px',
         margin: 'auto'
       }}>
         <Typography data-aos='fade-down' sx={{

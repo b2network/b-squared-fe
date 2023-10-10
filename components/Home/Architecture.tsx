@@ -18,7 +18,7 @@ const Architecture = () => {
       py:isMobile?"20px":'80px'
     }}>
       <Box sx={{
-        maxWidth: '1240px',
+        maxWidth: '1290px',
         margin:'auto'
       }}>
         <Typography data-aos='fade-down' textAlign={'center'} mb={'21px'} color={'black'} fontSize={isMobile ? '25px' : '40px'} fontWeight={600}>Architecture of B²</Typography>

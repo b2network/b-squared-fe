@@ -24,7 +24,7 @@ const ValueMission = () => {
         color: 'white',
         backgroundSize: 'cover',
         overflow: 'hidden',
-        maxWidth: '1240px',
+        maxWidth: '1290px',
         margin: 'auto'
       }}>
         <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'flex-start', mb: '60px' }}>

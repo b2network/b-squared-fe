@@ -42,7 +42,7 @@ const Header = () => {
           boxShadow:
             '0px 2px 4px -1px rgb(0 0 0 / 4%), 0px 4px 5px 0px rgb(0 0 0 / 4%), 0px 1px 10px 0px rgb(0 0 0 / 4%)',
         }}>
-        <Toolbar sx={{ display: 'flex',width:'100%', px: { xs: '0'}, maxWidth: '1240px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex',width:'100%', px: { xs: '0'}, maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
             sx={{ cursor: 'pointer', ml: 0 }}
             display='inline-flex'

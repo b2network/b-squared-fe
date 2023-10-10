@@ -36,7 +36,7 @@ const Footer = () => {
       p: { xs: '20px 20px 0 20px', md: '103px 20px 0 20px' },
     }}>
       <Box sx={{
-        maxWidth: '1240px',
+        maxWidth: '1290px',
         margin:'auto'
       }}>
         <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', alignItems: isMobile ? 'center' : 'flex-end', mb: '16px' }}>
