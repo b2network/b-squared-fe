@@ -25,7 +25,7 @@ const Logo: React.FC<Iprops> = ({ color = '#000' }) => {
             fontWeight: 900,
             ml: '20px',
             whiteSpace: 'nowrap',
-            wordSpacing: '-10px'
+            // wordSpacing: '-10px'
           }}>B² Network</Typography>
         </Box>
       }

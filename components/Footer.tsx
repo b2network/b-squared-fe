@@ -43,7 +43,7 @@ const Footer = () => {
           <Box>
             <Typography sx={{ fontSize: isMobile ? '20px' : '40px', fontWeight: 600 }}>Subscribe to Our Newsletter</Typography>
             <EmailSender />
-            <Typography sx={{ fontSize: isMobile ? '16px' : '24px', fontWeight: 600, wordSpacing: '-3px' }}>By subscribing, you accepted our Policy</Typography>
+            <Typography sx={{ fontSize: isMobile ? '16px' : '24px', fontWeight: 600 }}>By subscribing, you accepted our Policy</Typography>
           </Box>
           <Box>
             {

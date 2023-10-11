@@ -4,12 +4,16 @@ html {
   padding: 0;
   margin: 0;
 }
+@font-face {
+  font-family: Titillium Web;
+  src: url('/fonts/TitilliumWeb-Regular.ttf');
+}
 body {
   font-size: 16px;
   line-height: 1.1;
-  letter-spacing: -1px;
-  word-spacing: -2px;
-  font-family: 'Titillium Web', monospace, Objectivity, Roboto, Helvetica, Arial,
+  // letter-spacing: -1px;
+  // word-spacing: -2px;
+  font-family: Titillium Web, monospace, Objectivity, Roboto, Helvetica, Arial,
     sans-serif;
 }
 p {

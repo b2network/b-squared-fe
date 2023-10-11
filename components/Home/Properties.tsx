@@ -91,8 +91,8 @@ const Properties = () => {
           fontSize: isMobile ? '25px' : '44px',
           fontWeight: 600,
           mb: isMobile ? '20px' : '77px',
-          wordSpacing: '-3px',
-          letterSpacing: '-1.5px'
+          // wordSpacing: '-3px',
+          // letterSpacing: '-1.5px'
         }}>
           Build the Most Practical Bitcoin Layer-2 Network
         </Typography>

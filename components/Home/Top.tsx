@@ -39,38 +39,38 @@ const Top = () => {
             data-aos="fade-left"
           >
             <Typography component={'span'} sx={{
-              fontSize: { xs: '40px', md: '50px', lg: '62px' },
+              fontSize: { xs: '40px', md: '50px', lg: '70px' },
               fontWeight: 700,
               lineHeight: '1.4',
               whiteSpace: 'nowrap',
-              wordSpacing: { lg: '-10px', xs: '-4px' },
-              letterSpacing: { lg: '-4px', xs: '-2px' },
+              // wordSpacing: { lg: '-10px', xs: '-4px' },
+              // letterSpacing: { lg: '-4px', xs: '-2px' },
             }}>The Most <Typography
               component={'span'}
               sx={{
                 position: 'relative',
                 color: '#FFB852',
-                fontSize: { xs: '40px', md: '50px', lg: '62px' },
+                fontSize: { xs: '40px', md: '50px', lg: '70px' },
                 fontWeight: 700,
                 lineHeight: '1.4',
-                wordSpacing: { lg: '-10px', xs: '-4px' },
-                letterSpacing: { lg: '-4px', xs: '-2px' },
+                // wordSpacing: { lg: '-10px', xs: '-4px' },
+                // letterSpacing: { lg: '-4px', xs: '-2px' },
               }}
             >
                 P
-                <img style={{position:'absolute',top:'3px',right:'-15px',width:'27px'}} src="/assets/light.svg" alt="" />
+                <img style={{position:'absolute',top:'3px',right:'-15px',width:isMobile?'20px':'27px'}} src="/assets/light.svg" alt="" />
               </Typography>
               ractical
             </Typography>
           </Box>
           <Box data-aos="fade-left">
             <Typography component={'span'} sx={{
-              fontSize: { xs: '40px', md: '50px', lg: '62px' },
+              fontSize: { xs: '40px', md: '50px', lg: '70px' },
               fontWeight: 700,
               whiteSpace: 'nowrap',
               lineHeight: '1.4',
-              wordSpacing: { lg: '-10px', xs: '-4px' },
-              letterSpacing: { lg: '-4px', xs: '-2px' },
+              // wordSpacing: { lg: '-10px', xs: '-4px' },
+              // letterSpacing: { lg: '-4px', xs: '-2px' },
             }}>Bitcoin Layer2 Network</Typography>
           </Box>
           <Box

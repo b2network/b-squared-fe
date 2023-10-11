@@ -65,8 +65,8 @@ const Header = () => {
                 border: '1px solid #000',
                 color: 'black',
                 fontSize: '20px',
-                wordSpacing: '-5px',
-                letterSpacing: '-2px',
+                // wordSpacing: '-5px',
+                // letterSpacing: '-2px',
                 textTransform: 'capitalize',
                 ml: '15px',
                 '&:hover': {
