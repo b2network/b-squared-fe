@@ -15,7 +15,7 @@ const Top = () => {
   return (
     <Box sx={{
       background: 'white',
-      padding: { xs: '20px', md: '89px 0 154px 0' },
+      padding: { xs: '20px', md: '89px 20px 154px 20px' },
     }}>
       <Box
         sx={{
@@ -23,10 +23,10 @@ const Top = () => {
           flexDirection: isMobile ? 'column-reverse' : 'row',
           justifyContent: isMobile ? 'center' : 'space-between',
           alignItems: 'center',
-          gap: '35px',
           overflow: 'hidden',
           maxWidth: '1290px',
-          margin: 'auto'
+          margin: 'auto',
+          gap: '20px'
         }}
       >
         <Box sx={{
@@ -38,28 +38,41 @@ const Top = () => {
           <Box
             data-aos="fade-left"
           >
-            <Typography lineHeight={1.1} component={'span'} sx={{
-              color: '#FFB852',
-              fontSize: { xs: '40px', md: '80px' },
-              fontWeight: 600,
-            }}>E</Typography>
-            <Typography lineHeight={1.1} component={'span'} sx={{
-              fontSize: { xs: '40px', md: '80px' },
-              fontWeight: 600,
-            }}>xponentially</Typography>
+            <Typography component={'span'} sx={{
+              fontSize: { xs: '40px', md: '50px', lg: '62px' },
+              fontWeight: 700,
+              lineHeight: '1.4',
+              whiteSpace: 'nowrap',
+              wordSpacing: { lg: '-10px', xs: '-4px' },
+              letterSpacing: { lg: '-4px', xs: '-2px' },
+            }}>The Most <Typography
+              component={'span'}
+              sx={{
+                position: 'relative',
+                color: '#FFB852',
+                fontSize: { xs: '40px', md: '50px', lg: '62px' },
+                fontWeight: 700,
+                lineHeight: '1.4',
+                wordSpacing: { lg: '-10px', xs: '-4px' },
+                letterSpacing: { lg: '-4px', xs: '-2px' },
+              }}
+            >
+                P
+                <img style={{position:'absolute',top:'3px',right:'-15px',width:'27px'}} src="/assets/light.svg" alt="" />
+              </Typography>
+              ractical
+            </Typography>
           </Box>
           <Box data-aos="fade-left">
-            <Typography lineHeight={1.1} component={'span'} sx={{
-              color: '#FFB852',
-              fontSize: { xs: '40px', md: '80px' },
-              fontWeight: 600,
-            }}>E</Typography>
-            <Typography lineHeight={1.1} component={'span'} sx={{
-              fontSize: { xs: '40px', md: '80px' },
-              fontWeight: 600,
-            }}>xpanding</Typography>
+            <Typography component={'span'} sx={{
+              fontSize: { xs: '40px', md: '50px', lg: '62px' },
+              fontWeight: 700,
+              whiteSpace: 'nowrap',
+              lineHeight: '1.4',
+              wordSpacing: { lg: '-10px', xs: '-4px' },
+              letterSpacing: { lg: '-4px', xs: '-2px' },
+            }}>Bitcoin Layer2 Network</Typography>
           </Box>
-          <Typography data-aos="fade-left" sx={{ fontSize: { xs: '25px', md: '40px' }, whiteSpace: 'nowrap', mt: '20px' }}>The Bitcoin Ecosystem</Typography>
           <Box
             className='hvr-bounce-to-right'
             data-aos="fade-up"
@@ -70,7 +83,7 @@ const Top = () => {
               fontSize: '24px',
               fontWeight: '600',
               background: '#FFB852',
-              borderRadius: '4px',
+              borderRadius: '8px',
               textAlign: 'center',
               whiteSpace: 'nowrap',
               width: '222px',
