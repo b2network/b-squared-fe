@@ -22,7 +22,7 @@ const Architecture = () => {
         margin:'auto'
       }}>
         <Typography data-aos='fade-down' textAlign={'center'} mb={'21px'} color={'black'} fontSize={isMobile ? '25px' : '40px'} fontWeight={600}>Architecture of B²</Typography>
-        <img className='hvr-grow' data-aos='fade-up' src="/assets/architecture.png" style={{ width: '100%' }} alt="architeture" />
+        <img className='hvr-grow' data-aos='fade-up' src="/assets/architecture.svg" style={{ width: '100%' }} alt="architeture" />
       </Box>
     </Box>
   )
