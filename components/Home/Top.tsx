@@ -6,12 +6,13 @@ import {
 import useIsMobile from 'utils/hooks/useIsMobile';
 import Image from 'next/image';
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
+const LigtPaperAddress = 'https://www-dev.bsquared.network/B2.pdf'
 
 const Top = () => {
   const isMobile = useIsMobile();
-  const TopBox = styled(Box)(() => ({
-
-  }));
+  const goLitePaper = () => {
+    window.open(LigtPaperAddress)
+  }
   return (
     <Box sx={{
       background: 'white',
@@ -76,6 +77,7 @@ const Top = () => {
           <Box
             className='hvr-bounce-to-right'
             data-aos="fade-up"
+            onClick={goLitePaper}
             sx={{
               mt: '40px',
               color: '#000',
@@ -98,7 +100,7 @@ const Top = () => {
                 }
               }
             }}>
-            <Box display={'flex'} alignItems='center'> Lite Paper <EastOutlinedIcon className='arrow' /></Box>
+            <Box display={'flex'} alignItems='center' justifyContent={'center'}> Lite Paper <EastOutlinedIcon className='arrow' /></Box>
           </Box>
         </Box>
         <Box flex={1} display={'flex'} justifyContent={'flex-end'}>
