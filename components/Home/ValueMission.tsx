@@ -27,7 +27,7 @@ const ValueMission = () => {
         maxWidth: '1290px',
         margin: 'auto'
       }}>
-        <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'flex-start', mb: '60px' }}>
+        <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'flex-start', mb: '50px' }}>
           <Box fontSize={{ lg: '50px', md: '40px', sm: '30px', xs: '25px' }} fontWeight={600} mb={isMobile ? '20px' : 0} width={{ xs: 'auto', sm: '160px', lg: '210px' }} mr={{ xs: 0, sm: '30px', md: '100px' }} data-aos='fade-right'>Value</Box>
           <Typography fontSize={isMobile ? 18 : 28} data-aos='fade-left' flex={1}>
             Bitcoin, as the primary crypto asset, can evolve beyond a payment network.
@@ -40,15 +40,15 @@ const ValueMission = () => {
             <MissionBox
               sx={{
                 mb: '20px',
-                p: { xs: '10px', md: '20px', lg: '54px 80px' },
+                p: { xs: '15px', md: '20px', lg: '40px 60px' },
               }}
               data-aos='fade-left'
             >
-              <CheckCircleOutlineIcon sx={{ fontSize: isMobile ? '20px' : '48px', color: 'rgba(255, 184, 82, 1)' }} />
+              <CheckCircleOutlineIcon sx={{ fontSize: { xs: '20px', md: '30px', lg: '48px' }, color: 'rgba(255, 184, 82, 1)' }} />
               <Typography ml={isMobile ? '10px' : '20px'} fontSize={isMobile ? '18px' : '28px'}>Build the most practical Bitcoin layer-2 network</Typography>
             </MissionBox>
-            <MissionBox sx={{ p: { xs: '10px', md: '20px', lg: '54px 80px' }, }} data-aos='fade-left'>
-              <CheckCircleOutlineIcon sx={{ fontSize: isMobile ? '20px' : '48px', color: 'rgba(255, 184, 82, 1)' }} />
+            <MissionBox sx={{ p: { xs: '15px', md: '20px', lg: '40px 60px' }, }} data-aos='fade-left'>
+              <CheckCircleOutlineIcon sx={{ fontSize: { xs: '20px', md: '30px', lg: '48px' }, color: 'rgba(255, 184, 82, 1)' }} />
               <Typography ml={isMobile ? '10px' : '20px'} fontSize={isMobile ? '18px' : '28px'}>Bring builder culture back to the Bitcoin ecosystem</Typography>
             </MissionBox>
           </Box>
