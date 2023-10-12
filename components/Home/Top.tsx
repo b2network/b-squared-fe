@@ -1,12 +1,10 @@
 import {
   Box,
   Typography,
-  styled
 } from '@mui/material';
 import useIsMobile from 'utils/hooks/useIsMobile';
-import Image from 'next/image';
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
-const LigtPaperAddress = 'https://www-dev.bsquared.network/B2.pdf'
+const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 
 const Top = () => {
   const isMobile = useIsMobile();
@@ -44,8 +42,6 @@ const Top = () => {
               fontWeight: 700,
               lineHeight: '1.4',
               whiteSpace: 'nowrap',
-              // wordSpacing: { lg: '-10px', xs: '-4px' },
-              // letterSpacing: { lg: '-4px', xs: '-2px' },
             }}>The Most <Typography
               component={'span'}
               sx={{
@@ -54,8 +50,6 @@ const Top = () => {
                 fontSize: { xs: '40px', md: '50px', lg: '70px' },
                 fontWeight: 700,
                 lineHeight: '1.4',
-                // wordSpacing: { lg: '-10px', xs: '-4px' },
-                // letterSpacing: { lg: '-4px', xs: '-2px' },
               }}
             >
                 P

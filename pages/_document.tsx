@@ -8,8 +8,6 @@ class AppDocument extends Document {
         <meta name='keywords' content='B² Network' />
         <meta name='description' content='B² Network' />
         <link rel='icon' href='/logo.svg' />
-        <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Tangerine&display=optional"></link>
         {isDev && (
           <>
             <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.9.0/vconsole.min.js"></script>
