@@ -14,7 +14,7 @@ import "aos/dist/aos.css";
 const customTheme = createTheme({
   palette: { mode: 'dark' },
   typography: {
-    fontFamily: 'Titillium Web,monospace,Objectivity,Roboto,Helvetica,Arial,sans-serif',
+    fontFamily: 'Lora,monospace,Objectivity,Roboto,Helvetica,Arial,sans-serif',
   }
 });
 

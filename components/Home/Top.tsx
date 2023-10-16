@@ -4,6 +4,8 @@ import {
 } from '@mui/material';
 import useIsMobile from 'utils/hooks/useIsMobile';
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
+import Typewriter from 'typewriter-effect';
+
 const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 
 const Top = () => {
@@ -32,41 +34,60 @@ const Top = () => {
           width: isMobile ? '100%' : '500px',
           color: '#000',
           textAlign: isMobile ? 'center' : 'left',
-          flex: '1'
+          flex: '1',
+          '.img': {
+            position: 'absolute',
+            top: '3px',
+            right: '-15px',
+            width: isMobile ? '20px' : '27px'
+          }
         }}>
           <Box
             data-aos="fade-left"
           >
-            <Typography component={'span'} sx={{
-              fontSize: { xs: '40px', md: '50px', lg: '70px' },
-              fontWeight: 700,
-              lineHeight: '1.4',
-              whiteSpace: 'nowrap',
-            }}>The Most <Typography
+
+            <Typography
               component={'span'}
               sx={{
-                position: 'relative',
-                color: '#FFB852',
-                fontSize: { xs: '40px', md: '50px', lg: '70px' },
+                fontSize: { xs: '30px', md: '50px', lg: '70px' },
                 fontWeight: 700,
                 lineHeight: '1.4',
-              }}
-            >
+                whiteSpace: 'nowrap',
+                display: 'flex'
+              }}>The Most&nbsp;
+              <Typography
+                component={'span'}
+                sx={{
+                  position: 'relative',
+                  color: '#FFB852',
+                  fontSize: { xs: '30px', md: '50px', lg: '70px' },
+                  fontWeight: 700,
+                  lineHeight: '1.4',
+                }}
+              >
                 P
-                <img style={{position:'absolute',top:'3px',right:'-15px',width:isMobile?'20px':'27px'}} src="/assets/light.svg" alt="" />
+                <img className='img' src="/assets/light.svg" alt="" />
               </Typography>
-              ractical
+              <Typewriter
+                options={{
+                  strings: ['ractical'],
+                  autoStart: true,
+                  loop: true,
+                  delay: 200,
+                }}
+              />
             </Typography>
           </Box>
           <Box data-aos="fade-left">
-            <Typography component={'span'} sx={{
-              fontSize: { xs: '40px', md: '50px', lg: '70px' },
+            <Typography sx={{
+              fontSize: { xs: '30px', md: '50px', lg: '70px' },
               fontWeight: 700,
               whiteSpace: 'nowrap',
               lineHeight: '1.4',
-              // wordSpacing: { lg: '-10px', xs: '-4px' },
-              // letterSpacing: { lg: '-4px', xs: '-2px' },
-            }}>Bitcoin Layer2 Network</Typography>
+              textAlign:'left'
+            }}>
+              Bitcoin Layer2 Network
+            </Typography>
           </Box>
           <Box
             className='hvr-bounce-to-right'
