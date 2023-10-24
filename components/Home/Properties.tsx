@@ -15,7 +15,9 @@ type ItemProps = {
 const PropertieItem: React.FC<ItemProps> = ({ title, content, num }) => {
   const isMobile = useIsMobile();
   return <Box sx={{
-    p: isMobile ? '15px' : '30px',
+    pt: isMobile ? '15px' : '30px',
+    pb: isMobile ? '5px' : '10px',
+    px: isMobile ? '15px' : '30px',
     height: '376px',
     background: 'white',
     borderRadius: '8px',
@@ -23,8 +25,8 @@ const PropertieItem: React.FC<ItemProps> = ({ title, content, num }) => {
       background:'#FFF8EE'
     }
   }}>
-    <Box>{num}</Box>
-    <Typography fontSize={'20px'} fontWeight={700} my={'15px'}>{title}</Typography>
+    <Box fontSize={'36px'}>{num}</Box>
+    <Typography fontSize={'24px'} fontWeight={700} my={'15px'}>{title}</Typography>
     <Box>
       {
         content.map(item => <Typography key={item}>{item}</Typography>)

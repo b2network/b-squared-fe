@@ -38,30 +38,31 @@ const Header = () => {
           backgroundImage: "none",
           justifyContent: 'center',
           alignItems: 'center',
-          px: '16px',
           boxShadow: 'none'
         }}>
-        <Toolbar sx={{ display: 'flex',gap:'1px',width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
-            sx={{ cursor: 'pointer',px:'30px',ml: 0, background: 'white', borderRadius: '8px', height: '100%' }}
+            sx={{ cursor: 'pointer', px: '30px', ml: 0, background:isMobile?'black':'white', borderRadius: '8px', height: '100%' }}
             display='inline-flex'
             alignItems='center'>
             <Logo color='#000' />
           </Box>
-          <Box sx={{
-            background: '#f8f8f8',
-            borderRadius: '8px',
-            height: '100%',
-            flex:'1'
-          }}>
+          <Box
+            sx={{
+              display: isMobile ? 'none' : 'inline-flex',
+              background: '#f8f8f8',
+              borderRadius: '8px',
+              height: '100%',
+              flex: '1'
+            }}>
           </Box>
           <Box
             sx={{
-              display: {    xs: 'none', sm: 'inline-flex'},
+              display: { xs: 'none', sm: 'inline-flex' },
               background: 'white',
               height: '100%',
               borderRadius: '8px',
-              px:'30px'
+              px: '30px'
             }}
             alignItems='center'>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
@@ -74,14 +75,15 @@ const Header = () => {
                 borderRadius: '22px',
                 height: '44px',
                 lineHeight: '44px',
-                textAlign:'center',
+                textAlign: 'center',
                 border: '1px solid #000',
                 fontSize: '20px',
                 background: '#000',
-                width:'149px',
+                width: '149px',
                 // wordSpacing: '-5px',
                 // letterSpacing: '-2px',
                 textTransform: 'capitalize',
+                whiteSpace: 'nowrap',
                 ml: '15px',
                 '&:hover': {
                   borderRadius: '22px',

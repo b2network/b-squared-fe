@@ -75,7 +75,7 @@ const Partner = () => {
         p: '1px'
       }}>
         <Box sx={{background:'white',borderRadius:'8px',p:'30px'}}>
-        <Typography fontFamily={'Hanson'} data-aos='fade-down' textAlign={'left'} mb={isMobile ? '19px' : '10px'} fontSize={isMobile ? 20 : 40} fontWeight='600'>Partners</Typography>
+        <Typography fontFamily={'Hanson'} data-aos='fade-down' textAlign={'left'} mb={isMobile ? '19px' : '10px'} fontSize={isMobile ? 20 : 30} fontWeight='600'>Partners</Typography>
         <>
           <Swiper
             data-aos='fade-up'
