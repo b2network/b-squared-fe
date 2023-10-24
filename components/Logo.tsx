@@ -8,6 +8,7 @@ import { ReactNode } from 'react';
 import useIsMobile from 'utils/hooks/useIsMobile';
 import Image from 'next/image';
 import Link from 'next/link';
+import LogoText from './SvgIcon/LogoText';
 type Iprops = {
   color: string
 }
@@ -19,14 +20,7 @@ const Logo: React.FC<Iprops> = ({ color = '#000' }) => {
       {
         isMobile ? <img style={{ width: isMobile ? '32px' : '48px' }} src='/assets/logo.svg' alt='logo' /> : <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <img style={{ width: '48px' }} src='/assets/logo.svg' alt='logo' />
-          <Typography sx={{
-            color: color,
-            fontSize: { xs: '22px', md: '32px' },
-            fontWeight: 900,
-            ml: '20px',
-            whiteSpace: 'nowrap',
-            // wordSpacing: '-10px'
-          }}>B² Network</Typography>
+          <LogoText sx={{width:'139px',height:'30px',ml:'20px'}} />
         </Box>
       }
     </Link>

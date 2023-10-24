@@ -37,19 +37,32 @@ const Header = () => {
           borderBottom: '#f4f4f4',
           backgroundImage: "none",
           justifyContent: 'center',
-          alignItems:'center',
+          alignItems: 'center',
           px: '16px',
-          boxShadow:'none'
+          boxShadow: 'none'
         }}>
-        <Toolbar sx={{ display: 'flex',width:'100%', px: { xs: '0'}, maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex',gap:'1px',width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
-            sx={{ cursor: 'pointer', ml: 0 }}
+            sx={{ cursor: 'pointer',px:'30px',ml: 0, background: 'white', borderRadius: '8px', height: '100%' }}
             display='inline-flex'
             alignItems='center'>
             <Logo color='#000' />
           </Box>
+          <Box sx={{
+            background: '#f8f8f8',
+            borderRadius: '8px',
+            height: '100%',
+            flex:'1'
+          }}>
+          </Box>
           <Box
-            display={{ xs: 'none', sm: 'inline-flex' }}
+            sx={{
+              display: {    xs: 'none', sm: 'inline-flex'},
+              background: 'white',
+              height: '100%',
+              borderRadius: '8px',
+              px:'30px'
+            }}
             alignItems='center'>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Ecosystem</Typography>
@@ -62,9 +75,9 @@ const Header = () => {
                 borderRadius: '22px',
                 height: '44px',
                 border: '1px solid #000',
-                color: 'black',
                 fontSize: '20px',
-                background:'#FFF0DA',
+                background: '#000',
+                width:'149px',
                 // wordSpacing: '-5px',
                 // letterSpacing: '-2px',
                 textTransform: 'capitalize',
@@ -72,7 +85,7 @@ const Header = () => {
                 '&:hover': {
                   borderRadius: '22px',
                   background: 'transparent',
-                  border:'1px solid #000'
+                  border: '1px solid #000'
                 }
               }}>Contanct Us</Button>
           </Box>
