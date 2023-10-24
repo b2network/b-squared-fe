@@ -67,13 +67,14 @@ const Header = () => {
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Ecosystem</Typography>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Bridge</Typography>
-            <Button
-              variant='outlined'
-              className='contact'
+            <Box
+              className='hvr-sweep-to-right'
               onClick={goFooter}
               sx={{
                 borderRadius: '22px',
                 height: '44px',
+                lineHeight: '44px',
+                textAlign:'center',
                 border: '1px solid #000',
                 fontSize: '20px',
                 background: '#000',
@@ -84,10 +85,10 @@ const Header = () => {
                 ml: '15px',
                 '&:hover': {
                   borderRadius: '22px',
-                  background: 'transparent',
-                  border: '1px solid #000'
+                  border: 'none',
+                  cursor: 'pointer'
                 }
-              }}>Contanct Us</Button>
+              }}>Contanct Us</Box>
           </Box>
           <IconButton
             sx={{ display: { sm: 'none' } }}

@@ -17,7 +17,7 @@ body {
   line-height: 1.1;
   // letter-spacing: -1px;
   // word-spacing: -2px;
-  font-family: "Lora", monospace, Objectivity, Roboto, Helvetica, Arial,
+  font-family: "Titillium Web", monospace, Objectivity, Roboto, Helvetica, Arial,
     sans-serif;
 }
 p {
@@ -76,27 +76,6 @@ a {
 //   -webkit-text-fill-color: transparent;
 //   -webkit-text-stroke: 2px #000;
 // }
-.twill {
-  font-family: Hanson;
-  font-size: 50px;
-  text-align: center;
-  color: #fff; /* 文字颜色 */
-  background: linear-gradient(
-    45deg,
-    #000 25%,
-    #fff 25%,
-    #fff 50%,
-    #000 50%,
-    #000 75%,
-    #fff 75%
-  );
-  background-size: 10px 10px; /* 减小条纹的间距，使之更密集 */
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
-  -webkit-text-stroke: 2px black; /* 添加2px的文字描边 */
-}
 .btc {
   position: absolute;
   top: 50%;

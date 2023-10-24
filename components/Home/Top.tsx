@@ -9,6 +9,7 @@ import Typewriter from 'typewriter-effect';
 import ArrowSvg from 'components/SvgIcon/ArrowSvg';
 import BarSvg from 'components/SvgIcon/BarSvg';
 import BarCodeSvg from 'components/SvgIcon/BarCode';
+import TheMostSvg from 'components/SvgIcon/TheMost';
 
 const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 
@@ -47,35 +48,43 @@ const Top = () => {
           }
         }}>
           <Box>
-            <Typography className='twill' component='span'>THE Most</Typography>
+            <TheMostSvg sx={{
+              width: '357px',
+              height: '35px'
+            }} />
             <Typography component='span' className='text' color={'#FFA728'}>&nbsp;Practical</Typography>
           </Box>
           <Typography className='text'>Bitcoin Layer2</Typography>
           <Typography className='text'>Network</Typography>
-          <Box sx={{
-            p: '15px 30px',
-            borderRadius: '100px',
-            fontFamily: 'Titillium Web',
-            fontSize: '24px',
-            fontWeight: 700,
-            background: '#fff8ee',
-            border: '1px solid #000',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            maxWidth: '226px',
-            gap: '16px',
-            cursor: 'pointer',
-            '&:hover': {
+          <Box
+            className='paper'
+            sx={{
+              p: '15px 30px',
+              borderRadius: '100px',
+              fontFamily: 'Titillium Web',
+              fontSize: '24px',
+              fontWeight: 700,
+              background: '#fff8ee',
+              border: '1px solid #000',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              maxWidth: '226px',
+              gap: '16px',
+              cursor: 'pointer',
               '.arrow': {
-                transform: 'rotate(-45deg)',
-                transition: '1s'
+                ml:'16px'
+              },
+              '&:hover': {
+                '.arrow': {
+                  transform: 'rotate(-45deg)',
+                  transition: '1s',
+                  fill:'white'
+                }
               }
-
-            }
-          }}>
+            }}>
             Lite Paper
-            <ArrowSvg className='arrow' />
+            <ArrowSvg  className='arrow' />
           </Box>
           <Box sx={{
             display: 'flex',
@@ -96,10 +105,10 @@ const Top = () => {
         </Box>
         <Box sx={{
           borderRadius: '8px',
-          background:'white',
+          background: 'white',
         }}>
           <Box sx={{
-            position:'relative',
+            position: 'relative',
             width: '450px',
             height: '450px',
             background: 'url("/assets/top_bg.svg")',
