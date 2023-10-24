@@ -30,50 +30,33 @@ const Footer = () => {
   const isMobile = useIsMobile();
   return (
     <Box sx={{
-      background: 'url("/assets/footer_bg.svg") no-repeat center center',
-      backgroundSize: 'cover',
-      color: 'white',
-      p: { xs: '20px 20px 0 20px', md: '103px 20px 0 20px' },
+      background: 'white',
+      color: 'black'
     }}>
       <Box sx={{
-        maxWidth: '1290px',
-        margin:'auto'
+        width: '1290px',
+        margin: 'auto',
+        background: 'black',
+        p: '1px'
       }}>
-        <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', alignItems: isMobile ? 'center' : 'flex-end', mb: '16px' }}>
-          <Box>
-            <Typography sx={{ fontSize: isMobile ? '20px' : '40px', fontWeight: 600 }}>Subscribe to Our Newsletter</Typography>
+        <Box sx={{
+          background: 'white',
+          borderRadius: '8px',
+          p: '30px'
+        }}>
+          <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection:'column', alignItems:'flex-start', mb: '40px' }}>
+            <Typography sx={{ fontSize: isMobile ? '20px' : '30px', fontFamily: 'Hanson', fontWeight: 700 }}>Subscribe to Our Newsletter</Typography>
             <EmailSender />
-            <Typography sx={{ fontSize: isMobile ? '16px' : '24px', fontWeight: 600 }}>By subscribing, you accepted our Policy</Typography>
+            <Typography sx={{ fontSize: isMobile ? '16px' : '20px',color:'rgba(0,0,0,0.6)' }}>By subscribing, you accepted our Policy</Typography>
           </Box>
-          <Box>
-            {
-              !isMobile && <Logo color='#fff' />
-            }
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexDirection: isMobile ? 'column-reverse' : 'row',
-            fontSize: isMobile ? '12px' : '24px',
-            color: 'rgba(255,255,255,0.6)',
-            fontWeight: isMobile ? 400 : 600,
-            py: isMobile ? '10px' : '50px'
-          }}>
-          <Box>© 2023 B² Network - All rights reserved</Box>
-          <Box sx={{
-            display: 'flex',
-            alignItems: 'center'
-          }}>
-            <Box mr={'20px'}>Join our Community</Box>
+          <Box display={'flex'} justifyContent='space-between'>
             <OuterLink />
+            <Logo color='#000' />
           </Box>
         </Box>
       </Box>
+      <Typography sx={{fontSize:'18px',mt:'20px',mb:'70px',textAlign:'center'}}>© 2023 B² Network – All rights reserved</Typography>
     </Box>
-
   );
 };
 

@@ -39,8 +39,7 @@ const Header = () => {
           justifyContent: 'center',
           alignItems:'center',
           px: '16px',
-          boxShadow:
-            '0px 2px 4px -1px rgb(0 0 0 / 4%), 0px 4px 5px 0px rgb(0 0 0 / 4%), 0px 1px 10px 0px rgb(0 0 0 / 4%)',
+          boxShadow:'none'
         }}>
         <Toolbar sx={{ display: 'flex',width:'100%', px: { xs: '0'}, maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
@@ -65,12 +64,15 @@ const Header = () => {
                 border: '1px solid #000',
                 color: 'black',
                 fontSize: '20px',
+                background:'#FFF0DA',
                 // wordSpacing: '-5px',
                 // letterSpacing: '-2px',
                 textTransform: 'capitalize',
                 ml: '15px',
                 '&:hover': {
                   borderRadius: '22px',
+                  background: 'transparent',
+                  border:'1px solid #000'
                 }
               }}>Contanct Us</Button>
           </Box>

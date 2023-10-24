@@ -10,16 +10,20 @@ import ValueMission from 'components/Home/ValueMission';
 import Properties from 'components/Home/Properties';
 import Architecture from 'components/Home/Architecture';
 import Partner from 'components/Home/Partner';
+import Values from 'components/Home/Values';
+import Missions from 'components/Home/Missions';
 
 const Home = () => {
   const isMobile = useIsMobile();
   return (
     <>
       <Top />
-      <ValueMission />
+      <Values />
+      <Missions />
+      {/* <ValueMission /> */}
       <Properties />
       <Architecture />
-      {/* <Partner /> */}
+      <Partner />
     </>
   )
 }

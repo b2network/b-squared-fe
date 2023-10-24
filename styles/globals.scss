@@ -5,15 +5,19 @@ html {
   margin: 0;
 }
 @font-face {
-  font-family: 'Lora';
-  src: url('/fonts/Lora-Regular.woff2');
+  font-family: "Hanson";
+  src: url("/fonts/Hanson Bold 700.woff2");
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("/fonts/TitilliumWeb-Regular.ttf");
 }
 body {
   font-size: 16px;
   line-height: 1.1;
   // letter-spacing: -1px;
   // word-spacing: -2px;
-  font-family: 'Lora', monospace, Objectivity, Roboto, Helvetica, Arial,
+  font-family: "Lora", monospace, Objectivity, Roboto, Helvetica, Arial,
     sans-serif;
 }
 p {
@@ -54,3 +58,62 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+// .twill {
+//   font-size: 50px;
+//   font-weight: 700;
+//   background-color: #333;
+//   background-image: linear-gradient(
+//     -45deg,
+//     transparent 45%,
+//     hsla(48, 20%, 90%, 1) 45%,
+//     hsla(48, 20%, 90%, 1) 55%,
+//     transparent 0
+//   );
+//   background-size: 0.05em 0.05em;
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   -webkit-text-stroke: 2px #000;
+// }
+.twill {
+  font-family: Hanson;
+  font-size: 50px;
+  text-align: center;
+  color: #fff; /* 文字颜色 */
+  background: linear-gradient(
+    45deg,
+    #000 25%,
+    #fff 25%,
+    #fff 50%,
+    #000 50%,
+    #000 75%,
+    #fff 75%
+  );
+  background-size: 10px 10px; /* 减小条纹的间距，使之更密集 */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  -webkit-text-stroke: 2px black; /* 添加2px的文字描边 */
+}
+.btc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 220px;
+  animation: jumpBoxHandler 3s infinite;
+}
+@keyframes jumpBoxHandler { /* css事件 */
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -55%); /* 可配置跳动方向 */
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+

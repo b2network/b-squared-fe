@@ -29,12 +29,11 @@ const Partner = () => {
     width: isMobile ? '120px' : '240px',
     height: isMobile ? '60px' : '120px',
     background: 'white',
-    borderRadius: '8px',
-    border: '1px solid #eee',
+    borderRadius: '4px',
+    border: '1px solid #000',
     cursor: 'pointer',
     '&:hover': {
-      border: '1px solid #FFB852',
-      transform: 'scale(1.1)',
+      transform: 'scale(1.05)',
       transition: 'all 500ms linear'
     }
   }));
@@ -66,38 +65,48 @@ const Partner = () => {
   ]
   return (
     <Box sx={{
-      p: isMobile ? '20px' : '80px 100px',
       background: 'white',
       color: 'black'
     }}>
-      <Typography data-aos='fade-down-right' textAlign={'center'} mb={isMobile ? '19px' : '10px'} fontSize={isMobile ? 20 : 40} fontWeight='600'>Partners</Typography>
-      <>
-        <Swiper
-          data-aos='fade-up-left'
-          spaceBetween={isMobile ? 10 : 30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          speed={10000} // 是速度
-          loop={true} // 无限循环
-          slidesPerView={count}
-          navigation={false}
-          modules={[Autoplay]}
-          className="mySwiper"
-        >
+      <Box sx={{
+        maxWidth: '1290px',
+        margin: 'auto',
+        background: 'black',
+        p: '1px'
+      }}>
+        <Box sx={{background:'white',borderRadius:'8px',p:'30px'}}>
+        <Typography fontFamily={'Hanson'} data-aos='fade-down-right' textAlign={'left'} mb={isMobile ? '19px' : '10px'} fontSize={isMobile ? 20 : 40} fontWeight='600'>Partners</Typography>
+        <>
+          <Swiper
+            data-aos='fade-up-left'
+            spaceBetween={0}
+            centeredSlides={true}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            speed={10000} // 是速度
+            loop={true} // 无限循环
+            slidesPerView={count}
+            navigation={false}
+            modules={[Autoplay]}
+            className="mySwiper"
+          >
 
-          {
-            partnerIcons.map(node => <SwiperSlide key={node.name}> <CardBox>
-              {
-                node.node
-              }
-            </CardBox>
-            </SwiperSlide>)
-          }
-        </Swiper>
-      </>
+            {
+              partnerIcons.map(node => <SwiperSlide key={node.name}> <CardBox>
+                {
+                  node.node
+                }
+              </CardBox>
+              </SwiperSlide>)
+            }
+          </Swiper>
+        </>
+        </Box>
+
+      </Box>
+
     </Box>
   )
 }

@@ -1,4 +1,3 @@
-import '../styles/globals.scss'
 import React, { ReactNode, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
@@ -10,11 +9,12 @@ import { useIsMounted } from 'utils/hooks/useIsMouted';
 import AOS from "aos";
 import NiceModal from '@ebay/nice-modal-react';
 import "aos/dist/aos.css";
+import '../styles/globals.scss'
 
 const customTheme = createTheme({
   palette: { mode: 'dark' },
   typography: {
-    fontFamily: 'Lora,monospace,Objectivity,Roboto,Helvetica,Arial,sans-serif',
+    fontFamily: 'Titillium Web,Hanson,monospace,Objectivity,Roboto,Helvetica,Arial,sans-serif',
   }
 });
 

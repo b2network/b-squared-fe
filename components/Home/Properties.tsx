@@ -10,26 +10,20 @@ import useIsMobile from 'utils/hooks/useIsMobile';
 type ItemProps = {
   title: string,
   content: string[],
-  icon: string
+  num: string
 }
-const PropertieItem: React.FC<ItemProps> = ({ title, content, icon }) => {
+const PropertieItem: React.FC<ItemProps> = ({ title, content, num }) => {
   const isMobile = useIsMobile();
-  return <Box className='hvr-shutter-in-vertical hvr-grow-shadow' sx={{
+  return <Box sx={{
     p: isMobile ? '15px' : '30px',
     height: '376px',
-    '.icon': {
-      width: '64px',
-      height: '64px',
-      background: `url(${icon}.svg) no-repeat`,
-
-    },
+    background: 'white',
+    borderRadius: '8px',
     '&:hover': {
-      '.icon': {
-        background: `url(${icon}_white.svg) no-repeat`
-      }
+      background:'#FFF8EE'
     }
   }}>
-    <Box className='icon'></Box>
+    <Box>{num}</Box>
     <Typography fontSize={'20px'} fontWeight={700} my={'15px'}>{title}</Typography>
     <Box>
       {
@@ -45,31 +39,28 @@ const PropertyArr: ItemProps[] = [
     content: [
       '· Over 50X cheaper and 300X faster than the Bitcoin network'
     ],
-    icon: "/assets/icon_property4"
+    num: '01'
   }, {
     title: 'Asset Security',
     content: [
       '·  Carry the security level of Bitcoin network',
       '·  Ensure the safety of your assets with Bitcoin POW (L1) and Zero-Knowledge Proof (L2)'
     ],
-    icon: "/assets/icon_property3"
-
+    num: '02'
   }, {
     title: 'Seamless Access',
     content: [
       '·  Use Metamask, Unisat, OKX wallet to interact with B², just like you normally would',
       '·  Access B² using your original BTC (bc1p…) or ETH (0x…) addresses with the help of account abstraction'
     ],
-    icon: "/assets/icon_property2"
-
+    num: '03'
   }, {
     title: 'Easy to Construct and Migrate Dapps',
     content: [
       '·  Revitalize over $526 billion Bitcoin assets, responding to the demands of Bitcoin users and miners.',
       '·  Operate various assets on the Bitcoin chain (BTC, BRC20, ordinals…), you name it.'
     ],
-    icon: "/assets/icon_property1"
-
+    num: '04'
   },
 ]
 
@@ -77,26 +68,16 @@ const Properties = () => {
   const isMobile = useIsMobile();
   return (
     <Box sx={{
-      background: 'linear-gradient(to left bottom, #fdf9f5, white)',
-      px: '20px',
-      py:isMobile?'20px':'100px',
+      background:'white',
       color: 'black'
     }}>
       <Box sx={{
         maxWidth: '1290px',
-        margin: 'auto'
+        margin: 'auto',
+        background: 'black',
+        px:'1px'
       }}>
-        <Typography data-aos='fade-down' sx={{
-          textAlign: 'center',
-          fontSize: isMobile ? '25px' : '44px',
-          fontWeight: 600,
-          mb: isMobile ? '20px' : '77px',
-          // wordSpacing: '-3px',
-          // letterSpacing: '-1.5px'
-        }}>
-          Build the Most Practical Bitcoin Layer-2 Network
-        </Typography>
-        <Grid container spacing={4}>
+        <Grid container spacing={'1px'}>
           {
             PropertyArr.map(item => <Grid data-aos='fade-up' item sm={6} lg={3} xs={12} key={item.title}>
               <PropertieItem {...item}></PropertieItem>

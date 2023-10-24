@@ -1,10 +1,14 @@
 import {
   Box,
   Typography,
+  Grid
 } from '@mui/material';
 import useIsMobile from 'utils/hooks/useIsMobile';
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import Typewriter from 'typewriter-effect';
+import ArrowSvg from 'components/SvgIcon/ArrowSvg';
+import BarSvg from 'components/SvgIcon/BarSvg';
+import BarCodeSvg from 'components/SvgIcon/BarCode';
 
 const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 
@@ -15,115 +19,94 @@ const Top = () => {
   }
   return (
     <Box sx={{
+      display: 'flex',
+      justifyContent: 'center',
       background: 'white',
-      padding: { xs: '20px', md: '89px 20px 154px 20px' },
     }}>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: isMobile ? 'column-reverse' : 'row',
-          justifyContent: isMobile ? 'center' : 'space-between',
-          alignItems: 'center',
-          overflow: 'hidden',
-          maxWidth: '1290px',
-          margin: 'auto',
-          gap: '20px'
-        }}
-      >
+      <Box sx={{
+        display: 'flex',
+        alignItems: 'center',
+        height: '450px',
+        width: '1290px',
+        background: 'black',
+        p: '1px',
+        pt: '2px',
+        gap: '1px'
+      }}>
         <Box sx={{
-          width: isMobile ? '100%' : '500px',
-          color: '#000',
-          textAlign: isMobile ? 'center' : 'left',
+          p: '30px',
+          height: '450px',
+          background: 'white',
           flex: '1',
-          '.img': {
-            position: 'absolute',
-            top: '3px',
-            right: '-15px',
-            width: isMobile ? '20px' : '27px'
+          borderRadius: '8px',
+          color: '#000',
+          '.text': {
+            fontSize: '50px',
+            fontWeight: '700',
+            fontFamily: 'Hanson'
           }
         }}>
-          <Box
-            data-aos="fade-left"
-          >
-
-            <Typography
-              component={'span'}
-              sx={{
-                fontSize: { xs: '30px', md: '50px', lg: '70px' },
-                fontWeight: 700,
-                lineHeight: '1.4',
-                whiteSpace: 'nowrap',
-                display: 'flex'
-              }}>The Most&nbsp;
-              <Typography
-                component={'span'}
-                sx={{
-                  position: 'relative',
-                  color: '#FFB852',
-                  fontSize: { xs: '30px', md: '50px', lg: '70px' },
-                  fontWeight: 700,
-                  lineHeight: '1.4',
-                }}
-              >
-                P
-                <img className='img' src="/assets/light.svg" alt="" />
-              </Typography>
-              <Typewriter
-                options={{
-                  strings: ['ractical'],
-                  autoStart: true,
-                  loop: true,
-                  delay: 200,
-                }}
-              />
-            </Typography>
+          <Box>
+            <Typography className='twill' component='span'>THE Most</Typography>
+            <Typography component='span' className='text' color={'#FFA728'}>&nbsp;Practical</Typography>
           </Box>
-          <Box data-aos="fade-left">
-            <Typography sx={{
-              fontSize: { xs: '30px', md: '50px', lg: '70px' },
-              fontWeight: 700,
-              whiteSpace: 'nowrap',
-              lineHeight: '1.4',
-              textAlign:'left'
-            }}>
-              Bitcoin Layer2 Network
-            </Typography>
-          </Box>
-          <Box
-            className='hvr-bounce-to-right'
-            data-aos="fade-up"
-            onClick={goLitePaper}
-            sx={{
-              mt: '40px',
-              color: '#000',
-              p: '15px 20px',
-              fontSize: '24px',
-              fontWeight: '600',
-              background: '#FFB852',
-              borderRadius: '8px',
-              textAlign: 'center',
-              whiteSpace: 'nowrap',
-              width: '222px',
-              cursor: 'pointer',
+          <Typography className='text'>Bitcoin Layer2</Typography>
+          <Typography className='text'>Network</Typography>
+          <Box sx={{
+            p: '15px 30px',
+            borderRadius: '100px',
+            fontFamily: 'Titillium Web',
+            fontSize: '24px',
+            fontWeight: 700,
+            background: '#fff8ee',
+            border: '1px solid #000',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            maxWidth: '226px',
+            gap: '16px',
+            cursor: 'pointer',
+            '&:hover': {
               '.arrow': {
-                color: 'black',
-                ml: '15px'
-              },
-              '&:hover': {
-                '.arrow': {
-                  color: 'white',
-                }
+                transform: 'rotate(-45deg)',
+                transition: '1s'
               }
-            }}>
-            <Box display={'flex'} alignItems='center' justifyContent={'center'}> Lite Paper <EastOutlinedIcon className='arrow' /></Box>
+
+            }
+          }}>
+            Lite Paper
+            <ArrowSvg className='arrow' />
           </Box>
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            mt: '23px',
+            alignItems: 'flex-end'
+          }}>
+            <BarSvg sx={{
+              width: '101px',
+              height: '10px'
+            }} />
+            <BarCodeSvg sx={{
+              width: '144px',
+              height: '50px'
+            }} />
+          </Box>
+
         </Box>
-        <Box flex={1} display={'flex'} justifyContent={'flex-end'}>
-          <img src="/assets/top.svg" alt="" style={{
-            width: '100%',
-            maxWidth: isMobile ? '400px' : '498px'
-          }} />
-          {/* <Image unoptimized priority width={isMobile ? '100%' : '498'} height={isMobile?'auto':'444'} src='' alt='top'></Image> */}
+        <Box sx={{
+          borderRadius: '8px',
+          background:'white',
+        }}>
+          <Box sx={{
+            position:'relative',
+            width: '450px',
+            height: '450px',
+            background: 'url("/assets/top_bg.svg")',
+            backgroundSize: 'cover'
+          }}>
+            <img className='btc' src="/assets/btc.png" alt="btc" />
+          </Box>
         </Box>
       </Box>
     </Box>
