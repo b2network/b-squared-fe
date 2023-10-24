@@ -6,6 +6,7 @@ import NiceModal from "@ebay/nice-modal-react";
 import SubscribeDialog from "components/Modals/Subscribe";
 import { useRef } from "react";
 import ArrowSvg from "components/SvgIcon/ArrowSvg";
+import EastIcon from '@mui/icons-material/East';
 
 const EmailSender = () => {
   const isMobile = useIsMobile();
@@ -55,13 +56,12 @@ const EmailSender = () => {
       },
       '&:hover': {
         '.icon': {
-          color: 'white',
           transform: 'rotate(-45deg)',
           transition:'1s'
         },
       }
     }}>
-      <ArrowSvg className="icon" />
+     <EastIcon className='icon' />
     </IconButton>
   </Box>
 }

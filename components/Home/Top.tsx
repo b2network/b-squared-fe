@@ -10,6 +10,7 @@ import ArrowSvg from 'components/SvgIcon/ArrowSvg';
 import BarSvg from 'components/SvgIcon/BarSvg';
 import BarCodeSvg from 'components/SvgIcon/BarCode';
 import TheMostSvg from 'components/SvgIcon/TheMost';
+import EastIcon from '@mui/icons-material/East';
 
 const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 
@@ -47,16 +48,17 @@ const Top = () => {
             fontFamily: 'Hanson'
           }
         }}>
-          <Box>
+          <Box data-aos='fade-down'>
             <TheMostSvg sx={{
               width: '357px',
               height: '35px'
             }} />
             <Typography component='span' className='text' color={'#FFA728'}>&nbsp;Practical</Typography>
           </Box>
-          <Typography className='text'>Bitcoin Layer2</Typography>
-          <Typography className='text'>Network</Typography>
+          <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
+          <Typography data-aos='fade-down' className='text'>Network</Typography>
           <Box
+            data-aos='fade-up'
             className='paper'
             sx={{
               p: '15px 30px',
@@ -73,20 +75,21 @@ const Top = () => {
               gap: '16px',
               cursor: 'pointer',
               '.arrow': {
-                ml:'16px'
+                ml: '16px',
+                color: 'black'
               },
               '&:hover': {
                 '.arrow': {
                   transform: 'rotate(-45deg)',
                   transition: '1s',
-                  fill:'white'
+                  color: 'white'
                 }
               }
             }}>
             Lite Paper
-            <ArrowSvg  className='arrow' />
+            <EastIcon className='arrow' />
           </Box>
-          <Box sx={{
+          <Box data-aos='fade-up' sx={{
             display: 'flex',
             justifyContent: 'space-between',
             mt: '23px',
