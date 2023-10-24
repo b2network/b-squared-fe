@@ -6,6 +6,8 @@ import {
 import React, { ReactNode } from 'react';
 import useIsMobile from 'utils/hooks/useIsMobile';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import BulgeSvg from 'components/SvgIcon/BulgeSvg';
+import QuoteSvg, { QuoteEndSvg } from 'components/SvgIcon/QuoteSvg';
 
 const Values = () => {
   const isMobile = useIsMobile();
@@ -48,6 +50,14 @@ const Values = () => {
         }}>
           <Typography sx={{ fontSize: '30px', fontWeight: 700, fontFamily: 'Hanson' }}>VALUES</Typography>
           <img className='bg' src="/assets/earth.svg" alt="background" />
+          <BulgeSvg sx={{
+            position: 'absolute',
+            top: '50%',
+            right: '-16px',
+            transform:'translateY(-50%)',
+            width: '16px',
+            height:'27px'
+          }} />
           <UnionBar sx={{
             position: 'absolute',
             top: '30px',
@@ -67,12 +77,27 @@ const Values = () => {
             flex: '1',
             borderRadius: '8px',
             color: "#000",
-            p:'60px 90px',
+            p: '60px 90px',
+            position:'relative',
             '.value': {
               fontSize:'20px'
             }
           }}
         >
+          <QuoteSvg sx={{
+            position: 'absolute',
+            top: '40px',
+            left:'40px',
+            width: '34px',
+            height:'26px'
+          }} />
+          <QuoteEndSvg sx={{
+            position: 'absolute',
+            bottom: '40px',
+            right:'40px',
+            width: '34px',
+            height:'26px'
+          }} />
           <Typography mb={'20px'} className='value'>Bitcoin, as the primary crypto asset, can evolve beyond a payment network.</Typography>
           <Typography className='value'>BTC-related assets require an ecosystem where DeFi, NFT, SocialFi, and other applications can thrive and flourish.</Typography>
         </Box>

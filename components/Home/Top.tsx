@@ -28,7 +28,7 @@ const Top = () => {
       <Box sx={{
         display: 'flex',
         alignItems: 'center',
-        height: '450px',
+        height: '400px',
         width: '1290px',
         background: 'black',
         p: '1px',
@@ -37,7 +37,7 @@ const Top = () => {
       }}>
         <Box sx={{
           p: '30px',
-          height: '450px',
+          height: '400px',
           background: 'white',
           flex: '1',
           borderRadius: '8px',
@@ -45,6 +45,7 @@ const Top = () => {
           '.text': {
             fontSize: '50px',
             fontWeight: '700',
+            lineHeight:'60px',
             fontFamily: 'Hanson'
           }
         }}>
@@ -72,6 +73,7 @@ const Top = () => {
               justifyContent: 'center',
               alignItems: 'center',
               maxWidth: '226px',
+              mt:'20px',
               gap: '16px',
               cursor: 'pointer',
               '.arrow': {
@@ -104,7 +106,6 @@ const Top = () => {
               height: '50px'
             }} />
           </Box>
-
         </Box>
         <Box sx={{
           borderRadius: '8px',
@@ -112,8 +113,8 @@ const Top = () => {
         }}>
           <Box sx={{
             position: 'relative',
-            width: '450px',
-            height: '450px',
+            width: '400px',
+            height: '400px',
             background: 'url("/assets/top_bg.svg")',
             backgroundSize: 'cover'
           }}>
