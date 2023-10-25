@@ -29,7 +29,7 @@ const Top = () => {
         display: 'flex',
         width: '100%',
         alignItems: 'center',
-        minHeight:isMobile?'330px': '400px',
+        minHeight: isMobile ? '330px' : '400px',
         maxWidth: '1290px',
         background: 'black',
         p: '1px',
@@ -40,7 +40,7 @@ const Top = () => {
         <Box sx={{
           py: '30px',
           px: isMobile ? '15px' : '30px',
-          minHeight: isMobile?'330px': '400px',
+          minHeight: isMobile ? '330px' : '400px',
           background: 'white',
           flex: '1',
           borderRadius: '8px',
@@ -60,7 +60,14 @@ const Top = () => {
         }}>
           <Box data-aos='fade-down' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', mb: isMobile ? '10px' : 0 }}>
             <img src="/assets/the_most.svg" className='most' alt="the most" />
-            <Typography component='span' className='text' color={'#FFA728'}>Practical</Typography>
+            <Typography component='span' className='text' color={'#FFA728'}><Typewriter
+              options={{
+                strings: ['PRACRICAL'],
+                autoStart: true,
+                loop: true,
+                delay: 200,
+              }}
+            /></Typography>
           </Box>
           <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
           <Typography data-aos='fade-down' className='text'>Network</Typography>
