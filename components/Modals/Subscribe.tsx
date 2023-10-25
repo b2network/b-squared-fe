@@ -45,7 +45,7 @@ const SubscribeDialog = NiceModal.create(() => {
         justifyContent: 'center',
         mb: '20px'
       }}>
-        <Button className='hvr-bounce-to-right' sx={{ background: '#FFB852', color: 'black',width:'140px',borderRadius:'70px' }} onClick={() => modal.hide()} color="primary">
+        <Button className='hvr-bounce-to-right' sx={{ background: '#000', color: 'white',width:'140px',borderRadius:'70px' }} onClick={() => modal.hide()} color="primary">
           ok
         </Button>
       </DialogActions>

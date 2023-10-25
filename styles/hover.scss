@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: black;
+  background: #FFB852;
   border-radius: 70px;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -32,7 +32,7 @@
   transition-timing-function: ease-out;
 }
 .hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
-  color: white;
+  color: black;
 }
 .hvr-bounce-to-right:hover:before, .hvr-bounce-to-right:focus:before, .hvr-bounce-to-right:active:before {
   -webkit-transform: scaleX(1);
