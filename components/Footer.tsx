@@ -34,7 +34,7 @@ const Footer = () => {
       color: 'black'
     }}>
       <Box sx={{
-        width: '1290px',
+        maxWidth: '1290px',
         margin: 'auto',
         background: 'black',
         p: '1px'

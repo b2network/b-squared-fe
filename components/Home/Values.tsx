@@ -56,7 +56,8 @@ const Values = () => {
             right: '-16px',
             transform:'translateY(-50%)',
             width: '16px',
-            height:'27px'
+            height: '27px',
+            zIndex:'9'
           }} />
           <UnionBar sx={{
             position: 'absolute',

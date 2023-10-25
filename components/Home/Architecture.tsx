@@ -14,7 +14,6 @@ const Architecture = () => {
   return (
     <Box sx={{
       background: 'white',
-      px: '20px',
     }}>
       <Box sx={{
         maxWidth: '1290px',
