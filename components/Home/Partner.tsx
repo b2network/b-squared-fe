@@ -48,19 +48,22 @@ const Partner = () => {
     }, {
       name: 'partner3',
       node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_3.png" alt="partner" />
-    }, {
-      name: 'partner4',
-      node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_4.png" alt="partner" />
-    }, {
+    },
+    // {
+    //   name: 'partner4',
+    //   node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_4.png" alt="partner" />
+    // },
+    {
       name: 'okx',
       node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_okx.png" alt="partner" />
     }, {
       name: 'metamask',
       node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_metamask.png" alt="partner" />
-    }, {
-      name: 'turbos',
-      node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_turbos.png" alt="partner" />
-    },
+    }
+    //, {
+    //   name: 'turbos',
+    //   node: <img style={{ width: isMobile ? '40px' : '79px' }} src="/assets/icon_turbos.png" alt="partner" />
+    // },
 
   ]
   return (
@@ -74,35 +77,35 @@ const Partner = () => {
         background: 'black',
         p: '1px'
       }}>
-        <Box sx={{background:'white',borderRadius:'8px',p:'30px'}}>
-        <Typography fontFamily={'Hanson'} data-aos='fade-down' textAlign={'left'} mb={isMobile ? '19px' : '10px'} fontSize={isMobile ? 20 : 30} fontWeight='600'>Partners</Typography>
-        <>
-          <Swiper
-            data-aos='fade-up'
-            spaceBetween={0}
-            centeredSlides={true}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            speed={10000} // 是速度
-            loop={true} // 无限循环
-            slidesPerView={count}
-            navigation={false}
-            modules={[Autoplay]}
-            className="mySwiper"
-          >
+        <Box sx={{ background: 'white', borderRadius: '8px', p: '30px' }}>
+          <Typography fontFamily={'Hanson'} data-aos='fade-down' textAlign={'left'} mb={isMobile ? '19px' : '10px'} fontSize={isMobile ? 20 : 30} fontWeight='600'>Partners</Typography>
+          <>
+            <Swiper
+              data-aos='fade-up'
+              spaceBetween={0}
+              centeredSlides={true}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              speed={10000} // 是速度
+              loop={true} // 无限循环
+              slidesPerView={count}
+              navigation={false}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
 
-            {
-              partnerIcons.map(node => <SwiperSlide key={node.name}> <CardBox>
-                {
-                  node.node
-                }
-              </CardBox>
-              </SwiperSlide>)
-            }
-          </Swiper>
-        </>
+              {
+                partnerIcons.map(node => <SwiperSlide key={node.name}> <CardBox>
+                  {
+                    node.node
+                  }
+                </CardBox>
+                </SwiperSlide>)
+              }
+            </Swiper>
+          </>
         </Box>
 
       </Box>
