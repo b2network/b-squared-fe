@@ -7,25 +7,6 @@ import Logo from './Logo';
 import EmailSender from './Home/EmailSender';
 import OuterLink from './OuterLink';
 
-const LINKS = [
-  {
-    path: '/assets/icon_medium.svg',
-    href: 'https://radiocaca.medium.com/'
-  },
-  {
-    path: '/assets/icon_twitter.svg',
-    href: 'https://twitter.com/JazChain'
-  },
-  {
-    path: '/assets/icon_tg.svg',
-    href: 'https://t.me/RadioCaca'
-  }, {
-    path: '/assets/icon_discord.svg',
-    href: 'https://discord.com/invite/34qREVgv3h'
-  }
-]
-
-
 const Footer = () => {
   const isMobile = useIsMobile();
   return (
@@ -45,7 +26,7 @@ const Footer = () => {
           p: '30px'
         }}>
           <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection:'column', alignItems:'flex-start', mb: '40px' }}>
-            <Typography sx={{ fontSize: isMobile ? '20px' : '30px', fontFamily: 'Hanson', fontWeight: 700 }}>Subscribe to Our Newsletter</Typography>
+            <Typography sx={{ fontSize: isMobile ? '20px' : '30px',textTransform:'uppercase', fontFamily: 'Hanson', fontWeight: 700 }}>Subscribe to Our Newsletter</Typography>
             <EmailSender />
             <Typography sx={{ fontSize: isMobile ? '16px' : '20px',color:'rgba(0,0,0,0.6)' }}>By subscribing, you accepted our Policy</Typography>
           </Box>

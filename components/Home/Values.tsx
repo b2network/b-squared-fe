@@ -35,8 +35,11 @@ const Values = () => {
       }}>
         <Box sx={{
           position: 'relative',
-          width: '325px',
-          p: '30px',
+          width: '26%',
+          p: {
+            md: '30',
+            xs:'10'
+          },
           height: '248px',
           backgroundColor: 'white',
           borderRadius: '8px',
@@ -60,12 +63,14 @@ const Values = () => {
             zIndex:'9'
           }} />
           <UnionBar sx={{
+            display: {md:'block',xs:'none'},
             position: 'absolute',
             top: '30px',
             right: '30px'
           }} />
           <UnionBar sx={{
             position: 'absolute',
+            display: {md:'block',xs:'none'},
             bottom: '30px',
             left: '30px',
             transform:'rotate(180deg)'
@@ -78,7 +83,10 @@ const Values = () => {
             flex: '1',
             borderRadius: '8px',
             color: "#000",
-            p: '60px 90px',
+            p: {
+              md: '60px 90px',
+              xs:'30px'
+            },
             position:'relative',
             '.value': {
               fontSize:'20px'
@@ -86,6 +94,7 @@ const Values = () => {
           }}
         >
           <QuoteSvg sx={{
+            display: {md:'block',xs:'none'},
             position: 'absolute',
             top: '40px',
             left:'40px',
@@ -93,6 +102,7 @@ const Values = () => {
             height:'26px'
           }} />
           <QuoteEndSvg sx={{
+            display: {md:'block',xs:'none'},
             position: 'absolute',
             bottom: '40px',
             right:'40px',
