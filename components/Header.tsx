@@ -42,14 +42,14 @@ const Header = () => {
         }}>
         <Toolbar sx={{ display: 'flex', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
           <Box
-            sx={{ cursor: 'pointer', px: '30px', ml: 0, background:isMobile?'black':'white', borderRadius: '8px', height: '100%' }}
+            sx={{ cursor: 'pointer', px: '30px', ml: 0, background: {xs:'black',sm:'white'}, borderRadius: '8px', height: '100%' }}
             display='inline-flex'
             alignItems='center'>
             <Logo color='#000' />
           </Box>
           <Box
             sx={{
-              display: isMobile ? 'none' : 'inline-flex',
+              display: { xs: 'none', sm: 'inline-flex' },
               background: '#f8f8f8',
               borderRadius: '8px',
               height: '100%',

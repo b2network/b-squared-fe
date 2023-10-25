@@ -27,9 +27,10 @@ const Top = () => {
     }}>
       <Box sx={{
         display: 'flex',
+        width:'100%',
         alignItems: 'center',
         height: '400px',
-        width: '1290px',
+        maxWidth: '1290px',
         background: 'black',
         p: '1px',
         pt: '2px',
@@ -43,7 +44,7 @@ const Top = () => {
           borderRadius: '8px',
           color: '#000',
           '.text': {
-            fontSize: '50px',
+            fontSize:isMobile?'25px':'50px',
             fontWeight: '700',
             lineHeight:'60px',
             fontFamily: 'Hanson'
@@ -113,8 +114,8 @@ const Top = () => {
         }}>
           <Box sx={{
             position: 'relative',
-            width: '400px',
-            height: '400px',
+            width:isMobile?'200px':'400px',
+            height: isMobile?'200px':'400px',
             background: 'url("/assets/top_bg.svg")',
             backgroundSize: 'cover'
           }}>
