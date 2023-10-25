@@ -15,7 +15,7 @@ const LINKS = [
   },
   {
     path: '/assets/icon_github.svg',
-    href: '#'
+    href: 'https://github.com/b2network'
   }
 ]
 
