@@ -38,7 +38,8 @@ const Values = () => {
           width: '26%',
           p: {
             md: '30',
-            xs:'10'
+            sm: '20',
+            xs: '10'
           },
           height: '248px',
           backgroundColor: 'white',
@@ -51,63 +52,63 @@ const Values = () => {
           }
           // background: 'url("/assets/earth.svg") no-repeat',
         }}>
-          <Typography sx={{ fontSize: '30px', fontWeight: 700, fontFamily: 'Hanson' }}>VALUES</Typography>
+          <Typography sx={{ fontSize: isMobile ? '20px' : '30px', fontWeight: 700, fontFamily: 'Hanson' }}>VALUES</Typography>
           <img className='bg' src="/assets/earth.svg" alt="background" />
           <BulgeSvg sx={{
             position: 'absolute',
             top: '50%',
             right: '-16px',
-            transform:'translateY(-50%)',
+            transform: 'translateY(-50%)',
             width: '16px',
             height: '27px',
-            zIndex:'9'
+            zIndex: '9'
           }} />
           <UnionBar sx={{
-            display: {md:'block',xs:'none'},
+            display: { md: 'block', xs: 'none' },
             position: 'absolute',
             top: '30px',
             right: '30px'
           }} />
           <UnionBar sx={{
             position: 'absolute',
-            display: {md:'block',xs:'none'},
+            display: { md: 'block', xs: 'none' },
             bottom: '30px',
             left: '30px',
-            transform:'rotate(180deg)'
+            transform: 'rotate(180deg)'
           }} />
         </Box>
         <Box
           sx={{
             height: '248px',
-            background:'#fff8ee',
+            background: '#fff8ee',
             flex: '1',
             borderRadius: '8px',
             color: "#000",
             p: {
               md: '60px 90px',
-              xs:'30px'
+              xs: '30px'
             },
-            position:'relative',
+            position: 'relative',
             '.value': {
-              fontSize:'20px'
+              fontSize: isMobile ? '16px' : '20px'
             }
           }}
         >
           <QuoteSvg sx={{
-            display: {md:'block',xs:'none'},
+            display: { md: 'block', xs: 'none' },
             position: 'absolute',
             top: '40px',
-            left:'40px',
+            left: '40px',
             width: '34px',
-            height:'26px'
+            height: '26px'
           }} />
           <QuoteEndSvg sx={{
-            display: {md:'block',xs:'none'},
+            display: { md: 'block', xs: 'none' },
             position: 'absolute',
             bottom: '40px',
-            right:'40px',
+            right: '40px',
             width: '34px',
-            height:'26px'
+            height: '26px'
           }} />
           <Typography mb={'20px'} className='value'>Bitcoin, as the primary crypto asset, can evolve beyond a payment network.</Typography>
           <Typography className='value'>BTC-related assets require an ecosystem where DeFi, NFT, SocialFi, and other applications can thrive and flourish.</Typography>
