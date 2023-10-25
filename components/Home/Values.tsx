@@ -37,9 +37,9 @@ const Values = () => {
           position: 'relative',
           width: '26%',
           p: {
-            md: '30',
-            sm: '20',
-            xs: '10'
+            md: '30px',
+            sm: '20px 0',
+            xs: '10px 0'
           },
           height: '248px',
           backgroundColor: 'white',
@@ -52,7 +52,7 @@ const Values = () => {
           }
           // background: 'url("/assets/earth.svg") no-repeat',
         }}>
-          <Typography sx={{ fontSize: isMobile ? '20px' : '30px', fontWeight: 700, fontFamily: 'Hanson' }}>VALUES</Typography>
+          <Typography sx={{ fontSize: isMobile ? '18px' : '30px', fontWeight: 700, fontFamily: 'Hanson' }}>VALUES</Typography>
           <img className='bg' src="/assets/earth.svg" alt="background" />
           <BulgeSvg sx={{
             position: 'absolute',

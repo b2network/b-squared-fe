@@ -54,11 +54,12 @@ const Top = () => {
           },
           '.most': {
             width: isMobile ? '180px' : '360px',
-            height: isMobile ? '30px' : '60px'
+            height: isMobile ? '30px' : '60px',
+            mr: '10px'
           }
         }}>
           <Box data-aos='fade-down' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', mb: isMobile ? '10px' : 0 }}>
-            <img src="/assets/the_most.svg" className='most' alt="the most" />&nbsp;
+            <img src="/assets/the_most.svg" className='most' alt="the most" />
             <Typography component='span' className='text' color={'#FFA728'}>Practical</Typography>
           </Box>
           <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
