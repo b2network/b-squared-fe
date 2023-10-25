@@ -58,16 +58,17 @@ const Top = () => {
             mr: '10px'
           }
         }}>
-          <Box data-aos='fade-down' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', mb: isMobile ? '10px' : 0 }}>
+          <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', mb: isMobile ? '10px' : 0 }}>
             <img src="/assets/the_most.svg" className='most' alt="the most" />
-            <Typography component='span' className='text' color={'#FFA728'}><Typewriter
-              options={{
-                strings: ['PRACRICAL'],
-                autoStart: true,
-                loop: true,
-                delay: 200,
-              }}
-            /></Typography>
+            <Typography component='span' className='text' color={'#FFA728'}>
+              <Typewriter
+                options={{
+                  strings: ['PRACRICAL'],
+                  autoStart: true,
+                  loop: true,
+                  delay: 200,
+                }}
+              /></Typography>
           </Box>
           <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
           <Typography data-aos='fade-down' className='text'>Network</Typography>
