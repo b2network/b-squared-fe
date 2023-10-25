@@ -110,8 +110,8 @@ const Values = () => {
             width: '34px',
             height: '26px'
           }} />
-          <Typography mb={'20px'} className='value'>Bitcoin, as the primary crypto asset, can evolve beyond a payment network.</Typography>
-          <Typography className='value'>BTC-related assets require an ecosystem where DeFi, NFT, SocialFi, and other applications can thrive and flourish.</Typography>
+          <Typography mb={'20px'} className='value' data-aos='fade-down'>Bitcoin, as the primary crypto asset, can evolve beyond a payment network.</Typography>
+          <Typography className='value' data-aos='fade-up'>BTC-related assets require an ecosystem where DeFi, NFT, SocialFi, and other applications can thrive and flourish.</Typography>
         </Box>
       </Box>
     </Box>

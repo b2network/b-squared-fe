@@ -35,13 +35,13 @@ const Missions = () => {
             borderBottom: isMobile ? '1px solid white' : 'none'
           }
         }}>
-        <Box flex={1} className='item' borderRight={isMobile ? 'none' : '1px solid white'}>
+        <Box flex={1} className='item' borderRight={isMobile ? 'none' : '1px solid white'} data-aos='fade-up'>
           <Typography flex={1} color={'white'} fontSize={isMobile ? '20px' : '24px'}>
             Build the most <span style={{ color: '#FFA728' }}>practical</span> Bitcoin layer-2 network
           </Typography>
           <MissionIcon2 sx={{ width: '140px', height: '140px' }} />
         </Box>
-        <Box flex={1} className='item'>
+        <Box flex={1} className='item' data-aos='fade-up'>
           <Typography fontSize={isMobile ? '20px' : '24px'}>Bring builder <span style={{ color: '#FFA728' }}>culture</span> back to the Bitcoin ecosystem</Typography>
           <MissionIcon1 sx={{ width: '124px', height: '140px' }} />
         </Box>
