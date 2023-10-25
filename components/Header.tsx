@@ -91,7 +91,7 @@ const Header = () => {
                   border: 'none',
                   cursor: 'pointer'
                 }
-              }}>Contanct Us</Box>
+              }}>Contact Us</Box>
           </Box>
           <IconButton
             sx={{ display: { sm: 'none' } }}
