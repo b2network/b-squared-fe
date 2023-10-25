@@ -46,8 +46,9 @@ const Top = () => {
           '.text': {
             fontSize:isMobile?'25px':'50px',
             fontWeight: '700',
-            lineHeight:'60px',
-            fontFamily: 'Hanson'
+            lineHeight:'1.2',
+            fontFamily: 'Hanson',
+            textTransform:'uppercase'
           }
         }}>
           <Box data-aos='fade-down'>
