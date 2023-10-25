@@ -136,7 +136,7 @@ const Top = () => {
             '.shadow': {
               position: 'absolute',
               bottom: '50px',
-              right: '200px',
+              right: '125px',
             }
           }}>
             <img className='btc' src="/assets/btc.png" alt="btc" >
