@@ -49,13 +49,18 @@ const Top = () => {
             lineHeight:'1.2',
             fontFamily: 'Hanson',
             textTransform:'uppercase'
+          },
+          '.most': {
+            width: '360px',
+            height:'60px'
           }
         }}>
-          <Box data-aos='fade-down'>
-            <TheMostSvg sx={{
+          <Box data-aos='fade-down' sx={{whiteSpace:'nowrap',display:'flex',alignItems:'center'}}>
+            {/* <TheMostSvg sx={{
               width: '357px',
               height: '35px'
-            }} />
+            }} /> */}
+            <img src="/assets/the_most.svg" className='most' alt="the most" />
             <Typography component='span' className='text' color={'#FFA728'}>&nbsp;Practical</Typography>
           </Box>
           <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
