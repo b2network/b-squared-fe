@@ -49,7 +49,7 @@ const Header = () => {
           </Box>
           <Box
             sx={{
-              display: { xs: 'none', sm: 'inline-flex' },
+              display: { xs: 'none', md: 'inline-flex' },
               background: '#f8f8f8',
               borderRadius: '8px',
               height: '100%',
@@ -62,7 +62,8 @@ const Header = () => {
               background: 'white',
               height: '100%',
               borderRadius: '8px',
-              px: '30px'
+              px: '30px',
+              flex:'1'
             }}
             alignItems='center'>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
