@@ -22,7 +22,7 @@ const Home = () => {
       {/* <ValueMission /> */}
       <Properties />
       <Architecture />
-      <Partner />
+      {/* <Partner /> */}
     </>
   )
 }

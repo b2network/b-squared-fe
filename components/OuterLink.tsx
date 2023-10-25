@@ -4,7 +4,7 @@ import useIsMobile from 'utils/hooks/useIsMobile';
 const LINKS = [
   {
     path: '/assets/icon_twitter.svg',
-    href: '#'
+    href: 'https://twitter.com/BsquaredNetwork'
   },
   {
     path: '/assets/icon_tg.svg',
@@ -29,13 +29,17 @@ const OuterLink = () => {
     }}>
       {
         LINKS.map(item => (
-          <Link href={item.href} key={item.path} sx={{
-            opacity: 0.6,
-            '&:hover': {
-              opacity: 1,
-              cursor: 'not-allowed'
-            }
-          }}>
+          <Link
+            href={item.href}
+            key={item.path}
+            target='_blank'
+            sx={{
+              opacity: 0.6,
+              '&:hover': {
+                opacity: 1,
+                cursor: item.href !== '#' ? 'pointer' : 'not-allowed'
+              }
+            }}>
             <img src={item.path} style={{ width: isMobile ? '20px' : '30px', height: isMobile ? '20px' : '30px' }} alt="href" />
           </Link>
         ))

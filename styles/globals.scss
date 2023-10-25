@@ -38,6 +38,7 @@ a {
   color: #000;
   text-transform: capitalize;
   cursor: pointer;
+  text-transform: uppercase;
   &.active-menu {
     border-bottom: 2px solid #000;
   }

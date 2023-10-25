@@ -63,6 +63,7 @@ const Top = () => {
           <Box
             data-aos='fade-up'
             className='paper'
+            onClick={goLitePaper}
             sx={{
               p: '15px 30px',
               borderRadius: '100px',
@@ -112,6 +113,7 @@ const Top = () => {
         <Box sx={{
           borderRadius: '8px',
           background: 'white',
+          display: {xs:'none',lg:'inline-flex'}
         }}>
           <Box sx={{
             position: 'relative',
