@@ -27,41 +27,39 @@ const Top = () => {
     }}>
       <Box sx={{
         display: 'flex',
-        width:'100%',
+        width: '100%',
         alignItems: 'center',
-        height: '400px',
+        minHeight: '400px',
         maxWidth: '1290px',
         background: 'black',
         p: '1px',
         pt: '2px',
-        gap: '1px'
+        gap: '1px',
+        overflow: 'hidden'
       }}>
         <Box sx={{
-          p: '30px',
-          height: '400px',
+          py: '30px',
+          px: isMobile ? '15px' : '30px',
+          minHeight: '400px',
           background: 'white',
           flex: '1',
           borderRadius: '8px',
           color: '#000',
           '.text': {
-            fontSize:isMobile?'25px':'50px',
+            fontSize: isMobile ? '25px' : '50px',
             fontWeight: '700',
-            lineHeight:'1.2',
+            lineHeight: '1.2',
             fontFamily: 'Hanson',
-            textTransform:'uppercase'
+            textTransform: 'uppercase'
           },
           '.most': {
-            width: '360px',
-            height:'60px'
+            width: isMobile ? '180px' : '360px',
+            height: isMobile ? '30px' : '60px'
           }
         }}>
-          <Box data-aos='fade-down' sx={{whiteSpace:'nowrap',display:'flex',alignItems:'center'}}>
-            {/* <TheMostSvg sx={{
-              width: '357px',
-              height: '35px'
-            }} /> */}
-            <img src="/assets/the_most.svg" className='most' alt="the most" />
-            <Typography component='span' className='text' color={'#FFA728'}>&nbsp;Practical</Typography>
+          <Box data-aos='fade-down' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', mb: isMobile ? '10px' : 0 }}>
+            <img src="/assets/the_most.svg" className='most' alt="the most" />&nbsp;
+            <Typography component='span' className='text' color={'#FFA728'}>Practical</Typography>
           </Box>
           <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
           <Typography data-aos='fade-down' className='text'>Network</Typography>
@@ -81,7 +79,7 @@ const Top = () => {
               justifyContent: 'center',
               alignItems: 'center',
               maxWidth: '226px',
-              mt:'20px',
+              mt: '20px',
               gap: '16px',
               cursor: 'pointer',
               '.arrow': {
@@ -118,12 +116,12 @@ const Top = () => {
         <Box sx={{
           borderRadius: '8px',
           background: 'white',
-          display: {xs:'none',lg:'inline-flex'}
+          display: { xs: 'none', lg: 'inline-flex' }
         }}>
           <Box sx={{
             position: 'relative',
-            width:isMobile?'200px':'400px',
-            height: isMobile?'200px':'400px',
+            width: isMobile ? '200px' : '400px',
+            height: isMobile ? '200px' : '400px',
             background: 'url("/assets/top_bg.svg")',
             backgroundSize: 'cover'
           }}>

@@ -11,9 +11,18 @@ const Layout: NextPage<IProps> = ({ showHeader = true, children }) => {
   const isMobile = useIsMobile();
 
   return (
-    <Box display={'flex'} flexDirection='column'>
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      '.main': {
+        mt: {
+          xs: '74px',
+          sm:'108px'
+        }
+      }
+    }} >
       {showHeader && <Header />}
-      <main style={{marginTop:isMobile?'74px':'108px'}}>{children}</main>
+      <main className='main'>{children}</main>
       <Footer />
     </Box>
   );
