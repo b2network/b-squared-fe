@@ -132,9 +132,16 @@ const Top = () => {
             width: isMobile ? '200px' : '400px',
             height: isMobile ? '200px' : '400px',
             background: 'url("/assets/top_bg.svg")',
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
+            '.shadow': {
+              position: 'absolute',
+              bottom: '50px',
+              right: '200px',
+            }
           }}>
-            <img className='btc' src="/assets/btc.png" alt="btc" />
+            <img className='btc' src="/assets/btc.png" alt="btc" >
+            </img>
+            <img className='shadow shadowAnimation' src="/assets/icon_shadow.svg" alt="" />
           </Box>
         </Box>
       </Box>

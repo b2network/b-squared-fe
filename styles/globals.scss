@@ -81,11 +81,12 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 220px;
   animation: jumpBoxHandler 3s infinite;
 }
-@keyframes jumpBoxHandler { /* css事件 */
+@keyframes jumpBoxHandler {
+  /* css事件 */
   0% {
     transform: translate(-50%, -50%);
   }
@@ -96,4 +97,17 @@ a {
     transform: translate(-50%, -50%);
   }
 }
-
+.shadowAnimation {
+  animation: shadowChange 3s infinite;
+}
+@keyframes shadowChange {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1); /* 可配置跳动方向 */
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
