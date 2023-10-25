@@ -29,7 +29,7 @@ const Top = () => {
         display: 'flex',
         width: '100%',
         alignItems: 'center',
-        minHeight: '400px',
+        minHeight:isMobile?'330px': '400px',
         maxWidth: '1290px',
         background: 'black',
         p: '1px',
@@ -40,7 +40,7 @@ const Top = () => {
         <Box sx={{
           py: '30px',
           px: isMobile ? '15px' : '30px',
-          minHeight: '400px',
+          minHeight: isMobile?'330px': '400px',
           background: 'white',
           flex: '1',
           borderRadius: '8px',

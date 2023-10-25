@@ -27,16 +27,15 @@ const Missions = () => {
           background: 'black',
           p: '1px',
           pt: '2px',
-          gap: '1px',
+          gap: '2px',
           '.item': {
             display: 'flex',
             p: '30px',
             justifyContent: 'space-between',
-            borderRight: isMobile ? 'none' : '1px solid white',
             borderBottom: isMobile ? '1px solid white' : 'none'
           }
         }}>
-        <Box flex={1} className='item'>
+        <Box flex={1} className='item' borderRight={isMobile ? 'none' : '1px solid white'}>
           <Typography flex={1} color={'white'} fontSize={'24px'}>
             Build the most <span style={{ color: '#FFA728' }}>practical</span> Bitcoin layer-2 network
           </Typography>
