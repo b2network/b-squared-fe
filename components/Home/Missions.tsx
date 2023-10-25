@@ -22,7 +22,8 @@ const Missions = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          width: '1290px',
+          flexDirection: isMobile ? 'column' : 'row',
+          maxWidth: '1290px',
           background: 'black',
           p: '1px',
           pt: '2px',
@@ -31,17 +32,18 @@ const Missions = () => {
             display: 'flex',
             p: '30px',
             justifyContent: 'space-between',
-            borderRight: '1px solid white'
+            borderRight: isMobile ? 'none' : '1px solid white',
+            borderBottom: isMobile ? '1px solid white' : 'none'
           }
         }}>
         <Box flex={1} className='item'>
           <Typography flex={1} color={'white'} fontSize={'24px'}>
-            Build the most <span style={{color:'#FFA728'}}>practical</span> Bitcoin layer-2 network
+            Build the most <span style={{ color: '#FFA728' }}>practical</span> Bitcoin layer-2 network
           </Typography>
           <MissionIcon2 sx={{ width: '140px', height: '140px' }} />
         </Box>
         <Box flex={1} className='item'>
-          <Typography fontSize={'24px'}>Bring builder <span style={{color:'#FFA728'}}>culture</span> back to the Bitcoin ecosystem</Typography>
+          <Typography fontSize={'24px'}>Bring builder <span style={{ color: '#FFA728' }}>culture</span> back to the Bitcoin ecosystem</Typography>
           <MissionIcon1 sx={{ width: '124px', height: '140px' }} />
         </Box>
       </Box>
