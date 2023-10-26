@@ -40,7 +40,7 @@ const Header = () => {
           alignItems: 'center',
           boxShadow: 'none'
         }}>
-        <Toolbar sx={{ display: 'flex', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '108px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '100px' }, justifyContent: 'space-between' }}>
           <Box
             sx={{ cursor: 'pointer', px: '30px', ml: 0, background: {xs:'black',sm:'white'}, borderRadius: '8px', height: '100%' }}
             display='inline-flex'

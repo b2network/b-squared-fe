@@ -17,7 +17,7 @@ const Layout: NextPage<IProps> = ({ showHeader = true, children }) => {
       '.main': {
         mt: {
           xs: '74px',
-          sm:'108px'
+          sm:'100px'
         }
       }
     }} >
