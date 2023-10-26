@@ -63,7 +63,7 @@ const Top = () => {
             <Typography component='span' className='text' color={'#FFA728'}>
               <Typewriter
                 options={{
-                  strings: ['PRACRICAL'],
+                  strings: ['PRACTICAL'],
                   autoStart: true,
                   loop: true,
                   delay: 200,
