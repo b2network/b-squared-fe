@@ -8,10 +8,10 @@ const LINKS = [
   },
   {
     path: '/assets/icon_tg.svg',
-    href: '#'
+    href: 'https://t.me/bsquared_chat'
   }, {
     path: '/assets/icon_discord.svg',
-    href: '#'
+    href: 'https://www.discord.gg/bsquarednetwork'
   },
   {
     path: '/assets/icon_github.svg',
