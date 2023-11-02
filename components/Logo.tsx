@@ -14,14 +14,10 @@ type Iprops = {
 }
 const Logo: React.FC<Iprops> = ({ color = '#000' }) => {
   const isMobile = useIsMobile();
-
   return (
     <Link href='/' passHref >
       {
-        isMobile ? <img style={{ width: isMobile ? '32px' : '48px' }} src='/assets/logo.svg' alt='logo' /> : <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <img style={{ width: '48px' }} src='/assets/logo.svg' alt='logo' />
-          <LogoText sx={{width:'139px',height:'30px',ml:'20px'}} />
-        </Box>
+        <img style={{ width: isMobile ? '100px' : '196px' }} src={isMobile && color === '#fff' ? '/assets/logo_white.svg' : '/assets/logo.svg'} alt='logo' />
       }
     </Link>
   )

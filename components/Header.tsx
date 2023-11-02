@@ -11,6 +11,7 @@ import {
   Drawer,
   Button,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 import { Search, Menu as MenuIcon, Close } from '@mui/icons-material';
 import useIsMobile from 'utils/hooks/useIsMobile';
@@ -19,7 +20,9 @@ import NiceModal from '@ebay/nice-modal-react';
 import ComingDialog from './Modals/ComingSoon';
 
 const Header = () => {
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
+  const isXs = useMediaQuery('(max-width:600px)');
+
   const [menuOpen, setMenuOpen] = useState(false);
   const showComingDialog = () => {
     NiceModal.show(ComingDialog)
@@ -42,10 +45,10 @@ const Header = () => {
         }}>
         <Toolbar sx={{ display: 'flex', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '100px' }, justifyContent: 'space-between' }}>
           <Box
-            sx={{ cursor: 'pointer', px: '30px', ml: 0, background: {xs:'black',sm:'white'}, borderRadius: '8px', height: '100%' }}
+            sx={{ cursor: 'pointer', px: isMobile?'20px':'30px', ml: 0, background: { xs: 'black', sm: 'white' }, borderRadius: '8px', height: '100%' }}
             display='inline-flex'
             alignItems='center'>
-            <Logo color='#000' />
+            <Logo color={isXs ? '#fff' : '#000'} />
           </Box>
           <Box
             sx={{
@@ -63,7 +66,7 @@ const Header = () => {
               height: '100%',
               borderRadius: '8px',
               px: '30px',
-              flex:'1'
+              flex: '1'
             }}
             alignItems='center'>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
