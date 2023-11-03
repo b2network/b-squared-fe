@@ -106,7 +106,7 @@ const Header = () => {
       <Drawer anchor='right' open={menuOpen} onClose={() => setMenuOpen(false)}>
         <List sx={{ width: '100vw', boxSizing: 'border-box' }} >
           <ListItem sx={{ justifyContent: 'space-between' }} onClick={() => setMenuOpen(false)}>
-            <img src="/assets/logo.svg" style={{ width: '76px' }} alt="logo" />
+          <Logo color={isXs ? '#fff' : '#000'} />
             <IconButton>
               <Close sx={{ fontSize: '24px' }} />
             </IconButton>
