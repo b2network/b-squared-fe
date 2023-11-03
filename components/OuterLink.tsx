@@ -16,6 +16,9 @@ const LINKS = [
   {
     path: '/assets/icon_github.svg',
     href: 'https://github.com/b2network'
+  },{
+    path: '/assets/icon_medium.svg',
+    href: 'https://medium.com/@bsquarednetwork'
   }
 ]
 
