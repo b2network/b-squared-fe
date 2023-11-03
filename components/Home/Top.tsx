@@ -4,12 +4,9 @@ import {
   Grid
 } from '@mui/material';
 import useIsMobile from 'utils/hooks/useIsMobile';
-import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import Typewriter from 'typewriter-effect';
-import ArrowSvg from 'components/SvgIcon/ArrowSvg';
 import BarSvg from 'components/SvgIcon/BarSvg';
 import BarCodeSvg from 'components/SvgIcon/BarCode';
-import TheMostSvg from 'components/SvgIcon/TheMost';
 import EastIcon from '@mui/icons-material/East';
 
 const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
@@ -53,22 +50,33 @@ const Top = () => {
             textTransform: 'uppercase'
           },
           '.most': {
-            width: isMobile ? '180px' : '360px',
-            height: isMobile ? '30px' : '60px',
-            mr: '10px'
+            fontSize: isMobile ? '25px' : '50px',
+            fontWeight: '700',
+            lineHeight: '1.2',
+            fontFamily: 'Hanson',
+            textTransform: 'uppercase',
+            color: 'white',
+            textShadow: '#000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0',
+            WebkitTextStroke: '1px #000'
           }
         }}>
           <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', mb: isMobile ? '10px' : 0 }}>
-            <img src="/assets/the_most.svg" className='most' alt="the most" />
-            <Typography component='span' className='text' color={'#FFA728'}>
+            <Typography className='text' component={'div'} color={'#FFA728'}>
               <Typewriter
                 options={{
-                  strings: ['PRACTICAL'],
-                  autoStart: true,
                   loop: true,
                   delay: 200,
                 }}
-              /></Typography>
+                onInit={(typewriter) => {
+                  typewriter.typeString('<span style="color:white;text-shadow:#000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0">THE MOST</span> PRACTICAL')
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString('<span style="color:white;text-shadow:#000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0">An</span> EVM-COMPATIBLE')
+                    .deleteAll()
+                    .start();
+                }}
+              />
+            </Typography>
           </Box>
           <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
           <Typography data-aos='fade-down' className='text'>Network</Typography>
