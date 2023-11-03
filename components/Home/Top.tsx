@@ -25,7 +25,7 @@ const Top = () => {
       <Box sx={{
         display: 'flex',
         width: '100%',
-        alignItems: 'center',
+        alignItems: 'stretch',
         minHeight: isMobile ? '330px' : '400px',
         maxWidth: '1290px',
         background: 'black',

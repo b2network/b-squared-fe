@@ -41,9 +41,9 @@ const Header = () => {
           backgroundImage: "none",
           justifyContent: 'center',
           alignItems: 'center',
-          boxShadow: 'none'
+          boxShadow: 'none',
         }}>
-        <Toolbar sx={{ display: 'flex', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '100px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex',borderTop:'2px solid #000', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '100px' }, justifyContent: 'space-between' }}>
           <Box
             sx={{ cursor: 'pointer', px: isMobile?'20px':'30px', ml: 0, background: { xs: 'black', sm: 'white' }, borderRadius: '8px', height: '100%' }}
             display='inline-flex'
@@ -65,8 +65,8 @@ const Header = () => {
               background: 'white',
               height: '100%',
               borderRadius: '8px',
-              px: '30px',
-              flex: '1'
+              pl: '15px',
+              pr: '30px',
             }}
             alignItems='center'>
             <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
@@ -83,7 +83,7 @@ const Header = () => {
                 border: '1px solid #000',
                 fontSize: '20px',
                 background: '#000',
-                width: '149px',
+                width:'147px',
                 // wordSpacing: '-5px',
                 // letterSpacing: '-2px',
                 textTransform: 'capitalize',
