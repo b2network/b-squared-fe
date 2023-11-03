@@ -5,7 +5,6 @@ import {
 } from '@mui/material';
 import React, { ReactNode } from 'react';
 import useIsMobile from 'utils/hooks/useIsMobile';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import BulgeSvg from 'components/SvgIcon/BulgeSvg';
 import QuoteSvg, { QuoteEndSvg } from 'components/SvgIcon/QuoteSvg';
 

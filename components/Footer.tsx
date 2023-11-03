@@ -1,8 +1,5 @@
 import { Box, styled, Typography } from '@mui/material';
-import styles from './Footer.module.scss';
-import { Fragment } from 'react';
 import useIsMobile from 'utils/hooks/useIsMobile';
-import { fontSize } from '@mui/system';
 import Logo from './Logo';
 import EmailSender from './Home/EmailSender';
 import OuterLink from './OuterLink';

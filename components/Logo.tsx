@@ -1,14 +1,5 @@
-import {
-  Box,
-  Typography,
-  styled
-} from '@mui/material';
-import Layout from 'components/Layout';
-import { ReactNode } from 'react';
 import useIsMobile from 'utils/hooks/useIsMobile';
-import Image from 'next/image';
 import Link from 'next/link';
-import LogoText from './SvgIcon/LogoText';
 type Iprops = {
   color: string
 }

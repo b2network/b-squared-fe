@@ -2,7 +2,6 @@ import {
   Box,
   Grid,
   Typography,
-  styled,
 } from '@mui/material';
 import React, { ReactNode } from 'react';
 import useIsMobile from 'utils/hooks/useIsMobile';

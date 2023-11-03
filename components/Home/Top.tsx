@@ -1,7 +1,6 @@
 import {
   Box,
   Typography,
-  Grid
 } from '@mui/material';
 import useIsMobile from 'utils/hooks/useIsMobile';
 import Typewriter from 'typewriter-effect';

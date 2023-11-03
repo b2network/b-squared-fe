@@ -1,11 +1,8 @@
 import { Box, Divider, IconButton, InputAdornment, InputBase } from "@mui/material";
-import MarkunreadOutlinedIcon from '@mui/icons-material/MarkunreadOutlined';
-import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import useIsMobile from "utils/hooks/useIsMobile";
 import NiceModal from "@ebay/nice-modal-react";
 import SubscribeDialog from "components/Modals/Subscribe";
 import { useRef } from "react";
-import ArrowSvg from "components/SvgIcon/ArrowSvg";
 import EastIcon from '@mui/icons-material/East';
 
 const EmailSender = () => {

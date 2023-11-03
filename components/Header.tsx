@@ -9,7 +9,6 @@ import {
   ListItemText,
   ListItemButton,
   Drawer,
-  Button,
   Typography,
   useMediaQuery,
 } from '@mui/material';
