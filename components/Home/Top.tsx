@@ -43,14 +43,14 @@ const Top = () => {
           borderRadius: '8px',
           color: '#000',
           '.text': {
-            fontSize: isMobile ? '25px' : '50px',
+            fontSize: isMobile ? '23px' : '46px',
             fontWeight: '700',
             lineHeight: '1.2',
             fontFamily: 'Hanson',
             textTransform: 'uppercase'
           },
           '.most': {
-            fontSize: isMobile ? '25px' : '50px',
+            fontSize: isMobile ? '23px' : '46px',
             fontWeight: '700',
             lineHeight: '1.2',
             fontFamily: 'Hanson',
@@ -61,7 +61,7 @@ const Top = () => {
           }
         }}>
           <Box data-aos='fade-down' sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', mb: isMobile ? '10px' : 0 }}>
-            <Typography className='text' component={'div'} color={'#FFA728'}>
+            <Typography className='text' component={'div'} color={'#FFA728'} sx={{whiteSpace:'nowrap',overflow:'hidden'}}>
               <Typewriter
                 options={{
                   loop: true,
@@ -72,6 +72,7 @@ const Top = () => {
                     .pauseFor(1000)
                     .deleteAll()
                     .typeString('<span style="color:white;text-shadow:#000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0">An</span> EVM-COMPATIBLE')
+                    .pauseFor(1000)
                     .deleteAll()
                     .start();
                 }}
