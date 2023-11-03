@@ -97,8 +97,9 @@ const Top = () => {
               alignItems: 'center',
               maxWidth: '226px',
               mt: '20px',
-              gap: '16px',
               cursor: 'pointer',
+              flexWrap:'nowrap',
+              whiteSpace:'nowrap',
               '.arrow': {
                 ml: '16px',
                 color: 'black'
