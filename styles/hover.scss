@@ -44,18 +44,14 @@
 
 .hvr-sweep-to-right {
   color: white;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
-  -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  background: #000,
 }
-
+// background: #FFA728;
 .hvr-sweep-to-right:before {
   content: "";
   position: absolute;
@@ -64,40 +60,28 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #FFA728;
-  border-radius: 9999px;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 0 50%;
-  transform-origin: 0 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 50%,rgba(255,167,40,1) 50%);
+  background-size: 210% 100%;
+  background-position: right bottom;
+  height: 100%;
+  width: 100%;
+  transition: all 1s;
+  border-radius: 100px
 }
 .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
   color: black;
 }
 .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
+  background-position: left bottom;
 }
 
 
 .paper {
   color: black;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  background: #fff8ee,
 }
 
 .paper:before {
@@ -108,25 +92,20 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: black;
-  border-radius: 9999px;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 0 50%;
-  transform-origin: 0 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 50%,rgba(0,0,0,1) 50%);
+  background-size: 210% 100%;
+  background-position: right bottom;
+  height: 100%;
+  width: 100%;
+  transition: all 1s;
+  border-radius: 100px
 }
 .paper:hover, .paper:focus, .paper:active {
   color: white;
+  transition: all 1s;
 }
 .paper:hover:before, .paper:focus:before, .paper:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
+  background-position: left bottom;
 }
 
 .hvr-grow {
