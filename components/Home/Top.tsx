@@ -90,7 +90,6 @@ const Top = () => {
               fontFamily: 'Titillium Web',
               fontSize: '24px',
               fontWeight: 700,
-              background: '#fff8ee',
               border: '1px solid #000',
               display: 'flex',
               justifyContent: 'center',
