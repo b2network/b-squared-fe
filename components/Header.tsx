@@ -17,14 +17,35 @@ import useIsMobile from 'utils/hooks/useIsMobile';
 import Logo from './Logo';
 import NiceModal from '@ebay/nice-modal-react';
 import ComingDialog from './Modals/ComingSoon';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   const isMobile = useIsMobile();
   const isXs = useMediaQuery('(max-width:600px)');
-
+  const router = useRouter();
+  console.log(router, 'router')
+  const Links = [
+    {
+      name: 'Build',
+      path: ''
+    }, {
+      name: 'Ecosystem',
+      path: ''
+    }, {
+      name: 'Bridge',
+      path: '/bridge'
+    },
+  ]
   const [menuOpen, setMenuOpen] = useState(false);
   const showComingDialog = () => {
     NiceModal.show(ComingDialog)
+  }
+  const onClickMenu = (path: string) => {
+    if (path) {
+      router.push(path);
+      return
+    }
+    showComingDialog()
   }
   const goFooter = () => {
     let anchorElement = document.getElementById('contact');
@@ -42,9 +63,9 @@ const Header = () => {
           alignItems: 'center',
           boxShadow: 'none',
         }}>
-        <Toolbar sx={{ display: 'flex',borderTop:'2px solid #000', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '100px' }, justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: 'flex', borderTop: '2px solid #000', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '100px' }, justifyContent: 'space-between' }}>
           <Box
-            sx={{ cursor: 'pointer', px: isMobile?'20px':'30px', ml: 0, background: { xs: 'black', sm: 'white' }, borderRadius: '8px', height: '100%' }}
+            sx={{ cursor: 'pointer', px: isMobile ? '20px' : '30px', ml: 0, background: { xs: 'black', sm: 'white' }, borderRadius: '8px', height: '100%' }}
             display='inline-flex'
             alignItems='center'>
             <Logo color={isXs ? '#fff' : '#000'} />
@@ -68,9 +89,30 @@ const Header = () => {
               pr: '30px',
             }}
             alignItems='center'>
-            <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Build</Typography>
-            <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Ecosystem</Typography>
-            <Typography sx={{ mx: '15px' }} onClick={showComingDialog} className='default-menu hvr-grow' >Bridge</Typography>
+
+            {
+              Links.map(link => {
+                const active = router.pathname === link.path;
+                return (
+                  <Typography key={link.name} sx={{
+                    mx: '15px',
+                    fontWeight: active ? '700' : '400',
+                    '&:before': {
+                      content: '""',
+                      display: active ? 'inline-block' : 'none',
+                      verticalAlign: 'middle',
+                      mr: '5px',
+                      width: '5px',
+                      height: '5px',
+                      borderRadius: '10px',
+                      background: '#000',
+                    }
+                  }} onClick={() => {
+                    onClickMenu(link.path)
+                  }} className='default-menu hvr-grow' >{link.name}</Typography>
+                )
+              })
+            }
             <Box
               className='hvr-sweep-to-right'
               onClick={goFooter}
@@ -81,7 +123,7 @@ const Header = () => {
                 textAlign: 'center',
                 // border: '1px solid #000',
                 fontSize: '20px',
-                width:'147px',
+                width: '147px',
                 // wordSpacing: '-5px',
                 // letterSpacing: '-2px',
                 textTransform: 'capitalize',
@@ -104,26 +146,25 @@ const Header = () => {
       <Drawer anchor='right' open={menuOpen} onClose={() => setMenuOpen(false)}>
         <List sx={{ width: '100vw', boxSizing: 'border-box' }} >
           <ListItem sx={{ justifyContent: 'space-between' }} onClick={() => setMenuOpen(false)}>
-          <Logo color={isXs ? '#fff' : '#000'} />
+            <Logo color={isXs ? '#fff' : '#000'} />
             <IconButton>
               <Close sx={{ fontSize: '24px' }} />
             </IconButton>
           </ListItem>
-          <ListItemButton onClick={showComingDialog}>
-            <ListItemText
-              primaryTypographyProps={{ fontSize: '16px', fontWeight: 500 }}
-              primary="Build" />
-          </ListItemButton>
-          <ListItemButton onClick={showComingDialog} >
-            <ListItemText
-              primaryTypographyProps={{ fontSize: '16px', fontWeight: 500 }}
-              primary="Ecosystem" />
-          </ListItemButton>
-          <ListItemButton onClick={showComingDialog} >
-            <ListItemText
-              primaryTypographyProps={{ fontSize: '16px', fontWeight: 500 }}
-              primary="Bridge" />
-          </ListItemButton>
+          {
+            Links.map(item => {
+              const isActive = router.pathname === item.path
+              return (
+                <ListItemButton key={item.name} onClick={() => {
+                  onClickMenu(item.path)
+                }}>
+                  <ListItemText
+                    primaryTypographyProps={{ fontSize: '16px', fontWeight: isActive ? 700 : 500 }}
+                    primary={item.name} />
+                </ListItemButton>
+              )
+            })
+          }
         </List>
       </Drawer>
     </>
