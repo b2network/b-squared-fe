@@ -26,9 +26,9 @@ const PropertieItem: React.FC<ItemProps> = ({ title, content, num }) => {
   }}>
     <Box fontSize={'36px'}>{num}</Box>
     <Typography fontSize={'24px'} fontWeight={700} my={'15px'}>{title}</Typography>
-    <Box>
+    <Box >
       {
-        content.map(item => <Typography key={item}>{item}</Typography>)
+        content.map(item => <Typography mb={'10px'} key={item}>{item}</Typography>)
       }
     </Box>
   </Box>
@@ -38,28 +38,28 @@ const PropertyArr: ItemProps[] = [
   {
     title: 'Fast & Cheap',
     content: [
-      '· Over 50X cheaper and 300X faster than the Bitcoin network'
+      'Over 50X cheaper and 300X faster than the Bitcoin network'
     ],
     num: '01'
   }, {
     title: 'Asset Security',
     content: [
-      '·  Carry the security level of Bitcoin network',
-      '·  Ensure the safety of your assets with Bitcoin POW (L1) and Zero-Knowledge Proof (L2)'
+      'Carry the security level of Bitcoin network',
+      'Ensure the safety of your assets with Bitcoin POW (L1) and Zero-Knowledge Proof (L2)'
     ],
     num: '02'
   }, {
     title: 'Seamless Access',
     content: [
-      '·  Use Metamask, Unisat, OKX wallet to interact with B², just like you normally would',
-      '·  Access B² using your original BTC (bc1p…) or ETH (0x…) addresses with the help of account abstraction'
+      'Use Metamask, Unisat, OKX wallet to interact with B², just like you normally would',
+      'Access B² using your original BTC (bc1p…) or ETH (0x…) addresses with the help of account abstraction'
     ],
     num: '03'
   }, {
     title: 'Easy to Construct and Migrate Dapps',
     content: [
-      '·  Revitalize over $526 billion Bitcoin assets, responding to the demands of Bitcoin users and miners.',
-      '·  Operate various assets on the Bitcoin chain (BTC, BRC20, ordinals…), you name it.'
+      'Revitalize over $526 billion Bitcoin assets, responding to the demands of Bitcoin users and miners.',
+      'Operate various assets on the Bitcoin chain (BTC, BRC20, ordinals…), you name it.'
     ],
     num: '04'
   },
