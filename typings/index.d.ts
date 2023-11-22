@@ -7,7 +7,6 @@ type Provider =
 
 interface Window {
   ethereum: Provider;
-  BinanceChain: Provider;
-  web3: Provider;
-  celo: Provider;
+  unisat: any;
+  okxwallet: any
 }

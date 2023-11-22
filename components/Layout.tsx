@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
-import {  Box } from '@mui/material';
+import { Box } from '@mui/material';
 
 import Header from './Header';
 import Footer from './Footer';
 
-type IProps = { showHeader?: boolean };
+type IProps = { showHeader?: boolean, showFooter?: boolean };
 
-const Layout: NextPage<IProps> = ({ showHeader = true, children }) => {
+const Layout: NextPage<IProps> = ({ showHeader = true, showFooter = true, children }) => {
 
   return (
     <Box sx={{
@@ -15,13 +15,15 @@ const Layout: NextPage<IProps> = ({ showHeader = true, children }) => {
       '.main': {
         mt: {
           xs: '74px',
-          sm:'100px'
+          sm: '100px'
         }
       }
     }} >
       {showHeader && <Header />}
       <main className='main'>{children}</main>
-      <Footer />
+      {
+        showFooter && <Footer />
+      }
     </Box>
   );
 };

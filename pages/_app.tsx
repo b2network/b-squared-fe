@@ -10,6 +10,7 @@ import AOS from "aos";
 import NiceModal from '@ebay/nice-modal-react';
 import "aos/dist/aos.css";
 import '../styles/globals.scss'
+import { BtcProvider } from 'wallet';
 
 const customTheme = createTheme({
   palette: { mode: 'dark' },
@@ -34,25 +35,26 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = (
     AOS.refresh();
   }, []);
   return (
-
-    <ThemeProvider theme={customTheme}>
-      <NiceModal.Provider>
-        {getLayout(
-          <>
-            <Head>
-              <title>B² Network</title>
-              <meta
-                name='viewport'
-                content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover'
-              />
-            </Head>
-            <CssBaseline />
-            <NextNProgress />
-            <Component {...pageProps} />
-          </>,
-        )}
-      </NiceModal.Provider>
-    </ThemeProvider>
+    <BtcProvider>
+      <ThemeProvider theme={customTheme}>
+        <NiceModal.Provider>
+          {getLayout(
+            <>
+              <Head>
+                <title>B² Network</title>
+                <meta
+                  name='viewport'
+                  content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover'
+                />
+              </Head>
+              <CssBaseline />
+              <NextNProgress />
+              <Component {...pageProps} />
+            </>,
+          )}
+        </NiceModal.Provider>
+      </ThemeProvider>
+    </BtcProvider>
   );
 };
 
