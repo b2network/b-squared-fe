@@ -1,5 +1,5 @@
 import { Box, Divider, IconButton, InputAdornment, InputBase } from "@mui/material";
-import useIsMobile from "utils/hooks/useIsMobile";
+import useIsMobile from "hooks/useIsMobile";
 import NiceModal from "@ebay/nice-modal-react";
 import SubscribeDialog from "components/Modals/Subscribe";
 import { useRef } from "react";

@@ -2,7 +2,7 @@ import React from 'react';
 import NiceModal, { useModal } from '@ebay/nice-modal-react';
 import { Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Transition = React.forwardRef(function Transition(

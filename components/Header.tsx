@@ -13,7 +13,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import { Search, Menu as MenuIcon, Close } from '@mui/icons-material';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import Logo from './Logo';
 import NiceModal from '@ebay/nice-modal-react';
 import ComingDialog from './Modals/ComingSoon';

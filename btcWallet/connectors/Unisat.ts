@@ -44,6 +44,7 @@ export class UnisatConnector implements Connector {
       }
 
       const accounts: string[] = await provider.requestAccounts()
+      await provider.switchNetwork('testnet')
       const publicKey: string = await provider.getPublicKey()
       const network: Network = await provider.getNetwork()
 

@@ -5,7 +5,7 @@ import {
   useMediaQuery
 } from '@mui/material';
 import { ReactNode, useEffect, useMemo } from 'react';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 

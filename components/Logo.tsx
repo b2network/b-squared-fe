@@ -1,4 +1,4 @@
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import Link from 'next/link';
 type Iprops = {
   color: string

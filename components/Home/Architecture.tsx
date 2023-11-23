@@ -2,7 +2,7 @@ import {
   Box,
   Typography,
 } from '@mui/material';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 
 const Architecture = () => {
   const isMobile = useIsMobile();

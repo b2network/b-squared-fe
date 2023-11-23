@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NiceModal, { useModal } from '@ebay/nice-modal-react';
-import { Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from '@mui/material';
+import { Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Typography, InputBase } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import useIsMobile from 'hooks/useIsMobile';
 import CloseIcon from '@mui/icons-material/Close';
@@ -12,9 +12,15 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-const SubscribeDialog = NiceModal.create(() => {
+
+const AddressEditDialog = NiceModal.create(() => {
   const modal = useModal();
   const isMobile = useIsMobile()
+  const [address, setAddress] = useState('')
+  const handleConfirm = () => {
+    modal.resolve({ address })
+    modal.hide()
+  }
   return (
     <Dialog
       TransitionComponent={Transition}
@@ -31,29 +37,40 @@ const SubscribeDialog = NiceModal.create(() => {
         },
       }}
     >
-      <DialogTitle sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <CloseIcon onClick={() => modal.hide()} sx={{ color: 'black', cursor: 'pointer' }} />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img style={{ width: isMobile ? '100%' : '280px' }} src="/assets/subscribe.svg" alt="coming" />
-        <DialogContentText fontSize={'20px'} color={'#000'} mt={'20px'} id="alert-dialog-slide-description">
-          thank you for subscribing!
-        </DialogContentText>
+        <Typography width={'100%'} textAlign={'left'}>Address</Typography>
+        <InputBase
+          value={address}
+          onChange={(e) => { setAddress(e.target.value) }}
+          sx={{
+            border: '1px solid black',
+            height: '48px',
+            pl: '16px',
+            width: "100%"
+          }} />
       </DialogContent>
       <DialogActions sx={{
         display: 'flex',
         justifyContent: 'center',
         mb: '20px'
       }}>
-        <Button className='hvr-bounce-to-right' sx={{ background: '#000', color: 'white',width:'140px',borderRadius:'70px' }} onClick={() => modal.hide()} color="primary">
-          ok
+        <Button sx={{
+          background: '#000', color: 'white', width: '140px', borderRadius: '70px',
+          '&:hover': {
+            background:'black'
+          }
+        }} onClick={handleConfirm} color="primary">
+          Comfirm
         </Button>
       </DialogActions>
     </Dialog>
   );
 });
 
-export default SubscribeDialog;
+export default AddressEditDialog;
 
 
 

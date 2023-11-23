@@ -5,7 +5,7 @@ import {
   styled,
 } from '@mui/material';
 import React, { ReactNode } from 'react';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import MissionIcon1 from 'components/SvgIcon/MissionIcon1';
 import MissionIcon2 from 'components/SvgIcon/MissionIcon2';
 

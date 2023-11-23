@@ -4,7 +4,7 @@ import {
   styled,
 } from '@mui/material';
 import React, { ReactNode } from 'react';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import BulgeSvg from 'components/SvgIcon/BulgeSvg';
 import QuoteSvg, { QuoteEndSvg } from 'components/SvgIcon/QuoteSvg';
 

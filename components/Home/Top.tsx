@@ -2,7 +2,7 @@ import {
   Box,
   Typography,
 } from '@mui/material';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import Typewriter from 'typewriter-effect';
 import BarSvg from 'components/SvgIcon/BarSvg';
 import BarCodeSvg from 'components/SvgIcon/BarCode';

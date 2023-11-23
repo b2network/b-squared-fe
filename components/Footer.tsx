@@ -1,5 +1,5 @@
 import { Box, styled, Typography } from '@mui/material';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 import Logo from './Logo';
 import EmailSender from './Home/EmailSender';
 import OuterLink from './OuterLink';

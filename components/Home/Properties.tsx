@@ -4,7 +4,7 @@ import {
   Typography,
 } from '@mui/material';
 import React, { ReactNode } from 'react';
-import useIsMobile from 'utils/hooks/useIsMobile';
+import useIsMobile from 'hooks/useIsMobile';
 
 type ItemProps = {
   title: string,
