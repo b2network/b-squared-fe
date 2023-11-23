@@ -1,11 +1,12 @@
 import { Box, Typography } from "@mui/material"
-import { shorterAddres } from "utils"
+import { shorterAddress } from "utils"
 
 type Iprops = {
-  defaultTo: string
+  defaultTo: string,
+  amount: string
 }
 
-const DepositTo: React.FC<Iprops> = ({defaultTo}) => {
+const DepositTo: React.FC<Iprops> = ({defaultTo,amount}) => {
   return (
     <Box sx={{
       p: '24px',
@@ -24,14 +25,14 @@ const DepositTo: React.FC<Iprops> = ({defaultTo}) => {
         To  <img className="logo" src="/assets/logo.svg" alt='logo'></img>
       </Box>
       <Box display={'flex'} alignItems={'center'}>
-        <Box>send to address: {shorterAddres(defaultTo)}</Box>
+        <Box>send to address: {shorterAddress(defaultTo)}</Box>
         <Box sx={{
           textDecoration: 'underline',
           color: '#FFA728',
           ml: '10px'
         }}>Edit</Box>
       </Box>
-      <Box>you will receive: 0.0 BTC</Box>
+      <Box>you will receive: {amount} BTC</Box>
       <Box>gas fee:  0.0 BTC</Box>
     </Box>
   )

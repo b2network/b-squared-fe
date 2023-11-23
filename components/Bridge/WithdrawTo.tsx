@@ -1,14 +1,15 @@
 import NiceModal from "@ebay/nice-modal-react"
 import { Box, MenuItem, Select, Typography } from "@mui/material"
 import AddressEditDialog from "components/Modals/AddressEdit"
-import { shorterAddres } from "utils"
+import { shorterAddress } from "utils"
 
 type Iprops = {
   to: string,
   setTo: (val: string) => void
+  amount: string
 }
 
-const WithdrawTo: React.FC<Iprops> = ({ to, setTo }) => {
+const WithdrawTo: React.FC<Iprops> = ({ to, setTo,amount }) => {
 
   const handleEdit = () => {
     NiceModal.show(AddressEditDialog).then((res: any) => {
@@ -43,7 +44,7 @@ const WithdrawTo: React.FC<Iprops> = ({ to, setTo }) => {
         </Select>
       </Box>
       <Box display={'flex'} alignItems={'center'}>
-        <Box>send to address: {shorterAddres(to)}</Box>
+        <Box>send to address: {shorterAddress(to)}</Box>
         <Box
           onClick={handleEdit}
           sx={{
@@ -53,7 +54,7 @@ const WithdrawTo: React.FC<Iprops> = ({ to, setTo }) => {
             cursor: 'pointer'
           }}>Edit</Box>
       </Box>
-      <Box>you will receive: 0.0 BTC</Box>
+      <Box>you will receive: {amount} BTC</Box>
       <Box>gas fee:  0.0 BTC</Box>
     </Box>
   )

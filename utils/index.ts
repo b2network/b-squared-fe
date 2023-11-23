@@ -9,12 +9,16 @@ export function numFormat(num: number | string | undefined) {
 
 export const isDev = process.env.NODE_ENV === 'development';
 
-export const shorterAddres = (addr:string) => {
+export const shorterAddress = (addr:string) => {
   if (addr) {
     return addr.slice(0,6)+'...'+addr.slice(-4)
   }
   return ''
 }
+
+export const parseBtcAmount = (amount: string) => {
+  return Number(amount)*(10**8)
+ }
 
 
 const addNetwork = () => {

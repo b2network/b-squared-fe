@@ -2,13 +2,13 @@ import { Box, Button, InputBase, MenuItem, Select, SelectChangeEvent, Typography
 import { useEffect, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import { useAccount, useBalance, useChainId, useNetwork } from "wagmi";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import WithdrawTo from "./WithdrawTo";
-import { shorterAddres } from "utils";
 import { useBrigeContract, useErc20Contract } from "hooks/useContract";
 import { useEthersProvider } from "hooks/useEthersProvider";
 import { ethers } from "ethers";
 import { useEthersSigner } from "hooks/useEthersSigner";
+import ConnectButtonLocal from "components/ConnectButtonLocal";
+import * as bridgeStore from 'stores/bridgeStore'
 
 const Withdraw = () => {
   const { isConnected, address } = useAccount()
@@ -17,17 +17,16 @@ const Withdraw = () => {
   const signer = useEthersSigner({ chainId })
   const bridgeContract = useBrigeContract(signer)
   const tokenContract = useErc20Contract(provider)
-  const localTo  =  localStorage.getItem('btcAccount') || ''
+  const localTo = localStorage.getItem('btcAccount') || ''
   const [from, setFrom] = useState('btc')
-  const [to,setTo] = useState(localTo)
-  const [amount,setAmount] = useState('')
+  const [to, setTo] = useState(localTo)
+  const [amount, setAmount] = useState('')
   const [balance, setBalance] = useState('')
-  console.log(address, 'addre')
   const getBalance = async () => {
     try {
       const res = await tokenContract?.balanceOf(address)
-      setBalance(ethers.utils.formatUnits(res,8))
-      console.log(ethers.utils.formatUnits(res,8), 'balance-res')
+      setBalance(ethers.utils.formatUnits(res, 6))
+      console.log(ethers.utils.formatUnits(res, 6), 'balance-res')
     } catch (error) {
       console.log(error, 'err')
     }
@@ -37,12 +36,26 @@ const Withdraw = () => {
     setFrom(e.target.value)
   }
 
-  const withdraw = async() => {
+  const withdraw = async () => {
     if (signer && bridgeContract) {
-      console.log(to,amount,'to,amount')
-      const tx = await bridgeContract.withdraw(to, amount)
-      const res = await tx.wait()
-      console.log(res,'tx')
+      console.log(to, amount, 'to,amount')
+      try {
+        bridgeStore.setShowResult(true);
+        bridgeStore.setStatus('pendding');
+        bridgeStore.setResult({
+          fromChain: 'B² Network',
+          toChain: 'Bitcoin',
+          toAddress: to,
+          amount: amount
+        })
+        const tx = await bridgeContract.withdraw(to, amount)
+        const res = await tx.wait()
+        bridgeStore.setStatus(res.status===1?'success':'failed');
+      } catch (error) {
+        console.log(error)
+        bridgeStore.setStatus('failed')
+      }
+
     }
   }
 
@@ -69,12 +82,13 @@ const Withdraw = () => {
         </Box>
         <Box mt={'20px'} >
           <InputBase
-            placeholder="amount"
+            placeholder="0.0"
             value={amount}
             onChange={(e) => {
               setAmount(e.target.value)
             }}
             sx={{
+              pl: '12px',
               height: '54px',
               width: '100%',
               borderRadius: '8px',
@@ -101,23 +115,12 @@ const Withdraw = () => {
           fontSize: '18px',
           color: 'rgba(0,0,0,0.65)'
         }}>Balance: {balance}BTC</Box>
-        {
-          // isConnected ? <Box sx={{
-          //   width: '100%',
-          //   textAlign: 'center',
-          //   height: '50px',
-          //   lineHeight: '50px',
-          //   background: '#fef9ed',
-          //   border: '1px solid black',
-          //   borderRadius: '50px'
-          // }}>{shorterAddres(address || '')}</Box> :
-            <ConnectButton />
-        }
+        <ConnectButtonLocal />
       </Box>
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} my={'16px'}>
         <SouthRoundedIcon sx={{ color: 'black' }} />
       </Box>
-      <WithdrawTo setTo={setTo} to={to} />
+      <WithdrawTo setTo={setTo} to={to} amount={amount} />
       <Button
         onClick={withdraw}
         sx={{

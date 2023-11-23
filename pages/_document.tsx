@@ -8,7 +8,7 @@ class AppDocument extends Document {
         <meta name='keywords' content='B² Network' />
         <meta name='description' content='B² Network' />
         <link rel='icon' href='/logo.svg' />
-        {isDev && (
+        {/* {isDev && (
           <>
             <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.9.0/vconsole.min.js"></script>
             <script dangerouslySetInnerHTML={{
@@ -19,7 +19,7 @@ class AppDocument extends Document {
             }}>
             </script>
           </>
-        )}
+        )} */}
       </Head>
       <body>
         <Main />

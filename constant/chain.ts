@@ -3,16 +3,16 @@ import { Chain } from 'wagmi'
 export const B2TestNet = {
   // id: 111111,
   id:1002,
-  name: 'B2ZKEVM',
-  network: 'B2ZKEVM',
+  name: 'B2EVM',
+  network: 'B2EVM',
   nativeCurrency: {
     decimals: 18,
-    name: 'SIBR',
-    symbol: 'SIBR',
+    name: 'BTC',
+    symbol: 'BTC',
   },
   rpcUrls: {
-    public: { http: ['http://43.159.49.76:10002'] },
-    default: { http: ['http://43.159.49.76:10002'] },
+    public: { http: ['http://43.135.203.73:8123'] },
+    default: { http: ['http://43.135.203.73:8123'] },
   },
   blockExplorers: {
     etherscan: { name: 'SnowTrace', url: 'https://snowtrace.io' },
@@ -29,3 +29,4 @@ export const B2TestNet = {
 
 export const TokenContract = '0x58e276ceF25b7f2d4C254A80c5e905BE216bFdc8'
 export const BridgeContract = '0xe985fAc10a575c2721896f69969A801F41c81551'
+export const DepositToAddress = 'tb1qkptdsusxkscavuds2audfc6p67zu3rl0zmn7zu'

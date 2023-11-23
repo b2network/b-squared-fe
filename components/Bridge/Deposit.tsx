@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 import { useBtc } from "btcWallet";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import DepositTo from "./DepositTo";
+import { formatUnits, parseUnits } from "ethers/lib/utils";
+import { parseBtcAmount, shorterAddress } from "utils";
+import * as bridgeStore from 'stores/bridgeStore';
+import { useSnapshot } from "valtio";
+import { DepositToAddress } from "constant";
 
 const Deposit = () => {
-
   const [from, setFrom] = useState('btc')
   const btc = useBtc();
-  console.log(btc, 'btc')
   const [balance, setBalance] = useState('')
+  const [amount, setAmount] = useState('')
   const getBalance = async () => {
     if (btc.provider) {
       const res = await btc.provider.getBalance();
-      console.log(res, 'res')
-      setBalance(res.total)
+      setBalance(formatUnits(res.total, 8))
     }
   }
   useEffect(() => {
@@ -26,6 +29,22 @@ const Deposit = () => {
     setFrom(e.target.value)
   }
 
+  const handleDeposit = async () => {
+    if (btc.address && amount) {
+      localStorage.setItem('btcAccount', btc.address)
+      bridgeStore.setResult({
+        fromChain: 'Bitcion',
+        toChain: 'B² Network',
+        amount: amount,
+        toAddress: btc.address
+      })
+      bridgeStore.setShowResult(true);
+      bridgeStore.setStatus('pendding')
+      let txid = await btc.provider.sendBitcoin(DepositToAddress, parseBtcAmount(amount));
+      console.log(txid)
+      bridgeStore.setStatus('success')
+    }
+  }
   return (
     <Box mt={'24px'}>
       <Box sx={{
@@ -34,6 +53,7 @@ const Deposit = () => {
         border: '1px solid black',
         borderRadius: '8px'
       }}>
+
         <Box display={'flex'} alignItems='center' >
           <Typography component={'span'} mr={'8px'}>From</Typography>
           <Select value={from} onChange={handleFromChange} sx={{ width: '204px', height: '38px' }}>
@@ -52,12 +72,17 @@ const Deposit = () => {
         </Box>
         <Box mt={'20px'} >
           <InputBase
-            placeholder="amount"
+            value={amount}
+            onChange={(e) => {
+              setAmount(e.target.value)
+            }}
+            placeholder="0.0"
             sx={{
               height: '54px',
               width: '100%',
               borderRadius: '8px',
-              border: '1px solid black'
+              border: '1px solid black',
+              pl: '12px'
             }}
             endAdornment={
               <Select value={from} onChange={handleFromChange} sx={{ width: '204px', height: '54px', border: 'none' }}>
@@ -89,7 +114,7 @@ const Deposit = () => {
             background: '#fef9ed',
             border: '1px solid black',
             borderRadius: '50px'
-          }}>{btc.address}</Box> :
+          }}>{shorterAddress(btc.address || '')}</Box> :
             <Button
               onClick={() => {
                 btc.connect('Unisat')
@@ -113,12 +138,10 @@ const Deposit = () => {
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} my={'16px'}>
         <SouthRoundedIcon sx={{ color: 'black' }} />
       </Box>
-      <DepositTo defaultTo={btc.address || ''} />
+      <DepositTo defaultTo={btc.address || ''} amount={amount} />
       <Button
         disabled={!btc.isConnected}
-        onClick={() => {
-          localStorage.setItem('btcAccount', btc.address || '')
-        }}
+        onClick={handleDeposit}
         sx={{
           height: '60px',
           borderRadius: '30px',
@@ -131,6 +154,9 @@ const Deposit = () => {
           fontWeight: 600,
           '&:hover': {
             background: '#000'
+          },
+          "&.Mui-disabled": {
+            color: 'rgba(255,255,255,0.65)'
           }
         }}>Deposit Funds</Button>
     </Box>
