@@ -50,7 +50,7 @@ const Withdraw = () => {
         })
         const tx = await bridgeContract.withdraw(to, amount)
         const res = await tx.wait()
-        bridgeStore.setStatus(res.status===1?'success':'failed');
+        bridgeStore.setStatus(res.status === 1 ? 'success' : 'failed');
       } catch (error) {
         console.log(error)
         bridgeStore.setStatus('failed')
@@ -112,9 +112,15 @@ const Withdraw = () => {
           />
         </Box>
         <Box mt={'12px'} mb='30px' sx={{
+          display: 'flex',
+          alignItems: 'center',
           fontSize: '18px',
           color: 'rgba(0,0,0,0.65)'
-        }}>Balance: {balance}BTC</Box>
+        }}>Balance: {balance}BTC
+          <Box onClick={() => {
+            setAmount(balance)
+          }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
+        </Box>
         <ConnectButtonLocal />
       </Box>
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} my={'16px'}>

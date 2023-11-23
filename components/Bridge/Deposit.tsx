@@ -107,10 +107,15 @@ const Deposit = () => {
             }
           />
         </Box>
-        <Box mt={'12px'} mb='30px' sx={{
-          fontSize: '18px',
-          color: 'rgba(0,0,0,0.65)'
-        }}>Balance: {balance}BTC</Box>
+        <Box mt={'12px'} mb='30px'
+          sx={{
+            display:'flex',
+            fontSize: '18px',
+            color: 'rgba(0,0,0,0.65)'
+          }}>
+          Balance: {balance}BTC
+          {/* <Box onClick={} sx={{color:'#FFA728',textDecoration:'underline',ml:'10px',cursor:'pointer'}}>Max</Box> */}
+        </Box>
         {
           btc.isConnected ? <Box sx={{
             width: '100%',
