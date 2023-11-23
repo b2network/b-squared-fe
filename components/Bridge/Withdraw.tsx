@@ -1,5 +1,5 @@
 import { Box, Button, InputBase, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material"
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import { useAccount, useBalance, useChainId, useNetwork } from "wagmi";
 import WithdrawTo from "./WithdrawTo";
@@ -22,6 +22,12 @@ const Withdraw = () => {
   const [to, setTo] = useState(localTo)
   const [amount, setAmount] = useState('')
   const [balance, setBalance] = useState('')
+  const isInsufficient = useMemo(() => {
+    if (amount && balance) {
+      return Number(amount) > Number(balance)
+    }
+    return false;
+  }, [amount, balance])
   const getBalance = async () => {
     try {
       const res = await tokenContract?.balanceOf(address)
@@ -128,6 +134,7 @@ const Withdraw = () => {
       </Box>
       <WithdrawTo setTo={setTo} to={to} amount={amount} />
       <Button
+        disabled={!isConnected || isInsufficient}
         onClick={withdraw}
         sx={{
           height: '60px',
@@ -141,8 +148,13 @@ const Withdraw = () => {
           fontWeight: 600,
           '&:hover': {
             background: '#000'
+          },
+          "&.Mui-disabled": {
+            color: 'rgba(255,255,255,0.65)'
           }
-        }}>Withdraw Funds</Button>
+        }}>{
+          isInsufficient ? 'Insufficient Balance' : 'Withdraw Funds'
+        }</Button>
     </Box>
   )
 }
