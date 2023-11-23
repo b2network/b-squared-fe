@@ -13,10 +13,10 @@ const Transition = React.forwardRef(function Transition(
 });
 
 
-const AddressEditDialog = NiceModal.create(() => {
+const AddressEditDialog = NiceModal.create(({ defaultAddress }: { defaultAddress: string }) => {
   const modal = useModal();
   const isMobile = useIsMobile()
-  const [address, setAddress] = useState('')
+  const [address, setAddress] = useState(defaultAddress)
   const handleConfirm = () => {
     modal.resolve({ address })
     modal.hide()
@@ -41,13 +41,14 @@ const AddressEditDialog = NiceModal.create(() => {
         <CloseIcon onClick={() => modal.hide()} sx={{ color: 'black', cursor: 'pointer' }} />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography width={'100%'} textAlign={'left'}>Address</Typography>
+        <Typography width={'100%'} textAlign={'left'} fontSize={'20px'} fontWeight={600}>Address</Typography>
         <InputBase
           value={address}
           onChange={(e) => { setAddress(e.target.value) }}
           sx={{
             border: '1px solid black',
             height: '48px',
+            borderRadius: '8px',
             pl: '16px',
             width: "100%"
           }} />
@@ -59,8 +60,9 @@ const AddressEditDialog = NiceModal.create(() => {
       }}>
         <Button sx={{
           background: '#000', color: 'white', width: '140px', borderRadius: '70px',
+          textTransform: 'none',
           '&:hover': {
-            background:'black'
+            background: 'black'
           }
         }} onClick={handleConfirm} color="primary">
           Comfirm

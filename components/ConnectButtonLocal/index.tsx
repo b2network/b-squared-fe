@@ -56,22 +56,22 @@ const ConnectButtonLocal = () => {
                     onClick={openChainModal}
                     sx={{
                       px: '12px',
-                      height: '40px',
-                      background: '#FF494A',
-                      borderRadius: '12px',
+                      background: 'black',
+                      color:'white',
+                      borderRadius: '25px',
                       fontWeight: '700',
-                      color: 'white',
                       textTransform: 'none',
-                      fontSize: '16px',
+                      fontSize: '20px',
+                      height: '50px',
+                      width:'100%',
                       '&:hover': {
-                        background: '#FF494A',
-                        transform: 'scale(1.05)',
+                        background: 'black',
+                        transform: 'scale(1.01)',
                         transition: '0.3s',
                       },
                     }}
-                    endIcon={<ExpandMoreIcon sx={{ fontSize: '20px', fontWeight: 'bold' }} />}
                   >
-                    Wrong network
+                    switch to B² Network
                   </Button>
                 );
               }

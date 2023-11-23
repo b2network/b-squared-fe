@@ -12,7 +12,7 @@ type Iprops = {
 const WithdrawTo: React.FC<Iprops> = ({ to, setTo,amount }) => {
 
   const handleEdit = () => {
-    NiceModal.show(AddressEditDialog).then((res: any) => {
+    NiceModal.show(AddressEditDialog, {defaultAddress:to}).then((res: any) => {
       // console.log(res, 'modal-res')
       setTo(res.address)
     })

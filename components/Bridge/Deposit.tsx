@@ -104,7 +104,7 @@ const Deposit = () => {
         <Box mt={'12px'} mb='30px' sx={{
           fontSize: '18px',
           color: 'rgba(0,0,0,0.65)'
-        }}>Balance: {balance}</Box>
+        }}>Balance: {balance}BTC</Box>
         {
           btc.isConnected ? <Box sx={{
             width: '100%',
