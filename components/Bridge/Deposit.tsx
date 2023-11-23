@@ -1,19 +1,25 @@
 import { Box, Button, InputBase, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material"
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useBtc } from "btcWallet";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import DepositTo from "./DepositTo";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import { parseBtcAmount, shorterAddress } from "utils";
 import * as bridgeStore from 'stores/bridgeStore';
-import { useSnapshot } from "valtio";
 import { DepositToAddress } from "constant";
+
 
 const Deposit = () => {
   const [from, setFrom] = useState('btc')
   const btc = useBtc();
   const [balance, setBalance] = useState('')
   const [amount, setAmount] = useState('')
+  const isInsufficient = useMemo(() => {
+    if (amount && balance) {
+      return Number(amount) > Number(balance)
+    }
+    return false;
+  }, [amount, balance])
   const getBalance = async () => {
     if (btc.provider) {
       const res = await btc.provider.getBalance();
@@ -140,7 +146,7 @@ const Deposit = () => {
       </Box>
       <DepositTo defaultTo={btc.address || ''} amount={amount} />
       <Button
-        disabled={!btc.isConnected}
+        disabled={!btc.isConnected || isInsufficient}
         onClick={handleDeposit}
         sx={{
           height: '60px',
@@ -158,7 +164,7 @@ const Deposit = () => {
           "&.Mui-disabled": {
             color: 'rgba(255,255,255,0.65)'
           }
-        }}>Deposit Funds</Button>
+        }}>{isInsufficient ? 'Insufficient Balance' : 'Deposit Funds'}</Button>
     </Box>
   )
 }
