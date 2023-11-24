@@ -3,10 +3,10 @@ import { useEffect, useMemo, useState } from "react";
 import { useBtc } from "btcWallet";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import DepositTo from "./DepositTo";
-import { formatUnits, parseUnits } from "ethers/lib/utils";
 import { parseBtcAmount, shorterAddress } from "utils";
 import * as bridgeStore from 'stores/bridgeStore';
 import { DepositToAddress } from "constant";
+import { formatUnits } from "ethers";
 
 
 const Deposit = () => {

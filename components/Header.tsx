@@ -23,7 +23,6 @@ const Header = () => {
   const isMobile = useIsMobile();
   const isXs = useMediaQuery('(max-width:600px)');
   const router = useRouter();
-  console.log(router, 'router')
   const Links = [
     {
       name: 'Build',

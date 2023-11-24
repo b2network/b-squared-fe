@@ -198,12 +198,12 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "to_address",
+				"name": "b2_to_address",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "amount",
+				"name": "btc_amount",
 				"type": "uint256"
 			}
 		],
@@ -347,5 +347,9 @@
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
 	}
 ]

@@ -3,8 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import { useAccount, useBalance, useChainId, useFeeData, useNetwork } from "wagmi";
 import WithdrawTo from "./WithdrawTo";
-import { useBrigeContract } from "hooks/useContract";
-import { ethers } from "ethers";
+import { getBrigeContract } from "hooks/bridgeContract";
+import { ethers, parseUnits } from "ethers";
 import { useEthersSigner } from "hooks/useEthersSigner";
 import ConnectButtonLocal from "components/ConnectButtonLocal";
 import * as bridgeStore from 'stores/bridgeStore'
@@ -13,7 +13,6 @@ const Withdraw = () => {
   const { isConnected, address } = useAccount()
   const chainId = useChainId()
   const signer = useEthersSigner({ chainId })
-  const bridgeContract = useBrigeContract(signer)
   const fee = useFeeData()
   const localTo = localStorage.getItem('btcAccount') || ''
   const [from, setFrom] = useState('btc')
@@ -31,6 +30,8 @@ const Withdraw = () => {
     setFrom(e.target.value)
   }
   const withdraw = async () => {
+    const bridgeContract = getBrigeContract(signer)
+    console.log(bridgeContract,'bc')
     if (signer && bridgeContract) {
       try {
         bridgeStore.setShowResult(true);
@@ -41,7 +42,7 @@ const Withdraw = () => {
           toAddress: to,
           amount: amount
         })
-        const tx = await bridgeContract.withdraw(to, { value: ethers.utils.parseUnits(amount, 18) })
+        const tx = await bridgeContract.withdraw(to, { value: parseUnits(amount, 18) })
         const res = await tx.wait()
         bridgeStore.setStatus(res.status === 1 ? 'success' : 'failed');
       } catch (error) {

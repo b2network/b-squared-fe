@@ -5,7 +5,6 @@ import Deposit from "components/Bridge/Deposit";
 import Tab from "components/Bridge/Tab";
 import Layout from "components/Layout";
 import { ReactNode, useEffect, useState } from "react";
-import { useBtc } from "btcWallet";
 import Withdraw from "components/Bridge/Withdraw";
 import * as bridgeStore from 'stores/bridgeStore';
 import { useSnapshot } from "valtio";
