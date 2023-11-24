@@ -1,10 +1,9 @@
 import { Box, Button, InputBase, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material"
 import { useEffect, useMemo, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
-import { useAccount, useBalance, useChainId, useNetwork } from "wagmi";
+import { useAccount, useBalance, useChainId, useFeeData, useNetwork } from "wagmi";
 import WithdrawTo from "./WithdrawTo";
 import { useBrigeContract, useErc20Contract } from "hooks/useContract";
-import { useEthersProvider } from "hooks/useEthersProvider";
 import { ethers } from "ethers";
 import { useEthersSigner } from "hooks/useEthersSigner";
 import ConnectButtonLocal from "components/ConnectButtonLocal";
@@ -13,38 +12,26 @@ import * as bridgeStore from 'stores/bridgeStore'
 const Withdraw = () => {
   const { isConnected, address } = useAccount()
   const chainId = useChainId()
-  const provider = useEthersProvider({ chainId })
   const signer = useEthersSigner({ chainId })
   const bridgeContract = useBrigeContract(signer)
-  const tokenContract = useErc20Contract(provider)
+  const fee = useFeeData()
   const localTo = localStorage.getItem('btcAccount') || ''
   const [from, setFrom] = useState('btc')
   const [to, setTo] = useState(localTo)
   const [amount, setAmount] = useState('')
-  const [balance, setBalance] = useState('')
+  const { data } = useBalance({ address });
+  const balance = data?.formatted;
   const isInsufficient = useMemo(() => {
     if (amount && balance) {
       return Number(amount) > Number(balance)
     }
     return false;
   }, [amount, balance])
-  const getBalance = async () => {
-    try {
-      const res = await tokenContract?.balanceOf(address)
-      setBalance(ethers.utils.formatUnits(res, 6))
-      console.log(ethers.utils.formatUnits(res, 6), 'balance-res')
-    } catch (error) {
-      console.log(error, 'err')
-    }
-
-  }
   const handleFromChange = (e: SelectChangeEvent) => {
     setFrom(e.target.value)
   }
-
   const withdraw = async () => {
     if (signer && bridgeContract) {
-      console.log(to, amount, 'to,amount')
       try {
         bridgeStore.setShowResult(true);
         bridgeStore.setStatus('pendding');
@@ -54,7 +41,7 @@ const Withdraw = () => {
           toAddress: to,
           amount: amount
         })
-        const tx = await bridgeContract.withdraw(to, amount)
+        const tx = await bridgeContract.withdraw(to, { value: ethers.utils.parseUnits(amount, 18) })
         const res = await tx.wait()
         bridgeStore.setStatus(res.status === 1 ? 'success' : 'failed');
       } catch (error) {
@@ -64,12 +51,6 @@ const Withdraw = () => {
 
     }
   }
-
-  useEffect(() => {
-    if (address) {
-      getBalance()
-    }
-  }, [address])
   return (
     <Box mt={'24px'}>
       <Box sx={{
@@ -124,7 +105,7 @@ const Withdraw = () => {
           color: 'rgba(0,0,0,0.65)'
         }}>Balance: {balance}BTC
           <Box onClick={() => {
-            setAmount(balance)
+            setAmount(balance || '')
           }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
         </Box>
         <ConnectButtonLocal />

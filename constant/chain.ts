@@ -28,5 +28,5 @@ export const B2TestNet = {
 
 
 export const TokenContract = '0x58e276ceF25b7f2d4C254A80c5e905BE216bFdc8'
-export const BridgeContract = '0xe985fAc10a575c2721896f69969A801F41c81551'
+export const BridgeContract = '0xc36b7CB7722b6932Ed62E90C299bae21C337c536'
 export const DepositToAddress = 'tb1qkptdsusxkscavuds2audfc6p67zu3rl0zmn7zu'
