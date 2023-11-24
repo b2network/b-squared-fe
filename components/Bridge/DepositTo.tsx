@@ -6,14 +6,15 @@ type Iprops = {
   amount: string
 }
 
-const DepositTo: React.FC<Iprops> = ({defaultTo,amount}) => {
+const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
+  const DefaultAmount = '0.0';
   return (
     <Box sx={{
       p: '24px',
       border: '1px solid black',
       borderRadius: '8px',
       fontSize: '18px',
-      fontFamily:'Titillium Web',
+      fontFamily: 'Titillium Web',
       color: 'rgba(0,0,0,0.65)',
       lineHeight: '27px',
       '& .logo': {
@@ -32,7 +33,7 @@ const DepositTo: React.FC<Iprops> = ({defaultTo,amount}) => {
           ml: '10px'
         }}>Edit</Box>
       </Box>
-      <Box>you will receive: {amount} BTC</Box>
+      <Box>you will receive: {amount || DefaultAmount} BTC</Box>
       <Box>gas fee:  0.0 BTC</Box>
     </Box>
   )

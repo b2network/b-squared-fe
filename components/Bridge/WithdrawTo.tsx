@@ -9,10 +9,10 @@ type Iprops = {
   amount: string
 }
 
-const WithdrawTo: React.FC<Iprops> = ({ to, setTo,amount }) => {
-
+const WithdrawTo: React.FC<Iprops> = ({ to, setTo, amount }) => {
+  const DefaultAmount = '0.0'
   const handleEdit = () => {
-    NiceModal.show(AddressEditDialog, {defaultAddress:to}).then((res: any) => {
+    NiceModal.show(AddressEditDialog, { defaultAddress: to }).then((res: any) => {
       // console.log(res, 'modal-res')
       setTo(res.address)
     })
@@ -54,7 +54,7 @@ const WithdrawTo: React.FC<Iprops> = ({ to, setTo,amount }) => {
             cursor: 'pointer'
           }}>Edit</Box>
       </Box>
-      <Box>you will receive: {amount} BTC</Box>
+      <Box>you will receive: {amount || DefaultAmount} BTC</Box>
       <Box>gas fee:  0.0 BTC</Box>
     </Box>
   )
