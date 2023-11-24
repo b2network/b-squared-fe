@@ -18,9 +18,9 @@ export const useBrigeContract = (signer?: Signer) => {
 };
 
 
-export const useErc20Contract = (provider: providers.Provider) => {
-  return useMemo(
-    () => getContract(TokenContract, erc20ABI, provider), [provider]
-  )
-}
+// export const useErc20Contract = (provider: providers.Provider) => {
+//   return useMemo(
+//     () => getContract(TokenContract, erc20ABI, provider), [provider]
+//   )
+// }
 

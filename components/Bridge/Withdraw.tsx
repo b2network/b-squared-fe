@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import { useAccount, useBalance, useChainId, useFeeData, useNetwork } from "wagmi";
 import WithdrawTo from "./WithdrawTo";
-import { useBrigeContract, useErc20Contract } from "hooks/useContract";
+import { useBrigeContract } from "hooks/useContract";
 import { ethers } from "ethers";
 import { useEthersSigner } from "hooks/useEthersSigner";
 import ConnectButtonLocal from "components/ConnectButtonLocal";
