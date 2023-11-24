@@ -4,7 +4,7 @@ import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import { useAccount, useBalance, useChainId, useFeeData, useNetwork } from "wagmi";
 import WithdrawTo from "./WithdrawTo";
 import { useBrigeContract } from "hooks/useContract";
-import { ethers, parseUnits } from "ethers";
+import { ethers, formatUnits, parseEther, parseUnits } from "ethers";
 import { useEthersSigner } from "hooks/useEthersSigner";
 import ConnectButtonLocal from "components/ConnectButtonLocal";
 import * as bridgeStore from 'stores/bridgeStore'
@@ -13,7 +13,8 @@ const Withdraw = () => {
   const { isConnected, address } = useAccount()
   const chainId = useChainId()
   const signer = useEthersSigner({ chainId })
-  const fee = useFeeData()
+  const [callFuncGasFee, setCallFuncGasFee] = useState('0.0');
+  const { data: feeData, isError: feeDataError, isLoading: feeDataLoading } = useFeeData();
   const localTo = localStorage.getItem('btcAccount') || ''
   const [from, setFrom] = useState('btc')
   const [to, setTo] = useState(localTo)
@@ -30,8 +31,8 @@ const Withdraw = () => {
   const handleFromChange = (e: SelectChangeEvent) => {
     setFrom(e.target.value)
   }
+
   const withdraw = async () => {
-    console.log(bridgeContract,'bbb')
     if (signer && bridgeContract) {
       try {
         bridgeStore.setShowResult(true);
@@ -52,6 +53,22 @@ const Withdraw = () => {
 
     }
   }
+
+  useEffect(() => {
+    console.log(feeData?.gasPrice)
+    async function estimateGasFee() {
+      if (!bridgeContract || !feeData?.gasPrice) return;
+      try {
+        const callFuncGas = await bridgeContract.withdraw.estimateGas(to, { value: parseUnits('1', 18) });
+        console.log(formatUnits(callFuncGas * (feeData.gasPrice)),'2222')
+        setCallFuncGasFee(formatUnits(callFuncGas * (feeData.gasPrice)));
+      } catch (error) {
+        console.log('Could not estimate gas fees because the transaction will fail');
+      }
+    }
+    estimateGasFee()
+  }, [feeData, bridgeContract, callFuncGasFee, to])
+
   return (
     <Box mt={'24px'}>
       <Box sx={{
@@ -114,7 +131,7 @@ const Withdraw = () => {
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} my={'16px'}>
         <SouthRoundedIcon sx={{ color: 'black' }} />
       </Box>
-      <WithdrawTo setTo={setTo} to={to} amount={amount} />
+      <WithdrawTo setTo={setTo} gas={callFuncGasFee} to={to} amount={amount} />
       <Button
         disabled={!isConnected || isInsufficient}
         onClick={withdraw}

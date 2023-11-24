@@ -18,5 +18,5 @@ export function getContract(address: string, ABI: any, provider: SingerOrProvide
   if (!isAddress(address)) {
     throw Error(`Invalid 'address' parameter '${address}'.`);
   }
-  return new Contract(address, ABI, provider);
+  return new ethers.Contract(address, ABI, provider);
 }

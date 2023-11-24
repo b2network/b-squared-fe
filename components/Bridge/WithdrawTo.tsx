@@ -6,10 +6,11 @@ import { shorterAddress } from "utils"
 type Iprops = {
   to: string,
   setTo: (val: string) => void
-  amount: string
+  amount: string,
+  gas: string
 }
 
-const WithdrawTo: React.FC<Iprops> = ({ to, setTo, amount }) => {
+const WithdrawTo: React.FC<Iprops> = ({ to, setTo, amount,gas }) => {
   const DefaultAmount = '0.0'
   const handleEdit = () => {
     NiceModal.show(AddressEditDialog, { defaultAddress: to }).then((res: any) => {
@@ -55,7 +56,7 @@ const WithdrawTo: React.FC<Iprops> = ({ to, setTo, amount }) => {
           }}>Edit</Box>
       </Box>
       <Box>you will receive: {amount || DefaultAmount} BTC</Box>
-      <Box>gas fee:  0.0 BTC</Box>
+      <Box>gas fee:  {gas} BTC</Box>
     </Box>
   )
 }
