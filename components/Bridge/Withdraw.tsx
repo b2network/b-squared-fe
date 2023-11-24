@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import { useAccount, useBalance, useChainId, useFeeData, useNetwork } from "wagmi";
 import WithdrawTo from "./WithdrawTo";
-import { getBrigeContract } from "hooks/bridgeContract";
+import { useBrigeContract } from "hooks/useContract";
 import { ethers, parseUnits } from "ethers";
 import { useEthersSigner } from "hooks/useEthersSigner";
 import ConnectButtonLocal from "components/ConnectButtonLocal";
@@ -19,6 +19,7 @@ const Withdraw = () => {
   const [to, setTo] = useState(localTo)
   const [amount, setAmount] = useState('')
   const { data } = useBalance({ address });
+  const bridgeContract = useBrigeContract(signer)
   const balance = data?.formatted;
   const isInsufficient = useMemo(() => {
     if (amount && balance) {
@@ -30,8 +31,7 @@ const Withdraw = () => {
     setFrom(e.target.value)
   }
   const withdraw = async () => {
-    const bridgeContract = getBrigeContract(signer)
-    console.log(bridgeContract,'bc')
+    console.log(bridgeContract,'bbb')
     if (signer && bridgeContract) {
       try {
         bridgeStore.setShowResult(true);

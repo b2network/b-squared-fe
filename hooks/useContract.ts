@@ -3,14 +3,18 @@ import { getContract } from "utils/contract";
 import { Signer } from "ethers";
 import { BridgeContract } from "constant";
 import BridgeAbi from "constant/abi/bridge.json";
+import { useMemo } from "react";
 
-export const getBrigeContract = (signer?: Signer) => {
-  if(!signer)return
-  return getContract(
-    BridgeContract,
-    BridgeAbi,
-    signer
-  )
+export const useBrigeContract = (signer?: Signer) => {
+  return useMemo(
+    () =>
+      getContract(
+        BridgeContract,
+        BridgeAbi,
+        signer
+      ),
+    [signer],
+  );
 };
 
 

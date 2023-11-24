@@ -14,6 +14,7 @@ export function isAddress(value: any): string | false {
 }
 
 export function getContract(address: string, ABI: any, provider: SingerOrProvider | undefined) {
+  if (!provider) return;
   if (!isAddress(address)) {
     throw Error(`Invalid 'address' parameter '${address}'.`);
   }
