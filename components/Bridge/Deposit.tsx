@@ -57,7 +57,7 @@ const Deposit = () => {
         p: '24px',
         pt: '20px',
         border: '1px solid black',
-        borderRadius: '8px'
+        borderRadius: '12px'
       }}>
 
         <Box display={'flex'} alignItems='center' >
@@ -86,7 +86,7 @@ const Deposit = () => {
             sx={{
               height: '54px',
               width: '100%',
-              borderRadius: '8px',
+              borderRadius: '4px',
               border: '1px solid black',
               pl: '12px'
             }}

@@ -22,7 +22,7 @@ const WithdrawTo: React.FC<Iprops> = ({ to, setTo, amount }) => {
     <Box sx={{
       p: '24px',
       border: '1px solid black',
-      borderRadius: '8px',
+      borderRadius: '12px',
       fontSize: '18px',
       fontFamily: 'Titillium Web',
       color: 'rgba(0,0,0,0.65)',

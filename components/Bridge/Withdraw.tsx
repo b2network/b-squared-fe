@@ -58,7 +58,7 @@ const Withdraw = () => {
         p: '24px',
         pt: '20px',
         border: '1px solid black',
-        borderRadius: '8px',
+        borderRadius: '12px',
         '& .logo': {
           width: '122px',
           ml: '12px'
@@ -79,7 +79,7 @@ const Withdraw = () => {
               pl: '12px',
               height: '54px',
               width: '100%',
-              borderRadius: '8px',
+              borderRadius: '4px',
               border: '1px solid black'
             }}
             endAdornment={
