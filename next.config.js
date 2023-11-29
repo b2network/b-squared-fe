@@ -13,19 +13,14 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/node',
+        source: '/bridge',
+        destination: '/',
+        permanent: true
+      }, {
+        source: '/transfer',
         destination: '/',
         permanent: true
       },
-      {
-        source: '/dapps',
-        destination: '/',
-        permanent: true
-      } ,{
-        source: '/resources',
-        destination: '/',
-        permanent: true
-      }
     ];
   },
   publicRuntimeConfig: {
