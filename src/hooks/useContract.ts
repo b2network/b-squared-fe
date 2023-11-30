@@ -2,7 +2,7 @@ import { getContract } from "@/utils/contract";
 
 import { Signer } from "ethers";
 import { BridgeContract } from "@/constant";
-import BridgeAbi from "@/constant/abi/bridge.json";
+import BridgeAbi from "@/assets/abi/bridge.json";
 import { useMemo } from "react";
 
 export const useBrigeContract = (signer?: Signer) => {

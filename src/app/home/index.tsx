@@ -5,6 +5,7 @@ import Architecture from '@/components/Home/Architecture';
 import Values from '@/components/Home/Values';
 import Missions from '@/components/Home/Missions';
 import Layout from '@/components/Layout';
+import Friends from '@/components/Home/FriendList';
 
 const Home = () => {
   
@@ -15,6 +16,7 @@ const Home = () => {
       <Missions />
       <Properties />
       <Architecture />
+      <Friends />
     </Layout>
   )
 }

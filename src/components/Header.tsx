@@ -107,6 +107,7 @@ const Header = () => {
                       height: '5px',
                       borderRadius: '10px',
                       background: '#000',
+                      fontSize:'20px'
                     }
                   }} onClick={() => {
                     onClickMenu(link.path)
