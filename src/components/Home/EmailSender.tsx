@@ -42,7 +42,7 @@ const EmailSender = () => {
       //   </InputAdornment>
       // }
     />
-    <Divider sx={{ height: '100%' }} orientation="vertical" />
+    <Divider sx={{ height: '100%',border:'none' }} orientation="vertical" />
     {/* <IconButton onClick={sendEmail} className='hvr-bounce-to-right' sx={{ */}
     <IconButton onClick={sendEmail} sx={{
       width: '67px',
@@ -52,6 +52,7 @@ const EmailSender = () => {
         color: 'black',
       },
       '&:hover': {
+        background:'white',
         '.icon': {
           transform: 'rotate(-45deg)',
           transition:'1s'

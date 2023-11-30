@@ -7,24 +7,29 @@ import { useIsMounted } from '@/hooks/useIsMouted';
 import { ReactNode } from 'react';
 
 type IProps = {
-  showHeader?: boolean, showFooter?: boolean, children:ReactNode
+  showHeader?: boolean, showFooter?: boolean, children: ReactNode
 };
 
-const Layout:React.FC<IProps> = ({ showHeader = true, showFooter = true, children }) => {
+const Layout: React.FC<IProps> = ({ showHeader = true, showFooter = true, children }) => {
   const isMounted = useIsMounted()
   return (
     <Box sx={{
       display: 'flex',
       flexDirection: 'column',
-      '.main': {
+
+    }} >
+      {showHeader && <Header />}
+      <Box sx={{
+        maxWidth: '1290px',
+        margin:'auto',
+        background:'black',
         mt: {
           xs: '74px',
           sm: '100px'
         }
-      }
-    }} >
-      {showHeader && <Header />}
-      <main className='main'>{isMounted&&children}</main>
+      }}>
+        {isMounted && children}
+      </Box>
       {
         showFooter && <Footer />
       }

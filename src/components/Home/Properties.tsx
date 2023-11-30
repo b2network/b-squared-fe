@@ -68,16 +68,9 @@ const PropertyArr: ItemProps[] = [
 ]
 
 const Properties = () => {
-  const isMobile = useIsMobile();
   return (
-    <Box sx={{
-      background:'white',
-      color: 'black'
-    }}>
       <Box sx={{
-        maxWidth: '1290px',
         margin: 'auto',
-        background: 'black',
         px:'1px'
       }}>
         <Grid container spacing={'1px'}>
@@ -88,7 +81,6 @@ const Properties = () => {
           }
         </Grid>
       </Box>
-    </Box>
 
   )
 }
