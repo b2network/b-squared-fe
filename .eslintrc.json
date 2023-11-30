@@ -1,8 +1,7 @@
 {
-  "extends": "next",
-  "parser": "@babel/eslint-parser",
-  "rules": {
-    "@next/next/no-sync-scripts": "off",
-    "@next/next/no-img-element":"off"
+  "extends": "next/core-web-vitals",
+  "rules":{
+    "@next/next/no-img-element": 0,
+    "react-hooks/exhaustive-deps":0
   }
 }
