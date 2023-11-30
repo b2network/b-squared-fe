@@ -1,33 +1,41 @@
-const path = require('path');
-
 /** @type {import('next').NextConfig} */
+const path = require('path')
+
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    outputStandalone: true,
-  },
-  productionBrowserSourceMaps: false,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles'),path.join(__dirname, 'components')],
+    includePaths: [path.join(__dirname, 'src/styles')],
   },
-  async redirects() {
-    return [
-      {
-        source: '/bridge',
-        destination: '/',
-        permanent: true
-      }, {
-        source: '/transfer',
-        destination: '/',
-        permanent: true
+  output: 'export',
+  trailingSlash: true,
+  experimental: {
+    turbo: {
+      rules: {
+        '*.svg': ['@svgr/webpack'],
       },
-    ];
-  },
-  publicRuntimeConfig: {
-    env: {
-      NODE_ENV: process.env['NODE_ENV'],
     },
   },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/bridge',
+  //       destination: '/',
+  //       permanent: true
+  //     }, {
+  //       source: '/transfer',
+  //       destination: '/',
+  //       permanent: true
+  //     },
+  //   ];
+  // },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      use: ['@svgr/webpack'],
+    });
+    config.resolve.fallback = { fs: false, net: false, tls: false };
+    return config;
+  },
 }
+
 
 module.exports = nextConfig
