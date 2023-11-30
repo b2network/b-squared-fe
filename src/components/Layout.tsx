@@ -16,13 +16,14 @@ const Layout: React.FC<IProps> = ({ showHeader = true, showFooter = true, childr
     <Box sx={{
       display: 'flex',
       flexDirection: 'column',
-
     }} >
       {showHeader && <Header />}
       <Box sx={{
         maxWidth: '1290px',
         margin:'auto',
-        background:'black',
+        background: 'black',
+        width: '100%',
+        flex:1,
         mt: {
           xs: '74px',
           sm: '100px'

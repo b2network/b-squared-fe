@@ -16,46 +16,42 @@ const Bridge = () => {
 
   const snap = useSnapshot(bridgeStore.store);
   return (
-    <Box sx={{ background: 'white', color: 'black', pb: '60px' }}>
-      <Box sx={{
-        maxWidth: '1290px',
-        margin: 'auto',
-        background: 'black',
-      }}>
-        {
-          snap.showResult && <Box sx={{
-            width: '100%',
-            height: '100%',
-            minHeight: 'calc(100vh - 203.5px)',
-            background: 'white',
-            borderRadius: '12px',
-            border: '1px solid black',
-            pb: '60px'
-          }}>
-            <Result />
+    <Box sx={{
+      margin: 'auto',
+      width: '100%',
+    }}>
+      {
+        snap.showResult && <Box sx={{
+          width: '100%',
+          height: '100%',
+          minHeight: 'calc(100vh - 203.5px)',
+          borderRadius: '12px',
+          border: '1px solid black',
+          pb: '60px'
+        }}>
+          <Result />
+        </Box>
+      }
+      {
+        !snap.showResult && <Box sx={{
+          width: '100%',
+          height: '100%',
+          background: 'white',
+          borderRadius: '12px',
+          border: '1px solid black',
+          pb: '60px'
+        }}>
+          <Box sx={{ display: 'flex', width: '540px', margin: 'auto', flexDirection: 'column', justifyContent: 'center', mt: '60px' }}>
+            <Tab val={tab} handleClick={setTab} />
+            {
+              tab === 'deposit' && <Deposit />
+            }
+            {
+              tab === 'withdraw' && <Withdraw />
+            }
           </Box>
-        }
-        {
-          !snap.showResult && <Box sx={{
-            width: '100%',
-            height: '100%',
-            background: 'white',
-            borderRadius: '12px',
-            border: '1px solid black',
-            pb: '60px'
-          }}>
-            <Box sx={{ display: 'flex', width: '540px', margin: 'auto', flexDirection: 'column', justifyContent: 'center', mt: '60px' }}>
-              <Tab val={tab} handleClick={setTab} />
-              {
-                tab === 'deposit' && <Deposit />
-              }
-              {
-                tab === 'withdraw' && <Withdraw />
-              }
-            </Box>
-          </Box>
-        }
-      </Box>
+        </Box>
+      }
     </Box>
   )
 }
