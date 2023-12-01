@@ -17,19 +17,19 @@ const nextConfig = {
       },
     },
   },
-  async redirects() {
-    return [
-      {
-        source: '/bridge',
-        destination: '/',
-        permanent: true
-      }, {
-        source: '/transfer',
-        destination: '/',
-        permanent: true
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/bridge',
+  //       destination: '/',
+  //       permanent: true
+  //     }, {
+  //       source: '/transfer',
+  //       destination: '/',
+  //       permanent: true
+  //     },
+  //   ];
+  // },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
