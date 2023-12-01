@@ -34,7 +34,8 @@ const Header = () => {
       path: ''
     }, {
       name: 'Bridge',
-      path: '/bridge'
+      // path: '/bridge'
+      path: ''
     },
   ]
   const [menuOpen, setMenuOpen] = useState(false);
