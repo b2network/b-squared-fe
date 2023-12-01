@@ -6,6 +6,7 @@ import Values from '@/components/Home/Values';
 import Missions from '@/components/Home/Missions';
 import Layout from '@/components/Layout';
 import Friends from '@/components/Home/FriendList';
+import Subscribe from '@/components/Subscribe';
 
 const Home = () => {
   
@@ -17,6 +18,7 @@ const Home = () => {
       <Properties />
       <Architecture />
       <Friends />
+      <Subscribe />
     </Layout>
   )
 }
