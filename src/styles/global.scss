@@ -1,0 +1,132 @@
+@import "./hover.scss";
+$browser-default-font-size: 100px !default;
+html {
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+  font-family: "Hanson";
+  src: url("/fonts/Hanson Bold 700.woff2");
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("/fonts/TitilliumWeb-Regular.ttf");
+}
+body {
+  font-size: 16px;
+  line-height: 1.1;
+  // letter-spacing: -1px;
+  // word-spacing: -2px;
+  font-family: "Titillium Web", monospace, Objectivity, Roboto, Helvetica, Arial,
+    sans-serif;
+}
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.default-menu {
+  font-size: 20px;
+  padding: 20px 0;
+  color: #000;
+  text-transform: capitalize;
+  cursor: pointer;
+  text-transform: uppercase;
+  &.active-menu {
+    border-bottom: 2px solid #000;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  padding: 10px 0;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .twill {
+//   font-size: 50px;
+//   font-weight: 700;
+//   background-color: #333;
+//   background-image: linear-gradient(
+//     -45deg,
+//     transparent 45%,
+//     hsla(48, 20%, 90%, 1) 45%,
+//     hsla(48, 20%, 90%, 1) 55%,
+//     transparent 0
+//   );
+//   background-size: 0.05em 0.05em;
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   -webkit-text-stroke: 2px #000;
+// }
+.btc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  animation: jumpBoxHandler 3s infinite;
+}
+@keyframes jumpBoxHandler {
+  /* css事件 */
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -55%); /* 可配置跳动方向 */
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+.shadowAnimation {
+  animation: shadowChange 3s infinite;
+}
+@keyframes shadowChange {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1); /* 可配置跳动方向 */
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+   /*动画效果*/
+   .transactionLoading {
+    width: 112px;
+    /*animation (动画) :绑定选择器, 4s完成动画 linear(匀速) infinite(循环) */
+    animation: loading 3s linear infinite;
+}
+
+/*通过@keyframes规则,能够创建动画 , que 定义动画的名称 可自己定义*/
+@keyframes loading {
+    /*以百分比来规定改变发生的时间 也可以通过"from"和"to",等价于0% 和 100%*/
+    0% {
+        /*rotate(2D旋转) scale(放大或者缩小) translate(移动) skew(翻转)*/
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

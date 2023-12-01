@@ -1,38 +1,44 @@
-const path = require('path');
-
 /** @type {import('next').NextConfig} */
+const path = require('path')
+
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    outputStandalone: true,
-  },
-  productionBrowserSourceMaps: false,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles'),path.join(__dirname, 'components')],
+    includePaths: [path.join(__dirname, 'src/styles')],
+  },
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  experimental: {
+    turbo: {
+      rules: {
+        '*.svg': ['@svgr/webpack'],
+      },
+    },
   },
   async redirects() {
     return [
       {
-        source: '/node',
+        source: '/bridge',
+        destination: '/',
+        permanent: true
+      }, {
+        source: '/transfer',
         destination: '/',
         permanent: true
       },
-      {
-        source: '/dapps',
-        destination: '/',
-        permanent: true
-      } ,{
-        source: '/resources',
-        destination: '/',
-        permanent: true
-      }
     ];
   },
-  publicRuntimeConfig: {
-    env: {
-      NODE_ENV: process.env['NODE_ENV'],
-    },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      use: ['@svgr/webpack'],
+    });
+    config.resolve.fallback = { fs: false, net: false, tls: false };
+    return config;
   },
 }
+
 
 module.exports = nextConfig
