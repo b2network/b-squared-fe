@@ -3,10 +3,10 @@ import {
   Typography,
 } from '@mui/material';
 import Typewriter from 'typewriter-effect';
-import BarSvg from "@/components/SvgIcon/BarSvg";
 import BarCodeSvg from "@/components/SvgIcon/BarCode";
 import EastIcon from '@mui/icons-material/East';
 import useIsMobile from '@/hooks/useIsMobile';
+import BarIcon from '@/assets/icons/bar_icon.svg'
 
 const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 
@@ -113,10 +113,7 @@ const Top = () => {
           mt: '23px',
           alignItems: 'flex-end'
         }}>
-          <BarSvg sx={{
-            width: '101px',
-            height: '10px'
-          }} />
+          <BarIcon />
           <BarCodeSvg sx={{
             width: '144px',
             height: '50px'
