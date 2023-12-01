@@ -37,11 +37,11 @@ const PropertyArr: ItemProps[] = [
       "Unleash the Power of Bitcoin's Layer-2 Solution. Say goodbye to Bitcoin's scalability issues and hello to unparalleled asset flexibility.",
       "Enter @BsquaredNetwork, the ultimate Layer-2 solution that turbocharges transaction speeds and unlocks endless application possibilities 👇"
     ],
-    twitter: '',
+    twitter: 'https://x.com/ardizor/status/1723678430326395156?s=20',
     time: '20:25 12/11/2023',
     imgUrl: '/assets/friend_card0.png',
     imgSize: 'lg'
-  },{
+  }, {
     index: 1,
     name: 'andrew.moh',
     account: '@0xAndrewMoh',
@@ -52,11 +52,11 @@ const PropertyArr: ItemProps[] = [
       "Curious about what it is?",
       "A thread 🧵(0/18)"
     ],
-    twitter: '',
+    twitter: 'https://x.com/0xAndrewMoh/status/1723677141811024072?s=20 ',
     time: '20:20 12/11/2023',
     imgUrl: '/assets/friend_card1.png',
     imgSize: 'sm'
-  },{
+  }, {
     index: 2,
     name: 'Moses Perry🥷📊',
     account: '@PerryYzer1',
@@ -66,27 +66,27 @@ const PropertyArr: ItemProps[] = [
       "The answer is @BsquaredNetwork",
       "The most Practical Bitcoin Layer-2 Network  A 🧵❤️ rt"
     ],
-    twitter: '',
+    twitter: 'https://x.com/PerryYzer1/status/1724705242015846620?s=20',
     time: '16:25 15/11/2023',
     imgUrl: '/assets/friend_card2.png',
     imgSize: 'sm'
-  },{
+  }, {
     index: 3,
     name: 'BRC20 Station 🟧',
     account: '@BRC20_Station',
     avatar: friendIcon3,
     content: [
-     "💫 Introduce @BsquaredNetwork💫",
-     "🔥 The most Practical Bitcoin Layer-2 Network | Exponentially expanding the #Bitcoin Ecosystem.",
-     "👉 What makes this project special? Let's explore this potential project with us right now.",
-     "A thread 🧵",
-     "#BRC20 #Ordinals $ordi $meme $pepe $sats"
+      "💫 Introduce @BsquaredNetwork💫",
+      "🔥 The most Practical Bitcoin Layer-2 Network | Exponentially expanding the #Bitcoin Ecosystem.",
+      "👉 What makes this project special? Let's explore this potential project with us right now.",
+      "A thread 🧵",
+      "#BRC20 #Ordinals $ordi $meme $pepe $sats"
     ],
-    twitter: '',
+    twitter: 'https://x.com/BRC20_Station/status/1723684747338199409?s=20 ',
     time: '20:50 12/11/2023',
     imgUrl: '/assets/friend_card3.png',
     imgSize: 'lg'
-  },{
+  }, {
     index: 4,
     name: 'DEE-EMPRESS🟧🌔',
     account: '@Deedefiempress8',
@@ -96,11 +96,11 @@ const PropertyArr: ItemProps[] = [
       "Surprised right?, walk with me to find out more about",
       "@BsquaredNetwork🧵"
     ],
-    twitter: '',
+    twitter: 'https://x.com/Deedefiempress8/status/1726216553560211813?s=20 ',
     time: '20:31 19/11/2023',
     imgUrl: '/assets/friend_card4.png',
     imgSize: 'lg'
-  },{
+  }, {
     index: 5,
     name: 'MrMee🔥⚛️💜🎮₿💎(💙,🧡)',
     account: '@0xMrMee',
@@ -110,7 +110,7 @@ const PropertyArr: ItemProps[] = [
       "->Account abstraction supporting Bitcoin, Ethereum and social accounts  ->Gas delegation  ->Decentralized sequencing  ->Cross-chain functionality. And more are features ",
       "@BsquaredNetwork. offers.It is a revolutionary ZK Proof verification commitment rollup solution designed specifically for Bitcoin.#BSquared #BTC"
     ],
-    twitter: '',
+    twitter: 'https://x.com/0xMrMee/status/1726343915345743953?s=20',
     time: '04:57 20/11/2023',
     imgUrl: '/assets/friend_card5.png',
     imgSize: 'lg'
@@ -134,7 +134,7 @@ const PropertieItem: React.FC<ItemProps> = ({ name, content, twitter, avatar, ac
     },
     '.card': {
       width: imgSize === 'lg' ? '244px' : '135px',
-      borderRadius:'6px'
+      borderRadius: '6px'
     },
     '&:hover': {
       background: '#FFF8EE'
@@ -145,7 +145,7 @@ const PropertieItem: React.FC<ItemProps> = ({ name, content, twitter, avatar, ac
         <Image className='avatar' src={avatar} alt='avatar' width={54} height={54} />
         <Box flex={1} ml='16px'>
           <Box display={'flex'} justifyContent={'space-between'}>
-            <Typography fontSize={isMobile?'18px':'24px'} whiteSpace={'nowrap'} overflow={'hidden'} fontWeight={600} lineHeight={'24px'}>{name}</Typography>
+            <Typography fontSize={isMobile ? '18px' : '24px'} whiteSpace={'nowrap'} overflow={'hidden'} fontWeight={600} lineHeight={'24px'}>{name}</Typography>
             <Link href={twitter} target='_blank'><TwitterSvg /></Link>
           </Box>
           <Typography color={'rgab(0,0,0,0.65)'}>{account}</Typography>
@@ -177,9 +177,9 @@ const Friends = () => {
       alignItems: 'center',
       p: '1px'
     }}>
-      <Box sx={{ background: 'white', borderRadius: '8px', width: '100%', p:isMobile?'10px':'30px' }}>
+      <Box sx={{ background: 'white', borderRadius: '8px', width: '100%', p: isMobile ? '10px' : '30px' }}>
         <Typography textTransform='uppercase' data-aos='fade-down' fontFamily='Hanson' textAlign={'left'} mb={'30px'} color={'black'} fontSize={isMobile ? '20px' : '30px'} fontWeight={700}>B² Network Friends</Typography>
-        <Grid container spacing={'1px'} alignItems={'stretch'} sx={{ background: 'black', borderBottom: '1px solid #000',borderRight:'1px solid #000' }}>
+        <Grid container spacing={'1px'} alignItems={'stretch'} sx={{ background: 'black', borderBottom: '1px solid #000', borderRight: '1px solid #000' }}>
           {
             PropertyArr.map(item => <Grid data-aos='fade-up' item sm={6} lg={4} xs={12} key={item.name}>
               <PropertieItem {...item}></PropertieItem>
