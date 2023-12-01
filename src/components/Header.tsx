@@ -99,6 +99,7 @@ const Header = () => {
                   <Typography key={link.name} sx={{
                     mx: '15px',
                     fontWeight: active ? '700' : '400',
+                    fontSize:'20px',
                     '&:before': {
                       content: '""',
                       display: active ? 'inline-block' : 'none',
