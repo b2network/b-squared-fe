@@ -17,6 +17,23 @@ const nextConfig = {
       },
     },
   },
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: "/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+    ];
+  },
+  // for static export
+  publicRuntimeConfig: {
+    env: {
+      NEXT_PUBLIC_APP_ENV: process.env["NEXT_PUBLIC_APP_ENV"],
+    },
+  },
   // async redirects() {
   //   return [
   //     {

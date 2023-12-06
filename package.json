@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NEXT_PUBLIC_APP_ENV=development next dev",
+    "dev:prod": "cross-env NEXT_PUBLIC_APP_ENV=production next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@b2network/aa-sdk": "^1.0.3",
     "@ebay/nice-modal-react": "^1.2.13",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",

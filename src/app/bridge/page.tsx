@@ -13,7 +13,6 @@ import Result from "@/components/Bridge/Result";
 
 const Bridge = () => {
   const [tab, setTab] = useState('deposit')
-
   const snap = useSnapshot(bridgeStore.store);
   return (
     <Box sx={{

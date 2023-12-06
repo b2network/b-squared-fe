@@ -8,6 +8,8 @@ import { ethers, parseUnits } from "ethers";
 import { useEthersSigner } from "@/hooks/useEthersSigner";
 import ConnectButtonLocal from "@/components/ConnectButtonLocal";
 import * as bridgeStore from '@/stores/bridgeStore'
+import NiceModal from "@ebay/nice-modal-react";
+import ConnectModal from "../Modals/ConnectModal";
 
 const Withdraw = () => {
   const { isConnected, address } = useAccount()
@@ -109,7 +111,7 @@ const Withdraw = () => {
             setAmount(balance || '')
           }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
         </Box>
-        <ConnectButtonLocal />
+       <Button onClick={()=>NiceModal.show(ConnectModal)}>Connect Wallet</Button>
       </Box>
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} my={'16px'}>
         <SouthRoundedIcon sx={{ color: 'black' }} />

@@ -1,4 +1,7 @@
+import { polygon } from 'viem/chains';
 import { Chain } from 'wagmi'
+
+polygon
 
 export const B2TestNet = {
   // id: 111111,

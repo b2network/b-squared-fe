@@ -45,7 +45,7 @@ export class OkxConnector implements Connector {
 
       const { address, compressedPublicKey }: { address: string; compressedPublicKey: string } =
         await provider.connect()
-
+      console.log(address,compressedPublicKey,'connected')
       return { address, publicKey: compressedPublicKey, network: 'livenet' as Network }
     } catch (error) {
       console.log('connnector error: ', error)
