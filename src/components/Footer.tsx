@@ -27,7 +27,7 @@ const Footer = () => {
             <EmailSender />
             <Typography sx={{ fontSize: isMobile ? '16px' : '20px',color:'rgba(0,0,0,0.6)' }}>By subscribing, you accepted our Policy</Typography>
           </Box>
-          <Box display={'flex'} justifyContent='space-between' data-aos='fade-up' data-aos-delay='300'>
+          <Box display={'flex'} justifyContent='space-between'>
             <OuterLink />
             <Logo color='#000' />
           </Box>
