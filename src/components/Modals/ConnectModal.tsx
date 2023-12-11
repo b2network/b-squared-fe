@@ -5,8 +5,11 @@ import { TransitionProps } from '@mui/material/transitions';
 import useIsMobile from '@/hooks/useIsMobile';
 import CloseIcon from '@mui/icons-material/Close';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { BtcConnectorName, useBtc } from '@/btcWallet';
-import ConnectButtonLocal from '../ConnectButtonLocal';
+import { BtcConnectorName, useBtc } from '@/wallets/btcWallet';
+import { useConnect, useNetwork, useSwitchNetwork } from 'wagmi';
+import { B2ChainId } from '@/constant';
+import UnisatLogo from '@/assets/icons/unisat.svg'
+import OkxLogo from '@/assets/icons/okxWallet.svg'
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & any,
@@ -15,14 +18,30 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
+const BTCWallets = [
+  {
+    key: 'Unisat',
+    logo: <UnisatLogo />
+  }, {
+    key: 'OKX',
+    logo: <OkxLogo />
+  },
+]
+
 const ConnectModal = NiceModal.create(() => {
   const modal = useModal();
   const isMobile = useIsMobile()
-  const btc = useBtc()
-
-  const connectBtcWallet = (btcWallet: BtcConnectorName) => {
-    btc.connect(btcWallet)
+  const {connect,isConnected} = useBtc()
+  // const { connect, connectors, error, isLoading, pendingConnector } =
+  //   useConnect();
+  // const { chain } = useNetwork()
+  const connectBtcWallet = async(btcWallet: BtcConnectorName) => {
+   const res =  await connect(btcWallet)
+    res && modal.hide()
   }
+  // const { switchNetwork } = useSwitchNetwork()
+
+
 
   return (
     <Dialog
@@ -36,7 +55,7 @@ const ConnectModal = NiceModal.create(() => {
         '.MuiPaper-root': {
           borderRadius: '12px',
           background: 'white',
-          width: isMobile ? '90vw' : '640px'
+          width: isMobile ? '90vw' : '400px'
         },
       }}
     >
@@ -44,18 +63,52 @@ const ConnectModal = NiceModal.create(() => {
         <CloseIcon onClick={() => modal.hide()} sx={{ color: 'black', cursor: 'pointer' }} />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography>eth </Typography>
+        {/* <Typography sx={{ width: '100%' }}>B² chain </Typography>
         <Box sx={{ width: '100%' }}>
-          <ConnectButtonLocal />
+          <div>
+            {connectors.map((connector) => (
+              <button
+                disabled={!connector.ready}
+                key={connector.id}
+                onClick={() => {
+                  connect({ connector })
+                }}
+              >
+                {connector.name}
+                {!connector.ready && ' (unsupported)'}
+                {isLoading &&
+                  connector.id === pendingConnector?.id &&
+                  ' (connecting)'}
+              </button>
+            ))}
+            <ConnectButton />
+            {error && <div>{error.message}</div>}
+          </div>
         </Box>
-        <Typography>btc </Typography>
-        <Box display='flex'>
-          <Button onClick={() => {
+        <Typography sx={{ width: '100%' }}>BTC </Typography> */}
+        <Box >
+          {
+            BTCWallets.map(wallet => {
+              return <Box key={wallet.key} display={'flex'} gap={'8px'} sx={{
+                p:'10px 30px',
+                border: '1px solid #888',
+                borderRadius: '8px',
+                mb: '10px',
+                cursor:'pointer'
+              }}>
+                {
+                  wallet.logo
+                }
+                <Box onClick={() => connectBtcWallet(wallet.key as BtcConnectorName)}> Connect {wallet.key} </Box>
+              </Box>
+            })
+          }
+          {/* <Button onClick={() => {
             connectBtcWallet('Unisat')
           }}>Connect unisat</Button>
           <Button onClick={() => {
             connectBtcWallet('OKX')
-          }}>Connect Okx</Button>
+          }}>Connect Okx</Button> */}
         </Box>
       </DialogContent>
       {/* <DialogActions sx={{

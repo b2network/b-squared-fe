@@ -1,7 +1,7 @@
 "use client"
 
 import { Box, Button, FormControlLabel, FormLabel, Grid, InputBase, Radio, RadioGroup } from "@mui/material"
-import { useBtc } from "@/btcWallet";
+import { useBtc } from "@/wallets/btcWallet";
 import { useEffect, useMemo, useState } from "react";
 import { parseBtcAmount, shorterAddress } from "@/utils";
 import { formatUnits, parseEther } from "viem";

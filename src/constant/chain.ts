@@ -1,10 +1,6 @@
-import { polygon } from 'viem/chains';
-import { Chain } from 'wagmi'
+import { Chain, defineChain } from 'viem'
 
-polygon
-
-export const B2TestNet = {
-  // id: 111111,
+export const B2TestNet =defineChain({
   id:1002,
   name: 'B2EVM',
   network: 'B2EVM',
@@ -27,9 +23,10 @@ export const B2TestNet = {
     //   blockCreated: 11_907_934,
     // },
   },
-} as Chain;
+} )as Chain;
 
+export const B2ChainId = 1002;
 
 export const TokenContract = '0x58e276ceF25b7f2d4C254A80c5e905BE216bFdc8'
 export const BridgeContract = '0xc36b7CB7722b6932Ed62E90C299bae21C337c536'
-export const DepositToAddress = 'tb1qkptdsusxkscavuds2audfc6p67zu3rl0zmn7zu'
+export const DepositToAddress = 'tb1q9j03nm97urq4vwkt3mhfh2hgfgwvq329yekdc2'

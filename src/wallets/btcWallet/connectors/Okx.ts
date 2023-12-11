@@ -4,6 +4,8 @@ import { AccountsChangedHandler, Connector, ConnectorOptions, DisconnectHandler,
 
 export class OkxConnector implements Connector {
   name: BtcConnectorName
+  address?: string
+  publicKey?: string;
   onAccountsChanged?: AccountsChangedHandler
   onNetworkChanged?: NetworkChangedHandler
   onDisconnect?: DisconnectHandler
@@ -33,19 +35,21 @@ export class OkxConnector implements Connector {
           'connect',
           async ({ address, compressedPublicKey }: { address: string; compressedPublicKey: string }) => {
             if (address && compressedPublicKey) {
-              this.onAccountsChanged&&this.onAccountsChanged(address, compressedPublicKey)
+              this.onAccountsChanged && this.onAccountsChanged(address, compressedPublicKey)
             }
           },
         )
         provider.on('disconnect', async () => {
           provider.removeAllListeners()
-          this.onDisconnect&&this.onDisconnect()
+          this.onDisconnect && this.onDisconnect()
         })
       }
 
       const { address, compressedPublicKey }: { address: string; compressedPublicKey: string } =
         await provider.connect()
-      console.log(address,compressedPublicKey,'connected')
+      console.log(address, compressedPublicKey, 'connected')
+      this.address = address
+      this.publicKey = compressedPublicKey
       return { address, publicKey: compressedPublicKey, network: 'livenet' as Network }
     } catch (error) {
       console.log('connnector error: ', error)

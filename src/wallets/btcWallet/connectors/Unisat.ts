@@ -4,6 +4,8 @@ import { AccountsChangedHandler, Connector, ConnectorOptions, DisconnectHandler,
 
 export class UnisatConnector implements Connector {
   name: BtcConnectorName
+  address?: string
+  publicKey?: string;
   onAccountsChanged?: AccountsChangedHandler
   onNetworkChanged?: NetworkChangedHandler
   onDisconnect?: DisconnectHandler
@@ -47,7 +49,8 @@ export class UnisatConnector implements Connector {
       await provider.switchNetwork('testnet')
       const publicKey: string = await provider.getPublicKey()
       const network: Network = await provider.getNetwork()
-
+      this.address = accounts[0]
+      this.publicKey = publicKey
       return { address: accounts[0], publicKey, network }
     } catch (error) {
       console.log('connnector error: ', error)

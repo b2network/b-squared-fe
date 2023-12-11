@@ -12,16 +12,14 @@ import NiceModal from '@ebay/nice-modal-react';
 import { CssBaseline } from '@mui/material';
 import NextNProgress from 'nextjs-progressbar';
 import {
-  injectedWallet,
-  rainbowWallet,
   metaMaskWallet,
   okxWallet,
-  walletConnectWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { B2TestNet } from '@/constant';
 import { useIsMounted } from '@/hooks/useIsMouted';
-import { BtcProvider } from '../btcWallet';
+import { BtcProvider } from '../wallets/btcWallet';
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const customTheme = createTheme({
@@ -38,15 +36,20 @@ export function Providers({ children }: { children: React.ReactNode }) {
       wallets: [
         metaMaskWallet({ projectId, chains }),
         okxWallet({ projectId, chains }),
-        walletConnectWallet({ projectId, chains }),
-        injectedWallet({ chains }),
-        rainbowWallet({ projectId, chains }),
+        // walletConnectWallet({ projectId, chains }),
+        // injectedWallet({ chains }),
+        // rainbowWallet({ projectId, chains }),
       ],
     },
   ]);
   const wagmiConfig = createConfig({
     autoConnect: true,
-    connectors,
+    connectors:[...connectors(),    new WalletConnectConnector({
+      chains,
+      options: {
+        projectId,
+      },
+    }),],
     publicClient,
     webSocketPublicClient,
   });

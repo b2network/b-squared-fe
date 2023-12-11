@@ -1,3 +1,5 @@
+
+
 export function numFormat(num: number | string | undefined) {
   if (!num) {
     return '0';
@@ -7,7 +9,7 @@ export function numFormat(num: number | string | undefined) {
   return arr.join('.');
 }
 
-export const isDev = process.env.NODE_ENV === 'development';
+export const isDev = process.env.NEXT_PUBLIC_APP_ENV === 'development';
 
 export const shorterAddress = (addr:string) => {
   if (addr) {
@@ -19,7 +21,6 @@ export const shorterAddress = (addr:string) => {
 export const parseBtcAmount = (amount: string) => {
   return Number(amount)*(10**8)
  }
-
 
 const addNetwork = () => {
   window.ethereum.request({

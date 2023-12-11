@@ -18,6 +18,8 @@ export interface Connection {
 
 export interface Connector {
   name: BtcConnectorName
+  address?: string,
+  publicKey?: string,
   getProvider(): any
   connect(options?: ConnectorOptions): Promise<Connection>
   disconnect(): void

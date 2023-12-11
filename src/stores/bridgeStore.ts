@@ -1,6 +1,7 @@
 'use client';
 
-import { proxy } from 'valtio';
+import { KernelSmartContractAccount } from '@b2network/aa-sdk';
+import { proxy,subscribe } from 'valtio';
 
 export type ResultData = {
   fromChain: string,
@@ -9,14 +10,16 @@ export type ResultData = {
   amount: string
 }
 
-export interface ICartStore {
+export interface IBridgeStore {
+  sca: KernelSmartContractAccount | null,
   showResult: boolean,
   result: ResultData,
   status: 'pendding'|'success'|'failed'|string
 }
 
-export const store = proxy<ICartStore>({
+export const store = proxy< IBridgeStore>({
   showResult: false,
+  sca: null,
   result: {
     fromChain: '',
     toChain: '',
@@ -37,4 +40,8 @@ export const setResult = (r:ResultData) => {
 
 export const setStatus = (s:string) => {
   store.status = s;
+}
+
+export const setSCA = (s: KernelSmartContractAccount) => {
+  store.sca = s;
 }

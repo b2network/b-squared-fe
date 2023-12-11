@@ -6,7 +6,7 @@ import { parseBtcAmount, shorterAddress } from "@/utils";
 import * as bridgeStore from '@/stores/bridgeStore';
 import { DepositToAddress } from "@/constant";
 import { formatUnits } from "ethers";
-import { useBtc } from "@/btcWallet";
+import { useBtc } from "@/wallets/btcWallet";
 
 
 const Deposit = () => {
@@ -42,7 +42,7 @@ const Deposit = () => {
         fromChain: 'Bitcion',
         toChain: 'B² Network',
         amount: amount,
-        toAddress: btc.address
+        toAddress: DepositToAddress
       })
       bridgeStore.setShowResult(true);
       bridgeStore.setStatus('pendding')

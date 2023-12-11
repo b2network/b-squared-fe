@@ -10,19 +10,38 @@ import ConnectButtonLocal from "@/components/ConnectButtonLocal";
 import * as bridgeStore from '@/stores/bridgeStore'
 import NiceModal from "@ebay/nice-modal-react";
 import ConnectModal from "../Modals/ConnectModal";
+import { SimpleWeightedECDSAProvider } from "@b2network/aa-sdk";
+import { useBtc } from "@/wallets/btcWallet";
+import BridgeAbi from "@/assets/abi/bridge.json";
+import { encodeFunctionData } from "viem";
+import { BridgeContract } from "@/constant";
+import { shorterAddress } from "@/utils";
 
-const Withdraw = () => {
+type Iprops = {
+  caProvider?: SimpleWeightedECDSAProvider,
+  scaAddress?: `0x${string}`
+}
+
+const Withdraw: React.FC<Iprops> = ({ caProvider, scaAddress }) => {
   const { isConnected, address } = useAccount()
   const chainId = useChainId()
   const signer = useEthersSigner({ chainId })
-  const fee = useFeeData()
   const localTo = localStorage.getItem('btcAccount') || ''
   const [from, setFrom] = useState('btc')
   const [to, setTo] = useState(localTo)
   const [amount, setAmount] = useState('')
-  const { data } = useBalance({ address });
+  const { data } = useBalance({ address: scaAddress });
   const bridgeContract = useBrigeContract(signer)
+
+  const { isConnected: isBtcConnected, address: btcAddress,disconnect } = useBtc();
+
   const balance = data?.formatted;
+  console.log({
+    isBtcConnected,
+    balance,
+    scaAddress,
+    btcAddress
+  }, 'withdraw-----')
   const isInsufficient = useMemo(() => {
     if (amount && balance) {
       return Number(amount) > Number(balance)
@@ -33,8 +52,8 @@ const Withdraw = () => {
     setFrom(e.target.value)
   }
   const withdraw = async () => {
-    console.log(bridgeContract,'bbb')
-    if (signer && bridgeContract) {
+    console.log(bridgeContract, 'bbb')
+    if (signer && caProvider) {
       try {
         bridgeStore.setShowResult(true);
         bridgeStore.setStatus('pendding');
@@ -44,14 +63,34 @@ const Withdraw = () => {
           toAddress: to,
           amount: amount
         })
-        const tx = await bridgeContract.withdraw(to, { value: parseUnits(amount, 18) })
-        const res = await tx.wait()
-        bridgeStore.setStatus(res.status === 1 ? 'success' : 'failed');
+        const callData = encodeFunctionData({
+          abi: BridgeAbi as any,
+          functionName: 'withdraw',
+          args: [to]
+        })
+        const tx = await caProvider?.sendUserOperation({
+          target: BridgeContract,
+          data: callData,
+          value: parseUnits(amount, 18)
+        })
+        const res = await caProvider.waitForUserOperationTransaction(
+          tx.hash as `0x${string}`
+        )
+        // const tx = await bridgeContract.withdraw(to, { value: parseUnits(amount, 18) })
+        // const res = await tx.wait()
+        bridgeStore.setStatus('success');
       } catch (error) {
         console.log(error)
         bridgeStore.setStatus('failed')
       }
+    }
+  }
 
+  const handleClickBtcButton = () => {
+    if (!isBtcConnected) {
+      NiceModal.show(ConnectModal)
+    } else { 
+      disconnect()
     }
   }
   return (
@@ -111,7 +150,10 @@ const Withdraw = () => {
             setAmount(balance || '')
           }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
         </Box>
-       <Button onClick={()=>NiceModal.show(ConnectModal)}>Connect Wallet</Button>
+        <Box display={'flex'} gap={2}>
+          <Box flex={1}><ConnectButtonLocal /></Box>
+          <Button variant="outlined" sx={{ flex: 1, height: '50px', borderRadius: '50px' }} onClick={handleClickBtcButton}>{isBtcConnected ? shorterAddress(btcAddress || '') : 'Connect BTC Wallet'}</Button>
+        </Box>
       </Box>
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} my={'16px'}>
         <SouthRoundedIcon sx={{ color: 'black' }} />

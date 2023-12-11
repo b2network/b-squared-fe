@@ -13,6 +13,7 @@ const Result = () => {
     <Box sx={{
       p: '60px 104px',
       position: 'relative',
+      background:'white',
       '& .back': {
         position: 'absolute',
         left: '36px',

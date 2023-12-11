@@ -3,6 +3,9 @@ import { BtcConnectorName, Network } from './types'
 import { Connector, ConnectorOptions } from './connectors/types'
 import { UnisatConnector } from './connectors/Unisat'
 import { OkxConnector } from './connectors/Okx'
+import { ec as EC } from 'elliptic';
+import { keccak256 } from "viem";
+import { getAddress } from "viem/utils";
 
 type Action =
   | { type: 'on connect'; connectorName: BtcConnectorName }
@@ -106,7 +109,9 @@ const useBtcContext = () => {
 
 export const useBtc = () => {
   const ctx = useBtcContext()
-
+  const {
+    publicKey
+  } = ctx.state
   const defaultConnectorOptions: ConnectorOptions = useMemo(
     () => ({
       onAccountsChanged: (address, publicKey) => {
@@ -170,6 +175,7 @@ export const useBtc = () => {
           publicKey,
           network,
         })
+        return true
       } catch (error) {
         ctx.dispatch({ type: 'connect failed' })
         throw error
@@ -189,5 +195,16 @@ export const useBtc = () => {
     [connector],
   )
 
-  return { ...ctx.state, connect, disconnect, connector, signMessage,provider }
+  const ethAddress = useMemo(() => {
+    if (!publicKey) {
+      return
+    }
+    const ec = new EC('secp256k1')
+    const key = ec.keyFromPublic(publicKey, 'hex')
+    const uncompressed = key.getPublic().encode('hex', false).slice(2);
+    const address = keccak256(Buffer.from(uncompressed, 'hex')).slice(66 - 40);
+    return getAddress(`0x${address}`)
+  }, [publicKey])
+
+  return { ...ctx.state,ethAddress,connect, disconnect, connector, signMessage,provider }
 }
