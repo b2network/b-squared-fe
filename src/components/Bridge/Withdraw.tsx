@@ -64,7 +64,7 @@ const Withdraw: React.FC<Iprops> = () => {
           : convertBTCConnectorToAccountSigner
       )(connector)
     }
-  }, [signerType, connector, signerType])
+  }, [signerType, connector?.name, signerType])
   const finalAddress = useMemo(() => {
     return signerType === 'eth' ? address : signerType === 'btc' ? btcETHAddress : undefined
   }, [address, btcETHAddress,signerType])
