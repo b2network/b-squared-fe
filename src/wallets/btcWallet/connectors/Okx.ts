@@ -19,11 +19,11 @@ export class OkxConnector implements Connector {
 
   getProvider() {
     if (typeof window === 'undefined') return
-    if (typeof window.okxwallet.bitcoin === 'undefined') {
+    if (typeof window.okxwallet.bitcoinTestnet === 'undefined') {
       throw new ConnectorNotFoundError()
     }
 
-    return window.okxwallet.bitcoin
+    return window.okxwallet.bitcoinTestnet
   }
 
   async connect() {
@@ -47,10 +47,11 @@ export class OkxConnector implements Connector {
 
       const res = await provider.connect()
       const { address, compressedPublicKey }: { address: string; compressedPublicKey: string } = res;
-      console.log(provider,'ppppppppp')
+      console.log(provider, 'ppppppppp')
+      console.log('okx connect res is-----------------:',res)
       this.address = address
       this.publicKey = compressedPublicKey
-      return { address, publicKey: compressedPublicKey, network: 'livenet' as Network }
+      return { address, publicKey: compressedPublicKey, network: 'testnet' as Network }
     } catch (error) {
       console.log('connnector error: ', error)
       throw error
