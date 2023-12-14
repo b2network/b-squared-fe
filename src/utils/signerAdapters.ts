@@ -1,6 +1,7 @@
 import { Connector as BTCConnector  } from '@/wallets/btcWallet/connectors/types'
 import { SignTypedDataParams, SmartAccountSigner } from '@b2network/aa-sdk'
 import { Hex, WalletClient, concatHex, keccak256, zeroAddress } from 'viem'
+import ecPubKeyToETHAddress from './ecPubKeyToETHAddress'
 
 const dummySigner = {
   getAddress: async () => zeroAddress,
@@ -19,6 +20,7 @@ export const convertWalletClientToAccountSigner = (
       return Promise.resolve((await client.getAddresses())[0] as `0x${string}`)
     },
     async signMessage(message: Uint8Array | Hex | string) {
+      const ethAddress = await this.getAddress()
       const sig = await client.signMessage({
         account: client.account!,
         message:
@@ -28,20 +30,21 @@ export const convertWalletClientToAccountSigner = (
                 raw: message,
               },
       })
-      return concatHex(['0x00', sig])
+      return concatHex(['0x00', sig, ethAddress])
     },
     async signTypedData(params: SignTypedDataParams) {
+      const ethAddress = await this.getAddress()
       const sig = await client.signTypedData({
         ...params,
         account: client.account!,
       })
-      return concatHex(['0x00', sig])
+      return concatHex(['0x00', sig, ethAddress])
     },
   }
 }
 
 export const convertBTCConnectorToAccountSigner = (
-  connector: BTCConnector  | null
+  connector: BTCConnector | null
 ): SmartAccountSigner => {
   if (!connector) {
     return dummySigner
@@ -70,7 +73,8 @@ export const convertBTCConnectorToAccountSigner = (
         Buffer.from(vrsSigBuff.subarray(1)),
         Buffer.from([vrsSigBuff[0]]),
       ])
-      return concatHex([`0x01`, `0x${rsvSigBuff.toString('hex')}`])
+      const ethAddress = ecPubKeyToETHAddress(connector.publicKey)!
+      return concatHex([`0x01`, `0x${rsvSigBuff.toString('hex')}`, ethAddress])
     },
   }
 }
@@ -103,7 +107,8 @@ export const convertBTCConnectorToDummyAccountSigner = (
         Buffer.from(vrsSigBuff.subarray(1)),
         Buffer.from([vrsSigBuff[0]]),
       ])
-      return concatHex([`0x01`, `0x${rsvSigBuff.toString('hex')}`])
+      const ethAddress = ecPubKeyToETHAddress(connector.publicKey)!
+      return concatHex([`0x01`, `0x${rsvSigBuff.toString('hex')}`, ethAddress])
     },
   }
 }

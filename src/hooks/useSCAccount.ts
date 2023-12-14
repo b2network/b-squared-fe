@@ -5,9 +5,9 @@ const useSCAccount = (sca?: KernelSmartContractAccount | null) => {
   const [address, setAddress] = useState<Address>()
   useEffect(() => {
     if (!sca) {
+      setAddress(undefined)
       return
     }
-    console.log(sca,'scccc---aaaaa')
     sca.getAddress().then(addr => {
       setAddress(addr)
     }).catch(e => {

@@ -37,86 +37,6 @@ export type FuncSendUserOperation = (
 const Bridge = () => {
   const [tab, setTab] = useState('deposit')
   const snap = useSnapshot(bridgeStore.store);
-  const threshold = 1;
-  const {
-    isConnected: isConnectedBTC,
-    ethAddress: btcETHAddress,
-    connector,
-  } = useBtc()
-  console.log(btcETHAddress,'btc-eth-address')
-  const { address } = useAccount()
-  const { data: walletClient } = useWalletClient()
-  const caProvider = useRef<SimpleWeightedECDSAProvider | undefined>()
-  const [sca, setSCA] = useState<KernelSmartContractAccount | null>()
-  const { address: scaAddress } = useSCAccount(sca);
-  const finalAddress = useMemo(() => {
-    return address ?? btcETHAddress
-  }, [address, btcETHAddress])
-  const guardians = useMemo(()=>finalAddress?[finalAddress]:[],[finalAddress])
-  const weights = useMemo(()=>finalAddress?[1]:[],[finalAddress])
-  const ids = useMemo(() =>finalAddress?[padHex('0x', { size: 32 })]:[],[finalAddress])
- 
-  useEffect(() => {
-    let signer: SmartAccountSigner | null = null
-    if (walletClient) {
-      signer = convertWalletClientToAccountSigner(walletClient)
-    } else if (connector) {
-      signer = (
-        USE_DUMMY_BTC_SIGNER
-          ? convertBTCConnectorToDummyAccountSigner
-          : convertBTCConnectorToAccountSigner
-      )(connector)
-    }
-    if (!signer) {
-      return
-    }
-    if (!finalAddress) {
-      return
-    }
-    getValidatorProvider(selectedChain, signer, {
-      guardians,
-      ids,
-      weights,
-      threshold,
-    })
-      .then((inst) => {
-        caProvider.current = inst
-        setSCA(inst.getAccount())
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  }, [walletClient, connector?.name,finalAddress])
-
-  const sendUserOperation = useCallback<FuncSendUserOperation>(
-    async (to, value, { onSubmit, onSuccess } = {}) => {
-      if (!caProvider.current) {
-        return
-      }
-      try {
-        const op = await caProvider.current.sendUserOperation({
-          target: to,
-          value: parseEther(value),
-          data: '0x',
-        })
-        if (onSubmit) {
-          onSubmit()
-        }
-        await caProvider.current.waitForUserOperationTransaction(
-          op.hash as `0x${string}`
-        )
-        if (onSuccess) {
-          onSuccess()
-        }
-        toast.success('Success!')
-      } catch (err) {
-        toast.error('Failed to submit transaction')
-        console.error(err)
-      }
-    },
-    []
-  )
-
   return (
     <Box sx={{
       margin: 'auto',
@@ -150,7 +70,7 @@ const Bridge = () => {
               tab === 'deposit' && <Deposit />
             }
             {
-              tab === 'withdraw' && <Withdraw caProvider={caProvider.current} scaAddress={scaAddress} />
+              tab === 'withdraw' && <Withdraw />
             }
           </Box>
         </Box>

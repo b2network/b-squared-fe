@@ -46,7 +46,7 @@ const ConnectButtonLocal = () => {
                     onClick={openConnectModal}
                     type="button"
                   >
-                    Connect Wallet
+                    Connect ETH Wallet
                   </Button>
                 );
               }
