@@ -8,8 +8,8 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { BtcConnectorName, useBtc } from '@/wallets/btcWallet';
 import { useConnect, useNetwork, useSwitchNetwork } from 'wagmi';
 import { B2ChainId } from '@/constant';
-import UnisatLogo from '@/assets/icons/unisat.svg'
-import OkxLogo from '@/assets/icons/okxWallet.svg'
+import UnisatLogo from '../../assets/icons/xverse.svg'
+import XverseLogo from '@/assets/icons/xverse.svg'
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & any,
@@ -21,22 +21,27 @@ const Transition = React.forwardRef(function Transition(
 const BTCWallets = [
   {
     key: 'Unisat',
-    logo: <UnisatLogo />
-  }, {
-    key: 'OKX',
-    logo: <OkxLogo />
+    logo: '/assets/unisat.svg'
+  },
+  // {
+  //   key: 'OKX',
+  //   logo: <OkxLogo />
+  // },
+  {
+    key: 'Xverse',
+    logo: '/assets/xverse.svg'
   },
 ]
 
 const ConnectModal = NiceModal.create(() => {
   const modal = useModal();
   const isMobile = useIsMobile()
-  const {connect,isConnected} = useBtc()
+  const { connect, isConnected } = useBtc()
   // const { connect, connectors, error, isLoading, pendingConnector } =
   //   useConnect();
   // const { chain } = useNetwork()
-  const connectBtcWallet = async(btcWallet: BtcConnectorName) => {
-   const res =  await connect(btcWallet)
+  const connectBtcWallet = async (btcWallet: BtcConnectorName) => {
+    const res = await connect(btcWallet)
     res && modal.hide()
   }
   // const { switchNetwork } = useSwitchNetwork()
@@ -89,37 +94,28 @@ const ConnectModal = NiceModal.create(() => {
         <Box >
           {
             BTCWallets.map(wallet => {
-              return <Box key={wallet.key} display={'flex'} gap={'8px'} sx={{
-                p:'10px 30px',
-                border: '1px solid #888',
-                borderRadius: '8px',
-                mb: '10px',
-                cursor:'pointer'
-              }}>
-                {
-                  wallet.logo
-                }
-                <Box onClick={() => connectBtcWallet(wallet.key as BtcConnectorName)}> Connect {wallet.key} </Box>
+              return <Box
+                key={wallet.key} display={'flex'} gap={'20px'}
+                sx={{
+                  p: '10px 20px',
+                  border: '1px solid #888',
+                  borderRadius: '8px',
+                  mb: '20px',
+                  cursor: 'pointer',
+                  background: '#fef9ed',
+                  alignItems: 'center',
+                  '& .icon': {
+                    width: '30px',
+                    height: '30px'
+                  }
+                }}>
+                <img className='icon' src={wallet.logo} alt="logo" />
+                <Box sx={{ fontSize: '20px', fontWeight: 600 }} onClick={() => connectBtcWallet(wallet.key as BtcConnectorName)}> Connect {wallet.key} </Box>
               </Box>
             })
           }
-          {/* <Button onClick={() => {
-            connectBtcWallet('Unisat')
-          }}>Connect unisat</Button>
-          <Button onClick={() => {
-            connectBtcWallet('OKX')
-          }}>Connect Okx</Button> */}
         </Box>
       </DialogContent>
-      {/* <DialogActions sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        mb: '20px'
-      }}>
-        <Button sx={{ background: '#000', color: 'white', width: '140px', borderRadius: '70px' }} onClick={() => modal.hide()} color="primary">
-          ok
-        </Button>
-      </DialogActions> */}
     </Dialog>
   );
 });

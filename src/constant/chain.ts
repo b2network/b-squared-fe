@@ -10,12 +10,12 @@ export const B2TestNet =defineChain({
     symbol: 'BTC',
   },
   rpcUrls: {
-    public: { http: ['http://43.135.203.73:8123'] },
-    default: { http: ['http://43.135.203.73:8123'] },
+    public: { http: ['https://zkevm-rpc.bsquared.network/'] },
+    default: { http: ['https://zkevm-rpc.bsquared.network/'] },
   },
   blockExplorers: {
-    etherscan: { name: 'B2', url: 'http://43.135.203.73/' },
-    default: { name: 'B2', url: 'http://43.135.203.73/' },
+    etherscan: { name: 'B2', url: 'https://zkevm-rpc.bsquared.network/' },
+    default: { name: 'B2', url: 'https://zkevm-rpc.bsquared.network/' },
   },
   contracts: {
     // multicall3: {
@@ -29,4 +29,4 @@ export const B2ChainId = 1002;
 
 export const TokenContract = '0x58e276ceF25b7f2d4C254A80c5e905BE216bFdc8'
 export const BridgeContract = '0x3c950C4D15311dB39F85441316983b3845396C6d'
-export const DepositToAddress = 'tb1q9j03nm97urq4vwkt3mhfh2hgfgwvq329yekdc2'
+export const DepositToAddress = 'tb1qvppxl2n983fk2qhq5rf4vkxshgje5cak863dhp'

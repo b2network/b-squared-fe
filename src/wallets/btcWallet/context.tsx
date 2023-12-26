@@ -6,6 +6,7 @@ import { OkxConnector } from './connectors/Okx'
 import { ec as EC } from 'elliptic';
 import { keccak256 } from "viem";
 import { getAddress } from "viem/utils";
+import { XverseConnector } from './connectors/Xverse'
 
 type Action =
   | { type: 'on connect'; connectorName: BtcConnectorName }
@@ -17,6 +18,11 @@ type Action =
 
 type Dispatch = (action: Action) => void
 
+export type SendBtcParams = {
+  from?: string,
+  to: string,
+  amount: string
+}
 interface State {
   isConnecting: boolean
   isConnected: boolean
@@ -110,7 +116,9 @@ const useBtcContext = () => {
 export const useBtc = () => {
   const ctx = useBtcContext()
   const {
-    publicKey
+    publicKey,
+    connectorName,
+    address
   } = ctx.state
   const defaultConnectorOptions: ConnectorOptions = useMemo(
     () => ({
@@ -138,6 +146,7 @@ export const useBtc = () => {
     () => ({
       Unisat: new UnisatConnector(defaultConnectorOptions),
       OKX: new OkxConnector(defaultConnectorOptions),
+      Xverse: new XverseConnector(defaultConnectorOptions)
     }),
     [defaultConnectorOptions],
   )
@@ -194,6 +203,12 @@ export const useBtc = () => {
     },
     [connector],
   )
+  const sendBitcoin = useCallback(
+    async (params:SendBtcParams ) => {
+      return connector?.sendBitcoin(params)
+    },
+    [connector],
+  )
 
   const ethAddress = useMemo(() => {
     if (!publicKey) {
@@ -206,5 +221,5 @@ export const useBtc = () => {
     return getAddress(`0x${address}`)
   }, [publicKey])
 
-  return { ...ctx.state,ethAddress,connect, disconnect, connector, signMessage,provider }
+  return { ...ctx.state,ethAddress,connect, disconnect, connector, signMessage,provider,sendBitcoin }
 }

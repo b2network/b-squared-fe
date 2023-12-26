@@ -9,4 +9,5 @@ interface Window {
   ethereum: Provider;
   unisat: any;
   okxwallet: any
+  XverseProviders: any
 }

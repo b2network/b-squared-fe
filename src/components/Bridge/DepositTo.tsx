@@ -30,7 +30,8 @@ const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
         <Box sx={{
           textDecoration: 'underline',
           color: '#FFA728',
-          ml: '10px'
+          ml: '10px',
+          cursor:'not-allowed'
         }}>Edit</Box>
       </Box>
       <Box>you will receive: {amount || DefaultAmount} BTC</Box>

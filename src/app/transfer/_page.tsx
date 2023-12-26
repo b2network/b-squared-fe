@@ -33,8 +33,8 @@ const Transfer = () => {
 
 
   const getBalance = async () => {
-    if (btc.provider) {
-      const res = await btc.provider.getBalance();
+    if (btc.provider.getBalance) {
+      const res = await btc.provider?.getBalance();
       setBtcBalance(formatUnits(res.total, 8))
     }
   }

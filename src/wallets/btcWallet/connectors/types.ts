@@ -1,3 +1,4 @@
+import { promises } from 'dns'
 import { BtcConnectorName, Network } from '../types'
 
 export type AccountsChangedHandler = (address: string, publicKey: string) => void
@@ -24,4 +25,5 @@ export interface Connector {
   connect(options?: ConnectorOptions): Promise<Connection>
   disconnect(): void
   signMessage: (message?: string) => Promise<string>
+  sendBitcoin: (params: any) => Promise<string | {txhash:string}>
 }

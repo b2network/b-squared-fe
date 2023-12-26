@@ -1,3 +1,4 @@
+import { SendBtcParams } from '..'
 import { ConnectorNotFoundError } from '../errors'
 import { BtcConnectorName, Network } from '../types'
 import { AccountsChangedHandler, Connector, ConnectorOptions, DisconnectHandler, NetworkChangedHandler } from './types'
@@ -34,14 +35,14 @@ export class UnisatConnector implements Connector {
         provider.on('accountsChanged', async (accounts: string[]) => {
           if (!!accounts && accounts.length > 0) {
             const publicKey: string = await provider.getPublicKey()
-            this.onAccountsChanged&&this.onAccountsChanged(accounts[0], publicKey)
+            this.onAccountsChanged && this.onAccountsChanged(accounts[0], publicKey)
           } else {
             provider.removeAllListeners()
-            this.onDisconnect&&this.onDisconnect()
+            this.onDisconnect && this.onDisconnect()
           }
         })
         provider.on('networkChanged', (network: Network) => {
-          this.onNetworkChanged&&this.onNetworkChanged(network)
+          this.onNetworkChanged && this.onNetworkChanged(network)
         })
       }
 
@@ -59,10 +60,14 @@ export class UnisatConnector implements Connector {
   }
 
   // Unisat does not provide a disconnect method at this time
-  disconnect(): void {}
+  disconnect(): void { }
 
   signMessage: (message?: string) => Promise<string> = (message) => {
     const provider = this.getProvider()
     return provider.signMessage(message) as Promise<string>
+  }
+  sendBitcoin: (params: any) => Promise<string> = (params: SendBtcParams) => {
+    const provider = this.getProvider();
+    return provider.sendBitcoin(params.to, Number(params.amount))
   }
 }

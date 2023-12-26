@@ -34,7 +34,7 @@ const Withdraw: React.FC<Iprops> = () => {
     connector,
     isConnected: isBtcConnected,
     address: btcAddress,
-    disconnect
+    disconnect,
   } = useBtc()
   const { data: walletClient } = useWalletClient()
   const caProvider = useRef<SimpleWeightedECDSAProvider | undefined>()
@@ -44,7 +44,7 @@ const Withdraw: React.FC<Iprops> = () => {
   const [to, setTo] = useState(localTo)
   const [amount, setAmount] = useState('')
   const { address: scaAddress } = useSCAccount(sca);
-  const { data: balance } = useBalance({ address: scaAddress });
+  const { data: balance } = useBalance({ address: '0x74e9b10998788f0eF94805225E076729b45472C7'});
   const addressArr = useMemo(() => {
     if (address && btcAddress) return [{ type: 'eth', address }, { type: 'btc', address: btcAddress }]
     if (address && !btcAddress) return [{ type: 'eth', address },]
@@ -79,6 +79,7 @@ const Withdraw: React.FC<Iprops> = () => {
   }, [amount, balance])
 
   useEffect(() => {
+    console.log()
     if (!signer) {
       return
     }
@@ -163,7 +164,7 @@ const Withdraw: React.FC<Iprops> = () => {
 
   const handleClickBtcButton = () => {
     if (!isBtcConnected) {
-      NiceModal.show(ConnectModal)
+      // NiceModal.show(ConnectModal)
     } else {
       disconnect()
     }

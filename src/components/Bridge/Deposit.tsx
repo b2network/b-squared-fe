@@ -7,11 +7,16 @@ import * as bridgeStore from '@/stores/bridgeStore';
 import { DepositToAddress } from "@/constant";
 import { formatUnits } from "ethers";
 import { useBtc } from "@/wallets/btcWallet";
+import NiceModal from "@ebay/nice-modal-react";
+import ConnectModal from "../Modals/ConnectModal";
+import { useBalance } from "wagmi";
+import { getBtcBalance } from "@/service/balance";
 
 
 const Deposit = () => {
   const [from, setFrom] = useState('btc')
   const btc = useBtc();
+  console.log(btc, 'btc------')
   const [balance, setBalance] = useState('')
   const [amount, setAmount] = useState('')
   const isInsufficient = useMemo(() => {
@@ -20,17 +25,17 @@ const Deposit = () => {
     }
     return false;
   }, [amount, balance])
-  const getBalance = async () => {
-    if (btc.provider) {
-      const res = await btc.provider.getBalance();
-      setBalance(formatUnits(res.total, 8))
-    }
-  }
+  // const { data } = useBalance({ address: '0x6AA5d8DA3b45d04b55F7C7bb5aD85C49174387b0' })
+  // console.log(data,'ddddt')
   useEffect(() => {
-    if (btc.provider) {
-      getBalance()
+    const getBalance = async () => {
+      if (btc.address && btc.connectorName) {
+        const balance = await getBtcBalance(btc.address, btc.connectorName)
+        setBalance(balance || '')
+      }
     }
-  }, [btc])
+    getBalance()
+  }, [btc.address, btc.connectorName])
   const handleFromChange = (e: SelectChangeEvent) => {
     setFrom(e.target.value)
   }
@@ -46,9 +51,14 @@ const Deposit = () => {
       })
       bridgeStore.setShowResult(true);
       bridgeStore.setStatus('pendding')
-      let txid = await btc.provider.sendBitcoin(DepositToAddress, parseBtcAmount(amount));
-      console.log(txid)
-      bridgeStore.setStatus('success')
+      try {
+        let txid = await btc.sendBitcoin({ from: btc.address, to: DepositToAddress, amount: parseBtcAmount(amount).toString() });
+        console.log(txid)
+        bridgeStore.setStatus('success')
+      } catch (error) {
+        console.log(error, error)
+        bridgeStore.setStatus('failed')
+      }
     }
   }
   return (
@@ -109,26 +119,33 @@ const Deposit = () => {
         </Box>
         <Box mt={'12px'} mb='30px'
           sx={{
-            display:'flex',
+            display: 'flex',
             fontSize: '18px',
             color: 'rgba(0,0,0,0.65)'
           }}>
-          Balance: {balance}BTC
+          Balance: {balance || '--'}BTC
           {/* <Box onClick={} sx={{color:'#FFA728',textDecoration:'underline',ml:'10px',cursor:'pointer'}}>Max</Box> */}
         </Box>
         {
-          btc.isConnected ? <Box sx={{
-            width: '100%',
-            textAlign: 'center',
-            height: '50px',
-            lineHeight: '50px',
-            background: '#fef9ed',
-            border: '1px solid black',
-            borderRadius: '50px'
-          }}>{shorterAddress(btc.address || '')}</Box> :
+          btc.isConnected ? <Box
+            onClick={() => {
+              setAmount('')
+              setBalance('')
+              btc.disconnect()
+            }}
+            sx={{
+              width: '100%',
+              textAlign: 'center',
+              height: '50px',
+              lineHeight: '50px',
+              background: '#fef9ed',
+              border: '1px solid black',
+              borderRadius: '50px',
+              cursor: 'pointer'
+            }}>{shorterAddress(btc.address || '')}</Box> :
             <Button
               onClick={() => {
-                btc.connect('Unisat')
+                NiceModal.show(ConnectModal)
               }}
               sx={{
                 width: '100%',
