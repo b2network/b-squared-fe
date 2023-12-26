@@ -184,7 +184,8 @@ const Deposit = () => {
             background: '#000'
           },
           "&.Mui-disabled": {
-            color: 'rgba(255,255,255,0.65)'
+            color: 'rgba(255,255,255,0.65)',
+            cursor:'not-allowed'
           }
         }}>{isInsufficient ? 'Insufficient Balance' : 'Deposit Funds'}</Button>
     </Box>

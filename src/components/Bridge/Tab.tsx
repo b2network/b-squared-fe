@@ -8,8 +8,10 @@ type Iprops = {
 const SELECTIONS = [
   {
     text: 'deposit',
+    disabled: false
   }, {
     text: 'withdraw',
+    disabled: true
   },
 ]
 
@@ -24,10 +26,11 @@ function Tab({ val, handleClick }: Iprops) {
         return <Box
           key={item.text}
           onClick={() => {
+            if (item.disabled) return
             handleClick(item.text)
           }}
           sx={{
-            flex:'1',
+            flex: '1',
             textTransform: 'capitalize',
             background: isActive ? '#fef9ed' : 'white',
             borderTopLeftRadius: index === 0 ? '12px' : '0',
@@ -37,7 +40,7 @@ function Tab({ val, handleClick }: Iprops) {
             p: '12px 85px',
             border: '1px solid #000',
             borderRight: index === 0 ? 'none' : '1px solid black',
-            cursor: 'pointer',
+            cursor: item.disabled ? 'not-allowed' : 'pointer',
             fontSize: '24px',
             fontWeight: isActive ? 600 : 400
           }}>
