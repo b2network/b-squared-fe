@@ -1,15 +1,10 @@
 import React from 'react';
 import NiceModal, { useModal } from '@ebay/nice-modal-react';
-import { Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Typography, Box } from '@mui/material';
+import { Dialog, Button, DialogActions, DialogContent, DialogTitle, Slide, Typography, Box } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import useIsMobile from '@/hooks/useIsMobile';
 import CloseIcon from '@mui/icons-material/Close';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { BtcConnectorName, useBtc } from '@/wallets/btcWallet';
-import { useConnect, useNetwork, useSwitchNetwork } from 'wagmi';
-import { B2ChainId } from '@/constant';
-import UnisatLogo from '../../assets/icons/xverse.svg'
-import XverseLogo from '@/assets/icons/xverse.svg'
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & any,
@@ -20,7 +15,8 @@ const Transition = React.forwardRef(function Transition(
 
 const BTCWallets = [
   {
-    key: 'Unisat',
+    key:'Unisat',
+    name: 'UniSat Wallet',
     logo: '/assets/unisat.svg'
   },
   // {
@@ -28,7 +24,8 @@ const BTCWallets = [
   //   logo: <OkxLogo />
   // },
   {
-    key: 'Xverse',
+    key:'Xverse',
+    name: 'Xverse Wallet',
     logo: '/assets/xverse.svg'
   },
 ]
@@ -64,7 +61,8 @@ const ConnectModal = NiceModal.create(() => {
         },
       }}
     >
-      <DialogTitle sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography sx={{fontSize:'20px',fontWeight:'bold'}}>Choose Wallet</Typography>
         <CloseIcon onClick={() => modal.hide()} sx={{ color: 'black', cursor: 'pointer' }} />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -110,7 +108,7 @@ const ConnectModal = NiceModal.create(() => {
                   }
                 }}>
                 <img className='icon' src={wallet.logo} alt="logo" />
-                <Box sx={{ fontSize: '20px', fontWeight: 600 }} onClick={() => connectBtcWallet(wallet.key as BtcConnectorName)}> Connect {wallet.key} </Box>
+                <Box sx={{ fontSize: '20px', fontWeight: 600 }} onClick={() => connectBtcWallet(wallet.key as BtcConnectorName)}> {wallet.name} </Box>
               </Box>
             })
           }
