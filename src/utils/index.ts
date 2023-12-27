@@ -1,3 +1,4 @@
+import { parseUnits } from "viem";
 
 
 export function numFormat(num: number | string | undefined) {
@@ -19,7 +20,7 @@ export const shorterAddress = (addr:string) => {
 }
 
 export const parseBtcAmount = (amount: string) => {
-  return Number(amount)*(10**8)
+  return parseUnits(amount,8)
  }
 
 const addNetwork = () => {
