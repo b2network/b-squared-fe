@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import { shorterAddress } from "@/utils"
 
 type Iprops = {
@@ -35,7 +35,7 @@ const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
         }}>Edit</Box>
       </Box>
       <Box>you will receive: {amount || DefaultAmount} BTC</Box>
-      <Box>gas fee:  0.0 BTC</Box>
+      <Box>gas fee: -- BTC</Box>
     </Box>
   )
 }

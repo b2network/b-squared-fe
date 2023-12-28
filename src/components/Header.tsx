@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -19,6 +19,7 @@ import Logo from './Logo';
 import NiceModal from '@ebay/nice-modal-react';
 import ComingDialog from './Modals/ComingSoon';
 import { usePathname, useRouter } from 'next/navigation';
+import ConnectBtcButton from './ConnectButton';
 
 const Header = () => {
   const isMobile = useIsMobile();
@@ -42,6 +43,9 @@ const Header = () => {
   const showComingDialog = () => {
     NiceModal.show(ComingDialog)
   }
+
+  const isBridgePage = useMemo(() => pathname.includes('/bridge'), [pathname])
+
   const onClickMenu = (path: string) => {
     if (path) {
       router.push(path);
@@ -99,7 +103,7 @@ const Header = () => {
                   <Typography key={link.name} sx={{
                     mx: '15px',
                     fontWeight: active ? '700' : '400',
-                    fontSize:'20px',
+                    fontSize: '20px',
                     '&:before': {
                       content: '""',
                       display: active ? 'inline-block' : 'none',
@@ -109,7 +113,7 @@ const Header = () => {
                       height: '5px',
                       borderRadius: '10px',
                       background: '#000',
-                      fontSize:'20px'
+                      fontSize: '20px'
                     }
                   }} onClick={() => {
                     onClickMenu(link.path)
@@ -117,28 +121,31 @@ const Header = () => {
                 )
               })
             }
-            <Box
-              className='hvr-sweep-to-right'
-              onClick={goFooter}
-              sx={{
-                borderRadius: '22px',
-                height: '44px',
-                lineHeight: '44px',
-                textAlign: 'center',
-                // border: '1px solid #000',
-                fontSize: '20px',
-                width: '147px',
-                // wordSpacing: '-5px',
-                // letterSpacing: '-2px',
-                textTransform: 'capitalize',
-                whiteSpace: 'nowrap',
-                ml: '15px',
-                '&:hover': {
-                  borderRadius: '22px',
-                  border: 'none',
-                  cursor: 'pointer'
-                }
-              }}>Contact Us</Box>
+            {
+              isBridgePage ? <ConnectBtcButton /> :
+                <Box
+                  className='hvr-sweep-to-right'
+                  onClick={goFooter}
+                  sx={{
+                    borderRadius: '22px',
+                    height: '44px',
+                    lineHeight: '44px',
+                    textAlign: 'center',
+                    // border: '1px solid #000',
+                    fontSize: '20px',
+                    width: '147px',
+                    // wordSpacing: '-5px',
+                    // letterSpacing: '-2px',
+                    textTransform: 'capitalize',
+                    whiteSpace: 'nowrap',
+                    ml: '15px',
+                    '&:hover': {
+                      borderRadius: '22px',
+                      border: 'none',
+                      cursor: 'pointer'
+                    }
+                  }}>Contact Us</Box>
+            }
           </Box>
           <IconButton
             sx={{ display: { sm: 'none' } }}

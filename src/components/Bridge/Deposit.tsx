@@ -16,7 +16,6 @@ import { getBtcBalance } from "@/service/balance";
 const Deposit = () => {
   const [from, setFrom] = useState('btc')
   const btc = useBtc();
-  console.log(btc, 'btc------')
   const [balance, setBalance] = useState('')
   const [amount, setAmount] = useState('')
   const isInsufficient = useMemo(() => {

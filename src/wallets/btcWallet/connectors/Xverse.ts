@@ -57,7 +57,7 @@ export class XverseConnector implements Connector {
     }
   }
   disconnect(): void {
-    window.location.reload()
+    // window.location.reload()
   }
 
   signMessage: (message?: string) => Promise<string> = (message) => {
