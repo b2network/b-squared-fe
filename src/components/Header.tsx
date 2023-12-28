@@ -20,6 +20,7 @@ import NiceModal from '@ebay/nice-modal-react';
 import ComingDialog from './Modals/ComingSoon';
 import { usePathname, useRouter } from 'next/navigation';
 import ConnectBtcButton from './ConnectButton';
+import B2BalanceBox from './B2balanceBox';
 
 const Header = () => {
   const isMobile = useIsMobile();
@@ -108,7 +109,7 @@ const Header = () => {
                       content: '""',
                       display: active ? 'inline-block' : 'none',
                       verticalAlign: 'middle',
-                      mr: '5px',
+                      mr: '3px',
                       width: '5px',
                       height: '5px',
                       borderRadius: '10px',
@@ -122,7 +123,7 @@ const Header = () => {
               })
             }
             {
-              isBridgePage ? <ConnectBtcButton /> :
+              isBridgePage ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><B2BalanceBox /> <ConnectBtcButton /></Box> :
                 <Box
                   className='hvr-sweep-to-right'
                   onClick={goFooter}

@@ -5,98 +5,46 @@ import { useAccount, useBalance, useChainId, useFeeData, useNetwork, useWalletCl
 import WithdrawTo from "./WithdrawTo";
 import { useBrigeContract } from "@/hooks/useContract";
 import { ethers, parseUnits } from "ethers";
-import { useEthersSigner } from "@/hooks/useEthersSigner";
 import ConnectButtonLocal from "@/components/ConnectButtonLocal";
 import * as bridgeStore from '@/stores/bridgeStore'
 import NiceModal from "@ebay/nice-modal-react";
 import ConnectModal from "../Modals/ConnectModal";
-import { KernelSmartContractAccount, SimpleWeightedECDSAProvider, SmartAccountSigner } from "@b2network/aa-sdk";
 import { useBtc } from "@/wallets/btcWallet";
 import BridgeAbi from "@/assets/abi/bridge.json";
-import { encodeFunctionData, padHex, parseEther } from "viem";
-import { BridgeContract } from "@/constant";
+import { Address, encodeFunctionData, padHex, parseEther } from "viem";
 import { shorterAddress } from "@/utils";
-import { convertBTCConnectorToAccountSigner, convertBTCConnectorToDummyAccountSigner, convertWalletClientToAccountSigner } from "@/utils/signerAdapters";
-import { USE_DUMMY_BTC_SIGNER, selectedChain } from "@/constant/aa.config";
-import getValidatorProvider from "@/utils/getValidatorProvider";
-import useSCAccount from "@/hooks/useSCAccount";
+import useSca from "@/hooks/useSca";
 
 type Iprops = {
-  caProvider?: SimpleWeightedECDSAProvider,
   scaAddress?: `0x${string}`
 }
 
 const Withdraw: React.FC<Iprops> = () => {
-  const threshold = 1;
-  const { address,isConnected:isEthConnected } = useAccount()
+  const { address, isConnected: isEthConnected } = useAccount()
   const {
-    ethAddress: btcETHAddress,
-    connector,
     isConnected: isBtcConnected,
     address: btcAddress,
     disconnect,
   } = useBtc()
-  const { data: walletClient } = useWalletClient()
-  const caProvider = useRef<SimpleWeightedECDSAProvider | undefined>()
-  const [sca, setSCA] = useState<KernelSmartContractAccount | null>()
   const localTo = localStorage.getItem('btcAccount') || ''
   const [from, setFrom] = useState('btc')
   const [to, setTo] = useState(localTo)
   const [amount, setAmount] = useState('')
-  const { address: scaAddress } = useSCAccount(sca);
-  const { data: balance } = useBalance({ address: '0x74e9b10998788f0eF94805225E076729b45472C7'});
+  const scaAddress = useSca(btcAddress || '');
+  const { data: balance } = useBalance({ address: scaAddress as Address });
   const addressArr = useMemo(() => {
     if (address && btcAddress) return [{ type: 'eth', address }, { type: 'btc', address: btcAddress }]
     if (address && !btcAddress) return [{ type: 'eth', address },]
     if (!address && btcAddress) return [{ type: 'btc', address: btcAddress }]
     return []
   }, [address, btcAddress])
-
   const [signerType, setSignerType] = useState('')
-  const signer = useMemo(() => {
-    if (signerType === 'eth' && walletClient) {
-      return convertWalletClientToAccountSigner(walletClient)
-    }
-    if (connector && signerType === 'btc') {
-      return (
-        USE_DUMMY_BTC_SIGNER
-          ? convertBTCConnectorToDummyAccountSigner
-          : convertBTCConnectorToAccountSigner
-      )(connector)
-    }
-  }, [signerType, connector?.name, walletClient])
-  const finalAddress = useMemo(() => {
-    return signerType === 'eth' ? address : signerType === 'btc' ? btcETHAddress : undefined
-  }, [address, btcETHAddress,signerType])
-  const guardians = useMemo(() => finalAddress ? [finalAddress] : [], [finalAddress])
-  const weights = useMemo(() => finalAddress ? [1] : [], [finalAddress])
-  const ids = useMemo(() => finalAddress ? [padHex('0x', { size: 32 })] : [], [finalAddress])
   const isInsufficient = useMemo(() => {
     if (amount && balance) {
       return Number(amount) > Number(balance.formatted)
     }
     return false;
   }, [amount, balance])
-
-  useEffect(() => {
-    console.log()
-    if (!signer) {
-      return
-    }
-    getValidatorProvider(selectedChain, signer, {
-      guardians,
-      ids,
-      weights,
-      threshold,
-    })
-      .then((inst) => {
-        caProvider.current = inst
-        setSCA(inst.getAccount())
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  }, [walletClient, connector?.name, signerType, signer])
 
   // set default from account
   useEffect(() => {
@@ -108,9 +56,6 @@ const Withdraw: React.FC<Iprops> = () => {
       setSignerType('btc')
       return
     }
-    if (!isBtcConnected && !isEthConnected) { 
-      setSCA(null)
-    }
     setSignerType('')
   }, [isEthConnected, isBtcConnected])
   console.log({
@@ -119,7 +64,6 @@ const Withdraw: React.FC<Iprops> = () => {
     scaAddress,
     btcAddress,
     signerType,
-    sca: sca
   }, 'withdraw-----')
 
 
@@ -127,39 +71,39 @@ const Withdraw: React.FC<Iprops> = () => {
     setFrom(e.target.value)
   }
   const withdraw = async () => {
-    if (caProvider && caProvider.current) {
-      try {
-        bridgeStore.setShowResult(true);
-        bridgeStore.setStatus('pendding');
-        bridgeStore.setResult({
-          fromChain: 'B² Network',
-          toChain: 'Bitcoin',
-          toAddress: to,
-          amount: amount
-        })
-        const callData = encodeFunctionData({
-          abi: BridgeAbi as any,
-          functionName: 'withdraw',
-          args: [to]
-        })
-        const tx = await caProvider.current.sendUserOperation({
-          target: BridgeContract,
-          data: callData,
-          value: parseEther(amount)
-        })
-        console.log(tx, 'tx')
-        const res = await caProvider.current.waitForUserOperationTransaction(
-          tx.hash as `0x${string}`
-        )
-        console.log(res, 'res')
-        // const tx = await bridgeContract.withdraw(to, { value: parseUnits(amount, 18) })
-        // const res = await tx.wait()
-        bridgeStore.setStatus('success');
-      } catch (error) {
-        console.log(error)
-        bridgeStore.setStatus('failed')
-      }
-    }
+    // if (caProvider && caProvider.current) {
+    //   try {
+    //     bridgeStore.setShowResult(true);
+    //     bridgeStore.setStatus('pendding');
+    //     bridgeStore.setResult({
+    //       fromChain: 'B² Network',
+    //       toChain: 'Bitcoin',
+    //       toAddress: to,
+    //       amount: amount
+    //     })
+    //     const callData = encodeFunctionData({
+    //       abi: BridgeAbi as any,
+    //       functionName: 'withdraw',
+    //       args: [to]
+    //     })
+    //     const tx = await caProvider.current.sendUserOperation({
+    //       target: BridgeContract,
+    //       data: callData,
+    //       value: parseEther(amount)
+    //     })
+    //     console.log(tx, 'tx')
+    //     const res = await caProvider.current.waitForUserOperationTransaction(
+    //       tx.hash as `0x${string}`
+    //     )
+    //     console.log(res, 'res')
+    //     // const tx = await bridgeContract.withdraw(to, { value: parseUnits(amount, 18) })
+    //     // const res = await tx.wait()
+    //     bridgeStore.setStatus('success');
+    //   } catch (error) {
+    //     console.log(error)
+    //     bridgeStore.setStatus('failed')
+    //   }
+    // }
   }
 
   const handleClickBtcButton = () => {
@@ -234,7 +178,7 @@ const Withdraw: React.FC<Iprops> = () => {
           alignItems: 'center',
           fontSize: '18px',
           color: 'rgba(0,0,0,0.65)'
-        }}>Balance: {  balance?.formatted}BTC
+        }}>Balance: {balance?.formatted}BTC
           <Box onClick={() => {
             setAmount(balance?.formatted || '')
           }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>

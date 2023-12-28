@@ -6,15 +6,16 @@ import { shorterAddress } from "@/utils"
 import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import LogoutIcon from '@mui/icons-material/Logout';
+import useB2Balance from "@/hooks/useB2Balance"
 
 const ConnectBtcButton = () => {
-  const { isConnected, address, connect, connectorName, disconnect } = useBtc()
-
+  const { isConnected, address, connectorName, disconnect } = useBtc()
   const handleClick = () => {
     if (!isConnected) {
       NiceModal.show(ConnectModal)
     }
   }
+  const balance = useB2Balance(address || '')
   return (
     <Box
       onClick={handleClick}
@@ -36,7 +37,7 @@ const ConnectBtcButton = () => {
         }
       }}>
       {
-        isConnected && address ? <Connected connectorName={connectorName} disconnect={disconnect} text={shorterAddress(address || '')} /> : <Box sx={{ px: '20px' }}>Connect Wallet</Box>
+        isConnected && address ? <Connected balance={balance} connectorName={connectorName} disconnect={disconnect} text={shorterAddress(address || '')} /> : <Box sx={{ px: '20px' }}>Connect Wallet</Box>
       }
     </Box>
   )
@@ -44,7 +45,7 @@ const ConnectBtcButton = () => {
 
 
 
-function Connected({ text, disconnect, connectorName }: { text: string, disconnect: () => void, connectorName: BtcConnectorName | undefined }) {
+function Connected({ text, disconnect, connectorName, balance }: { text: string, disconnect: () => void, balance: string, connectorName: BtcConnectorName | undefined }) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const logoPath = React.useMemo(() => {
     if (connectorName === 'Xverse') {
@@ -93,6 +94,10 @@ function Connected({ text, disconnect, connectorName }: { text: string, disconne
         }}
       >
         <Box sx={{ p: '20px 25px' }}>
+          <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', mb: '8px' }} onClick={disconnect}>
+            <img src={"/assets/logo_icon.svg"} style={{ width: '24px', height: '24px' }} alt="logo" />
+            <Typography fontWeight={500}>{balance}</Typography>
+          </Box>
           <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer' }} onClick={disconnect}>
             <LogoutIcon />
             <Typography fontWeight={600}>Disconnect</Typography>

@@ -5,12 +5,11 @@ import DepositTo from "./DepositTo";
 import { parseBtcAmount, shorterAddress } from "@/utils";
 import * as bridgeStore from '@/stores/bridgeStore';
 import { DepositToAddress } from "@/constant";
-import { formatUnits } from "ethers";
 import { useBtc } from "@/wallets/btcWallet";
 import NiceModal from "@ebay/nice-modal-react";
 import ConnectModal from "../Modals/ConnectModal";
-import { useBalance } from "wagmi";
 import { getBtcBalance } from "@/service/balance";
+import { NumericFormat } from 'react-number-format';
 
 
 const Deposit = () => {
@@ -86,7 +85,11 @@ const Deposit = () => {
           </Select>
         </Box>
         <Box mt={'20px'} >
-          <InputBase
+          <NumericFormat
+            customInput={InputBase}
+            allowNegative={false}
+            thousandSeparator
+            valueIsNumericString
             value={amount}
             onChange={(e) => {
               setAmount(e.target.value)
@@ -184,7 +187,7 @@ const Deposit = () => {
           },
           "&.Mui-disabled": {
             color: 'rgba(255,255,255,0.65)',
-            cursor:'not-allowed'
+            cursor: 'not-allowed'
           }
         }}>{isInsufficient ? 'Insufficient Balance' : 'Deposit Funds'}</Button>
     </Box>
