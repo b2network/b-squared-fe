@@ -93,9 +93,9 @@ function Connected({ text, disconnect, connectorName }: { text: string, disconne
         }}
       >
         <Box sx={{ p: '20px 25px' }}>
-          <Box sx={{ display: 'flex', gap: '20px' }} onClick={disconnect}>
+          <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer' }} onClick={disconnect}>
             <LogoutIcon />
-            <Typography >Disconnect</Typography>
+            <Typography fontWeight={600}>Disconnect</Typography>
           </Box>
         </Box>
       </Popover>
