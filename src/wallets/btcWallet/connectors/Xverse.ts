@@ -50,7 +50,7 @@ export class XverseConnector implements Connector {
         onCancel: () => alert('Request canceled'),
       }
       await getAddress(getAddressOptions);
-      return { address: this.address||'', publicKey: this.publicKey||'', network: Net }
+      return { address: this.address || '', publicKey: this.publicKey || '', network: Net }
     } catch (error) {
       console.log('connnector error: ', error)
       throw error
@@ -64,7 +64,8 @@ export class XverseConnector implements Connector {
     const provider = this.getProvider()
     return provider.signMessage(message) as Promise<string>
   }
-  sendBitcoin: (params: any) => Promise<string> = (params: SendBtcParams) => {
+  sendBitcoin: (params: any) => Promise<string> = async (params: SendBtcParams) => {
+    let tx = ''
     const sendBtcOptions = {
       payload: {
         network: {
@@ -79,11 +80,12 @@ export class XverseConnector implements Connector {
         senderAddress: params.from,
       },
       onFinish: (response: any) => {
-        console.log(response, 'xverse-send bitcoin')
+        tx = response
       },
-      onCancel: () => alert("Canceled"),
+      onCancel: () => { },
     } as SendBtcTransactionOptions
-
-    return sendBtcTransaction(sendBtcOptions) as any;
+    await sendBtcTransaction(sendBtcOptions);
+    if (!tx) throw new Error('failed')
+    return tx
   }
 }
