@@ -13,7 +13,7 @@ const Result = () => {
     <Box sx={{
       p: '60px 104px',
       position: 'relative',
-      background:'white',
+      background: 'white',
       '& .back': {
         position: 'absolute',
         left: '36px',
@@ -48,7 +48,7 @@ const StatusDiplay = ({ status, amount }: { status: string, amount: string }) =>
     if (status === 'success') {
       return {
         text: 'Transaction is successful !',
-        desc: `you’ve received ${amount}BTC.`,
+        desc: 'The transfer is on the way. Tokens will be transferred to you in a few minutes.',
         btnText: 'Comfirm'
       }
     }
