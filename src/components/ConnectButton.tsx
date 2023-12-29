@@ -88,17 +88,25 @@ function Connected({ text, disconnect, connectorName, balance }: { text: string,
         open={open}
         anchorEl={anchorEl}
         onClose={handlePopoverClose}
+        sx={{
+          '.MuiPaper-root': {
+            border: '1px solid #000',
+            borderRadius: '8px',
+            mt: '5px',
+            width: '190px',
+          },
+        }}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
         }}
       >
-        <Box sx={{ p: '20px 25px' }}>
-          <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', mb: '8px' }} onClick={disconnect}>
+        <Box >
+          <Box sx={{ display: 'flex', borderBottom: '1px solid #888', gap: '20px', cursor: 'pointer', alignItems: 'center', height: '50px', pl: '20px' }} onClick={disconnect}>
             <img src={"/assets/logo_icon.svg"} style={{ width: '24px', height: '24px' }} alt="logo" />
-            <Typography fontWeight={500}>{balance}</Typography>
+            <Typography fontWeight={500}>{balance || '--'}</Typography>
           </Box>
-          <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer' }} onClick={disconnect}>
+          <Box sx={{ display: 'flex', gap: '20px', pl: '20px', alignItems: 'center', cursor: 'pointer', height: '50px' }} onClick={disconnect}>
             <LogoutIcon />
             <Typography fontWeight={600}>Disconnect</Typography>
           </Box>

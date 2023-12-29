@@ -123,7 +123,7 @@ const Header = () => {
               })
             }
             {
-              isBridgePage ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><B2BalanceBox /> <ConnectBtcButton /></Box> :
+              isBridgePage ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box> :
                 <Box
                   className='hvr-sweep-to-right'
                   onClick={goFooter}
