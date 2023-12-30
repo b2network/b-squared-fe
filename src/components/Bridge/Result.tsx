@@ -26,7 +26,7 @@ const Result = () => {
         bridgeStore.setShowResult(false)
       }} className="back" src="/assets/icon_back.svg" alt="back" />
       <Grid container sx={{ fontSize: '18px' }}>
-        <Grid item xs={3}>Amount: {data.amount}BTC</Grid>
+        <Grid item xs={3}>Amount: {data.amount} BTC</Grid>
         <Grid item xs={3}>From: {data.fromChain}</Grid>
         <Grid item xs={3}>To: {data.toChain}</Grid>
         <Grid item xs={3}>send to address: {shorterAddress(data.toAddress)}</Grid>
