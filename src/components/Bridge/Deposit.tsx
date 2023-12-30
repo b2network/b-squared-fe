@@ -45,7 +45,7 @@ const Deposit = () => {
         fromChain: 'Bitcion',
         toChain: 'B² Network',
         amount: amount,
-        toAddress: DepositToAddress
+        toAddress: btc.address||''
       })
       bridgeStore.setShowResult(true);
       bridgeStore.setStatus('pendding')
