@@ -20,7 +20,7 @@ export class OkxConnector implements Connector {
   getProvider() {
     if (typeof window === 'undefined') return
     if (typeof window.okxwallet.bitcoinTestnet === 'undefined') {
-      throw new ConnectorNotFoundError()
+      return new ConnectorNotFoundError()
     }
 
     return window.okxwallet.bitcoinTestnet

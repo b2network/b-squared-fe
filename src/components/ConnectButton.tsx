@@ -101,7 +101,7 @@ function Connected({ text, disconnect, connectorName, balance }: { text: string,
         }}
       >
         <Box >
-          <Box sx={{ display: 'flex', borderBottom: '1px solid #888', gap: '20px', cursor: 'pointer', alignItems: 'center', height: '50px', pl: '20px' }} onClick={disconnect}>
+          <Box sx={{ display: 'flex', borderBottom: '1px solid #888', gap: '20px', cursor: 'pointer', alignItems: 'center', height: '50px', pl: '20px' }}>
             <img src={"/assets/logo_icon.svg"} style={{ width: '24px', height: '24px' }} alt="logo" />
             <Typography fontWeight={500}>{balance || '--'} BTC</Typography>
           </Box>

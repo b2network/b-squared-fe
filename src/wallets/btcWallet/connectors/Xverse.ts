@@ -25,9 +25,10 @@ export class XverseConnector implements Connector {
   getProvider() {
     if (typeof window === 'undefined') return
     if (typeof window.XverseProviders === 'undefined') {
-      throw new ConnectorNotFoundError()
+      // alert('Unable to successfully connect to wallet.')
+      // return
+      return new ConnectorNotFoundError()
     }
-
     return window.XverseProviders
   }
 

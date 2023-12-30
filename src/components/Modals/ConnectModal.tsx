@@ -38,12 +38,14 @@ const ConnectModal = NiceModal.create(() => {
   //   useConnect();
   // const { chain } = useNetwork()
   const connectBtcWallet = async (btcWallet: BtcConnectorName) => {
-    const res = await connect(btcWallet)
+    const res = await connect(btcWallet).catch((e) => {
+      console.log('error----------', e.message)
+      alert('Unable to successfully connect to wallet.')
+    })
+    if (!res) return;
     res && modal.hide()
   }
   // const { switchNetwork } = useSwitchNetwork()
-
-
 
   return (
     <Dialog
