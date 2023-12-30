@@ -23,7 +23,6 @@ const Top = () => {
       alignItems: 'stretch',
       minHeight: isMobile ? '330px' : '400px',
       p: '1px',
-      pt: '2px',
       gap: '1px',
       overflow: 'hidden'
     }}>

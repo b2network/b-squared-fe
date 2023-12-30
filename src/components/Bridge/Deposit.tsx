@@ -138,7 +138,6 @@ const Deposit = () => {
               background: '#fef9ed',
               border: '1px solid black',
               borderRadius: '50px',
-              cursor: 'pointer'
             }}>{shorterAddress(btc.address || '')}</Box> :
             <Button
               onClick={() => {
