@@ -178,7 +178,7 @@ const Withdraw: React.FC<Iprops> = () => {
           alignItems: 'center',
           fontSize: '18px',
           color: 'rgba(0,0,0,0.65)'
-        }}>Balance: {balance?.formatted}BTC
+        }}>Balance: {balance?.formatted} BTC
           <Box onClick={() => {
             setAmount(balance?.formatted || '')
           }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>

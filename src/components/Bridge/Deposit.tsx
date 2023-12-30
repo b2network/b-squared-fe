@@ -125,7 +125,7 @@ const Deposit = () => {
             fontSize: '18px',
             color: 'rgba(0,0,0,0.65)'
           }}>
-          Balance: {balance || '--'}BTC
+          Balance: {balance || '--'} BTC
           {/* <Box onClick={} sx={{color:'#FFA728',textDecoration:'underline',ml:'10px',cursor:'pointer'}}>Max</Box> */}
         </Box>
         {
