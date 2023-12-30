@@ -130,11 +130,6 @@ const Deposit = () => {
         </Box>
         {
           btc.isConnected ? <Box
-            onClick={() => {
-              setAmount('')
-              setBalance('')
-              btc.disconnect()
-            }}
             sx={{
               width: '100%',
               textAlign: 'center',
