@@ -27,7 +27,6 @@ const ConnectBtcButton = () => {
         color: 'white',
         background: 'black',
         fontSize: '20px',
-        textTransform: 'capitalize',
         whiteSpace: 'nowrap',
         ml: '15px',
         '&:hover': {
@@ -104,7 +103,7 @@ function Connected({ text, disconnect, connectorName, balance }: { text: string,
         <Box >
           <Box sx={{ display: 'flex', borderBottom: '1px solid #888', gap: '20px', cursor: 'pointer', alignItems: 'center', height: '50px', pl: '20px' }} onClick={disconnect}>
             <img src={"/assets/logo_icon.svg"} style={{ width: '24px', height: '24px' }} alt="logo" />
-            <Typography fontWeight={500}>{balance || '--'}</Typography>
+            <Typography fontWeight={500}>{balance || '--'}BTC</Typography>
           </Box>
           <Box sx={{ display: 'flex', gap: '20px', pl: '20px', alignItems: 'center', cursor: 'pointer', height: '50px' }} onClick={disconnect}>
             <LogoutIcon />
