@@ -7,6 +7,7 @@ import BarSvg from "@/components/SvgIcon/BarSvg";
 import BarCodeSvg from "@/components/SvgIcon/BarCode";
 import EastIcon from '@mui/icons-material/East';
 import useIsMobile from '@/hooks/useIsMobile';
+import OuterLink from '../OuterLink';
 
 const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 const Odyssey = 'https://task.bsquared.network/leaderboard'
@@ -149,17 +150,14 @@ const Top = () => {
         <Box data-aos='fade-up' sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          mt: '23px',
-          alignItems: 'flex-end'
+          mt: '60px',
+          alignItems: 'center'
         }}>
           <BarSvg sx={{
             width: '101px',
             height: '10px'
           }} />
-          <BarCodeSvg sx={{
-            width: '144px',
-            height: '50px'
-          }} />
+          <OuterLink />
         </Box>
       </Box>
       <Box sx={{

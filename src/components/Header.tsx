@@ -21,6 +21,7 @@ import ComingDialog from './Modals/ComingSoon';
 import { usePathname, useRouter } from 'next/navigation';
 import ConnectBtcButton from './ConnectButton';
 import B2BalanceBox from './B2balanceBox';
+import Developers from './Developers';
 
 const Header = () => {
   const isMobile = useIsMobile();
@@ -29,15 +30,12 @@ const Header = () => {
   const pathname = usePathname()
   const Links = [
     {
-      name: 'Build',
-      path: ''
-    }, {
-      name: 'Ecosystem',
-      path: ''
-    }, {
       name: 'Bridge',
       path: '/bridge'
-      // path: ''
+    },
+    {
+      name: 'Doc',
+      path: 'https://docs.bsquared.network/'
     },
   ]
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,6 +46,10 @@ const Header = () => {
   const isBridgePage = useMemo(() => pathname.includes('/bridge'), [pathname])
 
   const onClickMenu = (path: string) => {
+    if (path.includes('http')) {
+      window.open(path)
+      return
+    }
     if (path) {
       router.push(path);
       return
@@ -70,7 +72,13 @@ const Header = () => {
           alignItems: 'center',
           boxShadow: 'none',
         }}>
-        <Toolbar sx={{ display: 'flex', borderTop: '2px solid #000', gap: '1px', width: '100%', px: { xs: '1px' }, background: 'black', maxWidth: '1290px', alignItems: 'center', height: { xs: '74px', sm: '100px' }, justifyContent: 'space-between', borderBottom: '1px solid #000' }}>
+        <Toolbar sx={{
+          display: 'flex', borderTop: '2px solid #000',
+          gap: '1px', width: '100%', px: { xs: '1px' },
+          background: 'black', maxWidth: '1290px',
+          alignItems: 'center', height: { xs: '74px', sm: '100px' },
+          justifyContent: 'space-between', borderBottom: '1px solid #000'
+        }}>
           <Box
             sx={{ cursor: 'pointer', px: isMobile ? '20px' : '30px', ml: 0, background: { xs: 'black', sm: 'white' }, borderRadius: '8px', height: '100%' }}
             display='inline-flex'
@@ -96,7 +104,7 @@ const Header = () => {
               pr: '30px',
             }}
             alignItems='center'>
-
+            <Developers />
             {
               Links.map(link => {
                 const active = (pathname === link.path || pathname === link.path + '/') && link.path !== '';
