@@ -1,8 +1,8 @@
-import { Box, Button, InputBase, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material"
+import { Box, Button, InputBase, Link, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material"
 import { useEffect, useMemo, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import DepositTo from "./DepositTo";
-import { parseBtcAmount, shorterAddress } from "@/utils";
+import { FAUCET_URL, parseBtcAmount, primaryColor, shorterAddress } from "@/utils";
 import * as bridgeStore from '@/stores/bridgeStore';
 import { DepositToAddress } from "@/constant";
 import { useBtc } from "@/wallets/btcWallet";
@@ -10,6 +10,7 @@ import NiceModal from "@ebay/nice-modal-react";
 import ConnectModal from "../Modals/ConnectModal";
 import { getBtcBalance } from "@/service/balance";
 import { NumericFormat } from 'react-number-format';
+
 
 
 const Deposit = () => {
@@ -123,17 +124,21 @@ const Deposit = () => {
             }
           />
         </Box>
-        <Box mt={'12px'} mb='30px'
-          sx={{
-            display: 'flex',
-            fontSize: '18px',
-            color: 'rgba(0,0,0,0.65)'
-          }}>
-          Balance: {balance || '--'} BTC
-          <Box onClick={() => {
-            setAmount(balance)
-          }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
+        <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
+          <Box mt={'12px'} mb='30px'
+            sx={{
+              display: 'flex',
+              fontSize: '18px',
+              color: 'rgba(0,0,0,0.65)'
+            }}>
+            Balance: {balance || '--'} BTC
+            <Box onClick={() => {
+              setAmount(balance)
+            }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
+          </Box>
+          <Link sx={{ color: primaryColor, textDecoration: 'none' }} href={FAUCET_URL} target='_blank' >Testnet faucet</Link>
         </Box>
+
         {
           btc.isConnected ? <Box
             sx={{
