@@ -34,7 +34,8 @@ const Developers = () => {
   return (
     <>
       <Box
-        onMouseOver={handlePopoverOpen}
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={() => { console.log(111) }}
         sx={{
           display: 'flex',
           gap: '3px',
@@ -42,6 +43,8 @@ const Developers = () => {
           color: '#000',
           fontWeight: open ? 700 : 400,
           cursor: 'pointer',
+          alignItems: 'center',
+          py: '20px'
         }}>
         <Box>Developers</Box>
         <ExpandMoreIcon />
@@ -62,24 +65,41 @@ const Developers = () => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
+        disableRestoreFocus
       >
-        {
-          DEVELOPERLINKS.map(
-            link => {
-              return (
-                <Box onClick={handlePopoverClose} key={link.name} sx={{ display: 'flex', alignItems: 'center', gap: '17px', mb: '18px' }}>
-                  {link.icon}
-                  <Link href={link.link} sx={{
-                    color: 'black',
-                    textDecoration: 'none',
-                    fontSize: '18px',
-                    cursor: 'pointer'
-                  }} target='_blank'>{link.name}</Link>
-                </Box>
-              )
-            }
-          )
-        }
+        <Box
+          onMouseLeave={handlePopoverClose}
+        >
+          {
+            DEVELOPERLINKS.map(
+              link => {
+                return (
+                  <Box onClick={handlePopoverClose} key={link.name} sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '17px',
+                    mb: '18px',
+                    opacity: 0.6,
+                    '&:hover': {
+                      opacity: 1,
+                      cursor: 'pointer',
+                      fontWeight: 600
+                    }
+                  }}>
+                    {link.icon}
+                    <Link href={link.link} sx={{
+                      color: 'black',
+                      textDecoration: 'none',
+                      fontSize: '18px',
+                      cursor: 'pointer'
+                    }} target='_blank'>{link.name}</Link>
+                  </Box>
+                )
+              }
+            )
+          }
+        </Box>
+
       </Popover>
     </>
   )
