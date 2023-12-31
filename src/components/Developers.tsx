@@ -41,22 +41,9 @@ const Developers = () => {
           fontSize: '20px',
           color: '#000',
           fontWeight: open ? 700 : 400,
-          textDecoration: 'uppercase',
           cursor: 'pointer',
         }}>
-        <Box sx={{
-          '&:before': {
-            content: '""',
-            display: open ? 'inline-block' : 'none',
-            verticalAlign: 'middle',
-            mr: '5px',
-            width: '5px',
-            height: '5px',
-            borderRadius: '10px',
-            background: '#000',
-            fontSize: '20px'
-          }
-        }}>DEVELOPERS</Box>
+        <Box>Developers</Box>
         <ExpandMoreIcon sx={{ transform: !open ? 'rotate(180deg)' : 'none' }} />
       </Box>
       <Popover

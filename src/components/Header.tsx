@@ -113,6 +113,7 @@ const Header = () => {
                     mx: '15px',
                     fontWeight: active ? '700' : '400',
                     fontSize: '20px',
+                    textTransform: 'none',
                     '&:before': {
                       content: '""',
                       display: active ? 'inline-block' : 'none',
