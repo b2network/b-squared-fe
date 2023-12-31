@@ -1,6 +1,6 @@
 {
   "name": "b2-fe",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": true,
   "scripts": {
     "dev": "cross-env NEXT_PUBLIC_APP_ENV=development next dev",
