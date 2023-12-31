@@ -124,8 +124,8 @@ const Deposit = () => {
             }
           />
         </Box>
-        <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
-          <Box mt={'12px'} mb='30px'
+        <Box display={'flex'} mt={'12px'} mb='30px' justifyContent={'space-between'} alignItems={'center'}>
+          <Box
             sx={{
               display: 'flex',
               fontSize: '18px',
