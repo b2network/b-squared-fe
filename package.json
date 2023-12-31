@@ -6,6 +6,7 @@
     "dev": "cross-env NEXT_PUBLIC_APP_ENV=development next dev",
     "dev:prod": "cross-env NEXT_PUBLIC_APP_ENV=production next dev",
     "build": "cross-env NEXT_PUBLIC_APP_ENV=production next build",
+    "build:dev": "cross-env NEXT_PUBLIC_APP_ENV=development next build",
     "start": "next start",
     "lint": "next lint"
   },
