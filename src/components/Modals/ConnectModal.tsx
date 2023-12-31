@@ -5,6 +5,8 @@ import { TransitionProps } from '@mui/material/transitions';
 import useIsMobile from '@/hooks/useIsMobile';
 import CloseIcon from '@mui/icons-material/Close';
 import { BtcConnectorName, useBtc } from '@/wallets/btcWallet';
+import checkWalletInstalled from '@/utils/checkWalletInstalled';
+import InstallWalletTip from './InstallWalletTip';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & any,
@@ -15,7 +17,7 @@ const Transition = React.forwardRef(function Transition(
 
 const BTCWallets = [
   {
-    key:'Unisat',
+    key: 'Unisat',
     name: 'UniSat Wallet',
     logo: '/assets/unisat.svg'
   },
@@ -24,7 +26,7 @@ const BTCWallets = [
   //   logo: <OkxLogo />
   // },
   {
-    key:'Xverse',
+    key: 'Xverse',
     name: 'Xverse Wallet',
     logo: '/assets/xverse.svg'
   },
@@ -33,14 +35,20 @@ const BTCWallets = [
 const ConnectModal = NiceModal.create(() => {
   const modal = useModal();
   const isMobile = useIsMobile()
-  const { connect, isConnected } = useBtc()
+  const { connect, isConnected, connectorName } = useBtc()
   // const { connect, connectors, error, isLoading, pendingConnector } =
   //   useConnect();
   // const { chain } = useNetwork()
   const connectBtcWallet = async (btcWallet: BtcConnectorName) => {
+
+    if (!checkWalletInstalled(btcWallet)) {
+      modal.hide()
+      NiceModal.show(InstallWalletTip, { wallet: btcWallet })
+      return;
+    }
+
     const res = await connect(btcWallet).catch((e) => {
       console.log('error----------', e.message)
-      alert('Unable to successfully connect to wallet.')
     })
     if (!res) return;
     res && modal.hide()
@@ -64,7 +72,7 @@ const ConnectModal = NiceModal.create(() => {
       }}
     >
       <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography sx={{fontSize:'20px',fontWeight:'bold'}}>Choose Wallet</Typography>
+        <Typography sx={{ fontSize: '20px', fontWeight: 'bold' }}>Choose Wallet</Typography>
         <CloseIcon onClick={() => modal.hide()} sx={{ color: 'black', cursor: 'pointer' }} />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

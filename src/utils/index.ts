@@ -53,3 +53,5 @@ export const RPC_URL = 'https://zkevm-rpc.bsquared.network'
 //   const base = 375;
 //   return px * 100 / base + 'vw'
 // }
+
+export const primaryColor = '#FFA728'

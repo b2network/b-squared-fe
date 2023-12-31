@@ -23,8 +23,7 @@ const Deposit = () => {
     }
     return false;
   }, [amount, balance])
-  // const { data } = useBalance({ address: '0x6AA5d8DA3b45d04b55F7C7bb5aD85C49174387b0' })
-  // console.log(data,'ddddt')
+
   useEffect(() => {
     const getBalance = async () => {
       if (btc.address && btc.connectorName) {
@@ -34,6 +33,11 @@ const Deposit = () => {
     }
     getBalance()
   }, [btc.address, btc.connectorName])
+  useEffect(() => {
+    if (!btc.isConnected && balance) {
+      setBalance('')
+    }
+  }, [btc.isConnected, balance])
   const handleFromChange = (e: SelectChangeEvent) => {
     setFrom(e.target.value)
   }
@@ -45,7 +49,7 @@ const Deposit = () => {
         fromChain: 'Bitcion',
         toChain: 'B² Network',
         amount: amount,
-        toAddress: btc.address||''
+        toAddress: btc.address || ''
       })
       bridgeStore.setShowResult(true);
       bridgeStore.setStatus('pendding')
