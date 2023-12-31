@@ -34,7 +34,7 @@ const Developers = () => {
   return (
     <>
       <Box
-        onClick={handlePopoverOpen}
+        onMouseOver={handlePopoverOpen}
         sx={{
           display: 'flex',
           gap: '3px',
@@ -44,7 +44,7 @@ const Developers = () => {
           cursor: 'pointer',
         }}>
         <Box>Developers</Box>
-        <ExpandMoreIcon sx={{ transform: !open ? 'rotate(180deg)' : 'none' }} />
+        <ExpandMoreIcon />
       </Box>
       <Popover
         open={open}
@@ -67,7 +67,7 @@ const Developers = () => {
           DEVELOPERLINKS.map(
             link => {
               return (
-                <Box key={link.name} sx={{ display: 'flex', alignItems: 'center', gap: '17px', mb: '18px' }}>
+                <Box onClick={handlePopoverClose} key={link.name} sx={{ display: 'flex', alignItems: 'center', gap: '17px', mb: '18px' }}>
                   {link.icon}
                   <Link href={link.link} sx={{
                     color: 'black',
