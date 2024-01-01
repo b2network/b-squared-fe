@@ -113,7 +113,7 @@ a {
 
    /*动画效果*/
    .transactionLoading {
-    width: 112px;
+    // width: 112px;
     /*animation (动画) :绑定选择器, 4s完成动画 linear(匀速) infinite(循环) */
     animation: loading 3s linear infinite;
 }
