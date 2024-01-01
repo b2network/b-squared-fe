@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
-const path = require('path')
+const path = require("path");
 
 const nextConfig = {
   sassOptions: {
-    includePaths: [path.join(__dirname, 'src/styles')],
+    includePaths: [path.join(__dirname, "src/styles")],
   },
-  output: 'export',
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  output: "export",
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -13,7 +16,7 @@ const nextConfig = {
   experimental: {
     turbo: {
       rules: {
-        '*.svg': ['@svgr/webpack'],
+        "*.svg": ["@svgr/webpack"],
       },
     },
   },
@@ -22,9 +25,7 @@ const nextConfig = {
       {
         // Apply these headers to all routes in your application.
         source: "/:path*",
-        headers: [
-          { key: "Access-Control-Allow-Origin", value: "*" },
-        ],
+        headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
       },
     ];
   },
@@ -50,12 +51,11 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
     config.resolve.fallback = { fs: false, net: false, tls: false };
     return config;
   },
-}
+};
 
-
-module.exports = nextConfig
+module.exports = nextConfig;
