@@ -77,7 +77,7 @@ const Withdraw: React.FC<Iprops> = () => {
     //     bridgeStore.setStatus('pendding');
     //     bridgeStore.setResult({
     //       fromChain: 'B² Network',
-    //       toChain: 'Bitcoin',
+    //       toChain: ' Bitcoin Testnet',
     //       toAddress: to,
     //       amount: amount
     //     })

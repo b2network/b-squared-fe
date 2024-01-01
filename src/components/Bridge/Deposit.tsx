@@ -47,7 +47,7 @@ const Deposit = () => {
     if (btc.address && amount) {
       localStorage.setItem('btcAccount', btc.address)
       bridgeStore.setResult({
-        fromChain: 'Bitcion',
+        fromChain: ' Bitcoin Testnet',
         toChain: 'B² Network',
         amount: amount,
         toAddress: btc.address || ''
