@@ -7,6 +7,7 @@ import { ec as EC } from 'elliptic';
 import { keccak256 } from "viem";
 import { getAddress } from "viem/utils";
 import { XverseConnector } from './connectors/Xverse'
+import { removeWalletFromStore, saveWalletToStore } from '@/utils'
 
 type Action =
   | { type: 'on connect'; connectorName: BtcConnectorName }
@@ -160,6 +161,7 @@ export const useBtc = () => {
   const disconnect = useCallback(() => {
     ctx.dispatch({ type: 'disconnected' })
     connector?.disconnect()
+    removeWalletFromStore()
   }, [connector, ctx])
 
   const connect = useCallback(
@@ -176,7 +178,7 @@ export const useBtc = () => {
         })
 
         const { address, publicKey, network } = await ConnectorMap[connectorName].connect()
-
+        saveWalletToStore(connectorName)
         ctx.dispatch({
           type: 'connected',
           connectorName,
@@ -195,7 +197,7 @@ export const useBtc = () => {
 
   const provider = useMemo(() => {
     return connector?.getProvider()
-  },[connector])
+  }, [connector])
 
   const signMessage = useCallback(
     async (message?: string) => {
@@ -204,7 +206,7 @@ export const useBtc = () => {
     [connector],
   )
   const sendBitcoin = useCallback(
-    async (params:SendBtcParams ) => {
+    async (params: SendBtcParams) => {
       return connector?.sendBitcoin(params)
     },
     [connector],
@@ -221,5 +223,5 @@ export const useBtc = () => {
     return getAddress(`0x${address}`)
   }, [publicKey])
 
-  return { ...ctx.state,ethAddress,connect, disconnect, connector, signMessage,provider,sendBitcoin }
+  return { ...ctx.state, ethAddress, connect, disconnect, connector, signMessage, provider, sendBitcoin }
 }

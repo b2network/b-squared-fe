@@ -5,6 +5,8 @@ import { useMemo } from "react";
 import * as bridgeStore from '@/stores/bridgeStore';
 import { shorterAddress } from "@/utils";
 import { useSnapshot } from "valtio";
+import IconLoading from '@/assets/icons/icon_loading.svg'
+
 
 const Result = () => {
   const model = useSnapshot(bridgeStore.store)
@@ -86,7 +88,8 @@ const StatusDiplay = ({ status, amount }: { status: string, amount: string }) =>
           width: '100%',
           textAlign: 'center'
         }}>loading...</Box>
-        <img className="transactionLoading pendding" src="/assets/icon_loading.svg" alt="loading" />
+        <IconLoading  className="transactionLoading pendding"  />
+        {/* <img className="transactionLoading pendding" src="/assets/icon_loading.svg" alt="loading" /> */}
       </Box>
       }
       {

@@ -1,3 +1,4 @@
+import { BtcConnectorName } from "@/wallets/btcWallet";
 import { parseUnits } from "viem";
 
 
@@ -56,3 +57,20 @@ export const FAUCET_URL = 'https://docs.bsquared.network/get_started/quick-start
 // }
 
 export const primaryColor = '#FFA728'
+
+export const StoreWalletKey = 'btcWallet'
+export const saveWalletToStore = (wallet: BtcConnectorName) => {
+  try {
+    localStorage.setItem(StoreWalletKey, wallet)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const removeWalletFromStore = () => {
+  try {
+    localStorage.removeItem(StoreWalletKey)
+  } catch (error) {
+    console.log(error, 'error')
+  }
+}
