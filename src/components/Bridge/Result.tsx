@@ -1,16 +1,24 @@
 import { Pending } from "@mui/icons-material";
 import { Box, Button, Grid, Typography } from "@mui/material"
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 // import { ResultData } from "stores/bridgeStore"
 import * as bridgeStore from '@/stores/bridgeStore';
 import { shorterAddress } from "@/utils";
 import { useSnapshot } from "valtio";
 import IconLoading from '@/assets/icons/icon_loading.svg'
+import { useBtc } from "@/wallets/btcWallet";
 
 
 const Result = () => {
   const model = useSnapshot(bridgeStore.store)
+  const { isConnected } = useBtc()
+
   const { status, result: data } = model;
+  useEffect(() => {
+    if (!isConnected) {
+      bridgeStore.setShowResult(false)
+    }
+  }, [isConnected])
   return (
     <Box sx={{
       p: '60px 104px',
@@ -88,7 +96,7 @@ const StatusDiplay = ({ status, amount }: { status: string, amount: string }) =>
           width: '100%',
           textAlign: 'center'
         }}>loading...</Box>
-        <IconLoading  className="transactionLoading pendding"  />
+        <IconLoading className="transactionLoading pendding" />
         {/* <img className="transactionLoading pendding" src="/assets/icon_loading.svg" alt="loading" /> */}
       </Box>
       }
