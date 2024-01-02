@@ -44,3 +44,5 @@ jobs:
         run: |
             coscmd upload -r ./out/ /
             tccli teo CreatePurgeTask --cli-unfold-argument  --cli-unfold-argument --Targets http://www.bsquared.network/  --Type purge_prefix --ZoneId zone-2of2oczegyu8
+            tccli teo CreatePurgeTask --cli-unfold-argument  --cli-unfold-argument --Targets http://bsquared.network/  --Type purge_prefix --ZoneId zone-2of2oczegyu8
+
