@@ -34,8 +34,7 @@ const Developers = () => {
   return (
     <>
       <Box
-        onMouseEnter={handlePopoverOpen}
-        onMouseLeave={() => { console.log(111) }}
+        onClick={handlePopoverOpen}
         sx={{
           display: 'flex',
           gap: '3px',
@@ -44,7 +43,8 @@ const Developers = () => {
           fontWeight: open ? 700 : 400,
           cursor: 'pointer',
           alignItems: 'center',
-          py: '20px'
+          py: '20px',
+          minWidth:'135px'
         }}>
         <Box>Developers</Box>
         <ExpandMoreIcon />
