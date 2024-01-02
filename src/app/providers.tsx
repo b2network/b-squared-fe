@@ -25,7 +25,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const customTheme = createTheme({
     palette: { mode: 'light' },
     typography: {
-      fontFamily: 'Titillium Web,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Hanson,',
+      fontFamily: 'Titillium Web,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Hanson',
 
     }
   });
