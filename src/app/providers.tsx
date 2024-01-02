@@ -25,7 +25,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const customTheme = createTheme({
     palette: { mode: 'light' },
     typography: {
-      fontFamily: 'Titillium Web,Hanson,monospace,Objectivity,Roboto,Helvetica,Arial,sans-serif',
+      fontFamily: 'Titillium Web,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Hanson,',
+
     }
   });
   const { chains, publicClient, webSocketPublicClient } = configureChains([B2TestNet], [publicProvider()], { pollingInterval: 800000 });
@@ -44,7 +45,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   ]);
   const wagmiConfig = createConfig({
     autoConnect: true,
-    connectors:[...connectors(),    new WalletConnectConnector({
+    connectors: [...connectors(), new WalletConnectConnector({
       chains,
       options: {
         projectId,
@@ -64,7 +65,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         })} locale='en'>
           <BtcProvider>
             <NiceModal.Provider>
-            <CssBaseline />
+              <CssBaseline />
               <NextNProgress color='#FFA728' height={10} />
               {
                 isMouted && children

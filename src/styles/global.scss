@@ -5,20 +5,21 @@ html {
   margin: 0;
 }
 @font-face {
-  font-family: "Hanson";
-  src: url("/fonts/Hanson Bold 700.woff2");
-}
-@font-face {
   font-family: "Titillium Web";
   src: url("/fonts/TitilliumWeb-Regular.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hanson";
+  src: url("/fonts/Hanson Bold 700.woff2");
+  font-display: swap;
 }
 body {
   font-size: 16px;
   line-height: 1.1;
   // letter-spacing: -1px;
   // word-spacing: -2px;
-  font-family: "Titillium Web", monospace, Objectivity, Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: "Titillium Web,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Hanson,";
 }
 p {
   margin: 0;
@@ -111,21 +112,21 @@ a {
   }
 }
 
-   /*动画效果*/
-   .transactionLoading {
-    // width: 112px;
-    /*animation (动画) :绑定选择器, 4s完成动画 linear(匀速) infinite(循环) */
-    animation: loading 3s linear infinite;
+/*动画效果*/
+.transactionLoading {
+  // width: 112px;
+  /*animation (动画) :绑定选择器, 4s完成动画 linear(匀速) infinite(循环) */
+  animation: loading 3s linear infinite;
 }
 
 /*通过@keyframes规则,能够创建动画 , que 定义动画的名称 可自己定义*/
 @keyframes loading {
-    /*以百分比来规定改变发生的时间 也可以通过"from"和"to",等价于0% 和 100%*/
-    0% {
-        /*rotate(2D旋转) scale(放大或者缩小) translate(移动) skew(翻转)*/
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  /*以百分比来规定改变发生的时间 也可以通过"from"和"to",等价于0% 和 100%*/
+  0% {
+    /*rotate(2D旋转) scale(放大或者缩小) translate(移动) skew(翻转)*/
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

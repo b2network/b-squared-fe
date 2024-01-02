@@ -20,7 +20,6 @@ import NiceModal from '@ebay/nice-modal-react';
 import ComingDialog from './Modals/ComingSoon';
 import { usePathname, useRouter } from 'next/navigation';
 import ConnectBtcButton from './ConnectButton';
-import B2BalanceBox from './B2balanceBox';
 import Developers from './Developers';
 
 const Header = () => {
