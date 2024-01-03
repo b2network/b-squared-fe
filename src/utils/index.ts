@@ -56,6 +56,8 @@ export const FAUCET_URL = 'https://docs.bsquared.network/get_started/quick-start
 //   return px * 100 / base + 'vw'
 // }
 
+export const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
+export const Odyssey = isDev ? 'https://task-dev.bsquared.network/leaderboard' : 'https://task.bsquared.network/leaderboard'
 export const primaryColor = '#FFA728'
 
 export const StoreWalletKey = 'btcWallet'

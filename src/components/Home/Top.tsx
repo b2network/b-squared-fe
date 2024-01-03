@@ -4,13 +4,12 @@ import {
 } from '@mui/material';
 import Typewriter from 'typewriter-effect';
 import BarSvg from "@/components/SvgIcon/BarSvg";
-import BarCodeSvg from "@/components/SvgIcon/BarCode";
 import EastIcon from '@mui/icons-material/East';
 import useIsMobile from '@/hooks/useIsMobile';
 import OuterLink from '../OuterLink';
+import { LigtPaperAddress, Odyssey } from '@/utils';
 
-const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
-const Odyssey = 'https://task.bsquared.network/leaderboard'
+
 
 const Top = () => {
   const isMobile = useIsMobile();

@@ -29,5 +29,5 @@ export const B2TestNet = defineChain({
 export const B2ChainId = 1002;
 
 export const TokenContract = '0x58e276ceF25b7f2d4C254A80c5e905BE216bFdc8'
-export const BridgeContract = '0x3c950C4D15311dB39F85441316983b3845396C6d'
+export const BridgeContract = '0x242F01323962490E3BB2240B2f02970843F50ffA'
 export const DepositToAddress = isDev ? 'tb1q8mxmujnzlhsdx4jkqdy0mx93t3ytt2sw4wselv' : 'tb1qvppxl2n983fk2qhq5rf4vkxshgje5cak863dhp'
