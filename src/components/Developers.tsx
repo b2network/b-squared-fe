@@ -44,7 +44,7 @@ const Developers = () => {
           cursor: 'pointer',
           alignItems: 'center',
           py: '20px',
-          minWidth:'135px'
+          minWidth: '135px'
         }}>
         <Box>Developers</Box>
         <ExpandMoreIcon />
@@ -75,9 +75,6 @@ const Developers = () => {
               link => {
                 return (
                   <Box onClick={handlePopoverClose} key={link.name} sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '17px',
                     mb: '18px',
                     opacity: 0.6,
                     '&:hover': {
@@ -86,13 +83,18 @@ const Developers = () => {
                       fontWeight: 600
                     }
                   }}>
-                    {link.icon}
                     <Link href={link.link} sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '17px',
                       color: 'black',
                       textDecoration: 'none',
                       fontSize: '18px',
                       cursor: 'pointer'
-                    }} target='_blank'>{link.name}</Link>
+                    }} target='_blank'>
+                      {link.icon}
+                      {link.name}
+                    </Link>
                   </Box>
                 )
               }
