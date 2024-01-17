@@ -26,7 +26,7 @@ const SucessContent = ({ txId }: { txId: string }) => {
         fontSize: '24px',
         fontWeight: 600
       }}>Transaction submitted!</Box>
-      <Box fontSize={'20px'} textAlign={'center'} mt='20px' mb={'10px'}>The transfer is on the way. Tokens will be transferred to you in a few minutes.</Box>
+      <Box fontSize={'20px'} textAlign={'center'} mt='20px' mb={'10px'}>The transfer is in progress. Tokens will be sent to your account in a few minutes.</Box>
       <Link target='_blank' sx={{ color: primaryColor, textDecorationColor: primaryColor }} href={`https://mempool.space/testnet/tx/${txId}`}>Track the progress on the blockchain explorer</Link>
     </Box>
   )
