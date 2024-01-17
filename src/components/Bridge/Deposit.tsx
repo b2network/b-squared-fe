@@ -10,6 +10,8 @@ import NiceModal from "@ebay/nice-modal-react";
 import ConnectModal from "../Modals/ConnectModal";
 import { getBtcBalance } from "@/service/balance";
 import { NumericFormat } from 'react-number-format';
+import { LoadingButton } from "@mui/lab";
+import ResultModal from "../Modals/ResultModal";
 
 
 
@@ -18,6 +20,7 @@ const Deposit = () => {
   const btc = useBtc();
   const [balance, setBalance] = useState('')
   const [amount, setAmount] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
   const isInsufficient = useMemo(() => {
     if (amount && balance) {
       return Number(amount) > Number(balance)
@@ -52,14 +55,19 @@ const Deposit = () => {
         amount: amount,
         toAddress: btc.address || ''
       })
-      bridgeStore.setShowResult(true);
-      bridgeStore.setStatus('pendding')
+      // bridgeStore.setShowResult(true);
+      // bridgeStore.setStatus('pendding')
       try {
+        setIsLoading(true)
         let txid = await btc.sendBitcoin({ from: btc.address, to: DepositToAddress, amount: parseBtcAmount(amount).toString() });
         console.log(txid)
+        NiceModal.show(ResultModal, { status: 'success', txId: txid as string })
+        setIsLoading(false)
         bridgeStore.setStatus('success')
       } catch (error) {
         console.log(error, error)
+        setIsLoading(false)
+        NiceModal.show(ResultModal, { status: 'failed' })
         bridgeStore.setStatus('failed')
       }
     }
@@ -174,9 +182,10 @@ const Deposit = () => {
         <SouthRoundedIcon sx={{ color: 'black' }} />
       </Box>
       <DepositTo defaultTo={btc.address || ''} amount={amount} />
-      <Button
+      <LoadingButton
         disabled={!btc.isConnected || isInsufficient}
         onClick={handleDeposit}
+        loading={isLoading}
         sx={{
           height: '60px',
           borderRadius: '30px',
@@ -193,8 +202,12 @@ const Deposit = () => {
           "&.Mui-disabled": {
             color: 'rgba(255,255,255,0.65)',
             cursor: 'not-allowed'
+          },
+          '& .MuiLoadingButton-loadingIndicator': {
+            color: 'white',
+            left: '70%'
           }
-        }}>{isInsufficient ? 'Insufficient Balance' : 'Deposit Funds'}</Button>
+        }}>{isInsufficient ? 'Insufficient Balance' : 'Deposit Funds'}</LoadingButton>
     </Box>
   )
 }

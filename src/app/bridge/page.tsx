@@ -42,7 +42,7 @@ const Bridge = () => {
       margin: 'auto',
       width: '100%',
     }}>
-      {
+      {/* {
         snap.showResult && <Box sx={{
           background:'white',
           width: '100%',
@@ -54,27 +54,25 @@ const Bridge = () => {
         }}>
           <Result />
         </Box>
-      }
-      {
-        !snap.showResult && <Box sx={{
-          width: '100%',
-          height: '100%',
-          background: 'white',
-          borderRadius: '12px',
-          border: '1px solid black',
-          pb: '60px'
-        }}>
-          <Box sx={{ display: 'flex', width: '540px', margin: 'auto', flexDirection: 'column', justifyContent: 'center', mt: '60px' }}>
-            <Tab val={tab} handleClick={setTab} />
-            {
-              tab === 'deposit' && <Deposit />
-            }
-            {
-              tab === 'withdraw' && <Withdraw />
-            }
-          </Box>
+      } */}
+      <Box sx={{
+        width: '100%',
+        height: '100%',
+        background: 'white',
+        borderRadius: '12px',
+        border: '1px solid black',
+        pb: '60px'
+      }}>
+        <Box sx={{ display: 'flex', width: '540px', margin: 'auto', flexDirection: 'column', justifyContent: 'center', mt: '60px' }}>
+          <Tab val={tab} handleClick={setTab} />
+          {
+            tab === 'deposit' && <Deposit />
+          }
+          {
+            tab === 'withdraw' && <Withdraw />
+          }
         </Box>
-      }
+      </Box>
     </Box>
   )
 }
