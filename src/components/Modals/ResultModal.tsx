@@ -44,8 +44,8 @@ const FailedContent = () => {
       <Box sx={{
         fontSize: '24px',
         fontWeight: 600
-      }}>Transaction is failed !</Box>
-      <Box fontSize={'18px'} mt='8px' mb={'30px'}>please try again later.</Box>
+      }}>Transaction failed !</Box>
+      <Box fontSize={'18px'} mt='8px' mb={'30px'}>Please try again later.</Box>
     </Box>
   )
 }
