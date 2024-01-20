@@ -2,7 +2,7 @@ import { Box, Button, InputBase, Link, MenuItem, Select, SelectChangeEvent, Typo
 import { useEffect, useMemo, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import DepositTo from "./DepositTo";
-import { FAUCET_URL, parseBtcAmount, primaryColor, shorterAddress } from "@/utils";
+import { FAUCET_URL, parseBtcAmount, primaryColor } from "@/utils";
 import * as bridgeStore from '@/stores/bridgeStore';
 import { DepositToAddress } from "@/constant";
 import { useBtc } from "@/wallets/btcWallet";
@@ -12,9 +12,6 @@ import { getBtcBalance } from "@/service/balance";
 import { NumericFormat } from 'react-number-format';
 import { LoadingButton } from "@mui/lab";
 import ResultModal from "../Modals/ResultModal";
-import { useRouter } from "next/navigation";
-
-
 
 const Deposit = () => {
   const [from, setFrom] = useState('btc')
@@ -63,10 +60,11 @@ const Deposit = () => {
         setIsLoading(true)
         let txid = await btc.sendBitcoin({ from: btc.address, to: DepositToAddress, amount: parseBtcAmount(amount).toString() });
         console.log(txid)
-        NiceModal.show(ResultModal, { status: 'success', txId: txid as string })
+        NiceModal.show(ResultModal, { status: 'success', txId: txid as string }).then(() => {
+          getBalance();
+        })
         setIsLoading(false)
         bridgeStore.setStatus('success');
-        getBalance();
         setAmount('')
       } catch (error) {
         console.log(error, error)
