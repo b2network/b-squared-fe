@@ -11,6 +11,7 @@ import Label, { BridgeStatus } from './StatusLabel';
 import dayjs from 'dayjs';
 import { B2ExploreTx, L1TestnetTxUrl } from '@/utils';
 import { formatUnits, parseUnits } from 'viem';
+import ConnectBtcButton from '../ConnectButton';
 
 const HistoryList: React.FC = () => {
   const { address, isConnected } = useBtc()
@@ -185,7 +186,7 @@ const HistoryList: React.FC = () => {
           noResultsOverlay: () => (
             <Box display="flex" color={'#000'} alignItems="center" justifyContent="center" height="100%">
               {
-                isConnected ? 'No Data' : <Box>Connect</Box>
+                isConnected ? 'No Data' :<ConnectBtcButton />
               }
             </Box>
           ),
