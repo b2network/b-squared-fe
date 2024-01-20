@@ -1,9 +1,12 @@
+'use client'
 import Layout from "@/components/Layout"
-import { ReactNode } from "react"
+import { ReactNode, useEffect } from "react"
 
 const LayoutWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <Layout showFooter={false}>{children}</Layout>
+    <Layout showFooter={true} showAllFooter={false}>
+      {children}
+    </Layout>
   )
 }
 

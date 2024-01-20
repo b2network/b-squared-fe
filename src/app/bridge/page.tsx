@@ -7,7 +7,6 @@ import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "re
 import Withdraw from "@/components/Bridge/Withdraw";
 import * as bridgeStore from '@/stores/bridgeStore';
 import { useSnapshot } from "valtio";
-import Result from "@/components/Bridge/Result";
 import { useAccount, useConnect, useNetwork, useWalletClient } from "wagmi";
 import { useBtc } from "@/wallets/btcWallet";
 import {
@@ -42,19 +41,6 @@ const Bridge = () => {
       margin: 'auto',
       width: '100%',
     }}>
-      {/* {
-        snap.showResult && <Box sx={{
-          background:'white',
-          width: '100%',
-          height: '100%',
-          minHeight: 'calc(100vh - 203.5px)',
-          borderRadius: '12px',
-          border: '1px solid black',
-          pb: '60px'
-        }}>
-          <Result />
-        </Box>
-      } */}
       <Box sx={{
         width: '100%',
         height: '100%',

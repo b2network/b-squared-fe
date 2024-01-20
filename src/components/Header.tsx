@@ -1,5 +1,5 @@
 'use client'
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -21,6 +21,7 @@ import ComingDialog from './Modals/ComingSoon';
 import { usePathname, useRouter } from 'next/navigation';
 import ConnectBtcButton from './ConnectButton';
 import Developers from './Developers';
+import { IsInMaintaince } from '@/utils';
 
 const Header = () => {
   const isMobile = useIsMobile();
@@ -41,8 +42,13 @@ const Header = () => {
   const showComingDialog = () => {
     NiceModal.show(ComingDialog)
   }
+  const isNotHome = useMemo(() => pathname !== '/' && pathname !== '', [pathname])
 
-  const isBridgePage = useMemo(() => pathname.includes('/bridge'), [pathname])
+  useEffect(() => {
+    if (isNotHome && IsInMaintaince) {
+      router.push('/maintain')
+    }
+  }, [isNotHome, IsInMaintaince])
 
   const onClickMenu = (path: string) => {
     if (path.includes('http')) {
@@ -131,7 +137,7 @@ const Header = () => {
               })
             }
             {
-              isBridgePage ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box> :
+              isNotHome ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box> :
                 <Box
                   className='hvr-sweep-to-right'
                   onClick={goFooter}

@@ -12,6 +12,7 @@ import { getBtcBalance } from "@/service/balance";
 import { NumericFormat } from 'react-number-format';
 import { LoadingButton } from "@mui/lab";
 import ResultModal from "../Modals/ResultModal";
+import { useRouter } from "next/navigation";
 
 
 
@@ -20,6 +21,7 @@ const Deposit = () => {
   const btc = useBtc();
   const [balance, setBalance] = useState('')
   const [amount, setAmount] = useState('')
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const isInsufficient = useMemo(() => {
     if (amount && balance) {
@@ -55,8 +57,6 @@ const Deposit = () => {
         amount: amount,
         toAddress: btc.address || ''
       })
-      // bridgeStore.setShowResult(true);
-      // bridgeStore.setStatus('pendding')
       try {
         setIsLoading(true)
         let txid = await btc.sendBitcoin({ from: btc.address, to: DepositToAddress, amount: parseBtcAmount(amount).toString() });
@@ -92,7 +92,7 @@ const Deposit = () => {
                 }
               }}>
                 <img className="img" src="/assets/icon_btc.svg" alt="icon" />
-                BTC
+                BTC Testnet
               </Box>
             </MenuItem>
           </Select>
@@ -132,82 +132,77 @@ const Deposit = () => {
             }
           />
         </Box>
-        <Box display={'flex'} mt={'12px'} mb='30px' justifyContent={'space-between'} alignItems={'center'}>
-          <Box
-            sx={{
-              display: 'flex',
-              fontSize: '18px',
-              color: 'rgba(0,0,0,0.65)'
-            }}>
-            Balance: {balance || '--'} BTC
-            <Box onClick={() => {
-              setAmount(balance)
-            }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
-          </Box>
-          <Link sx={{ color: primaryColor, textDecoration: 'none' }} href={FAUCET_URL} target='_blank' >Testnet faucet</Link>
-        </Box>
-
         {
-          btc.isConnected ? <Box
-            sx={{
-              width: '100%',
-              textAlign: 'center',
-              height: '50px',
-              lineHeight: '50px',
-              background: '#fef9ed',
-              border: '1px solid black',
-              borderRadius: '50px',
-            }}>{shorterAddress(btc.address || '')}</Box> :
-            <Button
-              onClick={() => {
-                NiceModal.show(ConnectModal)
-              }}
+          btc.isConnected && <Box display={'flex'} mt={'12px'} justifyContent={'space-between'} alignItems={'center'}>
+            <Box
               sx={{
-                width: '100%',
-                height: '50px',
-                borderRadius: '50px',
-                background: "black",
-                color: 'white',
-                fontSize: '20px',
-                textTransform: 'none',
-                '&:hover': {
-                  background: 'black'
-                }
-              }} variant="outlined">
-              Connect Wallet
-            </Button>
+                display: 'flex',
+                fontSize: '18px',
+                color: 'rgba(0,0,0,0.65)'
+              }}>
+              Balance: {balance || '--'} BTC
+              <Box onClick={() => {
+                setAmount(balance)
+              }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
+            </Box>
+            <Link sx={{ color: primaryColor, textDecoration: 'none' }} href={FAUCET_URL} target='_blank' >Testnet faucet</Link>
+          </Box>
         }
+
+
       </Box>
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} my={'16px'}>
         <SouthRoundedIcon sx={{ color: 'black' }} />
       </Box>
       <DepositTo defaultTo={btc.address || ''} amount={amount} />
-      <LoadingButton
-        disabled={!btc.isConnected || isInsufficient}
-        onClick={handleDeposit}
-        loading={isLoading}
-        sx={{
-          height: '60px',
-          borderRadius: '30px',
-          background: '#000',
-          color: 'white',
-          width: '100%',
-          mt: '30px',
-          textTransform: 'none',
-          fontSize: '24px',
-          fontWeight: 600,
-          '&:hover': {
-            background: '#000'
-          },
-          "&.Mui-disabled": {
-            color: 'rgba(255,255,255,0.65)',
-            cursor: 'not-allowed'
-          },
-          '& .MuiLoadingButton-loadingIndicator': {
+
+      {
+        btc.isConnected ? <LoadingButton
+          disabled={!btc.isConnected || isInsufficient}
+          onClick={handleDeposit}
+          loading={isLoading}
+          sx={{
+            height: '60px',
+            borderRadius: '30px',
+            background: '#000',
             color: 'white',
-            left: '70%'
-          }
-        }}>{isInsufficient ? 'Insufficient Balance' : 'Deposit Funds'}</LoadingButton>
+            width: '100%',
+            mt: '30px',
+            textTransform: 'none',
+            fontSize: '24px',
+            fontWeight: 600,
+            '&:hover': {
+              background: '#000'
+            },
+            "&.Mui-disabled": {
+              color: 'rgba(255,255,255,0.65)',
+              cursor: 'not-allowed'
+            },
+            '& .MuiLoadingButton-loadingIndicator': {
+              color: 'white',
+              left: '70%'
+            }
+          }}>{isInsufficient ? 'Insufficient Balance' : 'Deposit Funds'}</LoadingButton> :
+          <Button
+            onClick={() => {
+              NiceModal.show(ConnectModal)
+            }}
+            sx={{
+              width: '100%',
+              height: '50px',
+              borderRadius: '50px',
+              background: "black",
+              color: 'white',
+              fontSize: '20px',
+              mt: '30px',
+              textTransform: 'none',
+              '&:hover': {
+                background: 'black'
+              }
+            }} variant="outlined">
+            Connect Wallet
+          </Button>
+      }
     </Box>
   )
 }
