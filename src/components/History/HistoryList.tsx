@@ -14,7 +14,7 @@ import { formatUnits, parseUnits } from 'viem';
 
 const HistoryList: React.FC = () => {
   const { address, isConnected } = useBtc()
-
+  const [loading, setLoading] = useState(false);
   const [unConfirmedList, setUnconfirmedList] = useState<HistoryRecord[]>([]);
   const [confirmedList, setConfirmedList] = useState<HistoryRecord[]>([])
   const [page, setPage] = useState(1)
@@ -29,7 +29,9 @@ const HistoryList: React.FC = () => {
 
   const getUnconfirmed = useCallback(async () => {
     if (address) {
+      setLoading(true)
       const txs = await getUnconfirmedTxs(address);
+      setLoading(false)
       console.log(txs, 'tttx')
       setUnconfirmedList(txs)
     }
@@ -42,18 +44,20 @@ const HistoryList: React.FC = () => {
   const getConfirmed = async () => {
     if (address) {
       try {
+        setLoading(true)
         const data: HistoryResponse = await getConfirmedTx(address, page)
         console.log(data, 'confirmed')
-        if (data.retCode === 200) {
+        if (data.retCode === 200 && data.data) {
           setConfirmedList(data.data.map(v => {
             return {
               ...v,
               l1State: 'success',
               time: (new Date(v.time_l2 || '').valueOf() / 1000).toString(),
-              value: formatUnits(BigInt(v.value),8)
+              value: formatUnits(BigInt(v.value), 8)
             }
           }))
           setTotal(data.total)
+          setLoading(false)
         }
       } catch (error) {
         console.log(error, 'get-tx-error')
@@ -150,7 +154,6 @@ const HistoryList: React.FC = () => {
     }
 
   ];
-  console.log(list, 'llll')
   return (
 
     <TableContainer sx={{
@@ -166,7 +169,7 @@ const HistoryList: React.FC = () => {
         columns={columns}
         keepNonExistentRowsSelected={false}
         rowCount={2}
-        loading={false}
+        loading={loading}
         checkboxSelection={false}
         autoHeight
         disableRowSelectionOnClick={false}

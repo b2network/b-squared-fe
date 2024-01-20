@@ -5,11 +5,11 @@ import { BtcConnectorName, useBtc } from "@/wallets/btcWallet"
 import { ReactNode, useEffect } from "react"
 
 const LayoutWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const { connect } = useBtc()
+  const { connect,isConnected } = useBtc()
 
   const init = () => {
     const connectName = localStorage.getItem(StoreWalletKey);
-    if (connectName) {
+    if (connectName &&!isConnected) {
       connect(connectName as BtcConnectorName)
     }
   }

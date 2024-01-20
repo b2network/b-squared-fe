@@ -115,7 +115,7 @@ function Connected({ text, disconnect, connectorName, balance, address }: { addr
             </Box>
             <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
               <HistoryIcon />
-              <Typography onClick={() => { router.push('/history') }} fontSize={'18px'} fontWeight={600}>Bridge History</Typography>
+              <Typography onClick={() => { router.push('/history') }} fontSize={'18px'}>Bridge History</Typography>
             </Box>
             <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
               <HistoryIcon />

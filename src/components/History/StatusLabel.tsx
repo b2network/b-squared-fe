@@ -6,7 +6,7 @@ export enum BridgeStatus {
   Unconfirmed = 'Unconfirmed',
   Success = 'success',
   Failed = 'failed',
-  Depending = 'Depending'
+  Pending = 'Pending'
 }
 
 const COLORS = {
@@ -21,7 +21,7 @@ const COLORS = {
   [BridgeStatus.Failed]: {
     color: '#E24F48',
     bg: '#FDF3F2'
-  },[BridgeStatus.Depending]: {
+  }, [BridgeStatus.Pending]: {
     color: primaryColor,
     bg: 'rgb(255, 244, 229)'
   }
@@ -32,12 +32,13 @@ const Label = ({ status }: { status: BridgeStatus }) => {
     <Box sx={{
       width: '112px',
       height: '32px',
-      borderRadius:'20px',
+      borderRadius: '20px',
       lineHeight: '32px',
       color: COLORS[status]?.color,
       border: `1px solid ${COLORS[status]?.color}`,
       background: COLORS[status]?.bg,
-      textAlign: 'center'
+      textAlign: 'center',
+      textTransform: 'capitalize'
     }}>
       {status}
     </Box>
