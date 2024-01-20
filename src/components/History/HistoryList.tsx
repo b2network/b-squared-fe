@@ -66,6 +66,14 @@ const HistoryList: React.FC = () => {
   }
 
   useEffect(() => {
+    if (!isConnected) {
+      setConfirmedList([]);
+      setUnconfirmedList([]);
+      setPage(1);
+      setTotal(0);
+    }
+  }, [isConnected])
+  useEffect(() => {
     if (address && page) {
       getConfirmed()
     }
