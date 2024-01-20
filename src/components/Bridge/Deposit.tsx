@@ -21,7 +21,6 @@ const Deposit = () => {
   const btc = useBtc();
   const [balance, setBalance] = useState('')
   const [amount, setAmount] = useState('')
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const isInsufficient = useMemo(() => {
     if (amount && balance) {
@@ -30,14 +29,17 @@ const Deposit = () => {
     return false;
   }, [amount, balance])
 
-  useEffect(() => {
-    const getBalance = async () => {
-      if (btc.address && btc.connectorName) {
-        const balance = await getBtcBalance(btc.address, btc.connectorName)
-        setBalance(balance || '')
-      }
+  const getBalance = async () => {
+    if (btc.address && btc.connectorName) {
+      const balance = await getBtcBalance(btc.address, btc.connectorName)
+      setBalance(balance || '')
     }
-    getBalance()
+  }
+
+  useEffect(() => {
+    if (btc.address && btc.connectorName) {
+      getBalance()
+    }
   }, [btc.address, btc.connectorName])
   useEffect(() => {
     if (!btc.isConnected && balance) {
@@ -63,7 +65,9 @@ const Deposit = () => {
         console.log(txid)
         NiceModal.show(ResultModal, { status: 'success', txId: txid as string })
         setIsLoading(false)
-        bridgeStore.setStatus('success')
+        bridgeStore.setStatus('success');
+        getBalance();
+        setAmount('')
       } catch (error) {
         console.log(error, error)
         setIsLoading(false)
