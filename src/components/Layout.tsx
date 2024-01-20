@@ -12,7 +12,7 @@ type IProps = {
   showFooter?: boolean, children: ReactNode
 };
 
-const Layout: React.FC<IProps> = ({ showHeader = true, showFooter = true,showAllFooter=true, children }) => {
+const Layout: React.FC<IProps> = ({ showHeader = true, showFooter = true, showAllFooter = true, children }) => {
   const isMounted = useIsMounted()
   return (
     <Box sx={{
