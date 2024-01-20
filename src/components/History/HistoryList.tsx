@@ -186,7 +186,7 @@ const HistoryList: React.FC = () => {
           noResultsOverlay: () => (
             <Box display="flex" color={'#000'} alignItems="center" justifyContent="center" height="100%">
               {
-                isConnected ? 'No Data' :<ConnectBtcButton />
+                isConnected ? 'Sorry, you have not made any transactions yet.' :<ConnectBtcButton />
               }
             </Box>
           ),
@@ -233,9 +233,9 @@ const HistoryList: React.FC = () => {
             borderRadius: '50px',
             paddingLeft: 0,
             paddingRight: 0,
-            fontSize: '14px',
+            fontSize: '20px',
             color: '#000',
-            fontWeight: 500,
+            fontWeight: 700,
             '.MuiDataGrid-columnSeparator': {
               display: 'none',
             },
