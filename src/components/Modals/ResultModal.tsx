@@ -57,7 +57,10 @@ const ResultModal = NiceModal.create(({ status, txId }: { status: 'success' | 'f
     <Dialog
       TransitionComponent={Transition}
       open={modal.visible}
-      onClose={() => modal.hide()}
+      onClose={() => {
+        modal.resolve()
+        modal.hide()
+      }}
       TransitionProps={{
         onExited: () => modal.remove(),
       }}
@@ -70,7 +73,10 @@ const ResultModal = NiceModal.create(({ status, txId }: { status: 'success' | 'f
       }}
     >
       <DialogTitle sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <CloseIcon onClick={() => modal.hide()} sx={{ color: 'black', cursor: 'pointer' }} />
+        <CloseIcon onClick={() => { 
+          modal.resolve()
+          modal.hide()
+        }} sx={{ color: 'black', cursor: 'pointer' }} />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {

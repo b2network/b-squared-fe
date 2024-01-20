@@ -11,10 +11,11 @@ import Label, { BridgeStatus } from './StatusLabel';
 import dayjs from 'dayjs';
 import { B2ExploreTx, L1TestnetTxUrl } from '@/utils';
 import { formatUnits, parseUnits } from 'viem';
+import ConnectBtcButton from '../ConnectButton';
 
 const HistoryList: React.FC = () => {
   const { address, isConnected } = useBtc()
-
+  const [loading, setLoading] = useState(false);
   const [unConfirmedList, setUnconfirmedList] = useState<HistoryRecord[]>([]);
   const [confirmedList, setConfirmedList] = useState<HistoryRecord[]>([])
   const [page, setPage] = useState(1)
@@ -29,7 +30,9 @@ const HistoryList: React.FC = () => {
 
   const getUnconfirmed = useCallback(async () => {
     if (address) {
+      setLoading(true)
       const txs = await getUnconfirmedTxs(address);
+      setLoading(false)
       console.log(txs, 'tttx')
       setUnconfirmedList(txs)
     }
@@ -42,18 +45,20 @@ const HistoryList: React.FC = () => {
   const getConfirmed = async () => {
     if (address) {
       try {
+        setLoading(true)
         const data: HistoryResponse = await getConfirmedTx(address, page)
         console.log(data, 'confirmed')
-        if (data.retCode === 200) {
+        if (data.retCode === 200 && data.data) {
           setConfirmedList(data.data.map(v => {
             return {
               ...v,
               l1State: 'success',
               time: (new Date(v.time_l2 || '').valueOf() / 1000).toString(),
-              value: formatUnits(BigInt(v.value),8)
+              value: formatUnits(BigInt(v.value), 8)
             }
           }))
           setTotal(data.total)
+          setLoading(false)
         }
       } catch (error) {
         console.log(error, 'get-tx-error')
@@ -61,6 +66,14 @@ const HistoryList: React.FC = () => {
     }
   }
 
+  useEffect(() => {
+    if (!isConnected) {
+      setConfirmedList([]);
+      setUnconfirmedList([]);
+      setPage(1);
+      setTotal(0);
+    }
+  }, [isConnected])
   useEffect(() => {
     if (address && page) {
       getConfirmed()
@@ -150,7 +163,6 @@ const HistoryList: React.FC = () => {
     }
 
   ];
-  console.log(list, 'llll')
   return (
 
     <TableContainer sx={{
@@ -166,7 +178,7 @@ const HistoryList: React.FC = () => {
         columns={columns}
         keepNonExistentRowsSelected={false}
         rowCount={2}
-        loading={false}
+        loading={loading}
         checkboxSelection={false}
         autoHeight
         disableRowSelectionOnClick={false}
@@ -174,7 +186,7 @@ const HistoryList: React.FC = () => {
           noResultsOverlay: () => (
             <Box display="flex" color={'#000'} alignItems="center" justifyContent="center" height="100%">
               {
-                isConnected ? 'No Data' : <Box>Connect</Box>
+                isConnected ? 'No Data' :<ConnectBtcButton />
               }
             </Box>
           ),
