@@ -25,7 +25,7 @@ const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
       <Box display={'flex'} alignItems={'center'} mb={'16px'}>
         To  <img className="logo" src="/assets/logo.svg" alt='logo'></img>
       </Box>
-      <Box display={'flex'} alignItems={'center'}>
+      {/* <Box display={'flex'} alignItems={'center'}>
         <Box>send to address: {shorterAddress(defaultTo)}</Box>
         <Box sx={{
           textDecoration: 'underline',
@@ -33,9 +33,9 @@ const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
           ml: '10px',
           cursor:'not-allowed'
         }}>Edit</Box>
-      </Box>
+      </Box> */}
       <Box>you will receive: {amount || DefaultAmount} BTC</Box>
-      <Box>gas fee: -- BTC</Box>
+      {/* <Box>gas fee: -- BTC</Box> */}
     </Box>
   )
 }

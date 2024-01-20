@@ -27,6 +27,7 @@ const Header = () => {
   const isXs = useMediaQuery('(max-width:600px)');
   const router = useRouter();
   const pathname = usePathname()
+  console.log(pathname, 'pppp')
   const Links = [
     {
       name: 'Bridge',
@@ -42,7 +43,7 @@ const Header = () => {
     NiceModal.show(ComingDialog)
   }
 
-  const isBridgePage = useMemo(() => pathname.includes('/bridge'), [pathname])
+  const isNotHome = useMemo(() => pathname !== '/' && pathname !== '', [pathname])
 
   const onClickMenu = (path: string) => {
     if (path.includes('http')) {
@@ -131,7 +132,7 @@ const Header = () => {
               })
             }
             {
-              isBridgePage ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box> :
+              isNotHome ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box> :
                 <Box
                   className='hvr-sweep-to-right'
                   onClick={goFooter}

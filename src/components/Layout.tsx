@@ -7,10 +7,12 @@ import { useIsMounted } from '@/hooks/useIsMouted';
 import { ReactNode } from 'react';
 
 type IProps = {
-  showHeader?: boolean, showFooter?: boolean, children: ReactNode
+  showHeader?: boolean,
+  showAllFooter?:boolean
+  showFooter?: boolean, children: ReactNode
 };
 
-const Layout: React.FC<IProps> = ({ showHeader = true, showFooter = true, children }) => {
+const Layout: React.FC<IProps> = ({ showHeader = true, showFooter = true,showAllFooter=true, children }) => {
   const isMounted = useIsMounted()
   return (
     <Box sx={{
@@ -32,7 +34,7 @@ const Layout: React.FC<IProps> = ({ showHeader = true, showFooter = true, childr
         {isMounted && children}
       </Box>
       {
-        showFooter && <Footer />
+        showFooter && <Footer showAll={showAllFooter} />
       }
     </Box>
   );
