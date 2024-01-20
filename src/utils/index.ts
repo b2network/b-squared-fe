@@ -61,7 +61,8 @@ export const Odyssey = isDev ? 'https://task-dev.bsquared.network/leaderboard' :
 export const primaryColor = '#FFA728'
 export const FaucetUrl = 'https://task-token-dev.bsquared.network/' 
 export const HistoryUrl = 'https://bridge-api-dev.bsquared.network/api/v1/deposit/list'
-export const IsInMaintaince = true;
+export const IsInMaintaince = false;
+export const B2ExploreTx = 'https://testnet-role.bsquared.network/tx'
 
 export const StoreWalletKey = 'btcWallet'
 export const saveWalletToStore = (wallet: BtcConnectorName) => {

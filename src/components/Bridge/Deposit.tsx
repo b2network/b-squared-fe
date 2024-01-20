@@ -203,11 +203,6 @@ const Deposit = () => {
             Connect Wallet
           </Button>
       }
-
-
-      <Box onClick={() => {
-        router.push('/history')
-      }}>view history</Box>
     </Box>
   )
 }

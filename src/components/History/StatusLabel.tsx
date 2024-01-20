@@ -4,8 +4,8 @@ import { Box } from "@mui/material"
 
 export enum BridgeStatus {
   Unconfirmed = 'Unconfirmed',
-  Success = 'Success',
-  Failed = 'Failed',
+  Success = 'success',
+  Failed = 'failed',
   Depending = 'Depending'
 }
 
@@ -34,9 +34,9 @@ const Label = ({ status }: { status: BridgeStatus }) => {
       height: '32px',
       borderRadius:'20px',
       lineHeight: '32px',
-      color: COLORS[status].color,
-      border: `1px solid ${COLORS[status].color}`,
-      background: COLORS[status].bg,
+      color: COLORS[status]?.color,
+      border: `1px solid ${COLORS[status]?.color}`,
+      background: COLORS[status]?.bg,
       textAlign: 'center'
     }}>
       {status}

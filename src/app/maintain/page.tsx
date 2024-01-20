@@ -26,7 +26,7 @@ const Maintain = () => {
       }}>
         <img className="img" src="/assets/maintain.svg" alt="maintain" />
         <Box sx={{ width: '600px', mt: '16px', textAlign: 'center', fontWeight: '600px' }}>
-          Sorry for the inconvenience, We{"'"}re undergoing maintenance to enhance yourexperience.
+          Sorry for the inconvenience, We{"'"}re undergoing maintenance to enhance your experience.
           Please check back soon!</Box>
       </Box>
     </Box>

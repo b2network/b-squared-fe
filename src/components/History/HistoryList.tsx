@@ -1,28 +1,37 @@
 import { DataGrid, GridColDef, GridPaginationModel, GridRenderCellParams, } from '@mui/x-data-grid';
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
-import { HistoryRecord } from "@/typings/common"
-import { useCallback, useEffect, useState } from 'react';
+import { HistoryRecord, HistoryResponse } from "@/typings/common"
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useBtc } from '@/wallets/btcWallet';
-import { getConfirmedTx, getUnconfirmedTxs } from '@/service/history';
+import { HistoryPageSize, getConfirmedTx, getUnconfirmedTxs } from '@/service/history';
 import { Box, CircularProgress, Pagination, TableContainer } from '@mui/material';
 import IconBtc from '@/assets/icons/icon_btc.svg';
 import IconB2 from '@/assets/icons/logo_icon.svg';
 import Label, { BridgeStatus } from './StatusLabel';
 import dayjs from 'dayjs';
-import { L1TestnetTxUrl } from '@/utils';
+import { B2ExploreTx, L1TestnetTxUrl } from '@/utils';
+import { formatUnits, parseUnits } from 'viem';
 
 const HistoryList: React.FC = () => {
   const { address, isConnected } = useBtc()
 
-  const [list, setList] = useState<HistoryRecord[]>([])
+  const [unConfirmedList, setUnconfirmedList] = useState<HistoryRecord[]>([]);
+  const [confirmedList, setConfirmedList] = useState<HistoryRecord[]>([])
   const [page, setPage] = useState(1)
+  const list = useMemo(() => {
+    if (page === 1) {
+      return [...unConfirmedList, ...confirmedList]
+    } else {
+      return confirmedList
+    }
+  }, [page, unConfirmedList, confirmedList])
   const [total, setTotal] = useState(0)
 
   const getUnconfirmed = useCallback(async () => {
     if (address) {
       const txs = await getUnconfirmedTxs(address);
       console.log(txs, 'tttx')
-      setList([...txs])
+      setUnconfirmedList(txs)
     }
   }, [address])
 
@@ -33,8 +42,19 @@ const HistoryList: React.FC = () => {
   const getConfirmed = async () => {
     if (address) {
       try {
-        const data = getConfirmedTx(address, page)
-        console.log(data);
+        const data: HistoryResponse = await getConfirmedTx(address, page)
+        console.log(data, 'confirmed')
+        if (data.retCode === 200) {
+          setConfirmedList(data.data.map(v => {
+            return {
+              ...v,
+              l1State: 'success',
+              time: (new Date(v.time_l2 || '').valueOf() / 1000).toString(),
+              value: formatUnits(BigInt(v.value),8)
+            }
+          }))
+          setTotal(data.total)
+        }
       } catch (error) {
         console.log(error, 'get-tx-error')
       }
@@ -121,7 +141,7 @@ const HistoryList: React.FC = () => {
             <Box sx={{ fontSize: '16px', width: '100px' }}>B² Network</Box>
             {
               item.row.hash_l2 && <LaunchOutlinedIcon onClick={() => {
-                window.open(`${L1TestnetTxUrl}/${item.row.hash}`)
+                window.open(`${B2ExploreTx}/${item.row.hash_l2}`)
               }} sx={{ color: 'rgba(0,0,0,0.5)' }} />
             }
           </Box>
@@ -130,7 +150,7 @@ const HistoryList: React.FC = () => {
     }
 
   ];
-
+  console.log(list, 'llll')
   return (
 
     <TableContainer sx={{
@@ -142,7 +162,7 @@ const HistoryList: React.FC = () => {
         getRowId={(item: HistoryRecord) => Symbol(item.hash).toString()}
         columnHeaderHeight={66}
         rowHeight={96}
-        rows={list ?? []}
+        rows={list}
         columns={columns}
         keepNonExistentRowsSelected={false}
         rowCount={2}
@@ -164,11 +184,14 @@ const HistoryList: React.FC = () => {
             </Box>
           ),
           footer: () => {
-            return <Box display={'flex'} mt='20px' justifyContent={'center'}>
-              <Pagination
-                onChange={async (event, page) => {
-                  await handleOnPage(page);
-                }} count={10} variant="outlined" shape="rounded" />
+            return <Box display={'flex'} mt='100px' justifyContent={'center'}>
+              {
+                total > 0 && <Pagination
+                  page={page}
+                  onChange={async (event, page) => {
+                    await handleOnPage(page);
+                  }} count={Math.ceil(total / HistoryPageSize)} variant="outlined" shape="rounded" />
+              }
             </Box>
           },
         }}

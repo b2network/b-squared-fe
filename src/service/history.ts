@@ -37,10 +37,10 @@ const getUnConfirmTxTime = async (txIds: string[]) => {
 }
 
 
-const HistoryPageSize = 10;
+const HistoryPageSize = 4;
 
 const getConfirmedTx = async (address: string, pageNum: number) => {
-  const url = `${HistoryUrl}?pageSize=10&pageNum=${pageNum}&adress=${address}`
+  const url = `${HistoryUrl}?pageSize=${HistoryPageSize}&pageNum=${pageNum}&adress=${address}`
   const response = await fetch(url);
   return response.json()
 }
