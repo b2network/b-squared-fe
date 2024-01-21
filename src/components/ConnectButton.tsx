@@ -9,7 +9,9 @@ import Popover from '@mui/material/Popover';
 import LogoutIcon from '@mui/icons-material/Logout';
 import useB2Balance from "@/hooks/useB2Balance"
 import { useCopy } from "@/hooks/useCopy";
-import HistoryIcon from '@mui/icons-material/History';
+import IconHistory from '@/assets/icons/icon_history.svg'
+import IconFaucet from '@/assets/icons/icon_faucet.svg'
+import IconDisconnect from '@/assets/icons/icon_disconnect.svg'
 import { useRouter } from "next/navigation";
 
 
@@ -111,18 +113,18 @@ function Connected({ text, disconnect, connectorName, balance, address }: { addr
           <Box sx={{ display: 'flex', flexDirection: 'column', pt: '17px', gap: '12px' }}>
             <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
               <img src={"/assets/logo_icon.svg"} style={{ width: '24px', height: '24px' }} alt="logo" />
-              <Typography color={'rgba(0,0,0,0.5)'}>{balance || '--'} BTC</Typography>
+              <Typography color={'rgba(0,0,0,1)'}>{balance || '--'} BTC</Typography>
             </Box>
             <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
-              <HistoryIcon />
+              <IconHistory />
               <Typography onClick={() => { router.push('/history') }} fontSize={'18px'}>Bridge History</Typography>
             </Box>
             <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
-              <HistoryIcon />
+              <IconFaucet />
               <Link sx={{ color: 'black', textDecoration: 'none', fontSize: '18px' }} href={FaucetUrl}>B² Testnet Faucet</Link>
             </Box>
             <Box sx={{ display: 'flex', gap: '20px', alignItems: 'center', cursor: 'pointer', }} onClick={disconnect}>
-              <LogoutIcon />
+              <IconDisconnect />
               <Typography fontWeight={400} fontSize={'18px'}>Disconnect</Typography>
             </Box>
           </Box>
@@ -148,7 +150,7 @@ const AddressWithCopy = ({ address }: { address: string }) => {
     <Box fontSize={'20px'} fontWeight={600}>{shorterAddress(address)}</Box>
     <Tooltip open={isCopy} title="Copied !"><ContentCopyIcon sx={
       {
-        color: primaryColor
+        color: 'rgba(0,0,0,0.5)'
       }
     } onClick={
       () => {
