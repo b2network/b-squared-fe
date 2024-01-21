@@ -48,8 +48,9 @@ const addNetwork = () => {
   })
 }
 
-export const AA_REGISTRY_URL = 'https://aa-registry-test.bsquared.network/1002'
-export const RPC_URL = 'https://zkevm-rpc.bsquared.network'
+export const AA_REGISTRY_URL = 'https://b2-aa-registry-test.bsquared.network/1102'
+// export const RPC_URL = 'https://zkevm-rpc.bsquared.network'
+export const RPC_URL = 'https://roles-rpc.bsquared.network'
 export const FAUCET_URL = 'https://docs.bsquared.network/get_started/quick-start/faucet'
 // export const pxTovw = (px: number): string => {
 //   const base = 375;
