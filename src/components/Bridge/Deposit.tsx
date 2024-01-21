@@ -31,18 +31,20 @@ const Deposit = () => {
       const balance = await getBtcBalance(btc.address, btc.connectorName)
       setBalance(balance || '')
     }
-  }
+  } 
+
+  useEffect(() => { 
+    if (!btc.isConnected) { 
+      setAmount('')
+      setBalance('')
+    }
+  },[btc.isConnected])
 
   useEffect(() => {
     if (btc.address && btc.connectorName) {
       getBalance()
     }
   }, [btc.address, btc.connectorName])
-  useEffect(() => {
-    if (!btc.isConnected && balance) {
-      setBalance('')
-    }
-  }, [btc.isConnected, balance])
   const handleFromChange = (e: SelectChangeEvent) => {
     setFrom(e.target.value)
   }
