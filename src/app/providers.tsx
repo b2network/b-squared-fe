@@ -20,6 +20,8 @@ import { B2TestNet } from '@/constant';
 import { useIsMounted } from '@/hooks/useIsMouted';
 import { BtcProvider } from '../wallets/btcWallet';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const customTheme = createTheme({
@@ -66,6 +68,18 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <BtcProvider>
             <NiceModal.Provider>
               <CssBaseline />
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
               <NextNProgress color='#FFA728' height={10} />
               {
                 isMouted && children

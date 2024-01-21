@@ -27,7 +27,9 @@ const SucessContent = ({ txId }: { txId: string }) => {
         fontWeight: 600
       }}>Transaction submitted !</Box>
       <Box fontSize={'20px'} textAlign={'center'} mt='20px' mb={'10px'}>The transfer is in progress. Tokens will be sent to your account in a few minutes.</Box>
-      <Link target='_blank' sx={{ color: primaryColor, textDecorationColor: primaryColor }} href={`https://mempool.space/testnet/tx/${txId}`}>Track the progress on the blockchain explorer</Link>
+      {
+        txId && <Link target='_blank' sx={{ color: primaryColor, textDecorationColor: primaryColor }} href={`https://mempool.space/testnet/tx/${txId}`}>Track the progress on the blockchain explorer</Link>
+      }
     </Box>
   )
 }
@@ -73,7 +75,7 @@ const ResultModal = NiceModal.create(({ status, txId }: { status: 'success' | 'f
       }}
     >
       <DialogTitle sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <CloseIcon onClick={() => { 
+        <CloseIcon onClick={() => {
           modal.resolve()
           modal.hide()
         }} sx={{ color: 'black', cursor: 'pointer' }} />

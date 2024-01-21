@@ -121,7 +121,11 @@ function Connected({ text, disconnect, connectorName, balance, address }: { addr
             </Box>
             <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
               <IconFaucet />
-              <Link sx={{ color: 'black', textDecoration: 'none', fontSize: '18px' }} href={FaucetUrl}>B² Testnet Faucet</Link>
+              <Box sx={{ color: 'black', textDecoration: 'none', fontSize: '18px' }} onClick={
+                () => {
+                  router.push('/faucet')
+                }
+              }>B² Testnet Faucet</Box>
             </Box>
             <Box sx={{ display: 'flex', gap: '20px', alignItems: 'center', cursor: 'pointer', }} onClick={disconnect}>
               <IconDisconnect />

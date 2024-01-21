@@ -25,6 +25,7 @@
     "@svgr/webpack": "^8.1.0",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+    "bitcoinjs-lib": "^6.1.5",
     "dayjs": "^1.11.10",
     "elliptic": "^6.5.4",
     "ethers": "^6.9.0",

@@ -3,23 +3,11 @@
 import { Box, Button } from "@mui/material"
 import Deposit from "@/components/Bridge/Deposit";
 import Tab from "@/components/Bridge/Tab";
-import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import Withdraw from "@/components/Bridge/Withdraw";
 import * as bridgeStore from '@/stores/bridgeStore';
 import { useSnapshot } from "valtio";
-import { useAccount, useConnect, useNetwork, useWalletClient } from "wagmi";
-import { useBtc } from "@/wallets/btcWallet";
-import {
-  KernelSmartContractAccount,
-  SimpleWeightedECDSAProvider,
-  SmartAccountSigner,
-} from '@b2network/aa-sdk'
 import { Address, Hex, padHex, parseEther } from 'viem'
-import { convertBTCConnectorToAccountSigner, convertBTCConnectorToDummyAccountSigner, convertWalletClientToAccountSigner } from "@/utils/signerAdapters";
-import { USE_DUMMY_BTC_SIGNER, selectedChain } from "@/constant/aa.config";
-import getValidatorProvider from "@/utils/getValidatorProvider";
-import { toast } from 'react-toastify'
-import useSCAccount from "@/hooks/useSCAccount";
 
 
 interface SendOpts {
