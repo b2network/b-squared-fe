@@ -11,8 +11,8 @@ export enum BridgeStatus {
 
 const COLORS = {
   [BridgeStatus.Unconfirmed]: {
-    color: '#E24F48',
-    bg: '#FDF3F2'
+    color: primaryColor,
+    bg: 'rgb(255, 244, 229)'
   },
   [BridgeStatus.Success]: {
     color: '#50B042',
