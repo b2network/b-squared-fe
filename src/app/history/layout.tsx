@@ -19,7 +19,7 @@ const LayoutWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
   }, [])
 
   return (
-    <Layout showFooter={false}>{children}</Layout>
+    <Layout showFooter={true} showAllFooter={false}>{children}</Layout>
   )
 }
 

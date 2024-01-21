@@ -40,11 +40,11 @@ const History = () => {
 }
 
 const Top = ({ goBack }: { goBack: () => void }) => {
-  return <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+  return <Box sx={{ display: 'flex', flexDirection:'column',gap:'30px'}}>
+    <IconBack onClick={goBack} />
     <Box sx={{ fontFamily: 'Hanson', fontSize: '30px', fontWeight: 700 }}>
       Bridge History
     </Box>
-    <IconBack onClick={goBack} />
   </Box>
 }
 
