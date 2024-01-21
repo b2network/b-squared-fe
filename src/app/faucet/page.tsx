@@ -7,7 +7,9 @@ import { LoadingButton } from "@mui/lab"
 import { Box, Button, Input, InputBase, Typography, styled } from "@mui/material"
 import { useState } from "react"
 import { toast } from 'react-toastify'
-
+import IconPoints from '@/assets/icons/icon_point.svg'
+import IconBall from '@/assets/icons/icon_ball.svg'
+import IconHands from '@/assets/icons/icon_hands.svg'
 
 const ITEMS = [
   { name: 'Network', value: 'B² Testnet' },
@@ -25,6 +27,39 @@ const Item = ({ name, value }: { name: string, value: string }) => {
   )
 }
 
+const LeftImg = () => {
+  return <Box sx={{
+    position: 'absolute',
+    bottom: '40px',
+    left: '33px'
+  }}>
+    <IconPoints />
+    <Box sx={{
+      position: 'absolute',
+      left: '60px',
+      bottom: '10px'
+    }}>
+      <IconBall />
+    </Box>
+  </Box>
+}
+const RightImg = () => {
+  return <Box sx={{
+    position: 'absolute',
+    top: '40px',
+    right: '33px'
+  }}>
+    <IconPoints />
+    <Box sx={{
+      position: 'absolute',
+      right: '10px',
+      top: '5px'
+    }}>
+      <IconHands />
+    </Box>
+  </Box>
+}
+
 const Title = styled(Box)(({ }) => ({
   fontSize: '30px', fontWeight: 'bold', marginTop: '10px', marginBottom: '40px'
 }));
@@ -33,7 +68,7 @@ const Faucet = () => {
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
   const handleClaim = async () => {
-    if (!address || !validateAddress(address)) { 
+    if (!address || !validateAddress(address)) {
       toast.error('Illegal address !')
     }
     if (address && validateAddress(address)) {
@@ -55,6 +90,7 @@ const Faucet = () => {
 
   return (
     <Box sx={{
+      position: 'relative',
       background: 'white',
       p: '30px',
       border: '1px solid black',
@@ -63,6 +99,8 @@ const Faucet = () => {
       flexDirection: 'column',
       alignItems: 'center'
     }}>
+      <LeftImg />
+      <RightImg />
       <Title>Get Test Tokens</Title>
       {
         ITEMS.map(item => {
@@ -89,7 +127,7 @@ const Faucet = () => {
         mt: '40px',
         textTransform: 'none',
         fontSize: '20px',
-        fontWeight:'bold',
+        fontWeight: 'bold',
         '&:hover': {
           background: 'black',
           color: 'white',
