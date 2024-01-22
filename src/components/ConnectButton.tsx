@@ -110,24 +110,48 @@ function Connected({ text, disconnect, connectorName, balance, address }: { addr
       >
         <Box >
           <AddressWithCopy address={address} />
-          <Box sx={{ display: 'flex', flexDirection: 'column', pt: '17px', gap: '12px' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', pt: '17px', gap: '18px' }}>
             <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
               <img src={"/assets/logo_icon.svg"} style={{ width: '24px', height: '24px' }} alt="logo" />
               <Typography color={'rgba(0,0,0,1)'}>{balance || '--'} BTC</Typography>
             </Box>
-            <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
+            <Box sx={{
+              display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center',
+              opacity: 0.6,
+              '&:hover': {
+                opacity: 1,
+                cursor: 'pointer',
+                fontWeight: 600
+              }
+            }}>
               <IconHistory />
               <Typography onClick={() => { router.push('/history') }} fontSize={'18px'}>Bridge History</Typography>
             </Box>
-            <Box sx={{ display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center', }}>
+            <Box sx={{
+              display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center',
+              opacity: 0.6,
+              '&:hover': {
+                opacity: 1,
+                cursor: 'pointer',
+                fontWeight: 600
+              }
+            }}>
               <IconFaucet />
               <Box sx={{ color: 'black', textDecoration: 'none', fontSize: '18px' }} onClick={
                 () => {
-                  router.push('/faucet')
+                  window.open(window?.location.origin + '/faucet')
                 }
               }>B² Testnet Faucet</Box>
             </Box>
-            <Box sx={{ display: 'flex', gap: '20px', alignItems: 'center', cursor: 'pointer', }} onClick={disconnect}>
+            <Box sx={{
+              display: 'flex', gap: '20px', alignItems: 'center', cursor: 'pointer',
+              opacity: 0.6,
+              '&:hover': {
+                opacity: 1,
+                cursor: 'pointer',
+                fontWeight: 600
+              }
+            }} onClick={disconnect}>
               <IconDisconnect />
               <Typography fontWeight={400} fontSize={'18px'}>Disconnect</Typography>
             </Box>

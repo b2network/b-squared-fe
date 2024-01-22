@@ -111,7 +111,7 @@ const HistoryList: React.FC = () => {
       headerAlign: 'center',
       align: 'center',
       renderCell: (item: GridRenderCellParams<HistoryRecord>) => {
-        return <Box fontSize={'18px'}>{dayjs(new Date(Number(item.row.time) * 1000).toString()).format('YYYY/MM/DD HH:MM:ss')}</Box>
+        return <Box fontSize={'18px'}>{dayjs(new Date(Number(item.row.time) * 1000).toString()).format('YYYY/MM/DD HH:mm:ss')}</Box>
       },
     }, {
       field: 'value',

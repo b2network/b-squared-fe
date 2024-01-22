@@ -20,7 +20,7 @@ const getUnconfirmedTxs = async (address: string) => {
       l1State: 'Unconfirmed',
       value: formatUnits(BigInt(amount), 8),
       time: times[i],
-      hash: tx.txid,
+      hash: tx.txid, 
       network: 'Testnet',
       state: 'Pending'
     } as HistoryRecord

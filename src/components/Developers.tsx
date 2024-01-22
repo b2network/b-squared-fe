@@ -1,8 +1,11 @@
+'use client'
 import { Box, Link, Popover } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from "react";
 import IconBug from '@/assets/icons/icon_bug.svg'
 import IconGit from '@/assets/icons/icon_git.svg'
+import IconFaucet from '@/assets/icons/icon_faucet.svg'
+import { useRouter } from "next/navigation";
 
 const DEVELOPERLINKS = [
   {
@@ -13,13 +16,18 @@ const DEVELOPERLINKS = [
     name: 'Github',
     link: 'https://github.com/b2network',
     icon: <IconGit />
+  },
+  {
+    name: 'B² Testnet Faucet',
+    icon: <IconFaucet style={{ transform: 'scale(1.3)' }} />,
+    link: window?.location.origin+'/faucet'
   }
 ]
 
 
 const Developers = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
+  const router = useRouter()
 
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
