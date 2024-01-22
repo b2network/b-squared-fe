@@ -6,7 +6,7 @@ export const validateAddress = (addr: string) => {
   return false
 }
 
-function isBtcAddress(address: string) {
+export function isBtcAddress(address: string) {
   try {
     bitcoin.address.fromBech32(address)
     return true
