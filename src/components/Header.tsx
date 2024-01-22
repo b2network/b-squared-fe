@@ -43,6 +43,7 @@ const Header = () => {
     NiceModal.show(ComingDialog)
   }
   const isNotHome = useMemo(() => pathname !== '/' && pathname !== '', [pathname])
+  const isBridge = useMemo(() => pathname.includes('bridge'), [pathname])
 
   useEffect(() => {
     if (isNotHome && IsInMaintaince) {
@@ -137,29 +138,31 @@ const Header = () => {
               })
             }
             {
-              isNotHome ? <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box> :
-                <Box
-                  className='hvr-sweep-to-right'
-                  onClick={goFooter}
-                  sx={{
+              isBridge && <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box>
+            }
+            {
+              !isNotHome && <Box
+                className='hvr-sweep-to-right'
+                onClick={goFooter}
+                sx={{
+                  borderRadius: '22px',
+                  height: '44px',
+                  lineHeight: '44px',
+                  textAlign: 'center',
+                  // border: '1px solid #000',
+                  fontSize: '20px',
+                  width: '147px',
+                  // wordSpacing: '-5px',
+                  // letterSpacing: '-2px',
+                  textTransform: 'capitalize',
+                  whiteSpace: 'nowrap',
+                  ml: '15px',
+                  '&:hover': {
                     borderRadius: '22px',
-                    height: '44px',
-                    lineHeight: '44px',
-                    textAlign: 'center',
-                    // border: '1px solid #000',
-                    fontSize: '20px',
-                    width: '147px',
-                    // wordSpacing: '-5px',
-                    // letterSpacing: '-2px',
-                    textTransform: 'capitalize',
-                    whiteSpace: 'nowrap',
-                    ml: '15px',
-                    '&:hover': {
-                      borderRadius: '22px',
-                      border: 'none',
-                      cursor: 'pointer'
-                    }
-                  }}>Contact Us</Box>
+                    border: 'none',
+                    cursor: 'pointer'
+                  }
+                }}>Contact Us</Box>
             }
           </Box>
           <IconButton
