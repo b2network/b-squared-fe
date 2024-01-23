@@ -44,6 +44,7 @@ const Header = () => {
   }
   const isNotHome = useMemo(() => pathname !== '/' && pathname !== '', [pathname])
   const isBridge = useMemo(() => pathname.includes('bridge'), [pathname])
+  const isHistory = useMemo(() => pathname.includes('history'), [pathname])
 
   useEffect(() => {
     if (isNotHome && IsInMaintaince) {
@@ -138,7 +139,7 @@ const Header = () => {
               })
             }
             {
-              isBridge && <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box>
+              (isBridge || isHistory) && <Box display={'flex'} gap={'5px'} alignItems={'center'}><ConnectBtcButton /></Box>
             }
             {
               !isNotHome && <Box

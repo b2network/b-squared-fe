@@ -7,6 +7,8 @@ import { HistoryPageSize, getConfirmedTx, getUnconfirmedTxs } from '@/service/hi
 import { Box, CircularProgress, Pagination, TableContainer } from '@mui/material';
 import IconBtc from '@/assets/icons/icon_btc.svg';
 import IconB2 from '@/assets/icons/logo_icon.svg';
+import IconNoData from '@/assets/icons/no_data.svg';
+import IconWallet from '@/assets/icons/wallet.svg';
 import Label, { BridgeStatus } from './StatusLabel';
 import dayjs from 'dayjs';
 import { B2ExploreTx, L1TestnetTxUrl } from '@/utils';
@@ -186,7 +188,7 @@ const HistoryList: React.FC = () => {
           noResultsOverlay: () => (
             <Box display="flex" color={'#000'} alignItems="center" justifyContent="center" height="100%">
               {
-                isConnected ? 'Sorry, you have not made any transactions yet.' :<ConnectBtcButton />
+                isConnected ? <NoData /> : <ConnectWallet />
               }
             </Box>
           ),
@@ -270,6 +272,27 @@ const HistoryList: React.FC = () => {
     </TableContainer>
   )
 
+}
+
+
+const NoData = () => {
+  return (
+    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} mt='20px'>
+      <IconNoData />
+      <Box fontSize={'20px'} sx={{ position: 'relative', top: '-20px' }}>Sorry, you have not made any transactions yet.</Box>
+    </Box>
+  )
+}
+
+const ConnectWallet = () => {
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+      <IconWallet />
+      <Box mt='-20px'>
+        <ConnectBtcButton />
+      </Box>
+    </Box>
+  )
 }
 
 export default HistoryList
