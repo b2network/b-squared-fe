@@ -6,6 +6,7 @@ import IconBug from '@/assets/icons/icon_bug.svg'
 import IconGit from '@/assets/icons/icon_git.svg'
 import IconFaucet from '@/assets/icons/icon_faucet.svg'
 import { useRouter } from "next/navigation";
+import { BSqured } from "@/utils";
 
 const DEVELOPERLINKS = [
   {
@@ -20,7 +21,7 @@ const DEVELOPERLINKS = [
   {
     name: 'B² Testnet Faucet',
     icon: <IconFaucet style={{ transform: 'scale(1.3)' }} />,
-    link: window?.location.origin+'/faucet'
+    link: BSqured+'/faucet'
   }
 ]
 
