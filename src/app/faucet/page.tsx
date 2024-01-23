@@ -79,7 +79,7 @@ const Faucet = () => {
         if (res.code === '0') {
           NiceModal.show(ResultModal, { status: 'success' })
         } else {
-          NiceModal.show(ResultModal, { status: 'failed' })
+          toast.error(res.message || 'Claim failed !')
         }
         console.log(res, 'res')
       } catch (error) {
