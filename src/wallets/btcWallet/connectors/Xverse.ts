@@ -3,6 +3,7 @@ import { SendBtcParams } from '..'
 import { ConnectorNotFoundError } from '../errors'
 import { BtcConnectorName, Network } from '../types'
 import { AccountsChangedHandler, Connector, ConnectorOptions, DisconnectHandler, NetworkChangedHandler } from './types'
+import { toast } from 'react-toastify'
 
 
 const Net: Network = 'testnet'
@@ -48,9 +49,13 @@ export class XverseConnector implements Connector {
           this.address = userInfo.address;
           this.publicKey = userInfo.publicKey
         },
-        onCancel: () => alert('Request canceled'),
+        onCancel: () => { 
+          toast.error('User rejected!')
+          throw new Error('User reject error!')
+        }
       }
       await getAddress(getAddressOptions);
+      if (!this.address) { }
       return { address: this.address || '', publicKey: this.publicKey || '', network: Net }
     } catch (error) {
       console.log('connnector error: ', error)
