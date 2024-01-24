@@ -1,10 +1,15 @@
 import { Box } from "@mui/material"
 import EastIcon from '@mui/icons-material/East';
+import { BuzzUrl } from "@/utils";
 
 
 const Banner = () => {
   return (
-    <Box sx={{
+    <Box
+      onClick={() => { 
+        window.open(BuzzUrl)
+      }}
+      sx={{
       background: 'url("/assets/banner_buzz.png") no-repeat center center',
       height: '120px',
       backgroundSize: 'cover',
