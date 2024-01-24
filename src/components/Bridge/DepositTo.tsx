@@ -1,6 +1,7 @@
 import useB2Balance from "@/hooks/useB2Balance"
 import { useBtc } from "@/wallets/btcWallet"
 import { Box } from "@mui/material"
+import LogoIcon from '@/assets/icons/logo_icon.svg'
 
 type Iprops = {
   defaultTo: string,
@@ -25,8 +26,8 @@ const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
         ml: '12px'
       }
     }}>
-      <Box display={'flex'} alignItems={'center'} mb={'16px'}>
-        To  <img className="logo" src="/assets/logo.svg" alt='logo'></img>
+      <Box display={'flex'} alignItems={'center'} gap={'5px'} mb={'16px'}>
+        To <LogoIcon /> <Box sx={{ color: 'black', fontWeight: 'bold' }}>B² Testnet</Box>
       </Box>
 
       <Box>you will receive: {amount || DefaultAmount} BTC</Box>
