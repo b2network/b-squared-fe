@@ -3,14 +3,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 import { useAccount, useBalance, useChainId, useFeeData, useNetwork, useWalletClient } from "wagmi";
 import WithdrawTo from "./WithdrawTo";
-import { useBrigeContract } from "@/hooks/useContract";
-import { ethers, parseUnits } from "ethers";
-import ConnectButtonLocal from "@/components/ConnectButtonLocal";
-import * as bridgeStore from '@/stores/bridgeStore'
-import NiceModal from "@ebay/nice-modal-react";
-import ConnectModal from "../Modals/ConnectModal";
+// import ConnectButtonLocal from "@/components/ConnectButtonLocal";
 import { useBtc } from "@/wallets/btcWallet";
-import BridgeAbi from "@/assets/abi/bridge.json";
 import { Address, encodeFunctionData, padHex, parseEther } from "viem";
 import { shorterAddress } from "@/utils";
 import useSca from "@/hooks/useSca";
@@ -184,7 +178,7 @@ const Withdraw: React.FC<Iprops> = () => {
           }} sx={{ color: '#FFA728', textDecoration: 'underline', ml: '10px', cursor: 'pointer' }}>Max</Box>
         </Box>
         <Box display={'flex'} gap={2}>
-          <Box flex={1}><ConnectButtonLocal /></Box>
+          {/* <Box flex={1}><ConnectButtonLocal /></Box> */}
           <Button variant="outlined" sx={{
             flex: 1,
             height: '50px',
