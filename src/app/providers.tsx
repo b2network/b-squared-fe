@@ -20,7 +20,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
     }
   });
   const { chains, publicClient, webSocketPublicClient } = configureChains([B2TestNet], [publicProvider()], { pollingInterval: 800000 });
-  const projectId = '941d566f55cee7aff5ac12d6e4ad97ad'
   const wagmiConfig = createConfig({
     autoConnect: true,
     connectors: [ new MetaMaskConnector({ chains }),],
