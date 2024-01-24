@@ -19,7 +19,7 @@ const getUnconfirmedTxs = async (address: string) => {
     return {
       l1State: 'Unconfirmed',
       value: formatUnits(BigInt(amount), 8),
-      time: times[i],
+      time: times[i]|| parseInt((new Date().valueOf()/1000).toString()),
       hash: tx.txid, 
       network: 'Testnet',
       state: 'Pending'

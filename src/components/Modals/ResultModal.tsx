@@ -5,6 +5,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import useIsMobile from '@/hooks/useIsMobile';
 import CloseIcon from '@mui/icons-material/Close';
 import { primaryColor } from '@/utils';
+import { useRouter } from 'next/navigation';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & any,
@@ -14,6 +15,8 @@ const Transition = React.forwardRef(function Transition(
 });
 
 const SucessContent = ({ txId }: { txId: string }) => {
+  const modal = useModal();
+  const router = useRouter()
   return (
     <Box sx={{
       '& .img': {
@@ -30,6 +33,10 @@ const SucessContent = ({ txId }: { txId: string }) => {
       {
         txId && <Link target='_blank' sx={{ color: primaryColor, textDecorationColor: primaryColor }} href={`https://mempool.space/testnet/tx/${txId}`}>Track the progress on the blockchain explorer</Link>
       }
+      <Box onClick={() => {
+        router.push('/history');
+        modal.hide()
+      }} sx={{ color: primaryColor, cursor: 'pointer',textDecoration:'underline',mt:'5px' }}>Track the progress on the bridge history</Box>
     </Box>
   )
 }

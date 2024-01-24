@@ -38,33 +38,34 @@ const PropertieItem: React.FC<ItemProps> = ({ title, content, num }) => {
 
 const PropertyArr: ItemProps[] = [
   {
-    title: 'Fast & Cheap',
+    title: 'Fast, Cheap & Secure',
     content: [
-      'Over 50X cheaper and 300X faster than the Bitcoin network'
+      'Over 50x cheaper and 300x faster than Bitcoin network.',
+      'Bitcoin-level security with Bitcoin POW (L1) & Zero-Knowledge Proof (L2).'
     ],
     num: '01'
   }, {
-    title: 'Asset Security',
-    content: [
-      'Carry the security level of Bitcoin network',
-      'Ensure the safety of your assets with Bitcoin POW (L1) and Zero-Knowledge Proof (L2)'
-    ],
-    num: '02'
-  }, {
     title: 'Seamless Access',
     content: [
-      'Use Metamask, Unisat, OKX wallet to interact with B², just like you normally would',
-      'Access B² using your original BTC (bc1p…) or ETH (0x…) addresses with the help of account abstraction'
+      'Use MetaMask, Unisat, OKX Wallet, Xverse, Leather, etc. to interact with B², just like you normally would.',
+      'Easy access with BTC or ETH addresses via account abstraction.'
     ],
-    num: '03'
-  }, {
+    num: '02'
+  },{
     title: 'Easy to Construct and Migrate Dapps',
     content: [
-      'Revitalize over $526 billion Bitcoin assets, responding to the demands of Bitcoin users and miners.',
+      'Revitalize over $526 billion Bitcoin assets, meeting the demands of Bitcoin users and miners.',
       'Operate various assets on the Bitcoin chain (BTC, BRC20, ordinals…), you name it.'
     ],
+    num: '03'
+  },{
+    title: 'DA Layer for Bitcoin',
+    content: [
+      'Allow any ZK-Rollup to use Bitcoin as settlement layer through B² Hub.',
+      'Submit aggregated ZK-Rollup data and proofs from different ZK-Rollups to Bitcoin, reducing transaction congestion.'
+    ],
     num: '04'
-  },
+  }
 ]
 
 const Properties = () => {

@@ -23,7 +23,6 @@ export type FuncSendUserOperation = (
 
 const Bridge = () => {
   const [tab, setTab] = useState('deposit')
-  const snap = useSnapshot(bridgeStore.store);
   return (
     <Box sx={{
       margin: 'auto',

@@ -28,7 +28,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
     palette: { mode: 'light' },
     typography: {
       fontFamily: 'Titillium Web,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Hanson',
-
     }
   });
   const { chains, publicClient, webSocketPublicClient } = configureChains([B2TestNet], [publicProvider()], { pollingInterval: 800000 });

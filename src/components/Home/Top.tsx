@@ -7,9 +7,7 @@ import BarSvg from "@/components/SvgIcon/BarSvg";
 import EastIcon from '@mui/icons-material/East';
 import useIsMobile from '@/hooks/useIsMobile';
 import OuterLink from '../OuterLink';
-import { LigtPaperAddress, Odyssey } from '@/utils';
-
-
+import { BuzzUrl, LigtPaperAddress, Odyssey, primaryColor } from '@/utils';
 
 const Top = () => {
   const isMobile = useIsMobile();
@@ -73,41 +71,8 @@ const Top = () => {
         </Box>
         <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
         <Typography data-aos='fade-down' className='text'>Network</Typography>
-        <Box display={'flex'} alignItems={'center'} gap={'10px'}>
-          <Box
-            data-aos='fade-up'
-            className='paper'
-            onClick={goLitePaper}
-            sx={{
-              p: '15px 30px',
-              borderRadius: '100px',
-              fontFamily: 'Titillium Web',
-              fontSize: '24px',
-              fontWeight: 700,
-              border: '1px solid #000',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              maxWidth: '226px',
-              mt: '20px',
-              cursor: 'pointer',
-              flexWrap: 'nowrap',
-              whiteSpace: 'nowrap',
-              '.arrow': {
-                ml: '16px',
-                color: 'black'
-              },
-              '&:hover': {
-                '.arrow': {
-                  transform: 'rotate(-45deg)',
-                  transition: '1s',
-                  color: 'white'
-                }
-              }
-            }}>
-            Lite Paper
-            <EastIcon className='arrow' />
-          </Box>
+        <Box display={'flex'} mt={'20px'} alignItems={'center'} gap={'10px'}>
+
           <Box
             data-aos='fade-up'
             className='paper'
@@ -125,7 +90,6 @@ const Top = () => {
               justifyContent: 'center',
               alignItems: 'center',
               maxWidth: '226px',
-              mt: '20px',
               cursor: 'pointer',
               flexWrap: 'nowrap',
               whiteSpace: 'nowrap',
@@ -143,6 +107,52 @@ const Top = () => {
             }}>
             B² Odyssey
             <EastIcon className='arrow' />
+          </Box>
+          <Box
+            data-aos='fade-up'
+            className='paper'
+            onClick={() => {
+              window.open(BuzzUrl)
+            }}
+            sx={{
+              p: '15px 30px',
+              borderRadius: '100px',
+              fontFamily: 'Titillium Web',
+              fontSize: '24px',
+              fontWeight: 700,
+              border: '1px solid #000',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              maxWidth: '226px',
+              cursor: 'pointer',
+              flexWrap: 'nowrap',
+              whiteSpace: 'nowrap',
+              '.arrow': {
+                ml: '16px',
+                color: 'black'
+              },
+              '&:hover': {
+                '.arrow': {
+                  transform: 'rotate(-45deg)',
+                  transition: '1s',
+                  color: 'white'
+                }
+              }
+            }}>
+            B² Buzz
+            <EastIcon className='arrow' />
+          </Box>
+          <Box
+            onClick={goLitePaper}
+            fontSize={'24px'} sx={{ cursor: 'pointer' }}
+            data-aos='fade-up'
+            fontWeight={600}
+            display={'flex'}
+            alignItems={'center'}
+            gap={'2px'} color={primaryColor}>
+            Lite Paper
+            <EastIcon sx={{ color: primaryColor, transform: 'rotate(-45deg)' }} />
           </Box>
         </Box>
         <Box data-aos='fade-up' sx={{

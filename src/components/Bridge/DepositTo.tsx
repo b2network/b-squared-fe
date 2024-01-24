@@ -1,5 +1,6 @@
+import useB2Balance from "@/hooks/useB2Balance"
+import { useBtc } from "@/wallets/btcWallet"
 import { Box } from "@mui/material"
-import { shorterAddress } from "@/utils"
 
 type Iprops = {
   defaultTo: string,
@@ -7,6 +8,8 @@ type Iprops = {
 }
 
 const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
+  const { address, isConnected } = useBtc();
+  const balance = useB2Balance(address || '')
   const DefaultAmount = '0.0';
   return (
     <Box sx={{
@@ -25,17 +28,9 @@ const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
       <Box display={'flex'} alignItems={'center'} mb={'16px'}>
         To  <img className="logo" src="/assets/logo.svg" alt='logo'></img>
       </Box>
-      {/* <Box display={'flex'} alignItems={'center'}>
-        <Box>send to address: {shorterAddress(defaultTo)}</Box>
-        <Box sx={{
-          textDecoration: 'underline',
-          color: '#FFA728',
-          ml: '10px',
-          cursor:'not-allowed'
-        }}>Edit</Box>
-      </Box> */}
+
       <Box>you will receive: {amount || DefaultAmount} BTC</Box>
-      {/* <Box>gas fee: -- BTC</Box> */}
+      <Box>Balance: {balance} BTC</Box>
     </Box>
   )
 }
