@@ -24,9 +24,6 @@ const useB2Balance = (address: string) => {
       setB2balance(formatUnits(amount, 18))
     }
   }
-
-  console.log(finalAddress, 'finalAddress')
-
   useEffect(() => {
     if (finalAddress) {
       getB2Balance()

@@ -30,7 +30,9 @@ const DepositTo: React.FC<Iprops> = ({ defaultTo, amount }) => {
       </Box>
 
       <Box>you will receive: {amount || DefaultAmount} BTC</Box>
-      <Box>Balance: {balance} BTC</Box>
+      {
+        isConnected && <Box>Balance: {balance} BTC</Box>
+      }
     </Box>
   )
 }
