@@ -1,7 +1,7 @@
 "use client"
 import ResultModal from "@/components/Modals/ResultModal"
 import claimB2 from "@/service/faucet"
-import { validateAddress } from "@/utils/address"
+import { isBtcAddress, validateAddress } from "@/utils/address"
 import NiceModal from "@ebay/nice-modal-react"
 import { LoadingButton } from "@mui/lab"
 import { Box, Button, Input, InputBase, Typography, styled } from "@mui/material"
@@ -68,6 +68,7 @@ const Faucet = () => {
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
   const handleClaim = async () => {
+    console.log(address,isBtcAddress(address),'address-check')
     if (!address || !validateAddress(address)) {
       toast.error('The wallet address provided is incorrect. Please double-check and enter a valid address.')
     }
