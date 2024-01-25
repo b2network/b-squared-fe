@@ -60,10 +60,10 @@ export const L1TestnetTxUrl = 'https://mempool.space/testnet/tx'
 export const LigtPaperAddress = 'https://www.bsquared.network/B2.pdf '
 export const Odyssey = isDev ? 'https://task-dev.bsquared.network/leaderboard' : 'https://task.bsquared.network/leaderboard'
 export const primaryColor = '#FFA728'
-export const HistoryUrl = 'https://bridge-api-dev.bsquared.network/api/v1/deposit/list'
+export const HistoryUrl = isDev ? 'https://bridge-api-dev.bsquared.network/api/v1/deposit/list' : "https://bridge-api.bsquared.network/api/v1/deposit/list"
 export const IsInMaintaince = false;
-export const B2ExploreTx = 'https://testnet-role.bsquared.network/tx'
-export const FaucetUrl = 'https://eps-api-dev.bsquared.network/v1/faucet?is_aa=false&'
+export const B2ExploreTx = 'https://haven-explorer.bsquared.network/tx'
+export const FaucetUrl = isDev ? 'https://eps-api-dev.bsquared.network/v1/faucet?is_aa=false&' : 'https://task-openapi.bsquared.network/v1/faucet?is_aa=false&'
 export const StoreWalletKey = 'btcWallet'
 export const BSqured = isDev ? 'https://www-dev.bsquared.network' : 'https://www.bsquared.network'
 export const BuzzUrl = isDev ? 'http://test-b2.bsquared.network/' : 'https://buzz.bsquared.network/'
