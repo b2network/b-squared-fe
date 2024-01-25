@@ -66,7 +66,7 @@ export const B2ExploreTx = 'https://testnet-role.bsquared.network/tx'
 export const FaucetUrl = 'https://eps-api-dev.bsquared.network/v1/faucet?is_aa=false&'
 export const StoreWalletKey = 'btcWallet'
 export const BSqured = isDev ? 'https://www-dev.bsquared.network' : 'https://www.bsquared.network'
-export const BuzzUrl = 'http://test-b2.bsquared.network/'
+export const BuzzUrl = isDev ? 'http://test-b2.bsquared.network/' : 'https://buzz.bsquared.network/'
 export const saveWalletToStore = (wallet: BtcConnectorName) => {
   try {
     localStorage.setItem(StoreWalletKey, wallet)
