@@ -113,7 +113,6 @@ const Faucet = () => {
       <Box>
         <Box sx={{ fontWeight: '600', mb: '8px' }}>Address</Box>
         <InputBase value={address} onChange={(e) => {
-          console.log(e.target.value, 'e')
           setAddress(e.target.value.trim())
         }} sx={{
           height: '40px',
