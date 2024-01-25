@@ -127,7 +127,7 @@ function Connected({ text, disconnect, connectorName, balance, address }: { addr
               <IconHistory />
               <Typography onClick={() => { router.push('/history') }} fontSize={'18px'}>Bridge History</Typography>
             </Box>
-            <Box sx={{
+            {/* <Box sx={{
               display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center',
               opacity: 0.6,
               '&:hover': {
@@ -142,7 +142,7 @@ function Connected({ text, disconnect, connectorName, balance, address }: { addr
                   window.open(window?.location.origin + '/faucet')
                 }
               }>B² Testnet Faucet</Box>
-            </Box>
+            </Box> */}
             <Box sx={{
               display: 'flex', gap: '20px', alignItems: 'center', cursor: 'pointer',
               opacity: 0.6,
