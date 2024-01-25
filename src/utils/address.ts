@@ -7,15 +7,11 @@ export const validateAddress = (addr: string) => {
 }
 
 export function isBtcAddress(address: string) {
+  const testnet = bitcoin.networks.testnet
   try {
-    bitcoin.address.fromBech32(address)
-    return true
+    bitcoin.address.toOutputScript(address, testnet)
+    return address
   } catch (error) {
-    try {
-      bitcoin.address.fromBase58Check(address)
-      return true
-    } catch (error) {
-      return false
-    }
+    return false
   }
 }
