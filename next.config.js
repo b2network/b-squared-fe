@@ -35,19 +35,14 @@ const nextConfig = {
       NEXT_PUBLIC_APP_ENV: process.env["NEXT_PUBLIC_APP_ENV"],
     },
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/bridge',
-  //       destination: '/',
-  //       permanent: true
-  //     }, {
-  //       source: '/transfer',
-  //       destination: '/',
-  //       permanent: true
-  //     },
-  //   ];
-  // },
+  async rewrites() {
+    return [
+      {
+        source: '/api/v1/faucet/:path*',
+        destination: 'https://task-openapi.bsquared.network/v1/faucet/:path*',
+      },
+    ];
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
