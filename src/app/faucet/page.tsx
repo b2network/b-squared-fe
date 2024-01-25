@@ -68,7 +68,7 @@ const Faucet = () => {
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
   const handleClaim = async () => {
-    console.log(address,isBtcAddress(address),'address-check')
+    console.log(address, isBtcAddress(address), 'address-check')
     if (!address || !validateAddress(address)) {
       toast.error('The wallet address provided is incorrect. Please double-check and enter a valid address.')
     }
@@ -112,7 +112,8 @@ const Faucet = () => {
       }
       <Box>
         <Box sx={{ fontWeight: '600', mb: '8px' }}>Address</Box>
-        <InputBase onChange={(e) => {
+        <InputBase value={address} onChange={(e) => {
+          console.log(e.target.value, 'e')
           setAddress(e.target.value.trim())
         }} sx={{
           height: '40px',
