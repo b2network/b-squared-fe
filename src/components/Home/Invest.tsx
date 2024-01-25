@@ -3,14 +3,14 @@ import { Girl } from "@mui/icons-material";
 import { Box, Grid } from "@mui/material"
 
 const INVESTLIST = [
-  '/assets/invest/icon_hashkey.png',
-  '/assets/invest/icon_ventures.png',
-  '/assets/invest/icon_abcde.png',
-  '/assets/invest/icon_idg.png',
-  '/assets/invest/icon_kucoin.png',
-  '/assets/invest/icon_water.png',
-  '/assets/invest/icon_ogs.png',
-  '/assets/invest/icon_antalpha.png',
+  '/assets/invest/icon_hashkey.svg',
+  '/assets/invest/icon_ventures.svg',
+  '/assets/invest/icon_abcde.svg',
+  '/assets/invest/icon_idg.svg',
+  '/assets/invest/icon_kucoin.svg',
+  '/assets/invest/icon_water.svg',
+  '/assets/invest/icon_ogs.svg',
+  '/assets/invest/icon_antalpha.svg',
 ]
 
 const Invest = () => {

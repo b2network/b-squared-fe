@@ -69,7 +69,7 @@ const Faucet = () => {
   const [loading, setLoading] = useState(false);
   const handleClaim = async () => {
     if (!address || !validateAddress(address)) {
-      toast.error('Illegal address !')
+      toast.error('The wallet address provided is incorrect. Please double-check and enter a valid address.')
     }
     if (address && validateAddress(address)) {
       try {
@@ -112,7 +112,7 @@ const Faucet = () => {
       <Box>
         <Box sx={{ fontWeight: '600', mb: '8px' }}>Address</Box>
         <InputBase onChange={(e) => {
-          setAddress(e.target.value)
+          setAddress(e.target.value.trim())
         }} sx={{
           height: '40px',
           width: '400px',

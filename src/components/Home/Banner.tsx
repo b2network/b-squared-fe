@@ -20,7 +20,7 @@ const Banner = () => {
         textTransform: 'uppercase',
         cursor: 'pointer'
       }}>
-      <Box sx={{ color: 'white', fontSize: '26px', fontWeight: 900 }}>Deposit Token to Earn Airdrop</Box>
+      <Box sx={{ color: 'white', fontSize: '26px', fontWeight: 900 }}>Join B² Buzz</Box>
       <EastIcon sx={{ color: 'white' }} />
     </Box>
   )
