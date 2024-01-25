@@ -18,11 +18,11 @@ const DEVELOPERLINKS = [
     link: 'https://github.com/b2network',
     icon: <IconGit />
   },
-  // {
-  //   name: 'B² Testnet Faucet',
-  //   icon: <IconFaucet style={{ transform: 'scale(1.3)' }} />,
-  //   link: BSqured+'/faucet'
-  // }
+  {
+    name: 'B² Testnet Faucet',
+    icon: <IconFaucet style={{ transform: 'scale(1.3)' }} />,
+    link: BSqured+'/faucet'
+  }
 ]
 
 
