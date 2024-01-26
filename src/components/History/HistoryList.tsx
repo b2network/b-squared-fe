@@ -153,12 +153,7 @@ const HistoryList: React.FC = () => {
           <Box display={'flex'} gap={'10px'} fontSize={'18px'} alignItems={'center'}>
             <Box sx={{ opacity: '0.5', width: '39.7px' }}>To</Box>
             <IconB2 />
-            <Box sx={{ fontSize: '16px', width: '100px' }}>B² Network</Box>
-            {
-              item.row.hash_l2 && <LaunchOutlinedIcon onClick={() => {
-                window.open(`${B2ExploreTx}/${item.row.hash_l2}`)
-              }} sx={{ color: 'rgba(0,0,0,0.5)' }} />
-            }
+            <Box sx={{ fontSize: '16px', width: '100px' }}>B² Testnet</Box>
           </Box>
         </Box>
       },
@@ -279,7 +274,7 @@ const NoData = () => {
   return (
     <Box display={'flex'} flexDirection={'column'} alignItems={'center'} mt='20px'>
       <IconNoData />
-      <Box fontSize={'20px'} sx={{ position: 'relative', top: '-20px' }}>Sorry, you have not made any transactions yet.</Box>
+      <Box fontSize={'20px'} sx={{ position: 'relative', top: '-20px' }}>No transaction records found. Please refresh and try again.</Box>
     </Box>
   )
 }

@@ -35,7 +35,7 @@ const Footer = ({ showAll }: { showAll: boolean }) => {
           </Box>
         </Box>
       }
-      <Typography sx={{ fontSize: '18px', mt: '20px', mb: '70px', textAlign: 'center' }}>© 2023 B² Network – All rights reserved</Typography>
+      <Typography sx={{ fontSize: '18px', mt: '20px', mb: '70px', textAlign: 'center' }}>© 2024 B² Network – All rights reserved</Typography>
     </Box>
   );
 };
