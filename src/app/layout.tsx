@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '@/styles/global.scss'
 import { Providers } from './providers'
 import { AOSInit } from './aos'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AOSInit />
+      <GoogleTagManager gtmId="G-6C7Q53GBMN" />
       <body >
         <Providers>{children}</Providers>
       </body>
