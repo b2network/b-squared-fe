@@ -48,7 +48,7 @@ function Tab({ val, handleClick }: Iprops) {
             alignItems: 'center',
           }}>
           {
-          item.text
+            item.text
           }
         </Box>
       }
