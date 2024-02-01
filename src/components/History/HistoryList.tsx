@@ -11,7 +11,7 @@ import IconNoData from '@/assets/icons/no_data.svg';
 import IconWallet from '@/assets/icons/wallet.svg';
 import Label, { BridgeStatus } from './StatusLabel';
 import dayjs from 'dayjs';
-import { B2ExploreTx, L1TestnetTxUrl } from '@/utils';
+import { L1TestnetTxUrl } from '@/utils';
 import { formatUnits, parseUnits } from 'viem';
 import ConnectBtcButton from '../ConnectButton';
 
