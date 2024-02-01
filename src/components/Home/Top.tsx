@@ -71,8 +71,7 @@ const Top = () => {
         </Box>
         <Typography data-aos='fade-down' className='text'>Bitcoin Layer2</Typography>
         <Typography data-aos='fade-down' className='text'>Network</Typography>
-        <Box display={'flex'} mt={'20px'} alignItems={'center'} gap={'10px'}>
-
+        <Box display={'flex'} mt={'20px'} flexDirection={isMobile?'column':'row'} alignItems={'center'} gap={'10px'}>
           <Box
             data-aos='fade-up'
             className='paper'

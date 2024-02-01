@@ -2,7 +2,7 @@ import { primaryColor } from "@/utils";
 import { Box, Grid } from "@mui/material"
 
 const INVESTLIST = [
-  '/assets/invest/icon_hashkey.svg',
+  '/assets/invest/icon_hashkey.png',
   '/assets/invest/icon_okx.svg',
   '/assets/invest/icon_abcde.svg',
   '/assets/invest/icon_idg.svg',
@@ -23,7 +23,7 @@ const Invest = () => {
       <Box data-aos='fade-up'  sx={{ fontSize: '30px', fontWeight: 700, fontFamily: 'Hanson', color: primaryColor, mb: '30px' }}>Invested By</Box>
       <Grid container spacing={4} justifyContent={'center'}>
         {
-          INVESTLIST.map((v, i) => <Grid data-aos='fade-up'  xs={2.4} item key={i}> <img src={v} alt="icon" /></Grid>)
+          INVESTLIST.map((v, i) => <Grid data-aos='fade-up' item key={i}> <img src={v} alt="icon" /></Grid>)
         }
       </Grid>
     </Box>
