@@ -21,14 +21,17 @@ const DEVELOPERLINKS = [
   {
     name: 'B² Testnet Faucet',
     icon: <IconFaucet style={{ transform: 'scale(1.3)' }} />,
-    link: BSqured+'/faucet'
+    link: BSqured + '/faucet'
+  }, {
+    name: 'Grant',
+    icon: <img src="/assets/grant.svg" style={{ width: '26px', height: '26px' }} alt="icon" />,
+    link: 'https://medium.com/@bsquarednetwork/b%C2%B2-network-grant-program-all-you-need-to-know-4f740f551979'
   }
 ]
 
 
 const Developers = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const router = useRouter()
 
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
