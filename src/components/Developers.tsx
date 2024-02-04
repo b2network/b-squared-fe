@@ -24,7 +24,7 @@ const DEVELOPERLINKS = [
     link: BSqured + '/faucet'
   }, {
     name: 'Grant',
-    icon: <img src="/assets/grant.svg" style={{ width: '26px', height: '26px' }} alt="icon" />,
+    icon: <img src="/assets/grant.svg" style={{ width: '30px', height: '30px' }} alt="icon" />,
     link: 'https://medium.com/@bsquarednetwork/b%C2%B2-network-grant-program-all-you-need-to-know-4f740f551979'
   }
 ]
