@@ -2,14 +2,20 @@ import { Box } from "@mui/material"
 import EastIcon from '@mui/icons-material/East';
 import { BuzzUrl, Blockheadz } from "@/utils";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+
 import 'swiper/css';
 
 const Banner = () => {
   return (
     <Swiper
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      modules={[Autoplay]}
+      autoplay={{
+        delay: 1000,
+        disableOnInteraction: true
+      }}
+      speed={3000}
+      loop
     >
       <SwiperSlide>
         <Box

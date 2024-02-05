@@ -69,7 +69,7 @@ export const BSqured = isDev ? 'https://www-dev.bsquared.network' : 'https://www
 export const BuzzUrl = isDev ? 'http://test-b2.bsquared.network/' : 'https://buzz.bsquared.network/';
 export const Blockheadz = 'https://blockheadz.bsquared.network/'
 export const buzzStaticUrl = isDev ? 'https://buzz-api-dev.bsquared.network' : 'https://buzz-api.bsquared.network'
-export const odysseyStaticUrl = isDev ? 'https://eps-api-dev.bsquared.network' : 'https://eps-api-test.bsquared.network'
+export const odysseyStaticUrl = isDev ? 'https://eps-api-dev.bsquared.network' : 'https://task-openapi.bsquared.network'
 
 export const saveWalletToStore = (wallet: BtcConnectorName) => {
   try {
