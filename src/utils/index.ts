@@ -31,15 +31,15 @@ const addNetwork = () => {
       chainId: "0x80",
       chainName: "HecoMain",
       rpcUrls: [
-        'https://http-mainnet-node.huobichain.com', 
+        'https://http-mainnet-node.huobichain.com',
       ],
       iconUrls: [
-        'https://testnet.hecoinfo.com/favicon.png' 
+        'https://testnet.hecoinfo.com/favicon.png'
       ],
       blockExplorerUrls: [
-        'https://hecoinfo.com' 
+        'https://hecoinfo.com'
       ],
-      nativeCurrency: { 
+      nativeCurrency: {
         name: 'HT',
         symbol: 'HT',
         decimals: 18
@@ -67,6 +67,9 @@ export const FaucetUrl = isDev ? 'https://eps-api-dev.bsquared.network/v1/faucet
 export const StoreWalletKey = 'btcWallet'
 export const BSqured = isDev ? 'https://www-dev.bsquared.network' : 'https://www.bsquared.network'
 export const BuzzUrl = isDev ? 'http://test-b2.bsquared.network/' : 'https://buzz.bsquared.network/'
+export const buzzStaticUrl = isDev ? 'https://buzz-api-dev.bsquared.network' : 'https://buzz-api.bsquared.network'
+export const odysseyStaticUrl = isDev ? 'https://eps-api-dev.bsquared.network' : 'https://eps-api-test.bsquared.network'
+
 export const saveWalletToStore = (wallet: BtcConnectorName) => {
   try {
     localStorage.setItem(StoreWalletKey, wallet)
