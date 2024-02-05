@@ -54,7 +54,7 @@ const DataPart = () => {
         fontWeight: '400',
         lineHeight: '20px',
         fontFamily: 'Titillium Web',
-        textTransform: 'uppercase',
+        // textTransform: 'uppercase',
         marginTop: '10px'
       }
     }}>
