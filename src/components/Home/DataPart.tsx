@@ -22,7 +22,7 @@ const DataPart = () => {
     const res2 = await buzzStaticData();
     if (res2.code == 0) {
       setTvlNum(res2?.data?.asset_tvl);
-      userNum += Number(res2?.data?.deposited_user);
+      userNum += Number(res2?.data?.total_user);
     }
     setUserCount(userNum);
   }
