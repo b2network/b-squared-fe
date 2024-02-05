@@ -6,10 +6,10 @@ import { odysseyStaticData, buzzStaticData } from '@/service/home_data';
 
 const DataPart = () => {
   const isMobile = useIsMobile();
-  const [addressCount, setAddressCount] = useState();
-  const [txCount, setTxCount] = useState();
+  const [addressCount, setAddressCount] = useState(0);
+  const [txCount, setTxCount] = useState(0);
   const [userCount, setUserCount] = useState(0);
-  const [tvlNum, setTvlNum] = useState();
+  const [tvlNum, setTvlNum] = useState(0);
 
   const getStaticDataFn = async () => {
     let userNum = 0;
@@ -43,7 +43,7 @@ const DataPart = () => {
       '.data_val': {
         color: '#FFA728',
         fontSize: isMobile ? '23px' : '38px',
-        fontWeight: '700',
+        fontWeight: '900',
         lineHeight: '32px',
         fontFamily: 'Titillium Web',
         textTransform: 'uppercase'
@@ -107,7 +107,7 @@ const DataPart = () => {
             alignItems: "center",
             flex: 1
           }}>
-            <Typography data-aos='fade-down' className='data_val'>{addressCount}</Typography>
+            <Typography data-aos='fade-down' className='data_val'>{Number(addressCount)?.toLocaleString()}</Typography>
             <Typography data-aos='fade-down' className='data_label'>Wallet Addresses</Typography>
           </Box>
           <Box sx={{
@@ -117,7 +117,7 @@ const DataPart = () => {
             alignItems: "center",
             flex: 1
           }}>
-            <Typography data-aos='fade-down' className='data_val'>{txCount}</Typography>
+            <Typography data-aos='fade-down' className='data_val'>{Number(txCount)?.toLocaleString()}</Typography>
             <Typography data-aos='fade-down' className='data_label'>Total Transactions</Typography>
           </Box>
         </Box>
@@ -141,7 +141,7 @@ const DataPart = () => {
           background: 'url("/assets/data_bg_small.svg")',
           backgroundSize: 'cover',
         }}>
-          <Typography data-aos='fade-down' className='data_val'>{userCount}</Typography>
+          <Typography data-aos='fade-down' className='data_val'>{Number(userCount)?.toLocaleString()}</Typography>
           <Typography data-aos='fade-down' className='data_label'>Total Users</Typography>
         </Box>
         <Box sx={{
@@ -155,7 +155,7 @@ const DataPart = () => {
           backgroundSize: 'cover',
           marginTop: '20px'
         }}>
-          <Typography data-aos='fade-down' className='data_val'>{tvlNum}</Typography>
+          <Typography data-aos='fade-down' className='data_val'>{Number(tvlNum)?.toLocaleString()}</Typography>
           <Typography data-aos='fade-down' className='data_label'>Buzz TVL</Typography>
         </Box>
       </Box>

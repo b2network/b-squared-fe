@@ -66,7 +66,8 @@ export const B2ExploreTx = 'https://haven-explorer.bsquared.network/tx'
 export const FaucetUrl = isDev ? 'https://eps-api-dev.bsquared.network/v1/faucet?is_aa=false&' : 'https://task-openapi.bsquared.network/v1/faucet?is_aa=false&'
 export const StoreWalletKey = 'btcWallet'
 export const BSqured = isDev ? 'https://www-dev.bsquared.network' : 'https://www.bsquared.network'
-export const BuzzUrl = isDev ? 'http://test-b2.bsquared.network/' : 'https://buzz.bsquared.network/'
+export const BuzzUrl = isDev ? 'http://test-b2.bsquared.network/' : 'https://buzz.bsquared.network/';
+export const Blockheadz = 'https://blockheadz.bsquared.network/'
 export const buzzStaticUrl = isDev ? 'https://buzz-api-dev.bsquared.network' : 'https://buzz-api.bsquared.network'
 export const odysseyStaticUrl = isDev ? 'https://eps-api-dev.bsquared.network' : 'https://eps-api-test.bsquared.network'
 
