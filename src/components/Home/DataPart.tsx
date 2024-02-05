@@ -155,7 +155,7 @@ const DataPart = () => {
           backgroundSize: 'cover',
           marginTop: '20px'
         }}>
-          <Typography data-aos='fade-down' className='data_val'>{Number(tvlNum)?.toLocaleString()}</Typography>
+          <Typography data-aos='fade-down' className='data_val'>${Number(tvlNum)?.toLocaleString()}</Typography>
           <Typography data-aos='fade-down' className='data_label'>Buzz TVL</Typography>
         </Box>
       </Box>
