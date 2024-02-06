@@ -31,14 +31,14 @@ const Deposit = () => {
       const balance = await getBtcBalance(btc.address, btc.connectorName)
       setBalance(balance || '')
     }
-  } 
+  }
 
-  useEffect(() => { 
-    if (!btc.isConnected) { 
+  useEffect(() => {
+    if (!btc.isConnected) {
       setAmount('')
       setBalance('')
     }
-  },[btc.isConnected])
+  }, [btc.isConnected])
 
   useEffect(() => {
     if (btc.address && btc.connectorName) {
@@ -162,7 +162,8 @@ const Deposit = () => {
 
       {
         btc.isConnected ? <LoadingButton
-          disabled={!btc.isConnected || isInsufficient}
+          // disabled={!btc.isConnected || isInsufficient}
+          disabled
           onClick={handleDeposit}
           loading={isLoading}
           sx={{
