@@ -162,8 +162,7 @@ const Deposit = () => {
 
       {
         btc.isConnected ? <LoadingButton
-          // disabled={!btc.isConnected || isInsufficient}
-          disabled
+          disabled={!btc.isConnected || isInsufficient}
           onClick={handleDeposit}
           loading={isLoading}
           sx={{
