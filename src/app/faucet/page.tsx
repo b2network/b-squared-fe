@@ -68,7 +68,6 @@ const Faucet = () => {
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
   const handleClaim = async () => {
-    console.log(address, isBtcAddress(address), 'address-check')
     if (!address || !validateAddress(address)) {
       toast.error('The wallet address provided is incorrect. Please double-check and enter a valid address.')
     }
@@ -137,7 +136,7 @@ const Faucet = () => {
           color: 'white',
         }
       }} loading={loading} onClick={handleClaim}>
-        Claim
+        <span>Claim</span>
       </LoadingButton>
       <Typography sx={{ mt: '40px', color: 'rgba(0,0,0,0.6)' }}>ONLY 0.001 BTC can you mint one day for an address.</Typography>
     </Box>
