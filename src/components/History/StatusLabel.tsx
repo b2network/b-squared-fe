@@ -6,7 +6,7 @@ export enum BridgeStatus {
   Unconfirmed = 'Unconfirmed',
   Success = 'success',
   Failed = 'failed',
-  Pending = 'Pending'
+  Pending = 'pending'
 }
 
 const COLORS = {
