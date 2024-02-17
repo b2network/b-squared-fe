@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AOSInit />
-      <body >
+      <body>
         <Providers>{children}</Providers>
       </body>
       <GoogleTagManager gtmId="G-Z9JFTFT63J" />

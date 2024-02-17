@@ -1,6 +1,6 @@
 import { BtcConnectorName, useBtc } from "@/wallets/btcWallet"
 import NiceModal from "@ebay/nice-modal-react"
-import { Box, Link, Tooltip, Typography } from "@mui/material"
+import { Box, Tooltip, Typography } from "@mui/material"
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ConnectModal from "./Modals/ConnectModal"
 import { FaucetUrl, primaryColor, shorterAddress } from "@/utils"
@@ -13,6 +13,7 @@ import IconHistory from '@/assets/icons/icon_history.svg'
 import IconFaucet from '@/assets/icons/icon_faucet.svg'
 import IconDisconnect from '@/assets/icons/icon_disconnect.svg'
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 const ConnectBtcButton = () => {
@@ -125,7 +126,7 @@ function Connected({ text, disconnect, connectorName, balance, address }: { addr
               }
             }}>
               <IconHistory />
-              <Typography onClick={() => { router.push('/history') }} fontSize={'18px'}>Bridge History</Typography>
+              <Link style={{ fontSize: '18px' }} href={'/history'}>Bridge History</Link>
             </Box>
             <Box sx={{
               display: 'flex', gap: '20px', cursor: 'pointer', alignItems: 'center',

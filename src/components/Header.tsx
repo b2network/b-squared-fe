@@ -22,6 +22,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import ConnectBtcButton from './ConnectButton';
 import Developers from './Developers';
 import { IsInMaintaince } from '@/utils';
+import Link from 'next/link';
 
 const Header = () => {
   const isMobile = useIsMobile();
@@ -77,7 +78,7 @@ const Header = () => {
           backgroundImage: "none",
           justifyContent: 'center',
           alignItems: 'center',
-          boxShadow: 'none',
+          boxShadow: 'none', zIndex: '1030'
         }}>
         <Toolbar sx={{
           display: 'flex', borderTop: '2px solid #000',
@@ -132,9 +133,14 @@ const Header = () => {
                       background: '#000',
                       fontSize: '20px'
                     }
-                  }} onClick={() => {
-                    onClickMenu(link.path)
-                  }} className='default-menu hvr-grow' >{link.name}</Typography>
+                  }}
+                    // onClick={() => {
+                    //   onClickMenu(link.path)
+                    // }}
+                    className='default-menu hvr-grow' >
+
+                    <Link href={link.path}>{link.name}</Link>
+                  </Typography>
                 )
               })
             }

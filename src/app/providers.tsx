@@ -11,6 +11,7 @@ import { useIsMounted } from '@/hooks/useIsMouted';
 import { BtcProvider } from '../wallets/btcWallet';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NProgressBar from '@/components/ProgressBar';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const customTheme = createTheme({
@@ -22,7 +23,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const { chains, publicClient, webSocketPublicClient } = configureChains([B2TestNet], [publicProvider()], { pollingInterval: 800000 });
   const wagmiConfig = createConfig({
     autoConnect: true,
-    connectors: [ new MetaMaskConnector({ chains }),],
+    connectors: [new MetaMaskConnector({ chains }),],
     publicClient,
     webSocketPublicClient,
   });
@@ -33,6 +34,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <BtcProvider>
           <NiceModal.Provider>
             <CssBaseline />
+            <NProgressBar />
             <ToastContainer
               position="top-right"
               autoClose={3000}
