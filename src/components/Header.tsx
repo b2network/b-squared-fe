@@ -31,12 +31,12 @@ const Header = () => {
   const pathname = usePathname()
   const Links = [
     {
-      name: 'Bridge',
-      path: '/bridge'
-    },
-    {
       name: 'Ecosystem',
       path: '/ecosystem'
+    },
+    {
+      name: 'Bridge',
+      path: '/bridge'
     },
     {
       name: 'Doc',
@@ -70,9 +70,13 @@ const Header = () => {
     showComingDialog()
   }
   const goFooter = () => {
+    if (pathname.indexOf('ecosystem') > -1) {
+      router.push('/')
+    }
     let anchorElement = document.getElementById('contact');
     // 如果对应id的锚点存在，就跳转到锚点
     if (anchorElement) { anchorElement.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
+
   }
   return (
     <>
