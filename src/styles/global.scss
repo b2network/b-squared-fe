@@ -66,6 +66,18 @@ a {
   align-items: center;
 }
 
+.project_input{
+  padding-left: 20px;
+  width: 316px;
+  height: 44px;
+  &::after{
+    display: none;
+  }
+  &::before{
+    display: none;
+  }
+}
+
 // .twill {
 //   font-size: 50px;
 //   font-weight: 700;

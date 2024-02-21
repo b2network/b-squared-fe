@@ -35,6 +35,10 @@ const Header = () => {
       path: '/bridge'
     },
     {
+      name: 'Leaderboard',
+      path: '/leaderboard'
+    },
+    {
       name: 'Doc',
       path: 'https://docs.bsquared.network/'
     },
