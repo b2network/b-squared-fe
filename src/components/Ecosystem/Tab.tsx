@@ -124,7 +124,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
                     <Typography marginRight="20px" color="#000" fontSize="24px" fontWeight="700">{item?.projectName}</Typography>
                     {item?.categorize?.map((categorizeItem => {
                       return (
-                        <Box key={categorizeItem} sx={{ padding: '3px 12px', background: '#000', fontSize: '16px', fontWeight: '600', marginRight: '5px', color: '#fff', borderRadius: '12px', height: 'fit-content' }}>{categorizeItem}</Box>
+                        <Box key={categorizeItem} sx={{ padding: '6px 19px', background: '#000', fontSize: '16px', fontWeight: '600', marginRight: '5px', color: '#fff', borderRadius: '42px', height: 'fit-content' }}>{categorizeItem}</Box>
                       )
                     }))}
                   </Box>
