@@ -77,14 +77,16 @@ const Tab = ({ val, handleClick }: Iprops) => {
             setSearchVal(e.target.value?.trim())
             searchProjectFn(e.target.value?.trim())
           }} placeholder="Search" className="project_input" sx={{ border: '1px solid #000' }} />
-          <img onClick={() => {
-            searchProjectFn();
-          }} style={{position: 'absolute', right: '10px', top: '10px', width: '24px', height: '24px', cursor: 'pointer'}} src="/assets/search.svg"/>
+          <img
+            // onClick={() => {
+            // searchProjectFn();
+            // }}
+            style={{ position: 'absolute', right: '10px', top: '10px', width: '24px', height: '24px', cursor: 'pointer' }} src="/assets/search.svg" alt='search' />
         </Box>
         <Box display="flex" sx={{ cursor: 'pointer',width: '125px' }} onClick={() => {
           window.open("https://forms.gle/apH3QcEsusr8P4V26")
         }}>
-          <img style={{ marginRight: '3px', width: '24px', height: '24px' }} src='/assets/list.svg' />
+          <img style={{ marginRight: '3px', width: '24px', height: '24px' }} src='/assets/list.svg' alt='list'/>
           <Typography color="#000" fontSize="16px" fontWeight="700">List your Dapp</Typography>
         </Box>
       </Box>
@@ -118,7 +120,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
                     <Typography marginRight="20px" color="#000" fontSize="24px" fontWeight="700">{item?.projectName}</Typography>
                     {item?.categorize?.map((categorizeItem => {
                       return (
-                        <Box sx={{ padding: '3px 12px', background: '#000', fontSize: '16px', fontWeight: '600', marginRight: '5px', color: '#fff', borderRadius: '12px', height: 'fit-content' }}>{categorizeItem}</Box>
+                        <Box key={categorizeItem} sx={{ padding: '3px 12px', background: '#000', fontSize: '16px', fontWeight: '600', marginRight: '5px', color: '#fff', borderRadius: '12px', height: 'fit-content' }}>{categorizeItem}</Box>
                       )
                     }))}
                   </Box>
@@ -129,7 +131,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
                 item?.visitLink && window.open(item?.visitLink)
               }}>
                 <Typography color="#fff" fontSize="16px" fontWeight="700">Visit</Typography>
-                <img style={{ width: '12px', height: '8px', marginLeft: '8px' }} src="/assets/visitIcon.svg" />
+                <img style={{ width: '12px', height: '8px', marginLeft: '8px' }} src="/assets/visitIcon.svg" alt='visit'/>
               </Box>
             </Box>
           }
