@@ -10,7 +10,7 @@ const Banner = () => {
             // window.open(BuzzUrl)
           }}
           sx={{
-            background: 'url("/assets/banner_buzz.png") no-repeat center center',
+            background: 'url("/assets/ecological_bg.png") no-repeat center center',
             height: '335px',
             backgroundSize: 'cover',
             display: 'flex',

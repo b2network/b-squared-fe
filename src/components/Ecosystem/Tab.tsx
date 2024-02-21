@@ -95,9 +95,9 @@ const Tab = ({ val, handleClick }: Iprops) => {
           showData?.map((item, index) => {
             return <Box
               key={item.projectName}
-              onClick={() => {
-                handleClick(index)
-              }}
+              // onClick={() => {
+              //   handleClick(index)
+              // }}
               sx={{
                 width: '100%',
                 minHeight: '130px',
@@ -106,7 +106,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
                 background: 'url("/assets/project_bg.png") no-repeat center center',
                 backgroundSize: '100% 100%',
                 borderRadius: '12px',
-                cursor: 'pointer',
+                // cursor: 'pointer',
                 fontSize: '18px',
                 padding: '20px',
                 display: 'flex',
@@ -114,7 +114,9 @@ const Tab = ({ val, handleClick }: Iprops) => {
               }}>
 
               <Box sx={{ display: 'flex', flex: '1', marginRight: '30px' }}>
-                <Box sx={{ width: '50px', height: '50px', background: 'red', borderRadius: '50%', marginRight: '20px' }}></Box>
+                <Box sx={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '20px' }}>
+                  <img src={`/assets/project/${item.img}.svg`} alt="project" />
+                </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Typography marginRight="20px" color="#000" fontSize="24px" fontWeight="700">{item?.projectName}</Typography>

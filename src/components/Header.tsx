@@ -35,8 +35,8 @@ const Header = () => {
       path: '/bridge'
     },
     {
-      name: 'Leaderboard',
-      path: '/leaderboard'
+      name: 'Ecosystem',
+      path: '/ecosystem'
     },
     {
       name: 'Doc',

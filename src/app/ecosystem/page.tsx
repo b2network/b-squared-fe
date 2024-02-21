@@ -1,11 +1,11 @@
 "use client"
-import Tab from '@/components/Leaderboard/Tab';
+import Tab from '@/components/Ecosystem/Tab';
 import Layout from '@/components/Layout';
-import Banner from '@/components/Leaderboard/Banner';
+import Banner from '@/components/Ecosystem/Banner';
 import { useState } from 'react';
 import useIsMobile from '@/hooks/useIsMobile';
 
-const Leaderboard = () => {
+const Ecosystem = () => {
   const isMobile = useIsMobile();
   const [tab, setTab] = useState(0)
 
@@ -17,4 +17,4 @@ const Leaderboard = () => {
   )
 }
 
-export default Leaderboard
+export default Ecosystem;
