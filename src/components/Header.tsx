@@ -47,7 +47,7 @@ const Header = () => {
   const showComingDialog = () => {
     NiceModal.show(ComingDialog)
   }
-  const isNotHome = useMemo(() => pathname !== '/' && pathname !== '', [pathname])
+  const isNotHome = useMemo(() => (pathname !== '/' && pathname !== '') && pathname.indexOf('ecosystem') == -1, [pathname])
   const isBridge = useMemo(() => pathname.includes('bridge'), [pathname])
   const isHistory = useMemo(() => pathname.includes('history'), [pathname])
 
@@ -55,6 +55,7 @@ const Header = () => {
     if (isNotHome && IsInMaintaince) {
       router.push('/maintain')
     }
+
   }, [isNotHome, IsInMaintaince])
 
   const onClickMenu = (path: string) => {
