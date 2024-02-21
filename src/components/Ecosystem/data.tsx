@@ -1,17 +1,24 @@
 export const allProject = [
     {
-        projectName: 'Portal Finance',
-        categorize: ['DEX', 'DEFI'],
-        description: 'Bringing Bitcoin Beyond Chains & Humans AI. BRC20/Ordinals Swaps to any Chain.',
-        visitLink: 'https://portaldefi.com/',
-        img: 'portalfinance'
-    },
-    {
         projectName: 'GlowSwap',
-        categorize: ['DEX', 'DEFI'],
+        categorize: ['DEX', 'DeFi'],
         description: 'A pioneer decentralized exchange built on B² network',
         visitLink: 'https://app.glowswap.io/',
         img: 'glowswap'
+    },
+    {
+        projectName: 'LayerBank',
+        categorize: ['DeFi'],
+        description: 'A universal permissionless on-chain bank.',
+        visitLink: 'https://layerbank.finance/',
+        img: 'layerbank'
+    },
+    {
+        projectName: 'Portal Finance',
+        categorize: ['DEX', 'DeFi'],
+        description: 'Bringing Bitcoin Beyond Chains & Humans AI. BRC20/Ordinals Swaps to any Chain.',
+        visitLink: 'https://portaldefi.com/',
+        img: 'portalfinance'
     },
     {
         projectName: 'Orders.Exchange',
@@ -22,101 +29,110 @@ export const allProject = [
     },
     {
         projectName: 'Polygon',
-        categorize: ['Infrastructure'],
+        categorize: ['Infra'],
         description: 'The fundamental protocol that allows anyone to create and exchange value, powered by zero-knowledge technology.        ',
         visitLink: 'https://polygon.technology/',
         img: 'polygon'
     },
     {
         projectName: 'AltLayer',
-        categorize: ['Infrastructure'],
+        categorize: ['Infra'],
         description: 'AltLayer is an open and decentralized protocol for rollups.',
         visitLink: 'https://altlayer.io/',
         img: 'altLayer'
     },
     {
         projectName: 'Particle Network',
-        categorize: ['Infrastructure', 'Wallet'],
+        categorize: ['Infra', 'Wallet'],
         description: 'The Intent-Centric Access Layer of Web3.',
         visitLink: 'https://particle.network/',
         img: 'particlenetwork'
     },
     {
         projectName: 'dAppLabs',
-        categorize: ['Infrastructure', 'DEFI', 'Launchpad'],
+        categorize: ['Infra', 'DeFi', 'Launchpad'],
         description: 'Building a vast Dapp ecosystem for accessible blockchain.',
         visitLink: 'https://www.dapplabs.tech/',
         img: 'dapplabs'
     },
     {
         projectName: 'Sentio',
-        categorize: ['Infrastructure'],
+        categorize: ['Infra'],
         description: 'End-to-end observability platform to help you gain insights, secure assets and troubleshoot transactions for your decentralized applications.',
         visitLink: 'https://www.sentio.xyz/',
         img: 'sentio'
     },
     {
         projectName: 'Chainbase',
-        categorize: ['Infrastructure'],
-        description: 'All-in-one Web3 Data Infrastructure for accessing and organizing blockchain data.',
+        categorize: ['Infra'],
+        description: 'All-in-one Web3 Data Infra for accessing and organizing blockchain data.',
         visitLink: 'https://chainbase.com/',
         img: 'chainbase'
     },
     {
         projectName: 'Babylon',
-        categorize: ['Infrastructure'],
+        categorize: ['Infra'],
         description: 'Unlocking 21 Million Bitcoins to Secure the Decentralized Economy.',
         visitLink: 'https://babylonchain.io/',
         img: 'babylon'
     },
+
     {
         projectName: 'SoulBound',
-        categorize: ['DEFI'],
+        categorize: ['DeFi'],
         description: 'The first community centric, incentive-based Launchpad 2.0 built in BTC Ecosystem.',
         visitLink: 'https://www.soulboundbtc.com/',
         img: 'soulbound'
     },
     {
         projectName: 'zkFox',
-        categorize: ['DEFI'],
+        categorize: ['DeFi'],
         description: 'zkFox is a leveraged income aggregator focusing on the DeFi ecosystem.',
         visitLink: 'https://zkfox.io/#/',
         img: 'zkfox'
     },
     {
         projectName: 'OrdinalsOS',
-        categorize: ['DEFI', 'AI'],
+        categorize: ['DeFi', 'AI'],
         description: 'Ordinals OS with user-centric experience Assets Management. ',
         visitLink: 'https://odos.network/',
         img: 'ordinalsos'
     },
     {
+        projectName: 'Meson',
+        categorize: ['Bridge', 'Stable Coin'],
+        description: "Meson is the faster and safer way to execute low-cost, zero-slippage BTC ETH and Stablecoin cross-chain swaps.",
+        visitLink: 'https://meson.fi/',
+        img: 'meson'
+    },
+    {
+        projectName: 'Polyhedra',
+        categorize: ['Bridge'],
+        description: "Build the Infra for Web3 interoperability with zero-knowledge proofs.",
+        visitLink: 'https://polyhedra.network/',
+        img: 'polyhedra'
+    },
+    {
         projectName: 'Corridor Finance',
-        categorize: ['DEFI', 'Bridge'],
-        description: '1st BRC20 Defi platform, including swap, bridge & yield farming. Bring DeFi to more BTC assets like BRC-20, BRC420 and more.',
+        categorize: ['DeFi', 'Bridge'],
+        description: '1st BRC20 DeFi platform, including swap, bridge & yield farming. Bring DeFi to more BTC assets like BRC-20, BRC420 and more.',
         visitLink: 'https://corridor.finance/',
         img: 'corridorfinance'
     },
-    {
-        projectName: 'LayerBank',
-        categorize: ['DEFI'],
-        description: 'A universal permissionless on-chain bank.',
-        visitLink: 'https://layerbank.finance/',
-        img: 'layerbank'
-    },
+
     {
         projectName: 'Shoebill Finance',
-        categorize: ['DEFI'],
+        categorize: ['DeFi'],
         description: 'LST Collaterizable Lending on Wemix & Klaytn & Manta Pacific network.',
         visitLink: 'https://shoebill.finance/#/',
         img: 'shoebillfinance'
     },
     {
-        projectName: 'Golden Fleet',
+        projectName: 'Ordz Games',
         categorize: ['GameFi'],
-        description: '',
-        visitLink: '',
-        img: 'goldenfleet'
+        description: "Ordz Games is a 100% fully on-chain, off-line playable, retro arcade games.",
+        visitLink: 'https://www.ordz.games/',
+        img: 'ordzgames'
     },
     {
         projectName: 'PawX',
@@ -125,6 +141,20 @@ export const allProject = [
         visitLink: 'https://linktr.ee/pawx',
         img: 'pawx'
     },
+    // {
+    //     projectName: 'Bitcoin Loot',
+    //     categorize: ['GameFi', 'NFT'],
+    //     description: "",
+    //     visitLink: '',
+    //     img: 'bitcoinloot'
+    // },
+    // {
+    //     projectName: 'Golden Fleet',
+    //     categorize: ['GameFi'],
+    //     description: '',
+    //     visitLink: '',
+    //     img: 'goldenfleet'
+    // },
     {
         projectName: 'ZoomManor',
         categorize: ['GameFi', 'Bridge'],
@@ -147,20 +177,6 @@ export const allProject = [
         img: 'mysticmind'
     },
     {
-        projectName: 'Ordz Games',
-        categorize: ['GameFi'],
-        description: "Ordz Games is a 100% fully on-chain, off-line playable, retro arcade games.",
-        visitLink: 'https://www.ordz.games/',
-        img: 'ordzgames'
-    },
-    {
-        projectName: 'Bitcoin Loot',
-        categorize: ['GameFi', 'NFT'],
-        description: "",
-        visitLink: '',
-        img: 'bitcoinloot'
-    },
-    {
         projectName: 'RACA',
         categorize: ['GameFi', 'AI'],
         description: "Home of the United States of Mars 3D Metaverse, Popular blockchain game Metamon World, NFT Marketplaces, and more.",
@@ -175,12 +191,19 @@ export const allProject = [
         img: 'saladventures'
     },
     {
-        projectName: 'Protocol X',
+        projectName: 'StakeStone',
         categorize: ['Protocol'],
-        description: "",
-        visitLink: '',
-        img: 'protocolx'
+        description: "One-stop staking protocol for connecting omnichain liquidity.",
+        visitLink: 'https://stakestone.io/',
+        img: 'stakestone'
     },
+    // {
+    //     projectName: 'Protocol X',
+    //     categorize: ['Protocol'],
+    //     description: "",
+    //     visitLink: '',
+    //     img: 'protocolx'
+    // },
     {
         projectName: 'BRC1024',
         categorize: ['Protocol'],
@@ -189,33 +212,14 @@ export const allProject = [
         img: 'brc1024'
     },
     {
-        projectName: 'StakeStone',
-        categorize: ['Protocol'],
-        description: "One-stop staking protocol for connecting omnichain liquidity.",
-        visitLink: 'https://stakestone.io/',
-        img: 'stakestone'
-    },
-    {
         projectName: 'TNA',
         categorize: ['Protocol'],
-        description: "",
+        description: "TNA is a protocol for issuing and managing name assets , redefining ownership, authenticity, and identity within the Bitcoin ecosystem.",
         visitLink: '',
         img: 'tna'
     },
-    {
-        projectName: 'Meson',
-        categorize: ['Bridge', 'Stable Coin'],
-        description: "Meson is the faster and safer way to execute low-cost, zero-slippage BTC ETH and Stablecoin cross-chain swaps.",
-        visitLink: 'https://meson.fi/',
-        img: 'meson'
-    },
-    {
-        projectName: 'Polyhedra',
-        categorize: ['Bridge'],
-        description: "Build the infrastructure for Web3 interoperability with zero-knowledge proofs.",
-        visitLink: 'https://polyhedra.network/',
-        img: 'polyhedra'
-    },
+
+
     {
         projectName: 'Orbiter Finance',
         categorize: ['Bridge'],
@@ -258,17 +262,17 @@ export const allProject = [
         visitLink: 'https://app.rhino.fi/bridge',
         img: 'rhinofi'
     },
-    {
-        projectName: 'BTCTool',
-        categorize: ['AI'],
-        description: "",
-        visitLink: '',
-        img: 'btctool'
-    },
+    // {
+    //     projectName: 'BTCTool',
+    //     categorize: ['AI'],
+    //     description: "",
+    //     visitLink: '',
+    //     img: 'btctool'
+    // },
     {
         projectName: 'CogniXphere',
         categorize: ['AI'],
-        description: "",
+        description: "Experience a personalized and immersive interaction with the next-gen emotional companionship AI on Axonverse!",
         visitLink: '',
         img: 'cognixphere'
     },
@@ -317,7 +321,7 @@ export const allProject = [
     {
         projectName: 'Unifra Network',
         categorize: ['Explorer'],
-        description: "Unifra provides open, reliable infrastructure service for all web3 developers.",
+        description: "Unifra provides open, reliable Infra service for all web3 developers.",
         visitLink: 'https://www.unifra.io/',
         img: 'unifranetwork'
     },
@@ -337,21 +341,21 @@ export const allProject = [
     },
     {
         projectName: 'Haven Market',
-        categorize: ['Maketplace'],
+        categorize: ['Marketplace'],
         description: "The first NFT market built on COMBO BTC and opBNB Network.",
         visitLink: 'https://havenmarket.xyz/',
         img: 'havenmarket'
     },
     {
         projectName: 'HOTFI',
-        categorize: ['Maketplace'],
+        categorize: ['Marketplace'],
         description: "Provide Endlessly Liquidity Solution for BRC20, Base on EVM & Ordinals Protocol.",
         visitLink: 'https://hotfi.io/',
         img: 'hotfi'
     },
     {
         projectName: 'UniCross',
-        categorize: ['Maketplace'],
+        categorize: ['Marketplace'],
         description: "Unlocking Potential, Minting Bitcoin Inscriptions on Layer 2.",
         visitLink: '',
         img: 'unicross'
@@ -408,7 +412,7 @@ export const allProject = [
     {
         projectName: 'bitSmiley',
         categorize: ['Stable Coin'],
-        description: "bitSmiley is a firm that provides full Bitcoin DeFi solutions, to fill the Bitcoin ecosystem's stablecoin and lend infrastructure gaps.",
+        description: "bitSmiley is a firm that provides full Bitcoin DeFi solutions, to fill the Bitcoin ecosystem's stablecoin and lend Infra gaps.",
         visitLink: 'https://www.bitsmiley.io/',
         img: 'bitsmiley'
     },
@@ -428,4 +432,4 @@ export const allProject = [
     }
 ]
 
-export const allCategories = ["All categories", "DEX", "Infrastructure", "DEFI", "GameFi", "Protocol", "Bridge", "AI", "Wallet", "Explorer", "Maketplace", "Launchpad", "Metaverse", "Audit", "Payment", "NFT", "Stable Coin", "DePin", "Oracle"]
+export const allCategories = ["All categories", "DEX", "Infra", "DeFi", "GameFi", "Protocol", "Bridge", "AI", "Wallet", "Explorer", "Marketplace", "Launchpad", "Metaverse", "Audit", "Payment", "NFT", "Stable Coin", "DePin", "Oracle"]

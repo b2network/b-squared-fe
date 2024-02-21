@@ -54,6 +54,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
             sx={{
               width: '148px',
               height: '46px',
+              marginBottom: '12px',
               textTransform: 'capitalize',
               background: index == val ? '#fef9ed' : '#fff',
               lineHeight: '46px',
@@ -63,6 +64,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
               borderRadius: '12px',
               cursor: 'pointer',
               fontSize: '18px',
+              fontWeight: '600'
             }}>
             {item}
           </Box>
@@ -114,8 +116,8 @@ const Tab = ({ val, handleClick }: Iprops) => {
               }}>
 
               <Box sx={{ display: 'flex', flex: '1', marginRight: '30px' }}>
-                <Box sx={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '20px' }}>
-                  <img src={`/assets/project/${item.img}.svg`} alt="project" />
+                <Box sx={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '20px',border:'1.2px solid #000' }}>
+                  <img style={{ width: '100%', height: '100%',}} src={`/assets/project/${item.img}.png`} alt="project" />
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
