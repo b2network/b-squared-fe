@@ -432,4 +432,4 @@ export const allProject = [
     }
 ]
 
-export const allCategories = ["All categories", "DEX", "Infra", "DeFi", "GameFi", "Protocol", "Bridge", "AI", "Wallet", "Explorer", "Marketplace", "Launchpad", "Metaverse", "Audit", "Payment", "NFT", "Stable Coin", "DePin", "Oracle"]
+export const allCategories = ["All categories", "DeFi", "DEX", "Infra", "Bridge", "GameFi",  "NFT", "AI",  "Launchpad",  "Marketplace",  "Wallet", "Protocol", "Explorer", "Metaverse", "Audit", "Payment","Stable Coin", "DePin", "Oracle"]
