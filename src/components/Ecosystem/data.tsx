@@ -220,7 +220,7 @@ export const allProject = [
         projectName: 'TNA',
         categorize: ['Protocol'],
         description: "TNA is a protocol for issuing and managing name assets , redefining ownership, authenticity, and identity within the Bitcoin ecosystem.",
-        visitLink: '',
+        visitLink: 'https://tna-btc.com/',
         img: 'tna'
     },
 
