@@ -27,12 +27,20 @@ export const allProject = [
         visitLink: 'https://polyhedra.network/',
         img: 'polyhedra'
     },
+
     {
         projectName: 'LayerBank',
         categorize: ['DeFi'],
         description: 'A universal permissionless on-chain bank.',
         visitLink: 'https://layerbank.finance/',
         img: 'layerbank'
+    },
+    {
+        projectName: 'Shoebill Finance',
+        categorize: ['DeFi'],
+        description: 'LST Collaterizable Lending on Wemix & Klaytn & Manta Pacific network.',
+        visitLink: 'https://shoebill.finance/#/',
+        img: 'shoebillfinance'
     },
     {
         projectName: 'Ordz Games',
@@ -47,6 +55,13 @@ export const allProject = [
         description: "Building an on-chain society of cat lovers through GameFi. ",
         visitLink: 'https://linktr.ee/pawx',
         img: 'pawx'
+    },
+    {
+        projectName: 'Orbiter Finance',
+        categorize: ['Bridge'],
+        description: "Orbiter Finance is a ZK-tech-based instant omni rollup on Ethereum, delivering secure, efficient, and decentralized data communication services. ",
+        visitLink: 'https://www.orbiter.finance/',
+        img: 'orbiterfinance'
     },
     {
         projectName: 'Portal Finance',
@@ -143,13 +158,7 @@ export const allProject = [
         img: 'corridorfinance'
     },
 
-    {
-        projectName: 'Shoebill Finance',
-        categorize: ['DeFi'],
-        description: 'LST Collaterizable Lending on Wemix & Klaytn & Manta Pacific network.',
-        visitLink: 'https://shoebill.finance/#/',
-        img: 'shoebillfinance'
-    },
+
 
 
     // {
@@ -225,13 +234,7 @@ export const allProject = [
     },
 
 
-    {
-        projectName: 'Orbiter Finance',
-        categorize: ['Bridge'],
-        description: "Orbiter Finance is a ZK-tech-based instant omni rollup on Ethereum, delivering secure, efficient, and decentralized data communication services. ",
-        visitLink: 'https://www.orbiter.finance/',
-        img: 'orbiterfinance'
-    },
+
     {
         projectName: 'Path Protocol',
         categorize: ['Bridge'],
@@ -296,6 +299,13 @@ export const allProject = [
         img: 'unisat'
     },
     {
+        projectName: 'Bitget Wallet',
+        categorize: ['Wallet'],
+        description: "Join 15M users in seamlessly navigating the Web3 space with Bitget Wallet - the best Web3 trading wallet today. ",
+        visitLink: 'https://web3.bitget.com/en',
+        img: 'bitgetwallet'
+    },
+    {
         projectName: 'TokenPocket',
         categorize: ['Wallet'],
         description: "Easy and safe to buy, store, send, swap tokens and collect NFTs. Trusted by 20+ millions users from 200+ countries and regions.",
@@ -316,13 +326,7 @@ export const allProject = [
         visitLink: 'https://metamask.io/',
         img: 'metamask'
     },
-    {
-        projectName: 'Bitget Wallet',
-        categorize: ['Wallet'],
-        description: "Join 15M users in seamlessly navigating the Web3 space with Bitget Wallet - the best Web3 trading wallet today. ",
-        visitLink: 'https://web3.bitget.com/en',
-        img: 'bitgetwallet'
-    },
+
     {
         projectName: 'Unifra Network',
         categorize: ['Explorer'],
