@@ -49,7 +49,9 @@ const Tab = ({ val, handleClick }: Iprops) => {
           return <Box
             key={item}
             onClick={() => {
+              setSearchVal('');
               handleClick(index)
+
             }}
             sx={{
               width: '148px',
@@ -75,7 +77,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
     <Box sx={{ flex: '1', marginLeft: '60px', display: 'flex', flexDirection: 'column' }}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box sx={{ width: '316px', position: 'relative'}}>
-          <Input onChange={(e) => {
+          <Input value={searchVal} onChange={(e) => {
             setSearchVal(e.target.value?.trim())
             searchProjectFn(e.target.value?.trim())
           }} placeholder="Search" className="project_input" sx={{ border: '1px solid #000' }} />
