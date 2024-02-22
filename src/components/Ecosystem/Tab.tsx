@@ -103,7 +103,7 @@ const Tab = ({ val, handleClick }: Iprops) => {
               sx={{
                 width: '100%',
                 minHeight: '130px',
-                textTransform: 'capitalize',
+                // textTransform: 'capitalize',
                 marginBottom: '24px',
                 background: 'url("/assets/project_bg.png") no-repeat center center',
                 backgroundSize: '100% 100%',
