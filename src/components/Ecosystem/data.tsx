@@ -1,5 +1,12 @@
 export const allProject = [
     {
+        projectName: 'StakeStone',
+        categorize: ['Protocol'],
+        description: "One-stop staking protocol for connecting omnichain liquidity.",
+        visitLink: 'https://stakestone.io/',
+        img: 'stakestone'
+    },
+    {
         projectName: 'GlowSwap',
         categorize: ['DEX', 'DeFi'],
         description: 'A pioneer decentralized exchange built on B² network',
@@ -7,11 +14,39 @@ export const allProject = [
         img: 'glowswap'
     },
     {
+        projectName: 'Meson',
+        categorize: ['Bridge', 'Stable Coin'],
+        description: "Meson is the faster and safer way to execute low-cost, zero-slippage BTC ETH and Stablecoin cross-chain swaps.",
+        visitLink: 'https://meson.fi/',
+        img: 'meson'
+    },
+    {
+        projectName: 'Polyhedra',
+        categorize: ['Bridge'],
+        description: "Build the Infra for Web3 interoperability with zero-knowledge proofs.",
+        visitLink: 'https://polyhedra.network/',
+        img: 'polyhedra'
+    },
+    {
         projectName: 'LayerBank',
         categorize: ['DeFi'],
         description: 'A universal permissionless on-chain bank.',
         visitLink: 'https://layerbank.finance/',
         img: 'layerbank'
+    },
+    {
+        projectName: 'Ordz Games',
+        categorize: ['GameFi'],
+        description: "Ordz Games is a 100% fully on-chain, off-line playable, retro arcade games.",
+        visitLink: 'https://www.ordz.games/',
+        img: 'ordzgames'
+    },
+    {
+        projectName: 'PawX',
+        categorize: ['GameFi', 'NFT'],
+        description: "Building an on-chain society of cat lovers through GameFi. ",
+        visitLink: 'https://linktr.ee/pawx',
+        img: 'pawx'
     },
     {
         projectName: 'Portal Finance',
@@ -98,20 +133,8 @@ export const allProject = [
         visitLink: 'https://odos.network/',
         img: 'ordinalsos'
     },
-    {
-        projectName: 'Meson',
-        categorize: ['Bridge', 'Stable Coin'],
-        description: "Meson is the faster and safer way to execute low-cost, zero-slippage BTC ETH and Stablecoin cross-chain swaps.",
-        visitLink: 'https://meson.fi/',
-        img: 'meson'
-    },
-    {
-        projectName: 'Polyhedra',
-        categorize: ['Bridge'],
-        description: "Build the Infra for Web3 interoperability with zero-knowledge proofs.",
-        visitLink: 'https://polyhedra.network/',
-        img: 'polyhedra'
-    },
+
+
     {
         projectName: 'Corridor Finance',
         categorize: ['DeFi', 'Bridge'],
@@ -127,20 +150,8 @@ export const allProject = [
         visitLink: 'https://shoebill.finance/#/',
         img: 'shoebillfinance'
     },
-    {
-        projectName: 'Ordz Games',
-        categorize: ['GameFi'],
-        description: "Ordz Games is a 100% fully on-chain, off-line playable, retro arcade games.",
-        visitLink: 'https://www.ordz.games/',
-        img: 'ordzgames'
-    },
-    {
-        projectName: 'PawX',
-        categorize: ['GameFi', 'NFT'],
-        description: "Building an on-chain society of cat lovers through GameFi. ",
-        visitLink: 'https://linktr.ee/pawx',
-        img: 'pawx'
-    },
+
+
     // {
     //     projectName: 'Bitcoin Loot',
     //     categorize: ['GameFi', 'NFT'],
@@ -172,7 +183,7 @@ export const allProject = [
     {
         projectName: 'Mystic Mind',
         categorize: ['GameFi', 'AI', 'NFT'],
-        description: "",
+        description: "Use tarot divination to explore your fate and receive NFT airdrops like 'Star,' 'Moon,' and 'Sun' with each session.",
         visitLink: '',
         img: 'mysticmind'
     },
@@ -190,13 +201,7 @@ export const allProject = [
         visitLink: 'https://salad.ventures/',
         img: 'saladventures'
     },
-    {
-        projectName: 'StakeStone',
-        categorize: ['Protocol'],
-        description: "One-stop staking protocol for connecting omnichain liquidity.",
-        visitLink: 'https://stakestone.io/',
-        img: 'stakestone'
-    },
+
     // {
     //     projectName: 'Protocol X',
     //     categorize: ['Protocol'],
