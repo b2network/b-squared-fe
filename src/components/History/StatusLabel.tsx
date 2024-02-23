@@ -3,7 +3,7 @@ import { Box } from "@mui/material"
 
 
 export enum BridgeStatus {
-  Unconfirmed = 'Unconfirmed',
+  Unconfirmed = 'unconfirmed',
   Success = 'success',
   Failed = 'failed',
   Pending = 'pending'

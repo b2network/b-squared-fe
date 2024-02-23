@@ -98,8 +98,8 @@ const HistoryList: React.FC = () => {
       align: 'center',
       renderCell: (item: GridRenderCellParams<HistoryRecord>) => {
         return <Box display={'flex'} flexDirection={'column'} gap='6px'>
-          <Label status={item.row.l1State as BridgeStatus} />
-          <Label status={item.row.state as BridgeStatus} />
+          <Label status={item.row.l1State.toLowerCase() as BridgeStatus} />
+          <Label status={item.row.state.toLowerCase() as BridgeStatus} />
         </Box>
       },
     }, {
