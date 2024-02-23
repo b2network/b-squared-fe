@@ -281,7 +281,7 @@ export const allProject = [
         projectName: 'CogniXphere',
         categorize: ['AI'],
         description: "Experience a personalized and immersive interaction with the next-gen emotional companionship AI on Axonverse!",
-        visitLink: '',
+        visitLink: 'https://www.cognixphere.ai/',
         img: 'cognixphere'
     },
     {
@@ -366,7 +366,7 @@ export const allProject = [
         projectName: 'UniCross',
         categorize: ['Marketplace'],
         description: "Unlocking Potential, Minting Bitcoin Inscriptions on Layer 2.",
-        visitLink: '',
+        visitLink: 'https://twitter.com/UniCrossGlobal',
         img: 'unicross'
     },
     {
@@ -380,7 +380,7 @@ export const allProject = [
         projectName: 'Banana',
         categorize: ['Launchpad'],
         description: "Banana is the first community-driven asset Launchpad on Bitcoin. Additionally, Banana has just received seed investment from iBox, one of the biggest marketplaces for Digital Collectables.",
-        visitLink: '',
+        visitLink: 'https://banana.market/#/home',
         img: 'banana'
     },
     {
