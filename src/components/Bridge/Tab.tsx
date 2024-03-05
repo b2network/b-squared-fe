@@ -37,12 +37,15 @@ function Tab({ val, handleClick }: Iprops) {
             borderBottomLeftRadius: index === 0 ? '12px' : '0',
             borderBottomRightRadius: index === SELECTIONS.length - 1 ? '12px' : '0',
             borderTopRightRadius: index === SELECTIONS.length - 1 ? '12px' : '0',
-            p: '12px 85px',
             border: '1px solid #000',
             borderRight: index === 0 ? 'none' : '1px solid black',
             cursor: item.disabled ? 'not-allowed' : 'pointer',
             fontSize: '24px',
-            fontWeight: isActive ? 600 : 400
+            fontWeight: isActive ? 600 : 400,
+            minHeight: '62px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}>
           {
             item.text

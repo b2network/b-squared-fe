@@ -34,9 +34,9 @@ const Bridge = () => {
         background: 'white',
         borderRadius: '12px',
         border: '1px solid black',
-        pb: '60px'
+        padding: '0 20px 60px 20px'
       }}>
-        <Box sx={{ display: 'flex', width: '540px', margin: 'auto', flexDirection: 'column', justifyContent: 'center', mt: '60px' }}>
+        <Box sx={{ display: 'flex', maxWidth: '540px', margin: 'auto', flexDirection: 'column', justifyContent: 'center', mt: '60px' }}>
           <Tab val={tab} handleClick={setTab} />
           {
             tab === 'deposit' && <Deposit />
