@@ -1,18 +1,20 @@
 "use client"
 import ResultModal from "@/components/Modals/ResultModal"
-import claimB2 from "@/service/faucet"
+import claimB2, { Network } from "@/service/faucet"
 import { isBtcAddress, validateAddress } from "@/utils/address"
 import NiceModal from "@ebay/nice-modal-react"
 import { LoadingButton } from "@mui/lab"
-import { Box, Button, Input, InputBase, Typography, styled } from "@mui/material"
-import { useState } from "react"
+import { Box, Button, Input, InputBase, MenuItem, Select, Typography, styled } from "@mui/material"
+import { useMemo, useState } from "react"
 import { toast } from 'react-toastify'
 import IconPoints from '@/assets/icons/icon_point.svg'
 import IconBall from '@/assets/icons/icon_ball.svg'
 import IconHands from '@/assets/icons/icon_hands.svg'
+import { primaryColor } from "@/utils"
+import { isAddress } from "viem"
 
 const ITEMS = [
-  { name: 'Network', value: 'B² Testnet' },
+  // { name: 'Network', value: 'B² Testnet' },
   { name: 'Token', value: 'BTC' },
   { name: 'Value', value: '0.001BTC' },
 ]
@@ -66,25 +68,40 @@ const Title = styled(Box)(({ }) => ({
 
 const Faucet = () => {
   const [address, setAddress] = useState('');
+  const [network, setNetork] = useState<Network>(Network.Habitat)
   const [loading, setLoading] = useState(false);
-  const handleClaim = async () => {
-    if (!address || !validateAddress(address)) {
-      toast.error('The wallet address provided is incorrect. Please double-check and enter a valid address.')
+  const placeholder = useMemo(() => {
+    if (network === Network.Habitat) {
+      return "Please input an EVM address"
+    } else {
+      return "bitcoin address or EVM address"
     }
-    if (address && validateAddress(address)) {
-      try {
-        setLoading(true);
-        const res = await claimB2(address)
-        setLoading(false);
-        if (res.code === '0') {
-          NiceModal.show(ResultModal, { status: 'success' })
-        } else {
-          toast.error(res.message || 'Claim failed !')
-        }
-        console.log(res, 'res')
-      } catch (error) {
-        console.log(error, 'errr')
+  }, [network])
+  const handleClaim = async () => {
+    if (!address) {
+      toast.error('Address required!')
+      return;
+    }
+    if (network === Network.Haven && !validateAddress(address)) {
+      toast.error('The wallet address provided is incorrect. Please double-check and enter a valid address.')
+      return
+    }
+    if (network === Network.Habitat && !isAddress(address)) {
+      toast.error('The wallet address provided is incorrect. Please double-check and enter a valid address.')
+      return
+    }
+    try {
+      setLoading(true);
+      const res = await claimB2(address, network)
+      setLoading(false);
+      if (res.code === '0') {
+        NiceModal.show(ResultModal, { status: 'success' })
+      } else {
+        toast.error(res.message || 'Claim failed !')
       }
+      console.log(res, 'res')
+    } catch (error) {
+      console.log(error, 'errr')
     }
   }
 
@@ -102,6 +119,21 @@ const Faucet = () => {
       <LeftImg />
       <RightImg />
       <Title>Get Test Tokens</Title>
+      <Box mb='16px' borderRadius={'4px'}>
+        <Box sx={{ fontWeight: '600', mb: '8px' }}>Network</Box>
+        <Select value={network} onChange={(e) => setNetork(e.target.value as Network)} sx={{
+          width: '400px', height: '38px', '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: primaryColor
+          }
+        }}>
+          <MenuItem value={Network.Habitat}>
+            Habitat Testnet
+          </MenuItem>
+          <MenuItem value={Network.Haven}>
+            Haven Testnet
+          </MenuItem>
+        </Select>
+      </Box>
       {
         ITEMS.map(item => {
           return (
@@ -117,7 +149,7 @@ const Faucet = () => {
           height: '40px',
           width: '400px',
           p: '8px 15px', border: '1px solid rgba(0,0,0,0.5)', borderRadius: '4px'
-        }} placeholder="bitcoin address or EVM address" />
+        }} placeholder={placeholder} />
       </Box>
       <LoadingButton sx={{
         width: '400px',

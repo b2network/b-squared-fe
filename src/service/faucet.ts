@@ -1,7 +1,13 @@
 import { FaucetUrl } from "@/utils";
 
-const claimB2 = async (address: string) => {
-  const url = `${FaucetUrl}to_address=${address}`
+
+export enum Network {
+  Habitat = 'habitat',
+  Haven = 'haven'
+}
+
+const claimB2 = async (address: string, network: Network) => {
+  const url = `${FaucetUrl}to_address=${address}&network=${network}`
   const response = await fetch(url);
   return response.json()
 }
